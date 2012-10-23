@@ -16,4 +16,7 @@ endfunction
 nnoremap <leader>e :!php %<CR>
 nnoremap <leader>d :call PhpPrint()<CR>
 
+setlocal shiftwidth=4
+setlocal tabstop=4
+
 

@@ -3,6 +3,7 @@ alias g='git'
 alias l='ls -l --color'
 alias less='less -r'
 alias ls='ls --color'
+alias mutt="TERM=screen-256color-bce mutt"
 alias t1='tree -A --dirsfirst -C -L 1'
 alias t2='tree -A --dirsfirst -C -L 2'
 alias t3='tree -A --dirsfirst -C -L 3'
