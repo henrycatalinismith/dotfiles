@@ -1,0 +1,27 @@
+
+set from="henry@henrysmith.org"
+set realname="Henry Smith"
+set hostname="henrysmith.org"
+
+account-hook imap://gmail/ "set
+
+set imap_user = "henry@henrysmith.org"
+
+set smtp_url = "smtp://henry@henrysmith.org@smtp.gmail.com:587/"
+
+set from = "henry@henrysmith.org"
+set realname = "Henry Smith"
+
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed="+[Gmail]/Drafts"
+
+mailboxes =INBOX \
+          =[Gmail]/All\ Mail \
+          =[Gmail]/Drafts \
+          =[Gmail]/Important \
+          =[Gmail]/Sent\ Mail \
+          =[Gmail]/Spam \
+          =[Gmail]/Starred \
+          =[Gmail]/Trash
+

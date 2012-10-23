@@ -1,0 +1,103 @@
+
+
+#source ~/etc/mutt/colors/solarized
+source ~/etc/mutt/accounts/henry@henrysmith.org
+
+macro index <f1> "<enter-command>source ~/etc/mutt/accounts/henry@henrysmith.org<enter><change-folder>!<enter>"
+macro index <f2> "<enter-command>source ~/etc/mutt/accounts/henry.smith@basekit.com<enter><change-folder>!<enter>"
+
+
+color normal     brightcyan default
+color hdrdefault default    default
+color indicator  white      brightred
+color tree       green      default
+color status     black      black           
+color quoted     brightred  default
+
+color index brightcyan  default "~A"
+color index brightwhite red     "~D"
+
+
+set nohelp
+
+ignore *
+unignore subject date from to cc bcc
+unhdr_order *
+hdr_order Subject: Date: From: To: Cc: Bcc:
+
+
+# Behaviour
+unset allow_ansi
+unset arrow_cursor
+unset ascii_chars
+unset beep
+
+
+# New mail
+set check_new
+unset beep_new
+
+
+# Editing
+set abort_nosubject
+set abort_unmodified
+set autoedit
+set content_type=text/plain
+set editor=vim
+set sig_dashes
+set user_agent
+unset askbcc
+unset askcc
+
+
+# Sending
+set copy
+set postpone
+
+
+# Replying
+set fast_reply
+set include
+set indent_string="> "
+set reply_to
+unset metoo
+
+
+# Prompts
+set postpone=ask-no
+set print=ask-yes
+set delete=ask-yes
+
+
+# Index
+set sort=threads
+set sort_aux=date-received
+set nomark_old
+
+
+# Format strings
+set attribution="%f (%d):"
+set date_format="%Y-%m-%d %H:%M:%S %z"
+set index_format=" %-5.5Z %-25.25D  %-30.30a %s"
+#set status_format=""
+
+
+set move = no
+set timeout=15
+auto_view text/html
+
+
+# Cache
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+
+
+bind index,pager <down>  sidebar-next
+bind index,pager <up>    sidebar-prev
+bind index,pager <right> sidebar-open
+
+bind index \Cd next-page
+bind index \Cu previous-page
+
+

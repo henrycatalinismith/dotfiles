@@ -1,0 +1,5 @@
+
+
+set omnifunc=ccomplete#Complete
+
+

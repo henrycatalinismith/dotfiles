@@ -1,0 +1,5 @@
+
+
+setlocal omnifunc=javascriptcomplete#CompleteJS
+
+

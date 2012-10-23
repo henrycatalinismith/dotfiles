@@ -1,0 +1,91 @@
+
+[user]
+	name   = Henry Smith
+	email  = henry@henrysmith.org
+	editor = vim
+
+[alias]
+
+	a = add
+	b = branch
+	d = diff
+	g = grep -n
+	r = checkout --
+	s = status
+	u = reset HEAD
+
+	l = "!f() { git log --graph  --abbrev-commit --pretty=format:'%x00%h%x00%s%x00%ai%x00%an%x00%d%an' $@ | gawk -F '\\0' '{ printf \"\\033[32m%-16.16s\\033[0m \\033[34m%7.7s\\033[0m \\033[33m%-10.10s\\033[0m \\033[37m%-10.10s\\033[0m %-80.80s \\n\", $4, $2, $6, $1, gensub(/(.{79}).{2,}/, \"\\1…\",\"g\",$3), $5 }' | less -R; }; f"
+
+	ac = "!f() { git status --porcelain | grep '^ *M ' | awk '{print $2}' | xargs git add; }; f"
+	br = "branch --remote"
+	ci = commit
+	co = checkout
+	dc = diff --cached
+	dr = "!f() { git status --porcelain | grep '^ *D ' | awk '{print $2}' | xargs git rm; }; f"
+	du = "!f() { git status --porcelain | grep '^??' | awk '{print $2}' | xargs rm -r; }; f"
+	fa = fetch -a
+	gi = grep -in
+	st = status
+
+	pom = push origin master
+	pgm = push github master
+	phm = push heroku master
+
+	acdc = "!f() { git status --porcelain | grep '^ *M ' | awk '{print $2}' | xargs git add; git diff --cached; }; f"
+	ploc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pulling from $B..."; git pull origin $B; }; f"
+	psoc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pushing to $B..."; git push origin $B; }; f"
+
+	undelete = !git checkout `git rev-list -n 1 HEAD -- $1`^ -- $1
+
+	showmerge = "!f() { echo $1; git diff `git show $1 | head -n 2 | tail -n 1 | awk '{print $2 \"..\" $3}'`; }; f"
+
+	tumbleweed = "!f() { git for-each-ref --sort=-committerdate refs --format='%(committerdate:short) %(refname:short)  %(authoremail)'  | column -t | tac; }; f"
+
+[core]
+	autocrlf = false
+
+[color]
+	branch   = true
+	diff     = true
+	decorate = true
+	grep     = true
+	pager    = true
+	status   = true
+
+
+[color "branch"]
+	current = green bold
+	local   = white
+	remote  = blue bold
+
+
+[color "decorate"]
+	commit       = cyan
+	branch       = magenta
+	remotebranch = green bold
+	tag          = red
+	stash        = green
+	HEAD         = cyan bold
+
+
+[color "diff"]
+	frag       = green bold
+	meta       = yellow
+	new        = green
+	old        = red
+	whitespace = white reverse
+
+
+[color "grep"]
+	filename   = blue
+	linenumber = green
+	match      = yellow bold
+	separator  = cyan
+
+
+[color "status"]
+	added     = blue bold
+	changed   = blue bold
+	untracked = red bold
+
+
