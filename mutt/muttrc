@@ -8,12 +8,16 @@ macro index <f2> "<enter-command>source ~/etc/mutt/accounts/henry.smith@basekit.
 
 
 color normal     brightcyan default
-color hdrdefault default    default
 color indicator  color007 color009
 color tree       green      default
 color status     black      black           
 color quoted     color009  default
 
+
+color hdrdefault default  default
+color header     color007 default "^subject:"
+
+color index color002 default    "~N"
 color index brightcyan  default "~A"
 color index brightwhite red     "~D"
 
@@ -23,7 +27,7 @@ set nohelp
 ignore *
 unignore subject date from to cc bcc
 unhdr_order *
-hdr_order Subject: Date: From: To: Cc: Bcc:
+hdr_order Subject: From: To: Cc: Bcc: Date:
 
 
 # Behaviour
@@ -73,6 +77,7 @@ set delete=ask-yes
 set sort=threads
 set sort_aux=date-received
 set nomark_old
+set pager_index_lines=16
 
 
 # Format strings
@@ -93,9 +98,16 @@ set message_cachedir=~/.mutt/cache/bodies
 set certificate_file=~/.mutt/certificates
 
 
+# Sidebar
 bind index,pager <down>  sidebar-next
 bind index,pager <up>    sidebar-prev
 bind index,pager <right> sidebar-open
+set sidebar_width=32
+
+
+bind pager J half-down
+bind pager K half-up
+
 
 bind index \Cd next-page
 bind index \Cu previous-page
