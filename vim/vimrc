@@ -11,6 +11,7 @@ let &runtimepath=vimdir . ',' . $VIMRUNTIME
 set backspace=2
 set shortmess+=I
 set fileformat=unix
+set textwidth=80
 
 " 256 colours
 set t_Co=256
