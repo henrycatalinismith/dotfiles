@@ -42,4 +42,5 @@ git clone https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git
 git clone https://github.com/sjl/gundo.vim.git
 git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/tpope/vim-surround.git
+git clone https://github.com/Lokaltog/vim-powerline.git
 
