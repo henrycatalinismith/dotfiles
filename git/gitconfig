@@ -6,26 +6,25 @@
 
 [alias]
 
-	a = add
-	b = branch
-	d = diff
-	g = grep -n
-	r = checkout --
-	s = status
-	u = reset HEAD
-
-	l = "!f() { git log --graph  --abbrev-commit --pretty=format:'%x00%h%x00%s%x00%ai%x00%an%x00%d%an' $@ | gawk -F '\\0' '{ printf \"\\033[32m%-16.16s\\033[0m \\033[34m%7.7s\\033[0m \\033[33m%-10.10s\\033[0m \\033[37m%-10.10s\\033[0m %-80.80s \\n\", $4, $2, $6, $1, gensub(/(.{79}).{2,}/, \"\\1…\",\"g\",$3), $5 }' | less -R; }; f"
-
-	ac = "!f() { git status --porcelain | grep '^ *M ' | awk '{print $2}' | xargs git add; }; f"
-	br = "branch --remote"
+	a  = add
+	b  = branch
+	br = branch --remote
 	ci = commit
 	co = checkout
+	cp = cherry-pick
+	d  = diff
 	dc = diff --cached
-	dr = "!f() { git status --porcelain | grep '^ *D ' | awk '{print $2}' | xargs git rm; }; f"
-	du = "!f() { git status --porcelain | grep '^??' | awk '{print $2}' | xargs rm -r; }; f"
 	fa = fetch -a
-	gi = grep -in
+	g  = grep -n
+	gi = grep -ni
+	l  = log --graph --stat --decorate
+	r  = checkout --
+	s  = status
 	st = status
+	u  = reset HEAD
+
+	dr = "!f() { git status --porcelain | grep '^ *D ' | awk '{print $2}' | xargs git rm; }; f"
+	du = "!f() { git status --porcelain | grep '^??'   | awk '{print $2}' | xargs rm -r;  }; f"
 
 	pom = push origin master
 	pgm = push github master
@@ -79,7 +78,7 @@
 [color "grep"]
 	filename   = blue
 	linenumber = green
-	match      = yellow bold
+	match      = yellow
 	separator  = cyan
 
 
