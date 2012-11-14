@@ -147,6 +147,7 @@ set background=dark
 
 " Command T
 nnoremap <leader>t :CommandT<CR>
+let g:CommandTMaxFiles=40000
 
 
 " php-doc 
