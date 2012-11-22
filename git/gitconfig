@@ -33,6 +33,9 @@
 	du = "!f() { git status --porcelain | grep '^??'   | awk '{print $2}' | xargs rm -r;  }; f"
 	mc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge $1/$B; }; f"
 
+	mcg = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge github/$B; }; f"
+	mco = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge origin/$B; }; f"
+
 	pom = push origin master
 	pgm = push github master
 	phm = push heroku master
