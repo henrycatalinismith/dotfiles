@@ -8,9 +8,11 @@
 
 	a  = add
 	b  = branch
+	bc = branch --contains
 	br = branch --remote
 	ci = commit
 	co = checkout
+	c- = checkout --
 	cp = cherry-pick
 	d  = diff
 	dc = diff --cached
@@ -18,10 +20,10 @@
 	g  = grep -n
 	gi = grep -ni
 	l  = log --graph --stat --decorate
-	r  = checkout --
+	la = log --graph --stat --decorate --all
+	m  = merge
+	rh = reset HEAD
 	s  = status
-	st = status
-	u  = reset HEAD
 
 	dr = "!f() { git status --porcelain | grep '^ *D ' | awk '{print $2}' | xargs git rm; }; f"
 	du = "!f() { git status --porcelain | grep '^??'   | awk '{print $2}' | xargs rm -r;  }; f"
