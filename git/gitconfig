@@ -1,95 +1,98 @@
 
 
 [user]
-name   = Henry Smith
-email  = henry@henrysmith.org
-editor = vim
+	name   = Henry Smith
+	email  = henry@henrysmith.org
+	editor = vim
 
 
 [alias]
 
-a  = add
-b  = branch --verbose
-bc = branch --contains
-br = branch --remote
-ci = commit
-co = checkout
-c- = checkout --
-cp = cherry-pick
-d  = diff
-dc = diff --cached
-fa = fetch -a
-g  = grep -n
-gi = grep -ni
-l  = log --graph --stat --decorate
-la = log --graph --stat --decorate --all
-m  = merge
-rh = reset HEAD
-s  = status
+	a  = add
+	b  = branch --verbose
+	bc = branch --contains
+	bg = "!f() { git branch --remote | grep \"$1\"; }; f"
+	bo = "!f() { git branch --remote | grep \"^ *$1\\/\" | sed \"s/$1\\///g\"; }; f"
+	br = branch --remote
+	ci = commit
+	co = checkout
+	c- = checkout --
+	cp = cherry-pick
+	d  = diff
+	dc = diff --cached
+	fa = fetch -a
+	g  = grep -n
+	gi = grep -ni
+	l  = log --graph --stat --decorate
+	la = log --graph --stat --decorate --all
+	m  = merge
+	rh = reset HEAD
+	s  = status
 
-dr = "!f() { git status --porcelain | grep '^ *D ' | awk '{print $2}' | xargs git rm; }; f"
-du = "!f() { git status --porcelain | grep '^??'   | awk '{print $2}' | xargs rm -r;  }; f"
-mc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge $1/$B; }; f"
+	dr = "!f() { git status --porcelain | grep '^ *D ' | awk '{print $2}' | xargs git rm; }; f"
+	du = "!f() { git status --porcelain | grep '^??'   | awk '{print $2}' | xargs rm -r;  }; f"
+	mc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge $1/$B; }; f"
 
-pom = push origin master
-pgm = push github master
-phm = push heroku master
+	pom = push origin master
+	pgm = push github master
+	phm = push heroku master
 
-acdc = "!f() { git status --porcelain | grep '^ *M ' | awk '{print $2}' | xargs git add; git diff --cached; }; f"
-ploc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pulling from $B..."; git pull origin $B; }; f"
-psoc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pushing to $B..."; git push origin $B; }; f"
+	acdc = "!f() { git status --porcelain | grep '^ *M ' | awk '{print $2}' | xargs git add; git diff --cached; }; f"
+	ploc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pulling from $B..."; git pull origin $B; }; f"
+	psoc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pushing to $B..."; git push origin $B; }; f"
 
-undelete = !git checkout `git rev-list -n 1 HEAD -- $1`^ -- $1
+	undelete = !git checkout `git rev-list -n 1 HEAD -- $1`^ -- $1
 
-showmerge = "!f() { echo $1; git diff `git show $1 | head -n 2 | tail -n 1 | awk '{print $2 \"..\" $3}'`; }; f"
+	showmerge = "!f() { echo $1; git diff `git show $1 | head -n 2 | tail -n 1 | awk '{print $2 \"..\" $3}'`; }; f"
 
-tumbleweed = "!f() { git for-each-ref --sort=-committerdate refs --format='%(committerdate:short) %(refname:short)  %(authoremail)' | column -t | tac; }; f"
+	tumbleweed = "!f() { git for-each-ref --sort=-committerdate refs --format='%(committerdate:short) %(refname:short)  %(authoremail)' | column -t | tac; }; f"
 
 
 [core]
-autocrlf = false
+	autocrlf = false
 
 
 [color]
-branch   = true
-diff     = true
-decorate = true
-grep     = true
-pager    = true
-status   = true
+	branch   = true
+	diff     = true
+	decorate = true
+	grep     = true
+	pager    = true
+	status   = true
 
 
 [color "branch"]
-current = green reverse
+	current = green reverse
+	remote  = 
 
 
 [color "decorate"]
-commit       = cyan
-branch       = magenta
-remotebranch = green bold
-tag          = red
-stash        = green
-HEAD         = cyan bold
+	commit       = cyan
+	branch       = magenta
+	remotebranch = green bold
+	tag          = red
+	stash        = green
+	HEAD         = cyan bold
 
 
 [color "diff"]
-frag       = green bold
-meta       = yellow
-new        = green
-old        = red
-whitespace = white reverse
+	frag       = green bold
+	meta       = yellow
+	new        = green
+	old        = red
+	whitespace = white reverse
 
 
 [color "grep"]
-filename   = blue
-linenumber = green
-match      = yellow
-separator  = cyan
+	filename   = blue
+	linenumber = green
+	match      = yellow
+	separator  = cyan
 
 
 [color "status"]
-added     = blue bold
-changed   = blue bold
-untracked = red bold
+	added     = blue bold
+	changed   = blue bold
+	untracked = red bold
 
 
