@@ -25,6 +25,7 @@ au BufEnter,BufNewFile,BufRead Vagrantfile setlocal filetype=ruby
 au BufEnter,BufNewFile,BufRead *.less      setlocal filetype=less
 au BufEnter,BufNewFile,BufRead *.yml       setlocal filetype=yaml
 au BufEnter,BufNewFile,BufRead *.json      setlocal filetype=json
+au BufEnter,BufNewFile,BufRead *.twig      setlocal filetype=twig
 
 
 " Disables: Entering Ex mode.  Type "visual" to go to Normal mode. 
