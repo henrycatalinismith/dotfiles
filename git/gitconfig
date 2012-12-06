@@ -29,9 +29,13 @@
 
 	bg = "!f() { git branch --remote | grep \"$1\"; }; f"
 	bo = "!f() { git branch --remote | grep \"^ *$1\\/\" | sed \"s/$1\\///g\"; }; f"
+	cg = "!f() { git log --oneline --all | grep \"$1\"; }; f"
 	dr = "!f() { git status --porcelain | grep '^ *D ' | awk '{print $2}' | xargs git rm; }; f"
 	du = "!f() { git status --porcelain | grep '^??'   | awk '{print $2}' | xargs rm -r;  }; f"
 	mc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge $1/$B; }; f"
+
+	fff = flow feature finish
+	ffs = flow feature start
 
 	mcg = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge github/$B; }; f"
 	mco = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge origin/$B; }; f"
