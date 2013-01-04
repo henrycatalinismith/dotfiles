@@ -155,6 +155,13 @@ let g:CommandTMaxFiles=40000
 nnoremap <leader>pd :call PhpDocSingle()<CR>
 
 
+" Tabular
+nnoremap <leader>aa :Tabularize /=>/l1<CR>
+nnoremap <leader>ac :Tabularize /:/l1<CR>
+nnoremap <leader>ae :Tabularize /=/l1<CR>
+nnoremap <leader>at :Tabularize /:/l1<CR>:Tabularize /?/l1<CR>
+
+
 " vcscommand 
 nnoremap <leader>va :VCSAdd<CR>
 nnoremap <leader>vc :VCSCommit<CR>
