@@ -7,16 +7,22 @@ default:
 	@echo "  vim-plugins   Download all required Vim plugins"
 
 install: \
+	~/.bashrc \
 	~/.gitconfig \
 	~/.vimrc
 
 uninstall:
+	rm -f $(HOME)/.bashrc
 	rm -f $(HOME)/.gitconfig
 	rm -f $(HOME)/.vimrc
 
 vim-plugins: \
 	vim/bundle/ctrl-p.vim \
 	vim/bundle/solarized.vim
+
+~/.bashrc:
+	rm -f $(HOME)/.bashrc
+	ln -s $(ETC)/bash/bashrc $(HOME)/.bashrc
 
 ~/.gitconfig:
 	rm -f $(HOME)/.gitconfig

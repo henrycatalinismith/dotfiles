@@ -1,0 +1,36 @@
+
+alias g='git'
+alias l='ls -l --color'
+alias less='less -r'
+alias ls='ls --color'
+alias mutt="TERM=screen-256color-bce mutt"
+alias t1='tree -A --dirsfirst -C -L 1'
+alias t2='tree -A --dirsfirst -C -L 2'
+alias t3='tree -A --dirsfirst -C -L 3'
+alias t4='tree -A --dirstirst -C -L 4'
+alias t='tree -A --dirsfirst -C'
+alias tmux="TERM=screen-256color-bce tmux"
+alias tree='tree -C --dirsfirst'
+
+function parse_git_branch () {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /'
+}
+
+export CLICOLOR=1
+export EDITOR=vim
+export LSCOLORS=ExFxCxDxBxegedabagacad
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PS1="\[\e[0;32m\]\u\[\e[m\]\[\e[0;36m\]@\[\e[0;33m\]\h\[\e[m\]\[\e[0;36m\]:\[\e[0;34m\]\w\[\e[m\] \[\e[0;31m\]\$(parse_git_branch)\[\e[m\]$ "
+export PS2="> "
+
+HISTCONTROL=ignoredups:ignorespace
+HISTFILESIZE=2000
+HISTSIZE=1000
+
+color_prompt=yes
+
+umask u=rwx,g=rwx,o=rx
+
+shopt -s histappend
+shopt -s checkwinsize
+
