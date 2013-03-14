@@ -9,11 +9,13 @@ default:
 install: \
 	~/.bashrc \
 	~/.gitconfig \
+	~/.tmux.conf \
 	~/.vimrc
 
 uninstall:
 	rm -f $(HOME)/.bashrc
 	rm -f $(HOME)/.gitconfig
+	rm -f $(HOME)/.tmux.conf
 	rm -f $(HOME)/.vimrc
 
 vim-plugins: \
@@ -27,6 +29,9 @@ vim-plugins: \
 ~/.gitconfig:
 	rm -f $(HOME)/.gitconfig
 	ln -s $(ETC)/git/gitconfig $(HOME)/.gitconfig
+
+~/.tmux.conf:
+	ln -s $(ETC)/tmux/tmux.conf $(HOME)/.tmux.conf
 
 ~/.vimrc:
 	echo "source $(ETC)/vim/vimrc" > "$(HOME)/.vimrc"
