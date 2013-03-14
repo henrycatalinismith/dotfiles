@@ -107,3 +107,7 @@ nnoremap <leader>wq :write<CR>:quit!<CR>
 " There are actually that many pointless variations on the .php suffix
 map <F12> :set filetype=php<CR>
 
+" Pathogen
+call pathogen#infect()
+call pathogen#helptags()
+
