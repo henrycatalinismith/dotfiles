@@ -1,0 +1,33 @@
+
+# character
+OPTIONS=name:henry
+OPTIONS=gender:male
+OPTIONS=role:wizard
+OPTIONS=align:chaotic
+OPTIONS=race:elf
+
+# automatic stuff
+OPTIONS=autodig
+OPTIONS=autopickup,pickup_types:$
+OPTIONS=prayconfirm
+OPTIONS=pickup_burden:unencumbered
+
+# set graphics to 'fancy'
+OPTIONS=color
+OPTIONS=lit_corridor
+OPTIONS=menucolors
+OPTIONS=DECgraphics
+OPTIONS=boulder:0
+
+# show me everything
+OPTIONS=showexp
+OPTIONS=showscore
+OPTIONS=time
+OPTIONS=disclose:+iagcv
+
+# no help or other bullshit
+OPTIONS=!cmdassist
+OPTIONS=!help
+OPTIONS=!legacy
+OPTIONS=!news
+

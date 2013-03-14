@@ -21,6 +21,7 @@ install: \
 	~/.Xmodmap \
 	~/.bashrc \
 	~/.gitconfig \
+	~/.nethackrc \
 	~/.tmux.conf \
 	~/.vimrc
 
@@ -28,6 +29,7 @@ uninstall:
 	rm -f $(HOME)/.Xmodmap
 	rm -f $(HOME)/.bashrc
 	rm -f $(HOME)/.gitconfig
+	rm -f $(HOME)/.nethackrc
 	rm -f $(HOME)/.tmux.conf
 	rm -f $(HOME)/.vimrc
 
@@ -57,6 +59,9 @@ update: vim-plugins
 
 ~/.gitconfig:
 	ln -s $(ETC)/git/gitconfig $(HOME)/.gitconfig
+
+~/.nethackrc:
+	ln -s $(ETC)/nethack/nethackrc $(HOME)/.nethackrc
 
 ~/.tmux.conf:
 	ln -s $(ETC)/tmux/tmux.conf $(HOME)/.tmux.conf
