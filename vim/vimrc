@@ -122,3 +122,8 @@ let NERDChristmasTree=1
 colorscheme solarized
 set background=dark
 
+" Tabular
+nnoremap <leader>aa :Tabular /=>/l1<CR>
+nnoremap <leader>ac :Tabular /:/l1<CR>
+nnoremap <leader>ae :Tabular /=/l1<CR>
+
