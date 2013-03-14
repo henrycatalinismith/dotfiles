@@ -4,6 +4,7 @@ ETC=$(shell pwd)
 default:
 	@echo "  install       Install all config files"
 	@echo "  uninstall     Remove all config files"
+	@echo "  vim-plugins   Download all required Vim plugins"
 
 install: \
 	~/.gitconfig \
@@ -13,6 +14,9 @@ uninstall:
 	rm -f $(HOME)/.gitconfig
 	rm -f $(HOME)/.vimrc
 
+vim-plugins: \
+	vim/bundle/ctrl-p.vim
+
 ~/.gitconfig:
 	rm -f $(HOME)/.gitconfig
 	ln -s $(ETC)/git/gitconfig $(HOME)/.gitconfig
@@ -20,8 +24,12 @@ uninstall:
 ~/.vimrc:
 	echo "source $(ETC)/vim/vimrc" > "$(HOME)/.vimrc"
 
+vim/bundle/ctrl-p.vim:
+	git clone git://github.com/kien/ctrlp.vim.git vim/bundle/ctrl-p.vim
+
 .PHONY: \
 	default \
 	install \
-	uninstall
+	uninstall \
+	vim-plugins
 
