@@ -16,6 +16,7 @@ clean:
 	rm -rf vim/bundle/solarized.vim
 	rm -rf vim/bundle/surround.vim
 	rm -rf vim/bundle/tabular.vim
+	rm -rf vim/bundle/twig.vim
 
 install: vim-plugins \
 	~/.Xmodmap   \
@@ -42,7 +43,8 @@ vim-plugins: \
 	vim/bundle/powerline.vim \
 	vim/bundle/solarized.vim \
 	vim/bundle/surround.vim \
-	vim/bundle/tabular.vim
+	vim/bundle/tabular.vim \
+	vim/bundle/twig.vim
 
 update: vim-plugins
 	cd vim/bundle/ctrl-p.vim    ; git pull origin master
@@ -94,6 +96,9 @@ vim/bundle/surround.vim:
 
 vim/bundle/tabular.vim:
 	git clone git://github.com/godlygeek/tabular.git vim/bundle/tabular.vim
+
+vim/bundle/twig.vim:
+	git clone git://github.com/lunaru/vim-twig.git vim/bundle/twig.vim
 
 .PHONY: \
 	clean \
