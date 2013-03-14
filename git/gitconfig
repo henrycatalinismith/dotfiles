@@ -5,6 +5,8 @@
 	email  = henry@henrysmith.org
 	editor = vim
 
+[core]
+	whitespace = trailing-space,space-before-tab
 
 [alias]
 

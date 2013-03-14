@@ -17,6 +17,8 @@ set laststatus=2
 " 256 colours
 set t_Co=256
 
+let mapleader=" "
+
 
 syntax on
 filetype indent plugin on
@@ -146,9 +148,8 @@ colorscheme solarized
 set background=dark
 
 
-" Command T
-nnoremap <leader>t :CommandT<CR>
-let g:CommandTMaxFiles=40000
+" Ctrl P
+nnoremap <leader>t :CtrlP<CR>
 
 
 " php-doc 
