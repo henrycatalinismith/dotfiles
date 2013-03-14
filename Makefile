@@ -23,11 +23,9 @@ vim-plugins: \
 	vim/bundle/solarized.vim
 
 ~/.bashrc:
-	rm -f $(HOME)/.bashrc
 	ln -s $(ETC)/bash/bashrc $(HOME)/.bashrc
 
 ~/.gitconfig:
-	rm -f $(HOME)/.gitconfig
 	ln -s $(ETC)/git/gitconfig $(HOME)/.gitconfig
 
 ~/.tmux.conf:
