@@ -23,7 +23,8 @@ uninstall:
 vim-plugins: \
 	vim/bundle/ctrl-p.vim \
 	vim/bundle/powerline.vim \
-	vim/bundle/solarized.vim
+	vim/bundle/solarized.vim \
+	vim/bundle/surround.vim
 
 ~/.Xmodmap:
 	ln -s $(ETC)/x11/Xmodmap $(HOME)/.Xmodmap
@@ -48,6 +49,9 @@ vim/bundle/powerline.vim:
 
 vim/bundle/solarized.vim:
 	git clone https://github.com/altercation/vim-colors-solarized.git vim/bundle/solarized.vim
+
+vim/bundle/surround.vim:
+	git clone git://github.com/tpope/vim-surround.git vim/bundle/surround.vim
 
 .PHONY: \
 	default \
