@@ -114,6 +114,10 @@ call pathogen#helptags()
 " Ctrl P
 nnoremap <leader>t :CtrlP<CR>
 
+" NERDTree
+let NERDTreeMinimalUI=1
+let NERDChristmasTree=1
+
 " Solarized
 colorscheme solarized
 set background=dark
