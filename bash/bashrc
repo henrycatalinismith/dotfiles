@@ -34,3 +34,7 @@ umask u=rwx,g=rwx,o=rx
 shopt -s histappend
 shopt -s checkwinsize
 
+if [ -f ~/local/etc/bash/bashrc ]; then
+	source ~/local/etc/bash/bashrc
+fi
+
