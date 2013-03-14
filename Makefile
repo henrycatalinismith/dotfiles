@@ -17,9 +17,9 @@ clean:
 	rm -rf vim/bundle/surround.vim
 	rm -rf vim/bundle/tabular.vim
 
-install: \
-	~/.Xmodmap \
-	~/.bashrc \
+install: vim-plugins \
+	~/.Xmodmap   \
+	~/.bashrc    \
 	~/.gitconfig \
 	~/.nethackrc \
 	~/.tmux.conf \
