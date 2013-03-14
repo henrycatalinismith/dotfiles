@@ -111,3 +111,10 @@ map <F12> :set filetype=php<CR>
 call pathogen#infect()
 call pathogen#helptags()
 
+" Ctrl P
+nnoremap <leader>t :CtrlP<CR>
+
+" Solarized
+colorscheme solarized
+set background=dark
+

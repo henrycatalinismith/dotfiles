@@ -15,7 +15,8 @@ uninstall:
 	rm -f $(HOME)/.vimrc
 
 vim-plugins: \
-	vim/bundle/ctrl-p.vim
+	vim/bundle/ctrl-p.vim \
+	vim/bundle/solarized.vim
 
 ~/.gitconfig:
 	rm -f $(HOME)/.gitconfig
@@ -26,6 +27,9 @@ vim-plugins: \
 
 vim/bundle/ctrl-p.vim:
 	git clone git://github.com/kien/ctrlp.vim.git vim/bundle/ctrl-p.vim
+
+vim/bundle/solarized.vim:
+	git clone https://github.com/altercation/vim-colors-solarized.git vim/bundle/solarized.vim
 
 .PHONY: \
 	default \
