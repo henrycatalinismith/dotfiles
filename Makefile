@@ -7,12 +7,14 @@ default:
 	@echo "  vim-plugins   Download all required Vim plugins"
 
 install: \
+	~/.Xmodmap \
 	~/.bashrc \
 	~/.gitconfig \
 	~/.tmux.conf \
 	~/.vimrc
 
 uninstall:
+	rm -f $(HOME)/.Xmodmap
 	rm -f $(HOME)/.bashrc
 	rm -f $(HOME)/.gitconfig
 	rm -f $(HOME)/.tmux.conf
@@ -21,6 +23,9 @@ uninstall:
 vim-plugins: \
 	vim/bundle/ctrl-p.vim \
 	vim/bundle/solarized.vim
+
+~/.Xmodmap:
+	ln -s $(ETC)/x11/Xmodmap $(HOME)/.Xmodmap
 
 ~/.bashrc:
 	ln -s $(ETC)/bash/bashrc $(HOME)/.bashrc
