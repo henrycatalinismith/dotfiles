@@ -6,6 +6,7 @@ default:
 	@echo "  uninstall     Remove all config files"
 	@echo "  vim-plugins   Download all required Vim plugins"
 	@echo "  clean         Delete all untracked files"
+	@echo "  update        Update Vim plugins"
 
 clean:
 	rm -rf vim/bundle/ctrl-p.vim
@@ -36,6 +37,14 @@ vim-plugins: \
 	vim/bundle/powerline.vim \
 	vim/bundle/solarized.vim \
 	vim/bundle/surround.vim
+
+update: vim-plugins
+	cd vim/bundle/ctrl-p.vim    ; git pull origin master
+	cd vim/bundle/fugitive.vim  ; git pull origin master
+	cd vim/bundle/nerdtree.vim  ; git pull origin master
+	cd vim/bundle/powerline.vim ; git pull origin master
+	cd vim/bundle/solarized.vim ; git pull origin master
+	cd vim/bundle/surround.vim  ; git pull origin master
 
 ~/.Xmodmap:
 	ln -s $(ETC)/x11/Xmodmap $(HOME)/.Xmodmap
@@ -75,5 +84,6 @@ vim/bundle/surround.vim:
 	default \
 	install \
 	uninstall \
+	update \
 	vim-plugins
 
