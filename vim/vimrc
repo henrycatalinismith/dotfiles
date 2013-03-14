@@ -126,4 +126,5 @@ set background=dark
 nnoremap <leader>aa :Tabular /=>/l1<CR>
 nnoremap <leader>ac :Tabular /:/l1<CR>
 nnoremap <leader>ae :Tabular /=/l1<CR>
+nnoremap <leader>at :Tabularize /:/l1<CR>:Tabularize /?/l1<CR>
 
