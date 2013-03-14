@@ -22,6 +22,7 @@ install: vim-plugins \
 	~/.bashrc    \
 	~/.gitconfig \
 	~/.nethackrc \
+	~/.pplconfig \
 	~/.tmux.conf \
 	~/.vimrc
 
@@ -30,6 +31,7 @@ uninstall:
 	rm -f $(HOME)/.bashrc
 	rm -f $(HOME)/.gitconfig
 	rm -f $(HOME)/.nethackrc
+	rm -f $(HOME)/.pplconfig
 	rm -f $(HOME)/.tmux.conf
 	rm -f $(HOME)/.vimrc
 
@@ -62,6 +64,9 @@ update: vim-plugins
 
 ~/.nethackrc:
 	ln -s $(ETC)/nethack/nethackrc $(HOME)/.nethackrc
+
+~/.pplconfig:
+	ln -s $(ETC)/ppl/pplconfig $(HOME)/.pplconfig
 
 ~/.tmux.conf:
 	ln -s $(ETC)/tmux/tmux.conf $(HOME)/.tmux.conf

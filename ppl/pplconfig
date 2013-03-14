@@ -1,0 +1,7 @@
+[alias]
+	l = ls
+	sync = !ppl pull origin master && ppl push origin master
+
+[address book]
+	path = ~/doc/contacts
+
