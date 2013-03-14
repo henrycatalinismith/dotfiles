@@ -1,0 +1,109 @@
+
+" Tell Vim where we are
+let vimdir = expand('<sfile>:p:h')
+let &runtimepath=vimdir . ',' . $VIMRUNTIME
+
+" Turn off the bad things
+set nocompatible
+set nobackup
+set noswapfile
+set noerrorbells
+set novisualbell
+set backspace=2
+set nowrap
+
+" Turn on the good things
+syntax on
+filetype indent plugin on
+set autoindent
+set smartindent
+
+" Some very boring things
+set shortmess+=I
+set fileformat=unix
+set textwidth=80
+set laststatus=2
+
+" 256 colours should be enough for anyone
+set t_Co=256
+
+" The space bar makes a good <leader> key
+let mapleader=" "
+
+" Help Vim's decrepit filetype recognition across the street
+au BufEnter,BufNewFile,BufRead *.md        setlocal filetype=markdown
+au BufEnter,BufNewFile,BufRead *.less      setlocal filetype=less
+au BufEnter,BufNewFile,BufRead *.yml       setlocal filetype=yaml
+au BufEnter,BufNewFile,BufRead *.json      setlocal filetype=json
+au BufEnter,BufNewFile,BufRead *.twig      setlocal filetype=twig
+au BufEnter,BufNewFile,BufRead Vagrantfile setlocal filetype=ruby
+
+" I will definitely not be needing "Ex mode" any time soon
+map Q <nop>
+
+" There really is nothing wild about this menu
+set wildmenu
+set wildignore+=.git
+set wildignore+=.svn
+set wildignore+=*.bmp
+set wildignore+=*.gif
+set wildignore+=*.jpg
+set wildignore+=*.jpeg
+set wildignore+=*.png
+set wildignore+=*.swf
+set wildignore+=*.DS_Store
+
+" Folding is for people who don't write well-factored code
+set nofoldenable
+
+" Search like a modern editor
+set ignorecase
+set incsearch
+
+" Fill the screen with a constant torrent of information
+set cursorcolumn
+set cursorline
+set number
+set ruler
+set viminfo=""
+
+" No help, please
+noremap  <F1> <nop>
+inoremap <F1> <nop>
+
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" Easy split navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Make Y behave like other capitals
+map Y y$
+
+" Keep highlighted search result in middle of screen
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+nnoremap <silent> g# g#zz
+
+" Easier Markdown underlining
+nnoremap <leader>= :set fo-=a<CR>yypv$r=<CR>:set fo += a<CR>
+nnoremap <leader>- :set fo-=a<CR>yypv$r-<CR>:set fo +=a<CR>
+
+" Visual guidelines for common maximum widths
+set colorcolumn=81,121
+
+" Simple mappings for built-in Vim stuff
+nnoremap <leader>q  :quit!<CR>
+nnoremap <leader>w  :write<CR>
+nnoremap <leader>wq :write<CR>:quit!<CR>
+
+" There are actually that many pointless variations on the .php suffix
+map <F12> :set filetype=php<CR>
+
