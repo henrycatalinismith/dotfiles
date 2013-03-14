@@ -22,6 +22,7 @@ uninstall:
 
 vim-plugins: \
 	vim/bundle/ctrl-p.vim \
+	vim/bundle/powerline.vim \
 	vim/bundle/solarized.vim
 
 ~/.Xmodmap:
@@ -41,6 +42,9 @@ vim-plugins: \
 
 vim/bundle/ctrl-p.vim:
 	git clone git://github.com/kien/ctrlp.vim.git vim/bundle/ctrl-p.vim
+
+vim/bundle/powerline.vim:
+	git clone git://github.com/Lokaltog/vim-powerline.git vim/bundle/powerline.vim
 
 vim/bundle/solarized.vim:
 	git clone https://github.com/altercation/vim-colors-solarized.git vim/bundle/solarized.vim
