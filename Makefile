@@ -5,6 +5,15 @@ default:
 	@echo "  install       Install all config files"
 	@echo "  uninstall     Remove all config files"
 	@echo "  vim-plugins   Download all required Vim plugins"
+	@echo "  clean         Delete all untracked files"
+
+clean:
+	rm -rf vim/bundle/ctrl-p.vim
+	rm -rf vim/bundle/fugitive.vim
+	rm -rf vim/bundle/nerdtree.vim
+	rm -rf vim/bundle/powerline.vim
+	rm -rf vim/bundle/solarized.vim
+	rm -rf vim/bundle/surround.vim
 
 install: \
 	~/.Xmodmap \
@@ -62,6 +71,7 @@ vim/bundle/surround.vim:
 	git clone git://github.com/tpope/vim-surround.git vim/bundle/surround.vim
 
 .PHONY: \
+	clean \
 	default \
 	install \
 	uninstall \
