@@ -1,10 +1,10 @@
 
-setlocal textwidth=80
-
+call feedkeys('ggi', 't')
 setlocal expandtab
+setlocal formatoptions=acqt
+setlocal nosmartindent
 setlocal shiftwidth=4
 setlocal softtabstop=4
-setlocal nosmartindent
-
-setlocal formatoptions=acqt
+setlocal spell
+setlocal textwidth=80
 
