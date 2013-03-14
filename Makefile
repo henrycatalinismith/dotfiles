@@ -22,6 +22,7 @@ uninstall:
 
 vim-plugins: \
 	vim/bundle/ctrl-p.vim \
+	vim/bundle/fugitive.vim \
 	vim/bundle/powerline.vim \
 	vim/bundle/solarized.vim \
 	vim/bundle/surround.vim
@@ -43,6 +44,9 @@ vim-plugins: \
 
 vim/bundle/ctrl-p.vim:
 	git clone git://github.com/kien/ctrlp.vim.git vim/bundle/ctrl-p.vim
+
+vim/bundle/fugitive.vim:
+	git clone git://github.com/tpope/vim-fugitive.git vim/bundle/fugitive.vim
 
 vim/bundle/powerline.vim:
 	git clone git://github.com/Lokaltog/vim-powerline.git vim/bundle/powerline.vim
