@@ -5,3 +5,50 @@
 [address book]
 	path = ~/doc/contacts
 
+[color]
+        age   = true
+        bday  = true
+        email = true
+        ls    = true
+        name  = true
+        nick  = true
+        org   = true
+        phone = true
+        post  = true
+        show  = true
+        url   = true
+
+[color "age"]
+	id = cyan
+
+[color "bday"]
+	id = cyan
+
+[color "email"]
+	id = cyan
+
+[color "ls"]
+	id = cyan
+
+[color "name"]
+	id = cyan
+
+[color "nick"]
+	id = cyan
+
+[color "org"]
+	id = cyan
+
+[color "phone"]
+	id = cyan
+
+[color "post"]
+	id = cyan
+
+[color "show"]
+	id = cyan
+
+[color "url"]
+	id = cyan
+
+
