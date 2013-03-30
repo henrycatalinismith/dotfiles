@@ -21,6 +21,7 @@ clean:
 install: vim-plugins \
 	~/.Xmodmap   \
 	~/.bashrc    \
+	~/.emacs     \
 	~/.gitconfig \
 	~/.nethackrc \
 	~/.pplconfig \
@@ -30,6 +31,7 @@ install: vim-plugins \
 uninstall:
 	rm -f $(HOME)/.Xmodmap
 	rm -f $(HOME)/.bashrc
+	rm -f $(HOME)/.emacs
 	rm -f $(HOME)/.gitconfig
 	rm -f $(HOME)/.nethackrc
 	rm -f $(HOME)/.pplconfig
@@ -60,6 +62,9 @@ update: vim-plugins
 
 ~/.bashrc:
 	ln -s $(ETC)/bash/bashrc $(HOME)/.bashrc
+
+~/.emacs:
+	ln -s $(ETC)/emacs/emacs $(HOME)/.emacs
 
 ~/.gitconfig:
 	ln -s $(ETC)/git/gitconfig $(HOME)/.gitconfig
