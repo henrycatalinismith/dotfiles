@@ -1,6 +1,6 @@
 
 alias g='git'
-alias l='ls -l --color'
+alias l='ls -l --color --time-style=long-iso -h --group-directories-first'
 alias less='less -r'
 alias ls='ls --color'
 alias mutt="TERM=screen-256color-bce mutt"
