@@ -10,35 +10,43 @@
 	cp = cherry-pick
 	d  = diff
 	dc = diff --cached
+	dw = diff --color-words
 	fa = fetch -a
 	g  = grep -n
 	gi = grep -ni
+	ig = ls-files --others -i --exclude-standard
 	l  = log --graph --stat --decorate
 	la = log --graph --stat --decorate --all
 	m  = merge
 	rh = reset HEAD
-	s  = status
-
-	dr = "!f() { git status --porcelain | grep '^ *D ' | awk '{print $2}' | xargs git rm; }; f"
-	du = "!f() { git status --porcelain | grep '^??'   | awk '{print $2}' | xargs rm -r;  }; f"
-	mc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge $1/$B; }; f"
+	ri = rebase -i @{u}
+	s  = status -sb
 
 	fff = flow feature finish
 	ffs = flow feature start
-
-	mcg = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge github/$B; }; f"
-	mco = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge origin/$B; }; f"
+	fhf = flow hotfix finish
+	fhs = flow hotfix start
+	frf = flow release finish
+	frs = flow release start
 
 	pom = push origin master
 	pgm = push github master
 	phm = push heroku master
 
+	dr = "!f() { git status --porcelain | grep '^ *D ' | awk '{print $2}' | xargs git rm; }; f"
+	mc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge $1/$B; }; f"
+
+	mcg = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge github/$B; }; f"
+	mco = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge origin/$B; }; f"
+
 	ploc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pulling from $B..."; git pull origin $B; }; f"
 	psoc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pushing to $B..."; git push origin $B; }; f"
 
 	undelete = !git checkout `git rev-list -n 1 HEAD -- $1`^ -- $1
-	showmerge = "!f() { echo $1; git diff `git show $1 | head -n 2 | tail -n 1 | awk '{print $2 \"..\" $3}'`; }; f"
 	tumbleweed = "!f() { git for-each-ref --sort=-committerdate refs --format='%(committerdate:short) %(refname:short)  %(authoremail)' | column -t | tac; }; f"
+
+[clean]
+	requireForce = false
 
 [color]
 	branch   = true
