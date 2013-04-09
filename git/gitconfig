@@ -1,6 +1,7 @@
 
 [alias]
 	a  = add
+	ap = add --patch
 	b  = branch --verbose
 	bc = branch --contains
 	br = branch --remote
@@ -11,7 +12,8 @@
 	d  = diff
 	dc = diff --cached
 	dw = diff --color-words
-	fa = fetch -a
+	f  = fetch
+	fa = fetch --append
 	g  = grep -n
 	gi = grep -ni
 	ig = ls-files --others -i --exclude-standard
@@ -19,8 +21,8 @@
 	la = log --graph --stat --decorate --all
 	m  = merge
 	rh = reset HEAD
-	ri = rebase -i @{u}
-	s  = status -sb
+	ri = rebase --interactive @{u}
+	s  = status --short --branch
 
 	fff = flow feature finish
 	ffs = flow feature start
