@@ -45,7 +45,7 @@
 	psoc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pushing to $B..."; git push origin $B; }; f"
 
 	undelete = !git checkout `git rev-list -n 1 HEAD -- $1`^ -- $1
-	tumbleweed = "!f() { git for-each-ref --sort=-committerdate refs --format='%(committerdate:short) %(refname:short)  %(authoremail)' | column -t | tac; }; f"
+	tumbleweed = "!f() { git for-each-ref --sort=-committerdate refs --format='%(committerdate:short) %(refname:short) %(authoremail)' | column -tn | tac; }; f"
 
 [clean]
 	requireForce = false
