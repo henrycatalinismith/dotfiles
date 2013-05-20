@@ -26,6 +26,7 @@
 
 [color "email"]
 	id = cyan
+	star = white
 
 [color "ls"]
 	id = cyan

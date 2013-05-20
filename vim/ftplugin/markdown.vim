@@ -1,6 +1,6 @@
 
 setlocal expandtab
-setlocal formatoptions=acqt
+setlocal formatoptions=cqt
 setlocal nosmartindent
 setlocal shiftwidth=4
 setlocal softtabstop=4
