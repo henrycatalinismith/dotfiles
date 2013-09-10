@@ -6,6 +6,7 @@
 	bc  = branch --contains
 	br  = branch --remote
 	ci  = commit
+	cia = commit --amend
 	co  = checkout
 	c-  = checkout --
 	cp  = cherry-pick
@@ -23,6 +24,10 @@
 	rh  = reset HEAD
 	ri  = rebase --interactive @{u}
 	s   = status --short --branch
+
+	lod  = log --oneline --decorate
+	lodg = log --oneline --decorate --graph
+
 	fff = flow feature finish
 	ffs = flow feature start
 	fhf = flow hotfix finish
