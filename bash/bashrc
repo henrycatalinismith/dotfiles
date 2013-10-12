@@ -1,8 +1,8 @@
 
 alias g='git'
-alias l='ls -l --color'
+alias l='ls -l'
 alias less='less -r'
-alias ls='ls --color'
+alias ls='ls'
 alias mutt="TERM=screen-256color-bce mutt"
 alias t1='tree -A --dirsfirst -C -L 1'
 alias t2='tree -A --dirsfirst -C -L 2'
@@ -17,10 +17,11 @@ function parse_git_branch () {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /'
 }
 
+export LC_ALL="en_US.UTF-8"
 export CLICOLOR=1
 export EDITOR=vim
 export LSCOLORS=ExFxCxDxBxegedabagacad
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="~/.rbenv/shims:$HOME/bin:/usr/local/bin:$PATH"
 export PS1="\[\e[0;32m\]\u\[\e[m\]\[\e[0;36m\]@\[\e[0;33m\]\h\[\e[m\]\[\e[0;36m\]:\[\e[0;34m\]\w\[\e[m\] \[\e[0;31m\]\$(parse_git_branch)\[\e[m\]$ "
 export PS2="> "
 
@@ -34,4 +35,5 @@ umask u=rwx,g=rwx,o=rx
 
 shopt -s histappend
 shopt -s checkwinsize
+eval "$(rbenv init -)"
 
