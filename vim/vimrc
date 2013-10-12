@@ -17,6 +17,12 @@ set laststatus=2
 " 256 colours
 set t_Co=256
 
+set gfn=Menlo:h18
+set guioptions-=m
+set guioptions-=L
+set guioptions-=T
+set guioptions-=r
+
 let mapleader=" "
 
 
