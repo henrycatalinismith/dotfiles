@@ -128,3 +128,8 @@ nnoremap <leader>ac :Tabular /:/l1<CR>
 nnoremap <leader>ae :Tabular /=/l1<CR>
 nnoremap <leader>at :Tabularize /:/l1<CR>:Tabularize /?/l1<CR>
 
+" Make trailing whitespace even uglier than it already is
+highlight ExtraWhitespace ctermbg=gray
+match ExtraWhitespace /\s\+$/
+highlight ExtraWhitespace ctermbg=gray
+
