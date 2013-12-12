@@ -1,0 +1,6 @@
+
+(setq inhibit-startup-message t)
+(setq visible-bell 1)
+
+(menu-bar-mode -1)
+

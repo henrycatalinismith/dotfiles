@@ -3,52 +3,113 @@ ETC=$(shell pwd)
 
 default:
 	@echo "  install       Install all config files"
-	@echo "  clean         Remove all config files"
+	@echo "  uninstall     Remove all config files"
+	@echo "  vim-plugins   Download all required Vim plugins"
+	@echo "  clean         Delete all untracked files"
+	@echo "  update        Update Vim plugins"
 
-install: \
-	~/.Xdefaults \
-	~/.Xmodmap \
-	~/.bashrc \
+clean:
+	rm -rf vim/bundle/ctrl-p.vim
+	rm -rf vim/bundle/fugitive.vim
+	rm -rf vim/bundle/nerdtree.vim
+	rm -rf vim/bundle/powerline.vim
+	rm -rf vim/bundle/solarized.vim
+	rm -rf vim/bundle/surround.vim
+	rm -rf vim/bundle/tabular.vim
+	rm -rf vim/bundle/twig.vim
+
+install: vim-plugins \
+	~/.Xmodmap   \
+	~/.bashrc    \
+	~/.emacs     \
 	~/.gitconfig \
 	~/.nethackrc \
+	~/.pplconfig \
 	~/.tmux.conf \
 	~/.vimrc
 
-clean:
-	rm -f $(HOME)/.Xdefaults
+uninstall:
 	rm -f $(HOME)/.Xmodmap
 	rm -f $(HOME)/.bashrc
+	rm -f $(HOME)/.emacs
 	rm -f $(HOME)/.gitconfig
 	rm -f $(HOME)/.nethackrc
+	rm -f $(HOME)/.pplconfig
 	rm -f $(HOME)/.tmux.conf
 	rm -f $(HOME)/.vimrc
 
-~/.Xdefaults:
-	rm -f $(HOME)/.Xdefaults
-	ln -s $(ETC)/x11/Xdefaults $(HOME)/.Xdefaults
+vim-plugins: \
+	vim/bundle/ctrl-p.vim \
+	vim/bundle/fugitive.vim \
+	vim/bundle/nerdtree.vim \
+	vim/bundle/powerline.vim \
+	vim/bundle/solarized.vim \
+	vim/bundle/surround.vim \
+	vim/bundle/tabular.vim \
+	vim/bundle/twig.vim
+
+update: vim-plugins
+	cd vim/bundle/ctrl-p.vim    ; git pull origin master
+	cd vim/bundle/fugitive.vim  ; git pull origin master
+	cd vim/bundle/nerdtree.vim  ; git pull origin master
+	cd vim/bundle/powerline.vim ; git pull origin master
+	cd vim/bundle/solarized.vim ; git pull origin master
+	cd vim/bundle/surround.vim  ; git pull origin master
+	cd vim/bundle/tabular.vim   ; git pull origin master
 
 ~/.Xmodmap:
-	rm -f $(HOME)/.Xmodmap
 	ln -s $(ETC)/x11/Xmodmap $(HOME)/.Xmodmap
 
 ~/.bashrc:
-	rm -f $(HOME)/.bashrc
 	ln -s $(ETC)/bash/bashrc $(HOME)/.bashrc
 
+~/.emacs:
+	ln -s $(ETC)/emacs/emacs $(HOME)/.emacs
+
 ~/.gitconfig:
-	rm -f $(HOME)/.gitconfig
 	ln -s $(ETC)/git/gitconfig $(HOME)/.gitconfig
 
 ~/.nethackrc:
-	rm -f $(HOME)/.nethackrc
 	ln -s $(ETC)/nethack/nethackrc $(HOME)/.nethackrc
 
+~/.pplconfig:
+	ln -s $(ETC)/ppl/pplconfig $(HOME)/.pplconfig
+
 ~/.tmux.conf:
-	rm -f $(HOME)/.tmux.conf
 	ln -s $(ETC)/tmux/tmux.conf $(HOME)/.tmux.conf
 
 ~/.vimrc:
 	echo "source $(ETC)/vim/vimrc" > "$(HOME)/.vimrc"
 
-.PHONY: clean default install
+vim/bundle/ctrl-p.vim:
+	git clone git://github.com/kien/ctrlp.vim.git vim/bundle/ctrl-p.vim
+
+vim/bundle/fugitive.vim:
+	git clone git://github.com/tpope/vim-fugitive.git vim/bundle/fugitive.vim
+
+vim/bundle/nerdtree.vim:
+	git clone git://github.com/scrooloose/nerdtree.git vim/bundle/nerdtree.vim
+
+vim/bundle/powerline.vim:
+	git clone git://github.com/Lokaltog/vim-powerline.git vim/bundle/powerline.vim
+
+vim/bundle/solarized.vim:
+	git clone https://github.com/altercation/vim-colors-solarized.git vim/bundle/solarized.vim
+
+vim/bundle/surround.vim:
+	git clone git://github.com/tpope/vim-surround.git vim/bundle/surround.vim
+
+vim/bundle/tabular.vim:
+	git clone git://github.com/godlygeek/tabular.git vim/bundle/tabular.vim
+
+vim/bundle/twig.vim:
+	git clone git://github.com/lunaru/vim-twig.git vim/bundle/twig.vim
+
+.PHONY: \
+	clean \
+	default \
+	install \
+	uninstall \
+	update \
+	vim-plugins
 

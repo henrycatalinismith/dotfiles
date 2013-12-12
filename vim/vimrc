@@ -1,46 +1,51 @@
 
+" Tell Vim where we are
 let vimdir = expand('<sfile>:p:h')
+let &runtimepath=vimdir . ',' . $VIMRUNTIME
 
-" Basics
+" Turn off the bad things
 set nocompatible
 set nobackup
 set noswapfile
 set noerrorbells
 set novisualbell
-let &runtimepath=vimdir . ',' . $VIMRUNTIME
 set backspace=2
+set nowrap
+
+" Syntax highlighting is best highlighting
+syntax on
+syntax sync minlines=256
+set synmaxcol=256
+
+" Turn on the good things
+filetype indent plugin on
+set autoindent
+set smartindent
+
+" Some very boring things
 set shortmess+=I
 set fileformat=unix
 set textwidth=80
 set laststatus=2
 
-" 256 colours
+" 256 colours should be enough for anyone
 set t_Co=256
 
-set gfn=Menlo:h18
-set guioptions-=m
-set guioptions-=L
-set guioptions-=T
-set guioptions-=r
-
+" The space bar makes a good <leader> key
 let mapleader=" "
 
-
-syntax on
-filetype indent plugin on
+" Help Vim's decrepit filetype recognition across the street
 au BufEnter,BufNewFile,BufRead *.md        setlocal filetype=markdown
-au BufEnter,BufNewFile,BufRead Vagrantfile setlocal filetype=ruby
 au BufEnter,BufNewFile,BufRead *.less      setlocal filetype=less
 au BufEnter,BufNewFile,BufRead *.yml       setlocal filetype=yaml
 au BufEnter,BufNewFile,BufRead *.json      setlocal filetype=json
 au BufEnter,BufNewFile,BufRead *.twig      setlocal filetype=twig
+au BufEnter,BufNewFile,BufRead Vagrantfile setlocal filetype=ruby
 
-
-" Disables: Entering Ex mode.  Type "visual" to go to Normal mode. 
+" I will definitely not be needing "Ex mode" any time soon
 map Q <nop>
 
-
-" Wildmenu
+" There really is nothing wild about this menu
 set wildmenu
 set wildignore+=.git
 set wildignore+=.svn
@@ -52,39 +57,27 @@ set wildignore+=*.png
 set wildignore+=*.swf
 set wildignore+=*.DS_Store
 
-
-" Folding
+" Folding is for people who don't write well-factored code
 set nofoldenable
 
-
-" Indentation
-set autoindent
-set smartindent
-
-
-" Search
+" Search like a modern editor
 set ignorecase
 set incsearch
 
-
-" Display
+" Fill the screen with a constant torrent of information
 set cursorcolumn
 set cursorline
-set nowrap
 set number
 set ruler
 set viminfo=""
-
 
 " No help, please
 noremap  <F1> <nop>
 inoremap <F1> <nop>
 
-
-" Reselect visual block after indent/outdent 
+" Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
-
 
 " Easy split navigation
 nnoremap <C-h> <C-w>h
@@ -92,15 +85,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-
 " Make Y behave like other capitals
 map Y y$
-
-
-" Improve up/down movement on wrapped lines
-nnoremap j gj
-nnoremap k gk
-
 
 " Keep highlighted search result in middle of screen
 nnoremap <silent> n nzz
@@ -110,77 +96,44 @@ nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 nnoremap <silent> g# g#zz
 
-
 " Easier Markdown underlining
 nnoremap <leader>= :set fo-=a<CR>yypv$r=<CR>:set fo += a<CR>
 nnoremap <leader>- :set fo-=a<CR>yypv$r-<CR>:set fo +=a<CR>
 
-
 " Visual guidelines for common maximum widths
 set colorcolumn=81,121
 
-
 " Simple mappings for built-in Vim stuff
-nnoremap <leader>h  :set invhlsearch<CR>
-nnoremap <leader>i  :exec ":hi " . synIDattr(synID(line("."), col("."), 1), "name")<CR>
-nnoremap <leader>m  :make<CR>
 nnoremap <leader>q  :quit!<CR>
 nnoremap <leader>w  :write<CR>
 nnoremap <leader>wq :write<CR>:quit!<CR>
 
-
-" Filetype mappings for quick syntax-highlighting changes
-nnoremap <leader>css  :set filetype=css<CR>
-nnoremap <leader>html :set filetype=html<CR>
-nnoremap <leader>php  :set filetype=php<CR>
-nnoremap <leader>sql  :set filetype=sql<CR>
-
-
-" Getting sick of hitting ,php for every badly named PHP file
+" There are actually that many pointless variations on the .php suffix
 map <F12> :set filetype=php<CR>
-
-
-" Custom function mappings
-nnoremap <leader><tab> :call InvertTabstop()<CR>
-
 
 " Pathogen
 call pathogen#infect()
 call pathogen#helptags()
 
-
-" Solarized
-colorscheme solarized
-set background=dark
-
-
 " Ctrl P
 nnoremap <leader>t :CtrlP<CR>
-
-
-" php-doc 
-nnoremap <leader>pd :call PhpDocSingle()<CR>
-
-
-" Tabular
-nnoremap <leader>aa :Tabularize /=>/l1<CR>
-nnoremap <leader>ac :Tabularize /:/l1<CR>
-nnoremap <leader>ae :Tabularize /=/l1<CR>
-nnoremap <leader>at :Tabularize /:/l1<CR>:Tabularize /?/l1<CR>
-
-
-" vcscommand 
-nnoremap <leader>va :VCSAdd<CR>
-nnoremap <leader>vc :VCSCommit<CR>
-nnoremap <leader>vd :VCSVimDiff<CR>
-nnoremap <leader>vl :VCSLog<CR>
-nnoremap <leader>vu :VCSUpdate<CR>
-nnoremap <leader>vr :VCSRevert<CR>
-
 
 " NERDTree
 let NERDTreeMinimalUI=1
 let NERDChristmasTree=1
 
+" Solarized
+colorscheme solarized
+set background=dark
 
+" Tabular
+nnoremap <leader>aa :Tabular /=>/l1<CR>
+nnoremap <leader>ac :Tabular /:/l1<CR>
+nnoremap <leader>ae :Tabular /=/l1<CR>
+nnoremap <leader>at :Tabularize /:/l1<CR>:Tabularize /?/l1<CR>
+
+" Make trailing whitespace even uglier than it already is
+highlight ExtraWhitespace ctermbg=gray
+match ExtraWhitespace /\s\+$/
+highlight ExtraWhitespace ctermbg=gray
 

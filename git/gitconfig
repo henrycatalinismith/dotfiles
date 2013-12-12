@@ -1,65 +1,58 @@
 
-
-[user]
-	name   = Henry Smith
-	email  = henry@henrysmith.org
-	editor = vim
-
-[core]
-	whitespace = trailing-space,space-before-tab
-
 [alias]
+	a    = add
+	ap   = add --patch
+	b    = branch --verbose
+	bc   = branch --contains
+	br   = branch --remote
+	ci   = commit
+	cia  = commit --amend
+	co   = checkout
+	c-   = checkout --
+	cp   = cherry-pick
+	d    = diff
+	dc   = diff --cached
+	dw   = diff --color-words
+	f    = fetch
+	fa   = fetch --append
+	faa  = fetch --all --append
+	faap = fetch --all --append --prune
+	fff  = flow feature finish
+	ffs  = flow feature start
+	fhf  = flow hotfix finish
+	fhs  = flow hotfix start
+	frf  = flow release finish
+	frs  = flow release start
+	g    = grep -n
+	gi   = grep -ni
+	ig   = ls-files --others -i --exclude-standard
+	l    = log --graph --stat --decorate
+	la   = log --graph --stat --decorate --all
+	lod  = log --oneline --decorate
+	lodg = log --oneline --decorate --graph
+	m    = merge
+	pom  = push origin master
+	pgm  = push github master
+	phm  = push heroku master
+	rh   = reset HEAD
+	s    = status --short --branch
 
-	a  = add
-	b  = branch --verbose
-	bc = branch --contains
-	br = branch --remote
-	ci = commit
-	co = checkout
-	c- = checkout --
-	cp = cherry-pick
-	d  = diff
-	dc = diff --cached
-	fa = fetch -a
-	g  = grep -n
-	gi = grep -ni
-	l  = log --graph --stat --decorate
-	la = log --graph --stat --decorate --all
-	m  = merge
-	rh = reset HEAD
-	s  = status
-
-	bg = "!f() { git branch --remote | grep \"$1\"; }; f"
-	bo = "!f() { git branch --remote | grep \"^ *$1\\/\" | sed \"s/$1\\///g\"; }; f"
-	cg = "!f() { git log --oneline --all | grep \"$1\"; }; f"
 	dr = "!f() { git status --porcelain | grep '^ *D ' | awk '{print $2}' | xargs git rm; }; f"
-	du = "!f() { git status --porcelain | grep '^??'   | awk '{print $2}' | xargs rm -r;  }; f"
-	mc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge $1/$B; }; f"
+	ri = "!f() { git rebase --interactive HEAD~$1; }; f"
 
-	fff = flow feature finish
-	ffs = flow feature start
-
-	mcg = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge github/$B; }; f"
-	mco = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge origin/$B; }; f"
-
-	pom = push origin master
-	pgm = push github master
-	phm = push heroku master
-
-	acdc = "!f() { git status --porcelain | grep '^ *M ' | awk '{print $2}' | xargs git add; git diff --cached; }; f"
 	ploc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pulling from $B..."; git pull origin $B; }; f"
 	psoc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pushing to $B..."; git push origin $B; }; f"
 
 	undelete = !git checkout `git rev-list -n 1 HEAD -- $1`^ -- $1
-
-	showmerge = "!f() { echo $1; git diff `git show $1 | head -n 2 | tail -n 1 | awk '{print $2 \"..\" $3}'`; }; f"
-
 	tumbleweed = "!f() { git for-each-ref --sort=-committerdate refs --format='%(committerdate:short) %(refname:short)  %(authoremail)' | column -t | tac; }; f"
-
 
 [core]
 	autocrlf = false
+	whitespace = trailing-space,space-before-tab
 
+
+[clean]
+	requireForce = false
 
 [color]
 	branch   = true
@@ -68,11 +61,6 @@
 	grep     = true
 	pager    = true
 	status   = true
-
-
-[color "branch"]
-	current = green reverse
-	remote  = 
 
 
 [color "decorate"]
@@ -98,10 +86,8 @@
 	match      = yellow
 	separator  = cyan
 
-
 [color "status"]
 	added     = blue bold
 	changed   = blue bold
 	untracked = red bold
-
 

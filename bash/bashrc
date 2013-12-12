@@ -12,7 +12,6 @@ alias t='tree -A --dirsfirst -C'
 alias tmux="TERM=screen-256color-bce tmux"
 alias tree='tree -C --dirsfirst'
 
-
 function parse_git_branch () {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /'
 }
@@ -35,5 +34,21 @@ umask u=rwx,g=rwx,o=rx
 
 shopt -s histappend
 shopt -s checkwinsize
+<<<<<<< HEAD
 eval "$(rbenv init -)"
 
+=======
+
+[ -d ~/bin ]          && export PATH="$HOME/bin:$PATH"
+[ -d ~/local/bin ]    && export PATH="$HOME/local/bin:$PATH"
+[ -d ~/.rvm/bin ]     && export PATH="$HOME/.rvm/bin:$PATH"
+[ -d /usr/local/bin ] && export PATH="/usr/local/bin:$PATH"
+
+[ -f ~/local/etc/bash/bashrc ] && source ~/local/etc/bash/bashrc
+[ -f ~/.rvm/scripts/rvm ]      && source ~/.rvm/scripts/rvm
+[ `which rbenv` ]              && eval "$(rbenv init -)"
+
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+>>>>>>> github/master

@@ -1,5 +1,2 @@
-
-set syntax=css
 set omnifunc=csscomplete#CompleteCSS
-
-
+set syntax=css

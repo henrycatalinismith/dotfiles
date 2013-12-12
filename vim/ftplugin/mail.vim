@@ -1,4 +1,2 @@
-
-setlocal textwidth=72
 setlocal colorcolumn=73
-
+setlocal textwidth=72

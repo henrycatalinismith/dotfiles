@@ -1,8 +1,4 @@
-
-setlocal syntax=html
-
-setlocal shiftwidth=4
-setlocal tabstop=4
-
 setlocal nosmartindent
-
+setlocal shiftwidth=4
+setlocal syntax=html
+setlocal tabstop=4

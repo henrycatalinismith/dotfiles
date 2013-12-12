@@ -1,5 +1,1 @@
-
-
 set omnifunc=csscomplete#CompleteCSS
-
-
