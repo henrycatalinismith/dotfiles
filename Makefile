@@ -9,7 +9,7 @@ default:
 	@echo "  update        Update Vim plugins"
 
 clean:
-	rm -rf vim/bundle/ctrl-p.vim
+	rm -rf vim/bundle/ctrlp.vim
 	rm -rf vim/bundle/fugitive.vim
 	rm -rf vim/bundle/nerdtree.vim
 	rm -rf vim/bundle/powerline.vim
@@ -18,8 +18,7 @@ clean:
 	rm -rf vim/bundle/tabular.vim
 	rm -rf vim/bundle/twig.vim
 
-install: vim-plugins \
-	~/.Xmodmap   \
+install: ~/.Xmodmap   \
 	~/.bashrc    \
 	~/.emacs     \
 	~/.gitconfig \
@@ -39,7 +38,7 @@ uninstall:
 	rm -f $(HOME)/.vimrc
 
 vim-plugins: \
-	vim/bundle/ctrl-p.vim \
+	vim/bundle/ctrlp.vim \
 	vim/bundle/fugitive.vim \
 	vim/bundle/nerdtree.vim \
 	vim/bundle/powerline.vim \
@@ -49,7 +48,7 @@ vim-plugins: \
 	vim/bundle/twig.vim
 
 update: vim-plugins
-	cd vim/bundle/ctrl-p.vim    ; git pull origin master
+	cd vim/bundle/ctrlp.vim     ; git pull origin master
 	cd vim/bundle/fugitive.vim  ; git pull origin master
 	cd vim/bundle/nerdtree.vim  ; git pull origin master
 	cd vim/bundle/powerline.vim ; git pull origin master
@@ -81,8 +80,8 @@ update: vim-plugins
 ~/.vimrc:
 	echo "source $(ETC)/vim/vimrc" > "$(HOME)/.vimrc"
 
-vim/bundle/ctrl-p.vim:
-	git clone git://github.com/kien/ctrlp.vim.git vim/bundle/ctrl-p.vim
+vim/bundle/ctrlp.vim:
+	git clone git@github.com:kien/ctrlp.vim.git
 
 vim/bundle/fugitive.vim:
 	git clone git://github.com/tpope/vim-fugitive.git vim/bundle/fugitive.vim
