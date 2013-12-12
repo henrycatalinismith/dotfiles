@@ -34,10 +34,6 @@ umask u=rwx,g=rwx,o=rx
 
 shopt -s histappend
 shopt -s checkwinsize
-<<<<<<< HEAD
-eval "$(rbenv init -)"
-
-=======
 
 [ -d ~/bin ]          && export PATH="$HOME/bin:$PATH"
 [ -d ~/local/bin ]    && export PATH="$HOME/local/bin:$PATH"
@@ -51,4 +47,3 @@ eval "$(rbenv init -)"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
->>>>>>> github/master
