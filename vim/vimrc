@@ -12,8 +12,12 @@ set novisualbell
 set backspace=2
 set nowrap
 
-" Turn on the good things
+" Syntax highlighting is best highlighting
 syntax on
+syntax sync minlines=256
+set synmaxcol=256
+
+" Turn on the good things
 filetype indent plugin on
 set autoindent
 set smartindent
