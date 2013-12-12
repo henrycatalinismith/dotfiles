@@ -1,49 +1,44 @@
 
 [alias]
-	a   = add
-	ap  = add --patch
-	b   = branch --verbose
-	bc  = branch --contains
-	br  = branch --remote
-	ci  = commit
-	cia = commit --amend
-	co  = checkout
-	c-  = checkout --
-	cp  = cherry-pick
-	d   = diff
-	dc  = diff --cached
-	dw  = diff --color-words
-	f   = fetch
-	fa  = fetch --append
-	g   = grep -n
-	gi  = grep -ni
-	ig  = ls-files --others -i --exclude-standard
-	l   = log --graph --stat --decorate
-	la  = log --graph --stat --decorate --all
-	m   = merge
-	rh  = reset HEAD
-	ri  = rebase --interactive @{u}
-	s   = status --short --branch
-
+	a    = add
+	ap   = add --patch
+	b    = branch --verbose
+	bc   = branch --contains
+	br   = branch --remote
+	ci   = commit
+	cia  = commit --amend
+	co   = checkout
+	c-   = checkout --
+	cp   = cherry-pick
+	d    = diff
+	dc   = diff --cached
+	dw   = diff --color-words
+	f    = fetch
+	fa   = fetch --append
+	faa  = fetch --all --append
+	faap = fetch --all --append --prune
+	fff  = flow feature finish
+	ffs  = flow feature start
+	fhf  = flow hotfix finish
+	fhs  = flow hotfix start
+	frf  = flow release finish
+	frs  = flow release start
+	g    = grep -n
+	gi   = grep -ni
+	ig   = ls-files --others -i --exclude-standard
+	l    = log --graph --stat --decorate
+	la   = log --graph --stat --decorate --all
 	lod  = log --oneline --decorate
 	lodg = log --oneline --decorate --graph
-
-	fff = flow feature finish
-	ffs = flow feature start
-	fhf = flow hotfix finish
-	fhs = flow hotfix start
-	frf = flow release finish
-	frs = flow release start
-	lod = log --oneline --decorate
-	pom = push origin master
-	pgm = push github master
-	phm = push heroku master
+	m    = merge
+	pom  = push origin master
+	pgm  = push github master
+	phm  = push heroku master
+	rh   = reset HEAD
+	s    = status --short --branch
 
 	dr = "!f() { git status --porcelain | grep '^ *D ' | awk '{print $2}' | xargs git rm; }; f"
-	mc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge $1/$B; }; f"
-
-	mcg = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge github/$B; }; f"
-	mco = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; git merge origin/$B; }; f"
+	ri = "!f() { git rebase --interactive HEAD~$1; }; f"
 
 	ploc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pulling from $B..."; git pull origin $B; }; f"
 	psoc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pushing to $B..."; git push origin $B; }; f"
@@ -72,13 +67,6 @@
 	tag          = red
 	stash        = green
 	HEAD         = cyan bold
-
-[color "diff"]
-	frag       = green bold
-	meta       = yellow
-	new        = green
-	old        = red
-	whitespace = white reverse
 
 [color "grep"]
 	filename   = blue
