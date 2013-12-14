@@ -81,7 +81,7 @@ update: vim-plugins
 	echo "source $(ETC)/vim/vimrc" > "$(HOME)/.vimrc"
 
 vim/bundle/ctrlp.vim:
-	git clone git@github.com:kien/ctrlp.vim.git
+	git clone git@github.com:kien/ctrlp.vim.git vim/bundle/ctrlp.vim
 
 vim/bundle/fugitive.vim:
 	git clone git://github.com/tpope/vim-fugitive.git vim/bundle/fugitive.vim

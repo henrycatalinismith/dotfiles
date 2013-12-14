@@ -34,6 +34,13 @@ set t_Co=256
 " The space bar makes a good <leader> key
 let mapleader=" "
 
+" Fix MacVim
+set gfn=Menlo:h18
+set guioptions-=m
+set guioptions-=L
+set guioptions-=T
+set guioptions-=r
+
 " Help Vim's decrepit filetype recognition across the street
 au BufEnter,BufNewFile,BufRead *.md        setlocal filetype=markdown
 au BufEnter,BufNewFile,BufRead *.less      setlocal filetype=less
