@@ -12,7 +12,25 @@ alias t='tree -A --dirsfirst -C'
 alias tmux="TERM=screen-256color-bce tmux"
 alias tree='tree -C --dirsfirst'
 
-function parse_git_branch () {
+function __identity () {
+	if [[ ! -z $SSH_CLIENT ]]; then
+		echo "\[\e[0;32m\]\u\[\e[m\]\[\e[0;36m\]@\[\e[0;33m\]\h\[\e[m\]\[\e[0;36m\]:\[\e[m\]"
+	fi
+}
+
+function __directory () {
+	echo "\[\e[0;34m\]\w\[\e[m\]"
+}
+
+function __red () {
+	echo "\[\e[0;31m\]"
+}
+
+function __end () {
+	echo "\[\e[m\]"
+}
+
+function __branch () {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /'
 }
 
@@ -21,7 +39,7 @@ export CLICOLOR=1
 export EDITOR=vim
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export PATH="~/.rbenv/shims:$HOME/bin:/usr/local/bin:$PATH"
-export PS1="\[\e[0;32m\]\u\[\e[m\]\[\e[0;36m\]@\[\e[0;33m\]\h\[\e[m\]\[\e[0;36m\]:\[\e[0;34m\]\w\[\e[m\] \[\e[0;31m\]\$(parse_git_branch)\[\e[m\]$ "
+export PS1="$(__identity)$(__directory) $(__red)\$(__branch)$(__end)$ "
 export PS2="> "
 
 HISTCONTROL=ignoredups:ignorespace
