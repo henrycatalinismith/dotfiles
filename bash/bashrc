@@ -21,19 +21,38 @@ function __identity () {
 	fi
 }
 
-function __directory () {
-	echo "$(__blue)\w$(__end)"
+function __dollar_color () {
+	if [ $? -ne 0 ]; then
+		echo "$(__green)"
+	else
+		echo "$(__red)"
+	fi
 }
 
-function __red    () { echo "\[\e[0;31m\]"; }
-function __green  () { echo "\[\e[0;32m\]"; }
-function __yellow () { echo "\[\e[0;33m\]"; }
-function __blue   () { echo "\[\e[0;34m\]"; }
-function __cyan   () { echo "\[\e[0;36m\]"; }
-function __end    () { echo "\[\e[m\]";     }
 
-function __branch () {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /'
+export PROMPT_COMMAND=__prompt_command  # Func to gen PS1 after CMDs
+
+function __prompt_command() {
+    local EXIT="$?"
+
+    local red="\[\e[0;31m\]"
+    local green="\[\e[0;32m\]"
+    local yellow="\[\e[0;33m\]"
+    local blue="\[\e[0;34m\]"
+    local cyan="\[\e[0;36m\]"
+    local end="\[\e[m\["
+
+    PS1=""
+    PS1+="${green}\w${end}"
+    PS1+=" ${blue}"
+    PS1+="`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /'`"
+    PS1+="${end}"
+
+    if [ $EXIT != 0 ]; then
+	    PS1+="${red}($EXIT)${end} "
+    fi
+
+    PS1+="$ "
 }
 
 export LC_ALL="en_US.UTF-8"
@@ -41,7 +60,6 @@ export CLICOLOR=1
 export EDITOR=vim
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export PATH="~/.rbenv/shims:$HOME/bin:/usr/local/bin:$PATH"
-export PS1="$(__identity)$(__directory) $(__red)\$(__branch)$(__end)$ "
 export PS2="> "
 
 HISTCONTROL=ignoredups:ignorespace
