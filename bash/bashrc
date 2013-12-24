@@ -14,21 +14,23 @@ alias tree='tree -C --dirsfirst'
 
 function __identity () {
 	if [[ ! -z $SSH_CLIENT ]]; then
-		echo "\[\e[0;32m\]\u\[\e[m\]\[\e[0;36m\]@\[\e[0;33m\]\h\[\e[m\]\[\e[0;36m\]:\[\e[m\]"
+		echo -n "$(__green)\u$(__end)"
+		echo -n "$(__cyan)@$(__end)"
+		echo -n "$(__yellow)\h$(__end)"
+		echo -n "$(__cyan):$(__end)"
 	fi
 }
 
 function __directory () {
-	echo "\[\e[0;34m\]\w\[\e[m\]"
+	echo "$(__blue)\w$(__end)"
 }
 
-function __red () {
-	echo "\[\e[0;31m\]"
-}
-
-function __end () {
-	echo "\[\e[m\]"
-}
+function __red    () { echo "\[\e[0;31m\]"; }
+function __green  () { echo "\[\e[0;32m\]"; }
+function __yellow () { echo "\[\e[0;33m\]"; }
+function __blue   () { echo "\[\e[0;34m\]"; }
+function __cyan   () { echo "\[\e[0;36m\]"; }
+function __end    () { echo "\[\e[m\]";     }
 
 function __branch () {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /'
