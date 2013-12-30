@@ -3,7 +3,7 @@
 	sync = !ppl pull origin master && ppl push origin master
 
 [address book]
-	path = ~/doc/contacts
+	path = ~/tmp/contacts
 
 [color]
         age   = true
