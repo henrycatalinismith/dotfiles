@@ -24,7 +24,7 @@ Usage
 Installation
 ------------
 
-    git clone git@github.com:h2s/etc.git ~/etc
+    git clone git@github.com:urael/etc.git ~/etc
     cd ~/etc
     make install
 
