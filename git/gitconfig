@@ -3,6 +3,7 @@
 	a    = add
 	ap   = add --patch
 	b    = branch --verbose
+	ba   = branch --all
 	bc   = branch --contains
 	br   = branch --remote
 	ci   = commit
@@ -25,6 +26,7 @@
 	frs  = flow release start
 	g    = grep -n
 	gi   = grep -ni
+	git  = !git $1
 	ig   = ls-files --others -i --exclude-standard
 	l    = log --graph --stat --decorate
 	la   = log --graph --stat --decorate --all
@@ -45,6 +47,9 @@
 
 	undelete = !git checkout `git rev-list -n 1 HEAD -- $1`^ -- $1
 	tumbleweed = "!f() { git for-each-ref --sort=-committerdate refs --format='%(committerdate:short) %(refname:short)  %(authoremail)' | column -t | tac; }; f"
+	up = "!git remote update -p; git merge --ff-only @{u}"
+	accept-ours = "!f() { git checkout --ours -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
+	accept-theirs = "!f() { git checkout --theirs -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
 
 [core]
 	autocrlf = false
@@ -62,6 +67,10 @@
 	pager    = true
 	status   = true
 
+[color "branch"]
+	current = blue reverse
+	local = blue
+	remote = yellow
 
 [color "decorate"]
 	commit       = cyan
@@ -91,3 +100,8 @@
 	changed   = blue bold
 	untracked = red bold
 
+[user]
+	name = Henry Smith
+	email = henry@henrysmith.org
+[push]
+	default = matching
