@@ -50,6 +50,7 @@
 	up = "!git remote update -p; git merge --ff-only @{u}"
 	accept-ours = "!f() { git checkout --ours -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
 	accept-theirs = "!f() { git checkout --theirs -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
+	versions = "!f() { git tag | grep \"^[0-9.]\\+$\" | sort -V; }; f"
 
 [core]
 	autocrlf = false
