@@ -81,28 +81,28 @@ update: vim-plugins
 	echo "source $(ETC)/vim/vimrc" > "$(HOME)/.vimrc"
 
 vim/bundle/ctrlp.vim:
-	git clone git@github.com:kien/ctrlp.vim.git vim/bundle/ctrlp.vim
+	git clone https://github.com/kien/ctrlp.vim.git vim/bundle/ctrlp.vim
 
 vim/bundle/fugitive.vim:
-	git clone git://github.com/tpope/vim-fugitive.git vim/bundle/fugitive.vim
+	git clone https://github.com/tpope/vim-fugitive.git vim/bundle/fugitive.vim
 
 vim/bundle/nerdtree.vim:
-	git clone git://github.com/scrooloose/nerdtree.git vim/bundle/nerdtree.vim
+	git clone https://github.com/scrooloose/nerdtree.git vim/bundle/nerdtree.vim
 
 vim/bundle/powerline.vim:
-	git clone git://github.com/Lokaltog/vim-powerline.git vim/bundle/powerline.vim
+	git clone https://github.com/Lokaltog/vim-powerline.git vim/bundle/powerline.vim
 
 vim/bundle/solarized.vim:
 	git clone https://github.com/altercation/vim-colors-solarized.git vim/bundle/solarized.vim
 
 vim/bundle/surround.vim:
-	git clone git://github.com/tpope/vim-surround.git vim/bundle/surround.vim
+	git clone https://github.com/tpope/vim-surround.git vim/bundle/surround.vim
 
 vim/bundle/tabular.vim:
-	git clone git://github.com/godlygeek/tabular.git vim/bundle/tabular.vim
+	git clone https://github.com/godlygeek/tabular.git vim/bundle/tabular.vim
 
 vim/bundle/twig.vim:
-	git clone git://github.com/lunaru/vim-twig.git vim/bundle/twig.vim
+	git clone https://github.com/lunaru/vim-twig.git vim/bundle/twig.vim
 
 .PHONY: \
 	clean \
