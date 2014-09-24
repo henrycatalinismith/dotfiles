@@ -42,9 +42,6 @@
 	dr = "!f() { git status --porcelain | grep '^ *D ' | awk '{print $2}' | xargs git rm; }; f"
 	ri = "!f() { git rebase --interactive HEAD~$1; }; f"
 
-	ploc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pulling from $B..."; git pull origin $B; }; f"
-	psoc = "!f() { B=`git branch | grep '^\\*' | awk '{print $2}'`; echo "Pushing to $B..."; git push origin $B; }; f"
-
 	undelete = !git checkout `git rev-list -n 1 HEAD -- $1`^ -- $1
 	tumbleweed = "!f() { git for-each-ref --sort=-committerdate refs --format='%(committerdate:short) %(refname:short)  %(authoremail)' | column -t | tac; }; f"
 	up = "!git remote update -p; git merge --ff-only @{u}"
