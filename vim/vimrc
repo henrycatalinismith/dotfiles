@@ -42,6 +42,7 @@ set guioptions-=T
 set guioptions-=r
 
 " Help Vim's decrepit filetype recognition across the street
+au BufEnter,BufNewFile,BufRead *.scss      setlocal filetype=css
 au BufEnter,BufNewFile,BufRead *.md        setlocal filetype=markdown
 au BufEnter,BufNewFile,BufRead *.less      setlocal filetype=less
 au BufEnter,BufNewFile,BufRead *.yml       setlocal filetype=yaml
