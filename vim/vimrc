@@ -1,4 +1,3 @@
-
 " Tell Vim where we are
 let vimdir = expand('<sfile>:p:h')
 let &runtimepath=vimdir . ',' . $VIMRUNTIME

@@ -9,6 +9,7 @@ default:
 	@echo "  update        Update Vim plugins"
 
 clean:
+	rm -rf vim/bundle/coffee-script.vim
 	rm -rf vim/bundle/ctrlp.vim
 	rm -rf vim/bundle/fugitive.vim
 	rm -rf vim/bundle/nerdtree.vim
@@ -38,6 +39,7 @@ uninstall:
 	rm -f $(HOME)/.vimrc
 
 vim-plugins: \
+	vim/bundle/coffee-script.vim \
 	vim/bundle/ctrlp.vim \
 	vim/bundle/fugitive.vim \
 	vim/bundle/nerdtree.vim \
@@ -79,6 +81,9 @@ update: vim-plugins
 
 ~/.vimrc:
 	echo "source $(ETC)/vim/vimrc" > "$(HOME)/.vimrc"
+
+vim/bundle/coffee-script.vim:
+	git clone git@github.com:kchmck/vim-coffee-script.git vim/bundle/coffee-script.vim
 
 vim/bundle/ctrlp.vim:
 	git clone https://github.com/kien/ctrlp.vim.git vim/bundle/ctrlp.vim
