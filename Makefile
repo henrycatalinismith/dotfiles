@@ -11,6 +11,7 @@ default:
 clean:
 	rm -rf vim/bundle/coffee-script.vim
 	rm -rf vim/bundle/ctrlp.vim
+	rm -rf vim/bundle/editorconfig.vim
 	rm -rf vim/bundle/fugitive.vim
 	rm -rf vim/bundle/nerdtree.vim
 	rm -rf vim/bundle/powerline.vim
@@ -41,6 +42,7 @@ uninstall:
 vim-plugins: \
 	vim/bundle/coffee-script.vim \
 	vim/bundle/ctrlp.vim \
+	vim/bundle/editorconfig.vim \
 	vim/bundle/fugitive.vim \
 	vim/bundle/nerdtree.vim \
 	vim/bundle/powerline.vim \
@@ -87,6 +89,9 @@ vim/bundle/coffee-script.vim:
 
 vim/bundle/ctrlp.vim:
 	git clone https://github.com/kien/ctrlp.vim.git vim/bundle/ctrlp.vim
+
+vim/bundle/editorconfig.vim:
+	git clone git@github.com:editorconfig/editorconfig-vim.git vim/bundle/editorconfig.vim
 
 vim/bundle/fugitive.vim:
 	git clone https://github.com/tpope/vim-fugitive.git vim/bundle/fugitive.vim
