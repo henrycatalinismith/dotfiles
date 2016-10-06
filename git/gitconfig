@@ -39,7 +39,6 @@
 	rh   = reset HEAD
 	s    = status --short --branch
 
-	t = "!f() { tree -I 'node_modules|vendor'; }; f"
 	dr = "!f() { git status --porcelain | grep '^ *D ' | awk '{print $2}' | xargs git rm; }; f"
 	ri = "!f() { git rebase --interactive HEAD~$1; }; f"
 
