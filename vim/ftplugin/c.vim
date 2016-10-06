@@ -1,1 +1,0 @@
-set omnifunc=ccomplete#Complete
