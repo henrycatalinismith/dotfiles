@@ -99,4 +99,6 @@ nnoremap <leader>wq :write<CR>:quit!<CR>
 
 " 256 colours should be enough for anyone
 set t_Co=256
+set background=dark
+colorscheme solarized
 

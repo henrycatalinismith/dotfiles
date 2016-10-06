@@ -4,11 +4,14 @@ default:
 	@echo "  install       Install all config files"
 	@echo "  uninstall     Remove all config files"
 
+clean:
+	rm -rf vim/colors
 
 install: \
 	~/.gitconfig \
 	~/.hyper.js \
 	~/.vimrc \
+	vim/colors
 
 uninstall:
 	rm -f $(HOME)/.gitconfig
@@ -24,7 +27,13 @@ uninstall:
 ~/.vimrc:
 	ln -s $(DOTFILES)/vim/vimrc $(HOME)/.vimrc
 
+vim/colors:
+	git clone https://github.com/altercation/vim-colors-solarized.git
+	mv vim-colors-solarized/colors vim/colors
+	rm -rf vim-colors-solarized
+
 .PHONY: \
+	clean \
 	default \
 	install \
 	uninstall
