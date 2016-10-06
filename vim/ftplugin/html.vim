@@ -1,0 +1,3 @@
+setlocal omnifunc=htmlcomplete#CompleteTags
+setlocal shiftwidth=2
+setlocal softtabstop=2
