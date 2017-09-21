@@ -1,4 +1,4 @@
-const backgroundColor = '#002b36';
+const backgroundColor = '#1f1a1b';
 const foregroundColor = '#c4e2f2';
 const cursorColor = 'rgba(173, 216, 119, 0.5)';
 const cursorShape = 'BEAM';
