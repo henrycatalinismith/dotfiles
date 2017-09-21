@@ -9,3 +9,4 @@ Plug 'mxw/vim-jsx'
 call plug#end()
 
 let g:gitgutter_realtime = 1
+let NERDTreeMinimalUI=1
