@@ -1,4 +1,3 @@
-
 [alias]
 	a    = add
 	ap   = add --patch
@@ -13,46 +12,21 @@
 	cp   = cherry-pick
 	d    = diff
 	dc   = diff --cached
-	dw   = diff --color-words
-	f    = fetch
-	fa   = fetch --append
-	faa  = fetch --all --append
-	faap = fetch --all --append --prune
-	fff  = flow feature finish
-	ffs  = flow feature start
-	fhf  = flow hotfix finish
-	fhs  = flow hotfix start
-	frf  = flow release finish
-	frs  = flow release start
 	g    = grep -n
 	gi   = grep -ni
 	git  = !git $1
 	ig   = ls-files --others -i --exclude-standard
 	l    = log --graph --stat --decorate
-	la   = log --graph --stat --decorate --all
 	lod  = log --oneline --decorate
 	lodg = log --oneline --decorate --graph
 	m    = merge
-	pom  = push origin master
-	pgm  = push github master
-	phm  = push heroku master
 	rh   = reset HEAD
 	s    = status --short --branch
-
-	dr = "!f() { git status --porcelain | grep '^ *D ' | awk '{print $2}' | xargs git rm; }; f"
-	ri = "!f() { git rebase --interactive HEAD~$1; }; f"
-
-	undelete = !git checkout `git rev-list -n 1 HEAD -- $1`^ -- $1
-	tumbleweed = "!f() { git for-each-ref --sort=-committerdate refs --format='%(committerdate:short) %(refname:short)  %(authoremail)' | column -t | tac; }; f"
-	up = "!git remote update -p; git merge --ff-only @{u}"
-	accept-ours = "!f() { git checkout --ours -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
-	accept-theirs = "!f() { git checkout --theirs -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
-	versions = "!f() { git tag | grep \"^[0-9.]\\+$\" | sort -V; }; f"
+	up   = "!git remote update -p; git merge --ff-only @{u}"
 
 [core]
 	autocrlf = false
 	whitespace = trailing-space,space-before-tab
-
 
 [clean]
 	requireForce = false
@@ -65,41 +39,6 @@
 	pager    = true
 	status   = true
 
-[color "branch"]
-	current = blue reverse
-	local = blue
-	remote = yellow
-
-[color "decorate"]
-	commit       = cyan
-	branch       = magenta
-	remotebranch = green bold
-	tag          = red
-	stash        = green
-	HEAD         = cyan bold
-
-
-[color "diff"]
-	frag       = green bold
-	meta       = yellow
-	new        = green
-	old        = red
-	whitespace = white reverse
-
-
-[color "grep"]
-	filename   = blue
-	linenumber = green
-	match      = yellow
-	separator  = cyan
-
-[color "status"]
-	added     = blue bold
-	changed   = blue bold
-	untracked = red bold
-
 [user]
 	name = Henry Smith
 	email = henry@henrysmith.org
-[push]
-	default = matching

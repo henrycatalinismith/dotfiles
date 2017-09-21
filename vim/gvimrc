@@ -1,0 +1,10 @@
+colorscheme default
+set guifont=Input\ Mono\ Narrow:h18
+set guioptions-=L
+
+" Visual guidelines for common maximum widths
+set colorcolumn=81,121
+
+if !empty(glob("~/.dotfiles/vim/autoload/plug.vim"))
+  source ~/.dotfiles/vim/plugins.vim
+endif

@@ -15,7 +15,7 @@ set nofoldenable
 " The space bar makes a good <leader> key
 let mapleader=" "
 
-" Syntax highlighting is best highlighting
+" Syntax highlighting
 syntax on
 syntax sync minlines=256
 set synmaxcol=256
@@ -30,13 +30,6 @@ set shortmess+=I
 set fileformat=unix
 set textwidth=80
 set laststatus=2
-
-" Update Vim's obsolete file recognition
-au BufEnter,BufNewFile,BufRead *.scss setlocal filetype=css
-au BufEnter,BufNewFile,BufRead *.md setlocal filetype=markdown
-au BufEnter,BufNewFile,BufRead *.less setlocal filetype=less
-au BufEnter,BufNewFile,BufRead *.yml setlocal filetype=yaml
-au BufEnter,BufNewFile,BufRead *.json setlocal filetype=json
 
 " Go away, ex mode
 map Q <nop>
@@ -85,20 +78,17 @@ nnoremap <leader>q  :quit!<CR>
 nnoremap <leader>w  :write<CR>
 nnoremap <leader>wq :write<CR>:quit!<CR>
 
-" Easier Markdown underlining
-nnoremap <leader>= :set fo-=a<CR>yypv$r=<CR>:set fo += a<CR>
-nnoremap <leader>- :set fo-=a<CR>yypv$r-<CR>:set fo +=a<CR>
-
-" Visual guidelines for common maximum widths
-set colorcolumn=81,121
-
-" Simple mappings for built-in Vim stuff
-nnoremap <leader>q  :quit!<CR>
-nnoremap <leader>w  :write<CR>
-nnoremap <leader>wq :write<CR>:quit!<CR>
-
 " 256 colours should be enough for anyone
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme default
+
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+  \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+  \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+if !empty(glob("~/.dotfiles/vim/autoload/plug.vim"))
+  source ~/.dotfiles/vim/plugins.vim
+endif
 
