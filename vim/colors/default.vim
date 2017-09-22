@@ -1,8 +1,10 @@
 highlight Normal guibg=#1f1a1b guifg=#c4e2f2
 highlight LineNr guibg=#002b36 guifg=#859900 ctermfg=2
-highlight EndOfBuffer guifg=#002b36 ctermfg=12 
+highlight EndOfBuffer guifg=#002b36 ctermfg=12
 highlight ColorColumn guibg=black
 highlight VertSplit guibg=#002b36
+
+highlight ExtraWhitespace guibg=#ffffff ctermbg=white
 
 highlight Statement guifg=#fce94f gui=none
 
