@@ -66,6 +66,8 @@
 	separator  = cyan
 
 [color "status"]
+	branch    = magenta
+	header    = blue
 	added     = magenta
 	changed   = magenta
 	untracked = cyan
