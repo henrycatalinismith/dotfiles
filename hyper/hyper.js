@@ -90,6 +90,7 @@ module.exports = {
     cursorColor,
     cursorShape,
 
+    bell: false,
   },
   plugins,
 };
