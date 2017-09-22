@@ -39,6 +39,37 @@
 	pager    = true
 	status   = true
 
+[color "branch"]
+	current = magenta reverse
+	local = magenta
+	remote = yellow
+
+[color "decorate"]
+	commit       = cyan
+	branch       = magenta
+	remotebranch = magenta bold
+	tag          = red
+	stash        = yellow
+	HEAD         = cyan
+
+[color "diff"]
+	frag       = magenta
+	meta       = black
+	new        = green bold
+	old        = red bold
+	whitespace = white reverse
+
+[color "grep"]
+	filename   = blue
+	linenumber = green
+	match      = magenta bold
+	separator  = cyan
+
+[color "status"]
+	added     = magenta
+	changed   = magenta
+	untracked = cyan
+
 [user]
 	name = Henry Smith
 	email = henry@henrysmith.org
