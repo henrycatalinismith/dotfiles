@@ -17,6 +17,7 @@ const cursorShape = 'BEAM';
 const colors = {
   // black: '#000000',
   black: '#666666',
+  black: backgroundColor,
 
   // brightBlack: '#808080',
   brightBlack: '#4b4b4b',
