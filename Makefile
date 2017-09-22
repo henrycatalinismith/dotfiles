@@ -17,6 +17,47 @@ BRIGHT_WHITE=\#ffffff
 
 DOTFILES=~/.dotfiles
 
+colors: hyper/colors.js vim/colors/default.vim
+
+hyper/colors.js:
+	echo "module.exports = {" > hyper/colors.js
+	echo "  black: '${BLACK}'," >> hyper/colors.js
+	echo "  red: '${RED}'," >> hyper/colors.js
+	echo "  green: '${GREEN}'," >> hyper/colors.js
+	echo "  yellow: '${YELLOW}'," >> hyper/colors.js
+	echo "  blue: '${BLUE}'," >> hyper/colors.js
+	echo "  magenta: '${MAGENTA}'," >> hyper/colors.js
+	echo "  cyan: '${CYAN}'," >> hyper/colors.js
+	echo "  white: '${WHITE}'," >> hyper/colors.js
+	echo "  brightBlack: '${BRIGHT_BLACK}'," >> hyper/colors.js
+	echo "  brightRed: '${BRIGHT_RED}'," >> hyper/colors.js
+	echo "  brightGreen: '${BRIGHT_GREEN}'," >> hyper/colors.js
+	echo "  brightYellow: '${BRIGHT_YELLOW}'," >> hyper/colors.js
+	echo "  brightBlue: '${BRIGHT_BLUE}'," >> hyper/colors.js
+	echo "  brightMagenta: '${BRIGHT_MAGENTA}'," >> hyper/colors.js
+	echo "  brightCyan: '${BRIGHT_CYAN}'," >> hyper/colors.js
+	echo "  brightWhite: '${BRIGHT_WHITE}'," >> hyper/colors.js
+	echo "};" >> hyper/colors.js
+hyper/colors.js:
+	echo "module.exports = {" > hyper/colors.js
+	echo "  black: '${BLACK}'," >> hyper/colors.js
+	echo "  red: '${RED}'," >> hyper/colors.js
+	echo "  green: '${GREEN}'," >> hyper/colors.js
+	echo "  yellow: '${YELLOW}'," >> hyper/colors.js
+	echo "  blue: '${blue}'," >> hyper/colors.js
+	echo "  magenta: '${MAGENTA}'," >> hyper/colors.js
+	echo "  cyan: '${CYAN}'," >> hyper/colors.js
+	echo "  white: '${WHITE}'," >> hyper/colors.js
+	echo "  brightBlack: '${BRIGHT_BLACK}'," >> hyper/colors.js
+	echo "  brightRed: '${BRIGHT_RED}'," >> hyper/colors.js
+	echo "  brightGreen: '${BRIGHT_GREEN}'," >> hyper/colors.js
+	echo "  brightYellow: '${BRIGHT_YELLOW}'," >> hyper/colors.js
+	echo "  brightBlue: '${BRIGHT_BLUE}'," >> hyper/colors.js
+	echo "  brightMagenta: '${BRIGHT_MAGENTA}'," >> hyper/colors.js
+	echo "  brightCyan: '${BRIGHT_CYAN}'," >> hyper/colors.js
+	echo "  brightWhite: '${BRIGHT_WHITE}'," >> hyper/colors.js
+	echo "};" >> hyper/colors.js
+
 vim/colors/default.vim:
 	cp vim/colors.vim vim/colors/default.vim
 	sed -i.bak 's/ctermfg=:BLACK:/ctermfg=0/g' vim/colors/default.vim
@@ -100,4 +141,4 @@ vim/autoload/plug.vim:
 		vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-.PHONY: clean default install uninstall vim/colors/default.vim
+.PHONY: clean default install uninstall vim/colors/default.vim hyper/colors.js colors

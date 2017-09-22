@@ -1,0 +1,18 @@
+module.exports = {
+  black: '#1f1a1b',
+  red: '#dc322f',
+  green: '#859900',
+  yellow: '#b58900',
+  blue: '',
+  magenta: '#cf5fe2',
+  cyan: '#00ffff',
+  white: '#d0d0d0',
+  brightBlack: '#4b4b4b',
+  brightRed: '#dc412f',
+  brightGreen: '#586e75',
+  brightYellow: '#b58900',
+  brightBlue: '#839496',
+  brightMagenta: '#6c71c4',
+  brightCyan: '#00ffff',
+  brightWhite: '#ffffff',
+};
