@@ -74,6 +74,7 @@ nnoremap <silent> g* g*zz
 nnoremap <silent> g# g#zz
 
 " Simple mappings for built-in Vim stuff
+nnoremap <leader>p  :set invpaste paste?<CR>
 nnoremap <leader>q  :quit!<CR>
 nnoremap <leader>w  :write<CR>
 nnoremap <leader>wq :write<CR>:quit!<CR>
