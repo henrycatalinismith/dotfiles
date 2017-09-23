@@ -3,8 +3,9 @@ highlight LineNr guibg=#1f1a1b guifg=#d0d0d0 ctermbg=0 ctermfg=7
 highlight EndOfBuffer guifg=#1f1a1b ctermfg=0
 highlight ColorColumn guibg=#6C71C4 ctermbg=5
 
-highlight VertSplit guibg=#1f1a1b ctermfg=0
+highlight VertSplit guibg=#268bd2 ctermfg=4
 highlight StatusLine guibg=#268bd2 guifg=#d0d0d0 ctermbg=7 ctermfg=4
+highlight StatusLineNC guibg=#268bd2 guifg=#d0d0d0 ctermbg=7 ctermfg=4
 
 highlight vimHiCtermError guibg=#1f1a1b guifg=#268bd2 ctermbg=0 ctermfg=4
 

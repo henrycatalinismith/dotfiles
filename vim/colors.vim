@@ -3,8 +3,9 @@ highlight LineNr guibg=:BLACK: guifg=:WHITE: ctermbg=:BLACK: ctermfg=:WHITE:
 highlight EndOfBuffer guifg=:BLACK: ctermfg=:BLACK:
 highlight ColorColumn guibg=:MAGENTA: ctermbg=:MAGENTA:
 
-highlight VertSplit guibg=:BLACK: ctermfg=:BLACK:
+highlight VertSplit guibg=:BLUE: ctermfg=:BLUE:
 highlight StatusLine guibg=:BLUE: guifg=:WHITE: ctermbg=:WHITE: ctermfg=:BLUE:
+highlight StatusLineNC guibg=:BLUE: guifg=:WHITE: ctermbg=:WHITE: ctermfg=:BLUE:
 
 highlight vimHiCtermError guibg=:BLACK: guifg=:BLUE: ctermbg=:BLACK: ctermfg=:BLUE:
 
