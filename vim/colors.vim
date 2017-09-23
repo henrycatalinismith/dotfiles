@@ -4,7 +4,7 @@ highlight EndOfBuffer guifg=:BLACK: ctermfg=:BLACK:
 highlight ColorColumn guibg=:MAGENTA: ctermbg=:MAGENTA:
 
 highlight VertSplit guibg=:BLACK: ctermfg=:BLACK:
-highlight StatusLine guibg=:WHITE: guifg=:BLUE: ctermbg=:WHITE: ctermfg=:BLUE:
+highlight StatusLine guibg=:BLUE: guifg=:WHITE: ctermbg=:WHITE: ctermfg=:BLUE:
 
 highlight vimHiCtermError guibg=:BLACK: guifg=:BLUE: ctermbg=:BLACK: ctermfg=:BLUE:
 
@@ -21,4 +21,4 @@ highlight NERDTreeDir guifg=:MAGENTA: ctermfg=:MAGENTA:
 
 highlight TabLineFill guifg=:BLUE: ctermfg=:BLUE:
 highlight TabLineSel guibg=:WHITE: guifg=:BRIGHT_MAGENTA: ctermbg=:WHITE: ctermfg=:BRIGHT_MAGENTA:
-highlight TabLine guibg=:BLUE: ctermbg=:BLUE: cterm=bold
+highlight TabLine guibg=:BLUE: gui=bold ctermbg=:BLUE: cterm=bold
