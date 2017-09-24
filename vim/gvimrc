@@ -2,7 +2,7 @@ colorscheme default
 set guifont=Input\ Mono\ Narrow:h18
 set guioptions=
 
-" ⌘S -> Save
+" https://stackoverflow.com/a/4945278
 inoremap <D-s> <ESC>:w<CR>i
 nnoremap <D-s> :w<CR>
 
