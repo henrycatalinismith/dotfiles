@@ -17,46 +17,23 @@ BRIGHT_WHITE=\#ffffff
 
 DOTFILES=~/.dotfiles
 
-colors: hyper/colors.js vim/colors/default.vim
-
-hyper/colors.js:
-	echo "module.exports = {" > hyper/colors.js
-	echo "  black: '${BLACK}'," >> hyper/colors.js
-	echo "  red: '${RED}'," >> hyper/colors.js
-	echo "  green: '${GREEN}'," >> hyper/colors.js
-	echo "  yellow: '${YELLOW}'," >> hyper/colors.js
-	echo "  blue: '${BLUE}'," >> hyper/colors.js
-	echo "  magenta: '${MAGENTA}'," >> hyper/colors.js
-	echo "  cyan: '${CYAN}'," >> hyper/colors.js
-	echo "  white: '${WHITE}'," >> hyper/colors.js
-	echo "  brightBlack: '${BRIGHT_BLACK}'," >> hyper/colors.js
-	echo "  brightRed: '${BRIGHT_RED}'," >> hyper/colors.js
-	echo "  brightGreen: '${BRIGHT_GREEN}'," >> hyper/colors.js
-	echo "  brightYellow: '${BRIGHT_YELLOW}'," >> hyper/colors.js
-	echo "  brightBlue: '${BRIGHT_BLUE}'," >> hyper/colors.js
-	echo "  brightMagenta: '${BRIGHT_MAGENTA}'," >> hyper/colors.js
-	echo "  brightCyan: '${BRIGHT_CYAN}'," >> hyper/colors.js
-	echo "  brightWhite: '${BRIGHT_WHITE}'," >> hyper/colors.js
-	echo "};" >> hyper/colors.js
-hyper/colors.js:
-	echo "module.exports = {" > hyper/colors.js
-	echo "  black: '${BLACK}'," >> hyper/colors.js
-	echo "  red: '${RED}'," >> hyper/colors.js
-	echo "  green: '${GREEN}'," >> hyper/colors.js
-	echo "  yellow: '${YELLOW}'," >> hyper/colors.js
-	echo "  blue: '${blue}'," >> hyper/colors.js
-	echo "  magenta: '${MAGENTA}'," >> hyper/colors.js
-	echo "  cyan: '${CYAN}'," >> hyper/colors.js
-	echo "  white: '${WHITE}'," >> hyper/colors.js
-	echo "  brightBlack: '${BRIGHT_BLACK}'," >> hyper/colors.js
-	echo "  brightRed: '${BRIGHT_RED}'," >> hyper/colors.js
-	echo "  brightGreen: '${BRIGHT_GREEN}'," >> hyper/colors.js
-	echo "  brightYellow: '${BRIGHT_YELLOW}'," >> hyper/colors.js
-	echo "  brightBlue: '${BRIGHT_BLUE}'," >> hyper/colors.js
-	echo "  brightMagenta: '${BRIGHT_MAGENTA}'," >> hyper/colors.js
-	echo "  brightCyan: '${BRIGHT_CYAN}'," >> hyper/colors.js
-	echo "  brightWhite: '${BRIGHT_WHITE}'," >> hyper/colors.js
-	echo "};" >> hyper/colors.js
+colors: vim/colors/default.vim
+	sed -i.bak "s/black:.*/black: '${BLACK}',/g" hyper/hyper.js
+	sed -i.bak "s/red:.*/red: '${RED}',/g" hyper/hyper.js
+	sed -i.bak "s/green:.*/green: '${GREEN}',/g" hyper/hyper.js
+	sed -i.bak "s/yellow:.*/yellow: '${YELLOW}',/g" hyper/hyper.js
+	sed -i.bak "s/blue:.*/blue: '${BLUE}',/g" hyper/hyper.js
+	sed -i.bak "s/magenta:.*/magenta: '${MAGENTA}',/g" hyper/hyper.js
+	sed -i.bak "s/cyan:.*/cyan: '${CYAN}',/g" hyper/hyper.js
+	sed -i.bak "s/white:.*/white: '${WHITE}',/g" hyper/hyper.js
+	sed -i.bak "s/brightBlack:.*/brightBlack: '${BRIGHT_BLACK}',/g" hyper/hyper.js
+	sed -i.bak "s/brightRed:.*/brightRed: '${BRIGHT_RED}',/g" hyper/hyper.js
+	sed -i.bak "s/brightGreen:.*/brightGreen: '${BRIGHT_GREEN}',/g" hyper/hyper.js
+	sed -i.bak "s/brightYellow:.*/brightYellow: '${BRIGHT_YELLOW}',/g" hyper/hyper.js
+	sed -i.bak "s/brightBlue:.*/brightBlue: '${BRIGHT_BLUE}',/g" hyper/hyper.js
+	sed -i.bak "s/brightMagenta:.*/brightMagenta: '${BRIGHT_MAGENTA}',/g" hyper/hyper.js
+	sed -i.bak "s/brightCyan:.*/brightCyan: '${BRIGHT_CYAN}',/g" hyper/hyper.js
+	sed -i.bak "s/brightWhite:.*/brightWhite: '${BRIGHT_WHITE}',/g" hyper/hyper.js
 
 vim/colors/default.vim:
 	cp vim/colors.vim vim/colors/default.vim
