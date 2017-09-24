@@ -24,7 +24,7 @@ let g:nerdtree_tabs_autofind = 1
 
 nnoremap <leader>t  :CtrlP<CR>
 
-https://github.com/gonzaloserrano/spf13-vim/commit/3f977d6e6e94125a850da5dda349b961e431f869
+" https://github.com/gonzaloserrano/spf13-vim/commit/3f977d6e6e94125a850da5dda349b961e431f869
 let g:ctrlp_user_command = {
   \ 'types': {
     \ 1: ['.git', 'cd %s && git ls-files'],
