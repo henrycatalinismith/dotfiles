@@ -1,5 +1,8 @@
 colorscheme default
-set colorcolumn=81,121
 set guifont=Input\ Mono\ Narrow:h18
 set guioptions=
+
+" ⌘S -> Save
+inoremap <D-s> <ESC>:w<CR>i
+nnoremap <D-s> :w<CR>
 

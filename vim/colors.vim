@@ -16,7 +16,13 @@ highlight Type guifg=:BRIGHT_BLUE: gui=none ctermfg=:BRIGHT_BLUE:
 highlight PreProc guifg=:BRIGHT_BLUE: ctermfg=:BRIGHT_BLUE:
 highlight Constant guifg=:GREEN: ctermfg=:GREEN:
 
-highlight CursorLine guibg=:BRIGHT_MAGENTA: guifg=:BRIGHT_WHITE: ctermbg=:BRIGHT_MAGENTA: cterm=none ctermfg=:BRIGHT_WHITE:
+augroup NerdCursor
+  autocmd!
+  autocmd BufEnter NERD_tree_* highlight CursorLine guibg=:BRIGHT_MAGENTA: guifg=:BRIGHT_WHITE: ctermbg=:BRIGHT_MAGENTA: cterm=none ctermfg=:BRIGHT_WHITE:
+  autocmd BufLeave NERD_tree_* highlight CursorLine guibg=:BRIGHT_BLACK: ctermbg=:BRIGHT_BLACK: cterm=none
+  autocmd BufAdd * highlight clear CursorLine
+augroup END
+
 highlight NERDTreeCWD guifg=:BRIGHT_MAGENTA: ctermfg=:BRIGHT_MAGENTA:
 highlight NERDTreeOpenable guifg=:BLUE: ctermfg=:BLUE:
 highlight NERDTreeDir guifg=:BLUE: ctermfg=:BLUE:
