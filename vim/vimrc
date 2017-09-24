@@ -24,6 +24,7 @@ set synmaxcol=256
 filetype indent plugin on
 set autoindent
 set smartindent
+set cursorline
 
 " Some very boring things
 set shortmess+=I

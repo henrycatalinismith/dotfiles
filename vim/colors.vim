@@ -17,11 +17,12 @@ highlight PreProc guifg=:BRIGHT_BLUE: ctermfg=:BRIGHT_BLUE:
 highlight Constant guifg=:GREEN: ctermfg=:GREEN:
 
 augroup NerdCursor
-  autocmd!
-  autocmd BufEnter NERD_tree_* highlight CursorLine guibg=:BRIGHT_MAGENTA: guifg=:BRIGHT_WHITE: ctermbg=:BRIGHT_MAGENTA: cterm=none ctermfg=:BRIGHT_WHITE:
-  autocmd BufLeave NERD_tree_* highlight CursorLine guibg=:BRIGHT_BLACK: ctermbg=:BRIGHT_BLACK: cterm=none
-  autocmd BufAdd * highlight clear CursorLine
+  "autocmd!
+  "autocmd BufEnter NERD_tree_* highlight CursorLine guibg=:BRIGHT_MAGENTA: guifg=:BRIGHT_WHITE: ctermbg=:BRIGHT_MAGENTA: cterm=none ctermfg=:BRIGHT_WHITE:
+  "autocmd BufLeave NERD_tree_* highlight CursorLine guibg=:BRIGHT_BLACK: ctermbg=:BRIGHT_BLACK: cterm=none
+  "autocmd BufAdd * highlight clear CursorLine
 augroup END
+highlight CursorLine guibg=:Grey15: ctermbg=:Grey15: cterm=none
 
 highlight NERDTreeCWD guifg=:BRIGHT_MAGENTA: ctermfg=:BRIGHT_MAGENTA:
 highlight NERDTreeOpenable guifg=:BLUE: ctermfg=:BLUE:
