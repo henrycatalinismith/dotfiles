@@ -6,3 +6,4 @@ set guioptions=
 inoremap <D-s> <ESC>:w<CR>i
 nnoremap <D-s> :w<CR>
 
+let g:nerdtree_tabs_autoclose = 0
