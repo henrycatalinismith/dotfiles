@@ -1,25 +1,45 @@
 highlight Normal guibg=:BLACK: guifg=:WHITE:
-highlight LineNr guibg=:BLACK: guifg=:WHITE: ctermbg=:BLACK: ctermfg=:WHITE:
+highlight LineNr guibg=:BLACK: guifg=:BRIGHT_BLACK: ctermbg=:BLACK: ctermfg=:BRIGHT_BLACK:
 highlight EndOfBuffer guifg=:BLACK: ctermfg=:BLACK:
 highlight ColorColumn guibg=:MAGENTA: ctermbg=:MAGENTA:
 
-highlight VertSplit guibg=:BLUE: ctermfg=:BLUE:
-highlight StatusLine guibg=:BLUE: guifg=:WHITE: ctermbg=:WHITE: ctermfg=:BLUE:
-highlight StatusLineNC guibg=:BLUE: guifg=:WHITE: ctermbg=:WHITE: ctermfg=:BLUE:
+highlight VertSplit guibg=:BLACK: ctermfg=:BLACK:
+highlight StatusLine guibg=:BRIGHT_BLACK: guifg=:WHITE: ctermbg=:WHITE: ctermfg=:BRIGHT_BLACK:
+highlight StatusLineNC guibg=:BRIGHT_BLACK: guifg=:WHITE: ctermbg=:WHITE: ctermfg=:BRIGHT_BLACK:
 
 highlight vimHiCtermError guibg=:BLACK: guifg=:BLUE: ctermbg=:BLACK: ctermfg=:BLUE:
 
 highlight ExtraWhitespace guibg=:BRIGHT_WHITE: ctermbg=:BRIGHT_WHITE:
 
-highlight Statement guifg=:GREEN: ctermfg=:GREEN:
-highlight Type guifg=:BLUE: ctermfg=:BLUE:
-highlight PreProc guifg=:BLUE: ctermfg=:BLUE:
+highlight Statement guifg=:GREEN: gui=none ctermfg=:GREEN:
+highlight Type guifg=:BRIGHT_BLUE: gui=none ctermfg=:BRIGHT_BLUE:
+highlight PreProc guifg=:BRIGHT_BLUE: ctermfg=:BRIGHT_BLUE:
 highlight Constant guifg=:GREEN: ctermfg=:GREEN:
 
+highlight CursorLine guibg=:BRIGHT_MAGENTA: guifg=:BRIGHT_WHITE: ctermbg=:BRIGHT_MAGENTA: cterm=none ctermfg=:BRIGHT_WHITE:
 highlight NERDTreeCWD guifg=:BRIGHT_MAGENTA: ctermfg=:BRIGHT_MAGENTA:
 highlight NERDTreeOpenable guifg=:BLUE: ctermfg=:BLUE:
-highlight NERDTreeDir guifg=:MAGENTA: ctermfg=:MAGENTA:
+highlight NERDTreeDir guifg=:BLUE: ctermfg=:BLUE:
 
-highlight TabLineFill guifg=:BLUE: ctermfg=:BLUE:
-highlight TabLineSel guibg=:WHITE: guifg=:BRIGHT_MAGENTA: ctermbg=:WHITE: ctermfg=:BRIGHT_MAGENTA:
-highlight TabLine guibg=:BLUE: gui=bold ctermbg=:BLUE: cterm=bold
+highlight TabLineFill guifg=:BRIGHT_BLACK: ctermfg=:BRIGHT_BLACK:
+highlight TabLineSel guibg=:BRIGHT_MAGENTA: guifg=:BRIGHT_WHITE: ctermbg=:BRIGHT_MAGENTA: ctermfg=:BRIGHT_WHITE:
+highlight TabLine guibg=:BRIGHT_BLACK: gui=bold ctermbg=:BRIGHT_BLACK: cterm=bold
+
+highlight Function guifg=:MAGENTA: ctermfg=:MAGENTA:
+
+highlight String guifg=:BRIGHT_CYAN: ctermfg=:BRIGHT_CYAN:
+
+highlight jsModuleKeyword guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
+highlight jsObjectKey guifg=:BRIGHT_MAGENTA: ctermfg=:BRIGHT_MAGENTA:
+highlight jsClassKeyword guifg=:BRIGHT_BLUE: ctermfg=:BRIGHT_BLUE:
+highlight jsExtendsKeyword guifg=:BRIGHT_BLUE: ctermfg=:BRIGHT_BLUE:
+highlight jsClassDefinition guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
+highlight jsFuncCall guifg=:BRIGHT_MAGENTA: ctermfg=:BRIGHT_MAGENTA:
+highlight jsParen guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
+highlight jsBracket guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
+highlight jsBlock guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
+highlight jsThis guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
+highlight jsObjectProp guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
+highlight jsObjectValue guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
+highlight jsVariableDef guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
+

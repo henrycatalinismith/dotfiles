@@ -2,14 +2,16 @@ BLACK=\#1f1a1b
 BRIGHT_BLACK=\#4b4b4b
 RED=\#dc322f
 BRIGHT_RED=\#DC776B
-GREEN=\#859900
-BRIGHT_GREEN=\#C0D14E
+GREEN=\#C0D14E
+BRIGHT_GREEN=\#bde18b
 YELLOW=\#B58900
 BRIGHT_YELLOW=\#EBC348
+YELLOW=\#dbd560
+BRIGHT_YELLOW=\#fffeb2
 BLUE=\#268bd2
 BRIGHT_BLUE=\#6FB2E2
-MAGENTA=\#6C71C4
-BRIGHT_MAGENTA=\#D165E3
+MAGENTA=\#a073d6
+BRIGHT_MAGENTA=\#df56cc
 CYAN=\#1FC2C2
 BRIGHT_CYAN=\#67D8D8
 WHITE=\#d0d0d0
@@ -34,6 +36,7 @@ colors: vim/colors/default.vim
 	sed -i.bak "s/brightMagenta:.*/brightMagenta: '${BRIGHT_MAGENTA}',/g" hyper/hyper.js
 	sed -i.bak "s/brightCyan:.*/brightCyan: '${BRIGHT_CYAN}',/g" hyper/hyper.js
 	sed -i.bak "s/brightWhite:.*/brightWhite: '${BRIGHT_WHITE}',/g" hyper/hyper.js
+	rm hyper/hyper.js.bak
 
 vim/colors/default.vim:
 	cp vim/colors.vim vim/colors/default.vim
@@ -85,6 +88,7 @@ vim/colors/default.vim:
 	sed -i.bak "s/:BRIGHT_MAGENTA:/${BRIGHT_MAGENTA}/g" vim/colors/default.vim
 	sed -i.bak "s/:BRIGHT_CYAN:/${BRIGHT_CYAN}/g" vim/colors/default.vim
 	sed -i.bak "s/:BRIGHT_WHITE:/${BRIGHT_WHITE}/g" vim/colors/default.vim
+	rm vim/colors/default.vim.bak
 
 default:
 	@echo "  install       Install all dotfiles"

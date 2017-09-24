@@ -1,18 +1,18 @@
 const colors = {
   black: '#1f1a1b',
   red: '#dc322f',
-  green: '#859900',
-  yellow: '#B58900',
+  green: '#C0D14E',
+  yellow: '#dbd560',
   blue: '#268bd2',
-  magenta: '#6C71C4',
+  magenta: '#a073d6',
   cyan: '#1FC2C2',
   white: '#d0d0d0',
   brightBlack: '#4b4b4b',
   brightRed: '#DC776B',
-  brightGreen: '#C0D14E',
-  brightYellow: '#EBC348',
+  brightGreen: '#bde18b',
+  brightYellow: '#fffeb2',
   brightBlue: '#6FB2E2',
-  brightMagenta: '#D165E3',
+  brightMagenta: '#df56cc',
   brightCyan: '#67D8D8',
   brightWhite: '#ffffff',
 };
@@ -28,8 +28,8 @@ const plugins = [
 const fontSize = 18;
 const fontFamily = '"Input Mono", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace';
 
-const backgroundColor = '#1f1a1b';
-const foregroundColor = '#c4e2f2';
+const backgroundColor = colors.black;
+const foregroundColor = colors.white;
 const cursorColor = 'rgba(173, 216, 119, 0.5)';
 const cursorShape = 'BEAM';
 
