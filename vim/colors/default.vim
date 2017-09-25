@@ -5,7 +5,7 @@ highlight ColorColumn guibg=#a073d6 ctermbg=5
 
 highlight VertSplit guibg=#1f1a1b ctermfg=0
 highlight StatusLine guibg=#4b4b4b guifg=#d0d0d0 ctermbg=7 ctermfg=8
-highlight StatusLineNC guibg=#4b4b4b guifg=#d0d0d0 ctermbg=7 ctermfg=8
+highlight StatusLineNC guibg=#1f1a1b guifg=#d0d0d0 ctermbg=7 ctermfg=0
 
 highlight vimHiCtermError guibg=#1f1a1b guifg=#268bd2 ctermbg=0 ctermfg=4
 
@@ -15,6 +15,7 @@ highlight Statement guifg=#C0D14E gui=none ctermfg=2
 highlight Type guifg=#6FB2E2 gui=none ctermfg=12
 highlight PreProc guifg=#6FB2E2 ctermfg=12
 highlight Constant guifg=#C0D14E ctermfg=2
+highlight Boolean guifg=#a073d6 ctermfg=5
 
 augroup NerdCursor
   "autocmd!

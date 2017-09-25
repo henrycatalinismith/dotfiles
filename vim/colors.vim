@@ -5,7 +5,7 @@ highlight ColorColumn guibg=:MAGENTA: ctermbg=:MAGENTA:
 
 highlight VertSplit guibg=:BLACK: ctermfg=:BLACK:
 highlight StatusLine guibg=:BRIGHT_BLACK: guifg=:WHITE: ctermbg=:WHITE: ctermfg=:BRIGHT_BLACK:
-highlight StatusLineNC guibg=:BRIGHT_BLACK: guifg=:WHITE: ctermbg=:WHITE: ctermfg=:BRIGHT_BLACK:
+highlight StatusLineNC guibg=:BLACK: guifg=:WHITE: ctermbg=:WHITE: ctermfg=:BLACK:
 
 highlight vimHiCtermError guibg=:BLACK: guifg=:BLUE: ctermbg=:BLACK: ctermfg=:BLUE:
 
@@ -15,6 +15,7 @@ highlight Statement guifg=:GREEN: gui=none ctermfg=:GREEN:
 highlight Type guifg=:BRIGHT_BLUE: gui=none ctermfg=:BRIGHT_BLUE:
 highlight PreProc guifg=:BRIGHT_BLUE: ctermfg=:BRIGHT_BLUE:
 highlight Constant guifg=:GREEN: ctermfg=:GREEN:
+highlight Boolean guifg=:MAGENTA: ctermfg=:MAGENTA:
 
 augroup NerdCursor
   "autocmd!
