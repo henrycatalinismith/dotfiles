@@ -11,6 +11,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'mkitt/tabline.vim'
 call plug#end()
 
 let g:gitgutter_realtime = 1

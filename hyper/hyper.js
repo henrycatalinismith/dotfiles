@@ -3,18 +3,18 @@ const colors = {
   red: '#d70000',
   green: '#afd75f',
   yellow: '#d7d75f',
-  blue: '#268bd2',
+  blue: '#5f87ff',
   magenta: '#d700ff',
-  cyan: '#1fc2c2',
+  cyan: '#00afaf',
   white: '#d0d0d0',
   brightBlack: '#4e4e4e',
   brightRed: '#d75f5f',
   brightGreen: '#d7ff5f',
-  brightYellow: '#fffeb2',
+  brightYellow: '#ffd700',
   brightBlue: '#5fafd7',
   brightMagenta: '#d70087',
   brightCyan: '#5fd7d7',
-  brightWhite: '#ffffff',
+  brightWhite: '#eeeeee',
 };
 
 const plugins = [

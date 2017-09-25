@@ -11,6 +11,8 @@ highlight vimHiCtermError guibg=x000_Black guifg=x004_Blue ctermbg=x000_Black ct
 
 highlight ExtraWhitespace guibg=x015_BrightWhite ctermbg=x015_BrightWhite
 
+highlight Identifier guifg=x003_Yellow ctermfg=x003_Yellow
+
 highlight Statement guifg=x002_Green gui=none ctermfg=x002_Green
 highlight Type guifg=x012_BrightBlue gui=none ctermfg=x012_BrightBlue
 highlight PreProc guifg=x012_BrightBlue ctermfg=x012_BrightBlue
@@ -22,6 +24,7 @@ highlight CursorLine guibg=x235_Grey15 ctermbg=x235_Grey15 cterm=none
 highlight NERDTreeCWD guifg=x013_BrightMagenta ctermfg=x013_BrightMagenta
 highlight NERDTreeOpenable guifg=x004_Blue ctermfg=x004_Blue
 highlight NERDTreeDir guifg=x004_Blue ctermfg=x004_Blue
+highlight NERDTreeDirSlash guifg=x000_Black ctermfg=x000_Black
 
 highlight TabLineFill guifg=x235_Grey15 ctermfg=x235_Grey15
 highlight TabLineSel guibg=x013_BrightMagenta guifg=x015_BrightWhite ctermbg=x013_BrightMagenta ctermfg=x015_BrightWhite
@@ -55,6 +58,7 @@ highlight jsParenRepeat guifg=x010_BrightGreen ctermfg=x010_BrightGreen
 highlight jsParenIfElse guifg=x010_BrightGreen ctermfg=x010_BrightGreen
 highlight jsDestructuringBlock guifg=x010_BrightGreen ctermfg=x010_BrightGreen
 highlight jsTemplateExpression guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsObjectKeyComputed guifg=x010_BrightGreen ctermfg=x010_BrightGreen
 highlight jsTemplateBraces guifg=x013_BrightMagenta ctermfg=x013_BrightMagenta
 highlight jsObject guifg=x013_BrightMagenta ctermfg=x013_BrightMagenta
 highlight jsOperator guifg=x004_Blue ctermfg=x004_Blue

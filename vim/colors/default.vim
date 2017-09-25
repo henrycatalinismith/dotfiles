@@ -4,12 +4,14 @@ highlight EndOfBuffer guifg=#1c1c1c ctermfg=234
 highlight ColorColumn guibg=#d700ff ctermbg=165
 
 highlight VertSplit guibg=#1c1c1c ctermfg=234
-highlight StatusLine guibg=#262626 guifg=#d0d0d0 ctermbg=7 ctermfg=235
+highlight StatusLine guibg=#262626 guifg=#d0d0d0 ctermbg=252 ctermfg=235
 highlight StatusLineNC guibg=#262626 guifg=#262626 ctermbg=235 ctermfg=235
 
-highlight vimHiCtermError guibg=#1c1c1c guifg=#268bd2 ctermbg=234 ctermfg=4
+highlight vimHiCtermError guibg=#1c1c1c guifg=#5f87ff ctermbg=234 ctermfg=69
 
-highlight ExtraWhitespace guibg=#ffffff ctermbg=15
+highlight ExtraWhitespace guibg=#eeeeee ctermbg=255
+
+highlight Identifier guifg=#d7d75f ctermfg=185
 
 highlight Statement guifg=#afd75f gui=none ctermfg=149
 highlight Type guifg=#5fafd7 gui=none ctermfg=74
@@ -20,11 +22,12 @@ highlight Boolean guifg=#d700ff ctermfg=165
 highlight CursorLine guibg=#262626 ctermbg=235 cterm=none
 
 highlight NERDTreeCWD guifg=#d70087 ctermfg=162
-highlight NERDTreeOpenable guifg=#268bd2 ctermfg=4
-highlight NERDTreeDir guifg=#268bd2 ctermfg=4
+highlight NERDTreeOpenable guifg=#5f87ff ctermfg=69
+highlight NERDTreeDir guifg=#5f87ff ctermfg=69
+highlight NERDTreeDirSlash guifg=#1c1c1c ctermfg=234
 
 highlight TabLineFill guifg=#262626 ctermfg=235
-highlight TabLineSel guibg=#d70087 guifg=#ffffff ctermbg=162 ctermfg=15
+highlight TabLineSel guibg=#d70087 guifg=#eeeeee ctermbg=162 ctermfg=255
 highlight TabLine guibg=#262626 gui=bold ctermbg=235 cterm=bold
 
 highlight Function guifg=#d70087 ctermfg=162
@@ -55,9 +58,10 @@ highlight jsParenRepeat guifg=#d7ff5f ctermfg=191
 highlight jsParenIfElse guifg=#d7ff5f ctermfg=191
 highlight jsDestructuringBlock guifg=#d7ff5f ctermfg=191
 highlight jsTemplateExpression guifg=#d7ff5f ctermfg=191
+highlight jsObjectKeyComputed guifg=#d7ff5f ctermfg=191
 highlight jsTemplateBraces guifg=#d70087 ctermfg=162
 highlight jsObject guifg=#d70087 ctermfg=162
-highlight jsOperator guifg=#268bd2 ctermfg=4
+highlight jsOperator guifg=#5f87ff ctermfg=69
 
 
 highlight xmlTag guifg=#d70087 ctermfg=162
