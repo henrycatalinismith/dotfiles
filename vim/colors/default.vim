@@ -27,7 +27,7 @@ highlight TabLineFill guifg=#262626 ctermfg=235
 highlight TabLineSel guibg=#d70087 guifg=#ffffff ctermbg=162 ctermfg=15
 highlight TabLine guibg=#262626 gui=bold ctermbg=235 cterm=bold
 
-highlight Function guifg=#d700ff ctermfg=165
+highlight Function guifg=#d70087 ctermfg=162
 
 highlight String guifg=#5fd7d7 ctermfg=80
 
@@ -39,9 +39,26 @@ highlight jsClassDefinition guifg=#d7ff5f ctermfg=191
 highlight jsFuncCall guifg=#d70087 ctermfg=162
 highlight jsParen guifg=#d7ff5f ctermfg=191
 highlight jsBracket guifg=#d7ff5f ctermfg=191
+highlight jsFuncArgs guifg=#d7ff5f ctermfg=191
 highlight jsBlock guifg=#d7ff5f ctermfg=191
 highlight jsThis guifg=#d7ff5f ctermfg=191
 highlight jsObjectProp guifg=#d7ff5f ctermfg=191
 highlight jsObjectValue guifg=#d7ff5f ctermfg=191
 highlight jsVariableDef guifg=#d7ff5f ctermfg=191
+highlight jsFuncBlock guifg=#d7ff5f ctermfg=191
+highlight jsParenSwitch guifg=#d7ff5f ctermfg=191
+highlight jsSwitchCase guifg=#d7ff5f ctermfg=191
+highlight jsSwitchBlock guifg=#d7ff5f ctermfg=191
+highlight jsRepeatBlock guifg=#d7ff5f ctermfg=191
+highlight jsIfElseBlock guifg=#d7ff5f ctermfg=191
+highlight jsParenRepeat guifg=#d7ff5f ctermfg=191
+highlight jsParenIfElse guifg=#d7ff5f ctermfg=191
+highlight jsDestructuringBlock guifg=#d7ff5f ctermfg=191
+highlight jsTemplateExpression guifg=#d7ff5f ctermfg=191
+highlight jsTemplateBraces guifg=#d70087 ctermfg=162
+highlight jsObject guifg=#d70087 ctermfg=162
+highlight jsOperator guifg=#268bd2 ctermfg=4
 
+
+highlight xmlTag guifg=#d70087 ctermfg=162
+highlight xmlEndTag guifg=#d70087 ctermfg=162

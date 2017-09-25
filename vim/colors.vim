@@ -27,7 +27,7 @@ highlight TabLineFill guifg=x235_Grey15 ctermfg=x235_Grey15
 highlight TabLineSel guibg=x013_BrightMagenta guifg=x015_BrightWhite ctermbg=x013_BrightMagenta ctermfg=x015_BrightWhite
 highlight TabLine guibg=x235_Grey15 gui=bold ctermbg=x235_Grey15 cterm=bold
 
-highlight Function guifg=x005_Magenta ctermfg=x005_Magenta
+highlight Function guifg=x013_BrightMagenta ctermfg=x013_BrightMagenta
 
 highlight String guifg=x014_BrightCyan ctermfg=x014_BrightCyan
 
@@ -39,9 +39,26 @@ highlight jsClassDefinition guifg=x010_BrightGreen ctermfg=x010_BrightGreen
 highlight jsFuncCall guifg=x013_BrightMagenta ctermfg=x013_BrightMagenta
 highlight jsParen guifg=x010_BrightGreen ctermfg=x010_BrightGreen
 highlight jsBracket guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsFuncArgs guifg=x010_BrightGreen ctermfg=x010_BrightGreen
 highlight jsBlock guifg=x010_BrightGreen ctermfg=x010_BrightGreen
 highlight jsThis guifg=x010_BrightGreen ctermfg=x010_BrightGreen
 highlight jsObjectProp guifg=x010_BrightGreen ctermfg=x010_BrightGreen
 highlight jsObjectValue guifg=x010_BrightGreen ctermfg=x010_BrightGreen
 highlight jsVariableDef guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsFuncBlock guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsParenSwitch guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsSwitchCase guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsSwitchBlock guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsRepeatBlock guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsIfElseBlock guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsParenRepeat guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsParenIfElse guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsDestructuringBlock guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsTemplateExpression guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsTemplateBraces guifg=x013_BrightMagenta ctermfg=x013_BrightMagenta
+highlight jsObject guifg=x013_BrightMagenta ctermfg=x013_BrightMagenta
+highlight jsOperator guifg=x004_Blue ctermfg=x004_Blue
 
+
+highlight xmlTag guifg=x013_BrightMagenta ctermfg=x013_BrightMagenta
+highlight xmlEndTag guifg=x013_BrightMagenta ctermfg=x013_BrightMagenta
