@@ -33,3 +33,6 @@ let g:ctrlp_user_command = {
   \ },
   \ 'fallback': 'find %s -type f'
 \ }
+
+" https://github.com/kien/ctrlp.vim/issues/401#issuecomment-25087533
+let g:ctrlp_status_func = ""
