@@ -22,7 +22,7 @@ augroup NerdCursor
   "autocmd BufLeave NERD_tree_* highlight CursorLine guibg=:BRIGHT_BLACK: ctermbg=:BRIGHT_BLACK: cterm=none
   "autocmd BufAdd * highlight clear CursorLine
 augroup END
-highlight CursorLine guibg=:Grey15: ctermbg=:Grey15: cterm=none
+highlight CursorLine guibg=:x235_Grey15: ctermbg=:x235_Grey15: cterm=none
 
 highlight NERDTreeCWD guifg=:BRIGHT_MAGENTA: ctermfg=:BRIGHT_MAGENTA:
 highlight NERDTreeOpenable guifg=:BLUE: ctermfg=:BLUE:
