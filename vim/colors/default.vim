@@ -1,7 +1,7 @@
 highlight Normal guibg=#1c1c1c guifg=#d0d0d0
 highlight LineNr guibg=#1c1c1c guifg=#6c6c6c ctermbg=234 ctermfg=242
 highlight EndOfBuffer guifg=#1c1c1c ctermfg=234
-highlight ColorColumn guibg=#d700ff ctermbg=165
+highlight ColorColumn guibg=#d700af ctermbg=163
 
 highlight VertSplit guibg=#1c1c1c ctermfg=234
 highlight StatusLine guibg=#262626 guifg=#d0d0d0 ctermbg=252 ctermfg=235
@@ -17,7 +17,7 @@ highlight Statement guifg=#afd75f gui=none ctermfg=149
 highlight Type guifg=#5fafd7 gui=none ctermfg=74
 highlight PreProc guifg=#5fafd7 ctermfg=74
 highlight Constant guifg=#afd75f ctermfg=149
-highlight Boolean guifg=#d700ff ctermfg=165
+highlight Boolean guifg=#d700af ctermfg=163
 
 highlight CursorLine guibg=#262626 ctermbg=235 cterm=none
 
