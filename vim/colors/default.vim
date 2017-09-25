@@ -1,46 +1,40 @@
-highlight Normal guibg=#1f1a1b guifg=#d0d0d0
-highlight LineNr guibg=#1f1a1b guifg=#4b4b4b ctermbg=0 ctermfg=8
-highlight EndOfBuffer guifg=#1f1a1b ctermfg=0
+highlight Normal guibg=#1c1c1c guifg=#d0d0d0
+highlight LineNr guibg=#1c1c1c guifg=#6c6c6c ctermbg=234 ctermfg=242
+highlight EndOfBuffer guifg=#1c1c1c ctermfg=234
 highlight ColorColumn guibg=#a073d6 ctermbg=5
 
-highlight VertSplit guibg=#1f1a1b ctermfg=0
-highlight StatusLine guibg=#4b4b4b guifg=#d0d0d0 ctermbg=7 ctermfg=8
-highlight StatusLineNC guibg=#1f1a1b guifg=#d0d0d0 ctermbg=7 ctermfg=0
+highlight VertSplit guibg=#1c1c1c ctermfg=234
+highlight StatusLine guibg=#262626 guifg=#d0d0d0 ctermbg=7 ctermfg=235
+highlight StatusLineNC guibg=#262626 guifg=#262626 ctermbg=235 ctermfg=235
 
-highlight vimHiCtermError guibg=#1f1a1b guifg=#268bd2 ctermbg=0 ctermfg=4
+highlight vimHiCtermError guibg=#1c1c1c guifg=#268bd2 ctermbg=234 ctermfg=4
 
 highlight ExtraWhitespace guibg=#ffffff ctermbg=15
 
-highlight Statement guifg=#C0D14E gui=none ctermfg=2
-highlight Type guifg=#6FB2E2 gui=none ctermfg=12
-highlight PreProc guifg=#6FB2E2 ctermfg=12
-highlight Constant guifg=#C0D14E ctermfg=2
+highlight Statement guifg=#c0d14e gui=none ctermfg=2
+highlight Type guifg=#6fb2e2 gui=none ctermfg=12
+highlight PreProc guifg=#6fb2e2 ctermfg=12
+highlight Constant guifg=#c0d14e ctermfg=2
 highlight Boolean guifg=#a073d6 ctermfg=5
 
-augroup NerdCursor
-  "autocmd!
-  "autocmd BufEnter NERD_tree_* highlight CursorLine guibg=#df56cc guifg=#ffffff ctermbg=13 cterm=none ctermfg=15
-  "autocmd BufLeave NERD_tree_* highlight CursorLine guibg=#4b4b4b ctermbg=8 cterm=none
-  "autocmd BufAdd * highlight clear CursorLine
-augroup END
 highlight CursorLine guibg=#262626 ctermbg=235 cterm=none
 
 highlight NERDTreeCWD guifg=#df56cc ctermfg=13
 highlight NERDTreeOpenable guifg=#268bd2 ctermfg=4
 highlight NERDTreeDir guifg=#268bd2 ctermfg=4
 
-highlight TabLineFill guifg=#4b4b4b ctermfg=8
+highlight TabLineFill guifg=#262626 ctermfg=235
 highlight TabLineSel guibg=#df56cc guifg=#ffffff ctermbg=13 ctermfg=15
-highlight TabLine guibg=#4b4b4b gui=bold ctermbg=8 cterm=bold
+highlight TabLine guibg=#262626 gui=bold ctermbg=235 cterm=bold
 
 highlight Function guifg=#a073d6 ctermfg=5
 
-highlight String guifg=#67D8D8 ctermfg=14
+highlight String guifg=#67d8d8 ctermfg=14
 
 highlight jsModuleKeyword guifg=#bde18b ctermfg=10
 highlight jsObjectKey guifg=#df56cc ctermfg=13
-highlight jsClassKeyword guifg=#6FB2E2 ctermfg=12
-highlight jsExtendsKeyword guifg=#6FB2E2 ctermfg=12
+highlight jsClassKeyword guifg=#6fb2e2 ctermfg=12
+highlight jsExtendsKeyword guifg=#6fb2e2 ctermfg=12
 highlight jsClassDefinition guifg=#bde18b ctermfg=10
 highlight jsFuncCall guifg=#df56cc ctermfg=13
 highlight jsParen guifg=#bde18b ctermfg=10

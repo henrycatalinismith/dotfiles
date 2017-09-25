@@ -1,37 +1,3 @@
-BLACK=\#1f1a1b
-BRIGHT_BLACK=\#4b4b4b
-RED=\#dc322f
-BRIGHT_RED=\#DC776B
-GREEN=\#C0D14E
-BRIGHT_GREEN=\#bde18b
-YELLOW=\#dbd560
-BRIGHT_YELLOW=\#fffeb2
-BLUE=\#268bd2
-BRIGHT_BLUE=\#6FB2E2
-MAGENTA=\#a073d6
-BRIGHT_MAGENTA=\#df56cc
-CYAN=\#1FC2C2
-BRIGHT_CYAN=\#67D8D8
-WHITE=\#d0d0d0
-BRIGHT_WHITE=\#ffffff
-
-x000_Black=0 1f1a1b
-x001_Red=1 dc322f
-x002_Green=2 c0d14e
-x003_Yellow=3 dbd560
-x004_Blue=4 268bd2
-x005_Magenta=5 a073d6
-x006_Cyan=6 1fc2c2
-x007_White=7 d0d0d0
-x008_BrightBlack=8 4b4b4b
-x009_BrightRed=9 dc776b
-x010_BrightGreen=10 bde18b
-x011_BrightYellow=11 fffeb2
-x012_BrightBlue=12 6fb2e2
-x013_BrightMagenta=13 df56cc
-x014_BrightCyan=14 67d8d8
-x015_BrightWhite=15 ffffff
-
 x016_Grey0=16 000000
 x017_NavyBlue=17 00005f
 x018_DarkBlue=18 000087
@@ -272,95 +238,57 @@ x252_Grey82=252 d0d0d0
 x253_Grey85=253 dadada
 x254_Grey89=254 e4e4e4
 x255_Grey93=255 eeeeee
- 
 
-COLORS=x000_Black x001_Red x002_Green x003_Yellow x004_Blue x005_Magenta x006_Cyan x007_White x008_BrightBlack x009_BrightRed x010_BrightGreen x011_BrightYellow x012_BrightBlue x013_BrightMagenta x014_BrightCyan x015_BrightWhite x016_Grey0 x017_NavyBlue x018_DarkBlue x019_Blue3 x020_Blue3 x021_Blue1 x022_DarkGreen x023_DeepSkyBlue4 x024_DeepSkyBlue4 x025_DeepSkyBlue4 x026_DodgerBlue3 x027_DodgerBlue2 x028_Green4 x029_SpringGreen4 x030_Turquoise4 x031_DeepSkyBlue3 x032_DeepSkyBlue3 x033_DodgerBlue1 x034_Green3 x035_SpringGreen3 x036_DarkCyan x037_LightSeaGreen x038_DeepSkyBlue2 x039_DeepSkyBlue1 x040_Green3 x041_SpringGreen3 x042_SpringGreen2 x043_Cyan3 x044_DarkTurquoise x045_Turquoise2 x046_Green1 x047_SpringGreen2 x048_SpringGreen1 x049_MediumSpringGreen x050_Cyan2 x051_Cyan1 x052_DarkRed x053_DeepPink4 x054_Purple4 x055_Purple4 x056_Purple3 x057_BlueViolet x058_Orange4 x059_Grey37 x060_MediumPurple4 x061_SlateBlue3 x062_SlateBlue3 x063_RoyalBlue1 x064_Chartreuse4 x065_DarkSeaGreen4 x066_PaleTurquoise4 x067_SteelBlue x068_SteelBlue3 x069_CornflowerBlue x070_Chartreuse3 x071_DarkSeaGreen4 x072_CadetBlue x073_CadetBlue x074_SkyBlue3 x075_SteelBlue1 x076_Chartreuse3 x077_PaleGreen3 x078_SeaGreen3 x079_Aquamarine3 x080_MediumTurquoise x081_SteelBlue1 x082_Chartreuse2 x083_SeaGreen2 x084_SeaGreen1 x085_SeaGreen1 x086_Aquamarine1 x087_DarkSlateGray2 x088_DarkRed x089_DeepPink4 x090_DarkMagenta x091_DarkMagenta x092_DarkViolet x093_Purple x094_Orange4 x095_LightPink4 x096_Plum4 x097_MediumPurple3 x098_MediumPurple3 x099_SlateBlue1 x100_Yellow4 x101_Wheat4 x102_Grey53 x103_LightSlateGrey x104_MediumPurple x105_LightSlateBlue x106_Yellow4 x107_DarkOliveGreen3 x108_DarkSeaGreen x109_LightSkyBlue3 x110_LightSkyBlue3 x111_SkyBlue2 x112_Chartreuse2 x113_DarkOliveGreen3 x114_PaleGreen3 x115_DarkSeaGreen3 x116_DarkSlateGray3 x117_SkyBlue1 x118_Chartreuse1 x119_LightGreen x120_LightGreen x121_PaleGreen1 x122_Aquamarine1 x123_DarkSlateGray1 x124_Red3 x125_DeepPink4 x126_MediumVioletRed x127_Magenta3 x128_DarkViolet x129_Purple x130_DarkOrange3 x131_IndianRed x132_HotPink3 x133_MediumOrchid3 x134_MediumOrchid x135_MediumPurple2 x136_DarkGoldenrod x137_LightSalmon3 x138_RosyBrown x139_Grey63 x140_MediumPurple2 x141_MediumPurple1 x142_Gold3 x143_DarkKhaki x144_NavajoWhite3 x145_Grey69 x146_LightSteelBlue3 x147_LightSteelBlue x148_Yellow3 x149_DarkOliveGreen3 x150_DarkSeaGreen3 x151_DarkSeaGreen2 x152_LightCyan3 x153_LightSkyBlue1 x154_GreenYellow x155_DarkOliveGreen2 x156_PaleGreen1 x157_DarkSeaGreen2 x158_DarkSeaGreen1 x159_PaleTurquoise1 x160_Red3 x161_DeepPink3 x162_DeepPink3 x163_Magenta3 x164_Magenta3 x165_Magenta2 x166_DarkOrange3 x167_IndianRed x168_HotPink3 x169_HotPink2 x170_Orchid x171_MediumOrchid1 x172_Orange3 x173_LightSalmon3 x174_LightPink3 x175_Pink3 x176_Plum3 x177_Violet x178_Gold3 x179_LightGoldenrod3 x180_Tan x181_MistyRose3 x182_Thistle3 x183_Plum2 x184_Yellow3 x185_Khaki3 x186_LightGoldenrod2 x187_LightYellow3 x188_Grey84 x189_LightSteelBlue1 x190_Yellow2 x191_DarkOliveGreen1 x192_DarkOliveGreen1 x193_DarkSeaGreen1 x194_Honeydew2 x195_LightCyan1 x196_Red1 x197_DeepPink2 x198_DeepPink1 x199_DeepPink1 x200_Magenta2 x201_Magenta1 x202_OrangeRed1 x203_IndianRed1 x204_IndianRed1 x205_HotPink x206_HotPink x207_MediumOrchid1 x208_DarkOrange x209_Salmon1 x210_LightCoral x211_PaleVioletRed1 x212_Orchid2 x213_Orchid1 x214_Orange1 x215_SandyBrown x216_LightSalmon1 x217_LightPink1 x218_Pink1 x219_Plum1 x220_Gold1 x221_LightGoldenrod2 x222_LightGoldenrod2 x223_NavajoWhite1 x224_MistyRose1 x225_Thistle1 x226_Yellow1 x227_LightGoldenrod1 x228_Khaki1 x229_Wheat1 x230_Cornsilk1 x231_Grey100 x232_Grey3 x233_Grey7 x234_Grey11 x235_Grey15 x236_Grey19 x237_Grey23 x238_Grey27 x239_Grey30 x240_Grey35 x241_Grey39 x242_Grey42 x243_Grey46 x244_Grey50 x245_Grey54 x246_Grey58 x247_Grey62 x248_Grey66 x249_Grey70 x250_Grey74 x251_Grey78 x252_Grey82 x253_Grey85 x254_Grey89 x255_Grey93
+x000_Black=${x234_Grey11}
+x001_Red=1 dc322f
+x002_Green=2 c0d14e
+x003_Yellow=3 dbd560
+x004_Blue=4 268bd2
+x005_Magenta=5 a073d6
+x006_Cyan=6 1fc2c2
+x007_White=7 d0d0d0
+x008_BrightBlack=${x239_Grey30}
+x009_BrightRed=9 dc776b
+x010_BrightGreen=10 bde18b
+x011_BrightYellow=11 fffeb2
+x012_BrightBlue=12 6fb2e2
+x013_BrightMagenta=13 df56cc
+x014_BrightCyan=14 67d8d8
+x015_BrightWhite=15 ffffff
 
-$(COLORS):
+ALL_COLORS=x000_Black x001_Red x002_Green x003_Yellow x004_Blue x005_Magenta x006_Cyan x007_White x008_BrightBlack x009_BrightRed x010_BrightGreen x011_BrightYellow x012_BrightBlue x013_BrightMagenta x014_BrightCyan x015_BrightWhite x016_Grey0 x017_NavyBlue x018_DarkBlue x019_Blue3 x020_Blue3 x021_Blue1 x022_DarkGreen x023_DeepSkyBlue4 x024_DeepSkyBlue4 x025_DeepSkyBlue4 x026_DodgerBlue3 x027_DodgerBlue2 x028_Green4 x029_SpringGreen4 x030_Turquoise4 x031_DeepSkyBlue3 x032_DeepSkyBlue3 x033_DodgerBlue1 x034_Green3 x035_SpringGreen3 x036_DarkCyan x037_LightSeaGreen x038_DeepSkyBlue2 x039_DeepSkyBlue1 x040_Green3 x041_SpringGreen3 x042_SpringGreen2 x043_Cyan3 x044_DarkTurquoise x045_Turquoise2 x046_Green1 x047_SpringGreen2 x048_SpringGreen1 x049_MediumSpringGreen x050_Cyan2 x051_Cyan1 x052_DarkRed x053_DeepPink4 x054_Purple4 x055_Purple4 x056_Purple3 x057_BlueViolet x058_Orange4 x059_Grey37 x060_MediumPurple4 x061_SlateBlue3 x062_SlateBlue3 x063_RoyalBlue1 x064_Chartreuse4 x065_DarkSeaGreen4 x066_PaleTurquoise4 x067_SteelBlue x068_SteelBlue3 x069_CornflowerBlue x070_Chartreuse3 x071_DarkSeaGreen4 x072_CadetBlue x073_CadetBlue x074_SkyBlue3 x075_SteelBlue1 x076_Chartreuse3 x077_PaleGreen3 x078_SeaGreen3 x079_Aquamarine3 x080_MediumTurquoise x081_SteelBlue1 x082_Chartreuse2 x083_SeaGreen2 x084_SeaGreen1 x085_SeaGreen1 x086_Aquamarine1 x087_DarkSlateGray2 x088_DarkRed x089_DeepPink4 x090_DarkMagenta x091_DarkMagenta x092_DarkViolet x093_Purple x094_Orange4 x095_LightPink4 x096_Plum4 x097_MediumPurple3 x098_MediumPurple3 x099_SlateBlue1 x100_Yellow4 x101_Wheat4 x102_Grey53 x103_LightSlateGrey x104_MediumPurple x105_LightSlateBlue x106_Yellow4 x107_DarkOliveGreen3 x108_DarkSeaGreen x109_LightSkyBlue3 x110_LightSkyBlue3 x111_SkyBlue2 x112_Chartreuse2 x113_DarkOliveGreen3 x114_PaleGreen3 x115_DarkSeaGreen3 x116_DarkSlateGray3 x117_SkyBlue1 x118_Chartreuse1 x119_LightGreen x120_LightGreen x121_PaleGreen1 x122_Aquamarine1 x123_DarkSlateGray1 x124_Red3 x125_DeepPink4 x126_MediumVioletRed x127_Magenta3 x128_DarkViolet x129_Purple x130_DarkOrange3 x131_IndianRed x132_HotPink3 x133_MediumOrchid3 x134_MediumOrchid x135_MediumPurple2 x136_DarkGoldenrod x137_LightSalmon3 x138_RosyBrown x139_Grey63 x140_MediumPurple2 x141_MediumPurple1 x142_Gold3 x143_DarkKhaki x144_NavajoWhite3 x145_Grey69 x146_LightSteelBlue3 x147_LightSteelBlue x148_Yellow3 x149_DarkOliveGreen3 x150_DarkSeaGreen3 x151_DarkSeaGreen2 x152_LightCyan3 x153_LightSkyBlue1 x154_GreenYellow x155_DarkOliveGreen2 x156_PaleGreen1 x157_DarkSeaGreen2 x158_DarkSeaGreen1 x159_PaleTurquoise1 x160_Red3 x161_DeepPink3 x162_DeepPink3 x163_Magenta3 x164_Magenta3 x165_Magenta2 x166_DarkOrange3 x167_IndianRed x168_HotPink3 x169_HotPink2 x170_Orchid x171_MediumOrchid1 x172_Orange3 x173_LightSalmon3 x174_LightPink3 x175_Pink3 x176_Plum3 x177_Violet x178_Gold3 x179_LightGoldenrod3 x180_Tan x181_MistyRose3 x182_Thistle3 x183_Plum2 x184_Yellow3 x185_Khaki3 x186_LightGoldenrod2 x187_LightYellow3 x188_Grey84 x189_LightSteelBlue1 x190_Yellow2 x191_DarkOliveGreen1 x192_DarkOliveGreen1 x193_DarkSeaGreen1 x194_Honeydew2 x195_LightCyan1 x196_Red1 x197_DeepPink2 x198_DeepPink1 x199_DeepPink1 x200_Magenta2 x201_Magenta1 x202_OrangeRed1 x203_IndianRed1 x204_IndianRed1 x205_HotPink x206_HotPink x207_MediumOrchid1 x208_DarkOrange x209_Salmon1 x210_LightCoral x211_PaleVioletRed1 x212_Orchid2 x213_Orchid1 x214_Orange1 x215_SandyBrown x216_LightSalmon1 x217_LightPink1 x218_Pink1 x219_Plum1 x220_Gold1 x221_LightGoldenrod2 x222_LightGoldenrod2 x223_NavajoWhite1 x224_MistyRose1 x225_Thistle1 x226_Yellow1 x227_LightGoldenrod1 x228_Khaki1 x229_Wheat1 x230_Cornsilk1 x231_Grey100 x232_Grey3 x233_Grey7 x234_Grey11 x235_Grey15 x236_Grey19 x237_Grey23 x238_Grey27 x239_Grey30 x240_Grey35 x241_Grey39 x242_Grey42 x243_Grey46 x244_Grey50 x245_Grey54 x246_Grey58 x247_Grey62 x248_Grey66 x249_Grey70 x250_Grey74 x251_Grey78 x252_Grey82 x253_Grey85 x254_Grey89 x255_Grey93
+USED_COLORS=$(shell grep -o "x[0-9]\+_[A-Za-z0-9]\+" vim/colors.vim | sort | uniq)
+
+$(ALL_COLORS): vim/colors/default.vim
 	@echo $@
-	@sed -i.bak "s/ctermfg=:$@:/ctermfg=$(word 1, $($@))/g" vim/colors/default.vim
-	@sed -i.bak "s/ctermbg=:$@:/ctermbg=$(word 1, $($@))/g" vim/colors/default.vim
-	@sed -i.bak "s/:$@:/#$(word 2, $($@))/g" vim/colors/default.vim
-
-color:
-	@echo
-	@echo $<
-	@echo $@
-	@echo $%
-	@echo $(MAKECMDGOALS)
+	@sed -i.bak "s/ctermfg=$@/ctermfg=$(word 1, $($@))/g" vim/colors/default.vim
+	@sed -i.bak "s/ctermbg=$@/ctermbg=$(word 1, $($@))/g" vim/colors/default.vim
+	@sed -i.bak "s/$@/#$(word 2, $($@))/g" vim/colors/default.vim
 
 DOTFILES=~/.dotfiles
 
-colors: vim/colors/default.vim ${COLORS}
-	@sed -i.bak "s/black:.*/black: '${BLACK}',/g" hyper/hyper.js
-	@sed -i.bak "s/red:.*/red: '${RED}',/g" hyper/hyper.js
-	@sed -i.bak "s/green:.*/green: '${GREEN}',/g" hyper/hyper.js
-	@sed -i.bak "s/yellow:.*/yellow: '${YELLOW}',/g" hyper/hyper.js
-	@sed -i.bak "s/blue:.*/blue: '${BLUE}',/g" hyper/hyper.js
-	@sed -i.bak "s/magenta:.*/magenta: '${MAGENTA}',/g" hyper/hyper.js
-	@sed -i.bak "s/cyan:.*/cyan: '${CYAN}',/g" hyper/hyper.js
-	@sed -i.bak "s/white:.*/white: '${WHITE}',/g" hyper/hyper.js
-	@sed -i.bak "s/brightBlack:.*/brightBlack: '${BRIGHT_BLACK}',/g" hyper/hyper.js
-	@sed -i.bak "s/brightRed:.*/brightRed: '${BRIGHT_RED}',/g" hyper/hyper.js
-	@sed -i.bak "s/brightGreen:.*/brightGreen: '${BRIGHT_GREEN}',/g" hyper/hyper.js
-	@sed -i.bak "s/brightYellow:.*/brightYellow: '${BRIGHT_YELLOW}',/g" hyper/hyper.js
-	@sed -i.bak "s/brightBlue:.*/brightBlue: '${BRIGHT_BLUE}',/g" hyper/hyper.js
-	@sed -i.bak "s/brightMagenta:.*/brightMagenta: '${BRIGHT_MAGENTA}',/g" hyper/hyper.js
-	@sed -i.bak "s/brightCyan:.*/brightCyan: '${BRIGHT_CYAN}',/g" hyper/hyper.js
-	@sed -i.bak "s/brightWhite:.*/brightWhite: '${BRIGHT_WHITE}',/g" hyper/hyper.js
-	rm hyper/hyper.js.bak
+colors: ${USED_COLORS}
+	@sed -i.bak "s/black:.*/black: '${x000_Black}',/g" hyper/hyper.js
+	@sed -i.bak "s/red:.*/red: '${x001_Red}',/g" hyper/hyper.js
+	@sed -i.bak "s/green:.*/green: '${x002_Green}',/g" hyper/hyper.js
+	@sed -i.bak "s/yellow:.*/yellow: '${x003_Yellow}',/g" hyper/hyper.js
+	@sed -i.bak "s/blue:.*/blue: '${x004_Blue}',/g" hyper/hyper.js
+	@sed -i.bak "s/magenta:.*/magenta: '${x005_Magenta}',/g" hyper/hyper.js
+	@sed -i.bak "s/cyan:.*/cyan: '${x006_Cyan}',/g" hyper/hyper.js
+	@sed -i.bak "s/white:.*/white: '${x007_White}',/g" hyper/hyper.js
+	@sed -i.bak "s/brightBlack:.*/brightBlack: '${x008_BrightBlack}',/g" hyper/hyper.js
+	@sed -i.bak "s/brightRed:.*/brightRed: '${x009_BrightRed}',/g" hyper/hyper.js
+	@sed -i.bak "s/brightGreen:.*/brightGreen: '${x010_BrightGreen}',/g" hyper/hyper.js
+	@sed -i.bak "s/brightYellow:.*/brightYellow: '${x011_BrightYellow}',/g" hyper/hyper.js
+	@sed -i.bak "s/brightBlue:.*/brightBlue: '${x012_BrightBlue}',/g" hyper/hyper.js
+	@sed -i.bak "s/brightMagenta:.*/brightMagenta: '${x013_BrightMagenta}',/g" hyper/hyper.js
+	@sed -i.bak "s/brightCyan:.*/brightCyan: '${x014_BrightCyan}',/g" hyper/hyper.js
+	@sed -i.bak "s/brightWhite:.*/brightWhite: '${x015_BrightWhite}',/g" hyper/hyper.js
+	@rm -f hyper/hyper.js.bak
+	@rm -f vim/colors/default.vim.bak
 
 vim/colors/default.vim:
-	cp vim/colors.vim vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:BLACK:/ctermfg=0/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:RED:/ctermfg=1/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:GREEN:/ctermfg=2/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:YELLOW:/ctermfg=3/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:BLUE:/ctermfg=4/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:MAGENTA:/ctermfg=5/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:CYAN:/ctermfg=6/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:WHITE:/ctermfg=7/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:BRIGHT_BLACK:/ctermfg=8/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:BRIGHT_RED:/ctermfg=9/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:BRIGHT_GREEN:/ctermfg=10/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:BRIGHT_YELLOW:/ctermfg=11/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:BRIGHT_BLUE:/ctermfg=12/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:BRIGHT_MAGENTA:/ctermfg=13/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:BRIGHT_CYAN:/ctermfg=14/g' vim/colors/default.vim
-	sed -i.bak 's/ctermfg=:BRIGHT_WHITE:/ctermfg=15/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:BLACK:/ctermbg=0/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:RED:/ctermbg=1/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:GREEN:/ctermbg=2/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:YELLOW:/ctermbg=3/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:BLUE:/ctermbg=4/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:MAGENTA:/ctermbg=5/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:CYAN:/ctermbg=6/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:WHITE:/ctermbg=7/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:BRIGHT_BLACK:/ctermbg=8/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:BRIGHT_RED:/ctermbg=9/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:BRIGHT_GREEN:/ctermbg=10/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:BRIGHT_YELLOW:/ctermbg=11/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:BRIGHT_BLUE:/ctermbg=12/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:BRIGHT_MAGENTA:/ctermbg=13/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:BRIGHT_CYAN:/ctermbg=14/g' vim/colors/default.vim
-	sed -i.bak 's/ctermbg=:BRIGHT_WHITE:/ctermbg=15/g' vim/colors/default.vim
-	sed -i.bak "s/:BLACK:/${BLACK}/g" vim/colors/default.vim
-	sed -i.bak "s/:RED:/${RED}/g" vim/colors/default.vim
-	sed -i.bak "s/:GREEN:/${GREEN}/g" vim/colors/default.vim
-	sed -i.bak "s/:YELLOW:/${YELLOW}/g" vim/colors/default.vim
-	sed -i.bak "s/:BLUE:/${BLUE}/g" vim/colors/default.vim
-	sed -i.bak "s/:MAGENTA:/${MAGENTA}/g" vim/colors/default.vim
-	sed -i.bak "s/:CYAN:/${CYAN}/g" vim/colors/default.vim
-	sed -i.bak "s/:WHITE:/${WHITE}/g" vim/colors/default.vim
-	sed -i.bak "s/:BRIGHT_BLACK:/${BRIGHT_BLACK}/g" vim/colors/default.vim
-	sed -i.bak "s/:BRIGHT_RED:/${BRIGHT_RED}/g" vim/colors/default.vim
-	sed -i.bak "s/:BRIGHT_GREEN:/${BRIGHT_GREEN}/g" vim/colors/default.vim
-	sed -i.bak "s/:BRIGHT_YELLOW:/${BRIGHT_YELLOW}/g" vim/colors/default.vim
-	sed -i.bak "s/:BRIGHT_BLUE:/${BRIGHT_BLUE}/g" vim/colors/default.vim
-	sed -i.bak "s/:BRIGHT_MAGENTA:/${BRIGHT_MAGENTA}/g" vim/colors/default.vim
-	sed -i.bak "s/:BRIGHT_CYAN:/${BRIGHT_CYAN}/g" vim/colors/default.vim
-	sed -i.bak "s/:BRIGHT_WHITE:/${BRIGHT_WHITE}/g" vim/colors/default.vim
-	rm vim/colors/default.vim.bak
+	@cp vim/colors.vim vim/colors/default.vim
 
 default:
 	@echo "  install       Install all dotfiles"
@@ -394,5 +322,4 @@ vim/autoload/plug.vim:
 		vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-.PHONY: clean default install uninstall vim/colors/default.vim hyper/colors.js colors \
-	GRAY_7
+.PHONY: clean default install uninstall vim/colors/default.vim hyper/colors.js colors

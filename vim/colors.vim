@@ -1,53 +1,47 @@
-highlight Normal guibg=:BLACK: guifg=:WHITE:
-highlight LineNr guibg=:BLACK: guifg=:BRIGHT_BLACK: ctermbg=:BLACK: ctermfg=:BRIGHT_BLACK:
-highlight EndOfBuffer guifg=:BLACK: ctermfg=:BLACK:
-highlight ColorColumn guibg=:MAGENTA: ctermbg=:MAGENTA:
+highlight Normal guibg=x000_Black guifg=x007_White
+highlight LineNr guibg=x000_Black guifg=x242_Grey42 ctermbg=x000_Black ctermfg=x242_Grey42
+highlight EndOfBuffer guifg=x000_Black ctermfg=x000_Black
+highlight ColorColumn guibg=x005_Magenta ctermbg=x005_Magenta
 
-highlight VertSplit guibg=:BLACK: ctermfg=:BLACK:
-highlight StatusLine guibg=:BRIGHT_BLACK: guifg=:WHITE: ctermbg=:WHITE: ctermfg=:BRIGHT_BLACK:
-highlight StatusLineNC guibg=:BLACK: guifg=:WHITE: ctermbg=:WHITE: ctermfg=:BLACK:
+highlight VertSplit guibg=x000_Black ctermfg=x000_Black
+highlight StatusLine guibg=x235_Grey15 guifg=x007_White ctermbg=x007_White ctermfg=x235_Grey15
+highlight StatusLineNC guibg=x235_Grey15 guifg=x235_Grey15 ctermbg=x235_Grey15 ctermfg=x235_Grey15
 
-highlight vimHiCtermError guibg=:BLACK: guifg=:BLUE: ctermbg=:BLACK: ctermfg=:BLUE:
+highlight vimHiCtermError guibg=x000_Black guifg=x004_Blue ctermbg=x000_Black ctermfg=x004_Blue
 
-highlight ExtraWhitespace guibg=:BRIGHT_WHITE: ctermbg=:BRIGHT_WHITE:
+highlight ExtraWhitespace guibg=x015_BrightWhite ctermbg=x015_BrightWhite
 
-highlight Statement guifg=:GREEN: gui=none ctermfg=:GREEN:
-highlight Type guifg=:BRIGHT_BLUE: gui=none ctermfg=:BRIGHT_BLUE:
-highlight PreProc guifg=:BRIGHT_BLUE: ctermfg=:BRIGHT_BLUE:
-highlight Constant guifg=:GREEN: ctermfg=:GREEN:
-highlight Boolean guifg=:MAGENTA: ctermfg=:MAGENTA:
+highlight Statement guifg=x002_Green gui=none ctermfg=x002_Green
+highlight Type guifg=x012_BrightBlue gui=none ctermfg=x012_BrightBlue
+highlight PreProc guifg=x012_BrightBlue ctermfg=x012_BrightBlue
+highlight Constant guifg=x002_Green ctermfg=x002_Green
+highlight Boolean guifg=x005_Magenta ctermfg=x005_Magenta
 
-augroup NerdCursor
-  "autocmd!
-  "autocmd BufEnter NERD_tree_* highlight CursorLine guibg=:BRIGHT_MAGENTA: guifg=:BRIGHT_WHITE: ctermbg=:BRIGHT_MAGENTA: cterm=none ctermfg=:BRIGHT_WHITE:
-  "autocmd BufLeave NERD_tree_* highlight CursorLine guibg=:BRIGHT_BLACK: ctermbg=:BRIGHT_BLACK: cterm=none
-  "autocmd BufAdd * highlight clear CursorLine
-augroup END
-highlight CursorLine guibg=:x235_Grey15: ctermbg=:x235_Grey15: cterm=none
+highlight CursorLine guibg=x235_Grey15 ctermbg=x235_Grey15 cterm=none
 
-highlight NERDTreeCWD guifg=:BRIGHT_MAGENTA: ctermfg=:BRIGHT_MAGENTA:
-highlight NERDTreeOpenable guifg=:BLUE: ctermfg=:BLUE:
-highlight NERDTreeDir guifg=:BLUE: ctermfg=:BLUE:
+highlight NERDTreeCWD guifg=x013_BrightMagenta ctermfg=x013_BrightMagenta
+highlight NERDTreeOpenable guifg=x004_Blue ctermfg=x004_Blue
+highlight NERDTreeDir guifg=x004_Blue ctermfg=x004_Blue
 
-highlight TabLineFill guifg=:BRIGHT_BLACK: ctermfg=:BRIGHT_BLACK:
-highlight TabLineSel guibg=:BRIGHT_MAGENTA: guifg=:BRIGHT_WHITE: ctermbg=:BRIGHT_MAGENTA: ctermfg=:BRIGHT_WHITE:
-highlight TabLine guibg=:BRIGHT_BLACK: gui=bold ctermbg=:BRIGHT_BLACK: cterm=bold
+highlight TabLineFill guifg=x235_Grey15 ctermfg=x235_Grey15
+highlight TabLineSel guibg=x013_BrightMagenta guifg=x015_BrightWhite ctermbg=x013_BrightMagenta ctermfg=x015_BrightWhite
+highlight TabLine guibg=x235_Grey15 gui=bold ctermbg=x235_Grey15 cterm=bold
 
-highlight Function guifg=:MAGENTA: ctermfg=:MAGENTA:
+highlight Function guifg=x005_Magenta ctermfg=x005_Magenta
 
-highlight String guifg=:BRIGHT_CYAN: ctermfg=:BRIGHT_CYAN:
+highlight String guifg=x014_BrightCyan ctermfg=x014_BrightCyan
 
-highlight jsModuleKeyword guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
-highlight jsObjectKey guifg=:BRIGHT_MAGENTA: ctermfg=:BRIGHT_MAGENTA:
-highlight jsClassKeyword guifg=:BRIGHT_BLUE: ctermfg=:BRIGHT_BLUE:
-highlight jsExtendsKeyword guifg=:BRIGHT_BLUE: ctermfg=:BRIGHT_BLUE:
-highlight jsClassDefinition guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
-highlight jsFuncCall guifg=:BRIGHT_MAGENTA: ctermfg=:BRIGHT_MAGENTA:
-highlight jsParen guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
-highlight jsBracket guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
-highlight jsBlock guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
-highlight jsThis guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
-highlight jsObjectProp guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
-highlight jsObjectValue guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
-highlight jsVariableDef guifg=:BRIGHT_GREEN: ctermfg=:BRIGHT_GREEN:
+highlight jsModuleKeyword guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsObjectKey guifg=x013_BrightMagenta ctermfg=x013_BrightMagenta
+highlight jsClassKeyword guifg=x012_BrightBlue ctermfg=x012_BrightBlue
+highlight jsExtendsKeyword guifg=x012_BrightBlue ctermfg=x012_BrightBlue
+highlight jsClassDefinition guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsFuncCall guifg=x013_BrightMagenta ctermfg=x013_BrightMagenta
+highlight jsParen guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsBracket guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsBlock guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsThis guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsObjectProp guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsObjectValue guifg=x010_BrightGreen ctermfg=x010_BrightGreen
+highlight jsVariableDef guifg=x010_BrightGreen ctermfg=x010_BrightGreen
 
