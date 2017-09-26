@@ -23,7 +23,7 @@ highlight CursorLine guibg=x235_Grey15 ctermbg=x235_Grey15 cterm=none
 
 highlight NERDTreeCWD guifg=x013_BrightMagenta ctermfg=x013_BrightMagenta
 highlight NERDTreeOpenable guifg=x004_Blue ctermfg=x004_Blue
-highlight NERDTreeOpenable guifg=x007_White ctermfg=x007_White
+highlight NERDTreeClosable guifg=x007_White ctermfg=x007_White
 highlight NERDTreeDir guifg=x004_Blue ctermfg=x004_Blue
 highlight NERDTreeDirSlash guifg=x000_Black ctermfg=x000_Black
 
