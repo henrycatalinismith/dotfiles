@@ -1,0 +1,77 @@
+[alias]
+	a    = add
+	ap   = add --patch
+	b    = branch --verbose
+	ba   = branch --all
+	bc   = branch --contains
+	br   = branch --remote
+	ci   = commit
+	cia  = commit --amend
+	co   = checkout
+	c-   = checkout --
+	cp   = cherry-pick
+	d    = diff
+	dc   = diff --cached
+	g    = grep -n
+	gi   = grep -ni
+	git  = !git $1
+	ig   = ls-files --others -i --exclude-standard
+	l    = log --graph --stat --decorate
+	lod  = log --oneline --decorate
+	lodg = log --oneline --decorate --graph
+	m    = merge
+	rh   = reset HEAD
+	s    = status --short --branch
+	up   = "!git remote update -p; git merge --ff-only @{u}"
+
+[core]
+	autocrlf = false
+	whitespace = trailing-space,space-before-tab
+
+[clean]
+	requireForce = false
+
+[color]
+	branch   = true
+	diff     = true
+	decorate = true
+	grep     = true
+	pager    = true
+	status   = true
+
+[color "branch"]
+	current = magenta reverse
+	local = magenta
+	remote = yellow
+
+[color "decorate"]
+	commit       = cyan
+	branch       = magenta
+	remotebranch = magenta bold
+	tag          = red
+	stash        = yellow
+	HEAD         = cyan
+
+[color "diff"]
+	frag       = magenta
+	meta       = white
+	new        = green bold
+	old        = red bold
+	whitespace = white reverse
+
+[color "grep"]
+	filename   = blue
+	linenumber = green
+	match      = magenta bold
+	separator  = cyan
+
+[color "status"]
+	branch    = magenta
+	header    = blue
+	added     = magenta
+	changed   = magenta
+	untracked = cyan
+
+[user]
+	name = hen
+	email = hen@highvalley.systems
