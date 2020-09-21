@@ -10,3 +10,6 @@
 [submodule ".vim/pack/plugins/start/tabline"]
 	path = .vim/pack/plugins/start/tabline
 	url = https://github.com/mkitt/tabline.vim.git
+[submodule ".vim/pack/plugins/start/editorconfig"]
+	path = .vim/pack/plugins/start/editorconfig
+	url = https://github.com/editorconfig/editorconfig-vim.git
