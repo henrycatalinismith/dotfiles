@@ -2,17 +2,16 @@ dotfiles
 ========
 
 ```bash
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 git clone --bare git@github.com:hencatsmith/dotfiles.git .dotfiles
-dotfiles checkout
-dotfiles sparse-checkout init
-dotfiles sparse-checkout add .gitconfig
-dotfiles sparse-checkout add .vim
-dotfiles sparse-checkout add .vimrc
-dotfiles sparse-checkout add .zshrc
-dotfiles checkout
-dotfiles checkout trunk -- .vim
-dotfiles submodule update --init --recursive
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME sparse-checkout init
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME sparse-checkout add .gitconfig
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME sparse-checkout add .vim
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME sparse-checkout add .vimrc
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME sparse-checkout add .zshrc
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout trunk -- .vim
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME submodule update --init --recursive
 ```
 
 #### iTerm2
