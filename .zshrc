@@ -1,21 +1,14 @@
 function dotfiles() {
-  git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
-}
-
-function dofi() {
   case $1 in
   "addplugin")
-    #echo "[submodule \".vim/pack/plugins/start/$2\"]" >> ~/.gitmodules
-    #echo "\tpath = .vim/pack/plugins/start/$2"        >> ~/.gitmodules
-    #echo "\turl = $3"                                 >> ~/.gitmodules
-    dofi submodule add -f $3 .vim/pack/plugins/start/$2
-    dofi c $2
-    dofi plugins
+    dotfiles submodule add -f $3 .vim/pack/plugins/start/$2
+    dotfiles c $2
+    dotfiles plugins
     ;;
 
   "plugins")
-    dofi checkout trunk -- ~/.vim
-    dofi submodule update --init --recursive
+    dotfiles checkout trunk -- ~/.vim
+    dotfiles submodule update --init --recursive
     ;;
 
   *)
@@ -24,7 +17,6 @@ function dofi() {
   esac
 }
 
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias t='tree -L 1'
 
 plugins=(git)
