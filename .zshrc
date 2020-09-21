@@ -7,6 +7,7 @@ function dotfiles() {
     ;;
 
   "plugins")
+    rm -rf ~/.vim
     dotfiles checkout trunk -- ~/.vim
     dotfiles submodule update --init --recursive
     ;;
