@@ -4,6 +4,7 @@ inoremap <F1> <nop>
 map <Space> <Leader>
 map Q <nop>
 map Y y$
+nnoremap <leader>p  :CtrlP<CR>
 nnoremap <leader>q  :quit!<CR>
 nnoremap <leader>w  :write<CR>
 nnoremap <leader>wq :write<CR>:quit!<CR>
