@@ -5,7 +5,7 @@
 	ba   = branch --all
 	bc   = branch --contains
 	br   = branch --remote
-	ci   = commit
+	ci   = "!f() { git commit -m \"$*\"; }; f"
 	cia  = commit --amend
 	co   = checkout
 	c-   = checkout --

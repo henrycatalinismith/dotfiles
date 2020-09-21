@@ -1,4 +1,5 @@
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias t='tree -L 1'
 
 plugins=(git)
 
