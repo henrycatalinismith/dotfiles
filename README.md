@@ -1,6 +1,10 @@
 dotfiles
 ========
 
+![Screenshot showing the 'dotfiles' command running with no arguments outputting
+the usage guide from .zshrc](https://github.com/hencatsmith/dotfiles/blob/trunk/screenshot.png?raw=true)
+
+
 ```bash
 /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/hencatsmith/dotfiles/trunk/install.sh)"
 ```
