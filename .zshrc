@@ -8,7 +8,7 @@ function dofi() {
     #echo "[submodule \".vim/pack/plugins/start/$2\"]" >> ~/.gitmodules
     #echo "\tpath = .vim/pack/plugins/start/$2"        >> ~/.gitmodules
     #echo "\turl = $3"                                 >> ~/.gitmodules
-    dofi submodule add $3 .vim/pack/plugins/start/$2
+    dofi submodule add -f $3 .vim/pack/plugins/start/$2
     dofi c $2
     dofi plugins
     ;;
