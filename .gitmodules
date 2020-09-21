@@ -1,0 +1,6 @@
+[submodule ".vim/pack/plugins/start/dracula"]
+	path = .vim/pack/plugins/start/dracula
+	url = https://github.com/dracula/vim.git
+[submodule ".vim/pack/plugins/start/polyglot"]
+	path = .vim/pack/plugins/start/polyglot
+	url = https://github.com/sheerun/vim-polyglot
