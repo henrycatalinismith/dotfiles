@@ -1,3 +1,16 @@
+function dofi() {
+  case $1 in
+  "addplugin")
+    echo "[submodule \".vim/pack/plugins/start/$2\"]" >> ~/.gitmodules
+    echo "    path = .vim/pack/plugins/start/$2"      >> ~/.gitmodules
+    echo "    url = $3"                               >> ~/.gitmodules
+    rm -rf ~/.vim
+    dotfiles checkout trunk -- ~/.vim
+    dotfiles submodule update --init --recursive
+    ;;
+  esac
+}
+
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias t='tree -L 1'
 
