@@ -12,6 +12,10 @@ function dotfiles() {
     dotfiles submodule update --init --recursive
     ;;
 
+  "upload")
+    dotfiles push origin trunk
+    ;;
+
   *)
     git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
     ;;
