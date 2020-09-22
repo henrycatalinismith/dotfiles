@@ -79,7 +79,7 @@ function dotfiles() {
     for file in `dotfiles ls-files`; do
       if [[ -f ~/$file ]]
       then
-        dotfiles reset --hard origin/trunk ~/$file
+        dotfiles checkout origin/trunk -- ~/$file
       fi
     done
     ;;
