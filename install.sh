@@ -11,6 +11,7 @@ dotfiles sparse-checkout init
 dotfiles sparse-checkout set .gitconfig
 dotfiles sparse-checkout add .gitignore
 dotfiles sparse-checkout add .gitmodules
+dotfiles sparse-checkout add .nethackrc
 dotfiles sparse-checkout add .vim
 dotfiles sparse-checkout add .vimrc
 dotfiles sparse-checkout add .zshrc
