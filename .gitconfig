@@ -28,6 +28,7 @@
 
 [core]
 	autocrlf = false
+	editor = vim
 	whitespace = trailing-space,space-before-tab
 
 [clean]

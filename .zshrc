@@ -50,11 +50,17 @@ function dotfiles() {
   "toolbox")
     brew install \
       cowsay \
+      ffmpeg \
+      fzf \
       git \
+      htop \
+      jq \
       nethack \
+      nmap \
       python \
       sl \
       telnet \
+      tldr \
       tree \
       tmux \
       wget
