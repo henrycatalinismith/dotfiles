@@ -1,5 +1,3 @@
-# test2
-
 function dotfiles() {
   if [[ $# -eq 0 ]]
   then
