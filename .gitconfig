@@ -21,6 +21,7 @@
 	lod  = log --oneline --decorate
 	lodg = log --oneline --decorate --graph
 	m    = merge
+	re   = "!f() { git rh $1; git c- $1; }; f"
 	rh   = reset HEAD
 	s    = status --short --branch
 	up   = "!git remote update -p; git merge --ff-only @{u}"

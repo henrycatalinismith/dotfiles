@@ -18,6 +18,7 @@ noremap  <F1> <nop>
 set autoindent
 set background=dark
 set backspace=2
+set encoding=utf-8
 set fileformat=unix
 set ignorecase
 set incsearch
