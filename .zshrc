@@ -78,10 +78,12 @@ function dotfiles() {
 
   "update")
     dotfiles fetch --all
+    dotfiles checkout
     for file in `dotfiles ls-files`; do
       if [[ -f ~/$file ]]
       then
-        dotfiles checkout origin/trunk -- ~/$file
+        dotfiles reset ~/$file
+        dotfiles checkout -- ~/$file
       fi
     done
     ;;
