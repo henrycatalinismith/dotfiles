@@ -1,7 +1,8 @@
 dotfiles
 ========
 
-### _version control & automation for installing & managing my development tools_
+_**my devtools setup**_
+
 
 ![Screenshot showing the 'dotfiles' command running with no arguments outputting
 the usage guide from .zshrc](https://github.com/hencatsmith/dotfiles/blob/trunk/screenshot.png?raw=true)
@@ -24,7 +25,9 @@ We're solving that here by doing a [`--bare`][--bare] checkout of the dotfiles r
 The [`--work-tree`][--work-tree] flag takes care of telling Git to treat the files in the home directory as if they belong to that repo.
 
 ```bash
-# This commits dotfiles changes to the ~/.dotfiles repo from outside in the home directory
+# commits dotfiles changes to
+# the ~/.dotfiles repo from
+# outside in the home directory
 git \
   --git-dir=$HOME/.dotfiles/ \
   --work-tree=$HOME \
@@ -40,8 +43,13 @@ For me, something this complex needs documentation or I'll never be able to unde
 The workaround for that is [`git sparse-checkout`][sparse-checkout], which allows you to tell Git to only checkout a subset of files.
 
 ```bash
-# This only checks out two of the files in the repo. It's important to call "set" instead of "add"
-# for the first file to clean out the defaults which contain a pattern that matches all files.
+# This only checks out two of the
+# files in the repo. It's
+# important to call "set" instead
+# of "add" for the first file to
+# clean out the defaults which
+# contain a pattern that matches
+# all files.
 git sparse-checkout init
 git sparse-checkout set .gitconfig
 git sparse-checkout add .vimrc
@@ -58,7 +66,7 @@ Nicola's blog post recommends setting [`status.showUntrackedFiles`][status.showU
 
 # then ! adds exceptions
 !.gitconfig
-!.gitignore
+!.vimrc
 ```
 
 #### Extra magic on top
@@ -69,13 +77,18 @@ Aliasing the `dotfiles` command to handle the plumbing between the home director
 function dotfiles() {
   case $1 in
   "toolbox")
-    # running `dotfiles toolbox` installs all this
-    brew install git python telnet tmux wget
+    # running `dotfiles toolbox`
+    # installs all this stuff
+    brew install git node wget
     ;;
 
   *)
-    # any other `dotfiles` commands are just passed straight through to git
-    git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
+    # other `dotfiles` commands
+    # are just passed straight
+    # through to git
+    git \
+      --git-dir=$HOME/.dotfiles/ \
+      --work-tree=$HOME $@
     ;;
   esac
 }
