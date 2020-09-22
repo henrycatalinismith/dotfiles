@@ -9,6 +9,7 @@ function dotfiles() {
     echo "$fg_no_bold[cyan]reinstall$reset_color  clean out + start again"
     echo "$fg_no_bold[cyan]toolbox$reset_color    install usual homebrew tools"
     echo "$fg_no_bold[cyan]uninstall$reset_color  undo installation"
+    echo "$fg_no_bold[cyan]update$reset_color     pull changes from github"
     echo "$fg_no_bold[cyan]upload$reset_color     push changes to github"
     return
   fi
@@ -71,6 +72,16 @@ function dotfiles() {
       rm -rf ~/$file;
     done
     rm -rf ~/.dotfiles
+    ;;
+
+  "update")
+    dotfiles fetch --all
+    for file in `dotfiles ls-files`; do
+      if [[ -f ~/$file ]]
+      then
+        dotfiles reset --hard origin/trunk ~/$file
+      fi
+    done
     ;;
 
   "upload")
