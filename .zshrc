@@ -1,51 +1,63 @@
 function dotfiles() {
   if [[ $# -eq 0 ]]
   then
-    echo "$fg_no_bold[cyan]install:homebrew$reset_color  install homebrew"
-    echo "$fg_no_bold[cyan]install:iosevka$reset_color   install iosevka font"
-    echo "$fg_no_bold[cyan]install:plugin$reset_color    add a new vim plugin"
-    echo "$fg_no_bold[cyan]install:plugins$reset_color   install all vim plugins"
-    echo "$fg_no_bold[cyan]install:toolbox$reset_color   install usual homebrew tools"
-    echo "$fg_no_bold[cyan]upload$reset_color            push changes to github"
+    echo "$fg_no_bold[cyan]homebrew$reset_color   install homebrew"
+    echo "$fg_no_bold[cyan]install$reset_color    install dotfiles"
+    echo "$fg_no_bold[cyan]iosevka$reset_color    install iosevka font"
+    echo "$fg_no_bold[cyan]plugin$reset_color     add a new vim plugin"
+    echo "$fg_no_bold[cyan]plugins$reset_color    install all vim plugins"
+    echo "$fg_no_bold[cyan]reinstall$reset_color  clean out + start again"
+    echo "$fg_no_bold[cyan]toolbox$reset_color    install usual homebrew tools"
+    echo "$fg_no_bold[cyan]uninstall$reset_color  undo installation"
+    echo "$fg_no_bold[cyan]upload$reset_color     push changes to github"
     return
   fi
 
   case $1 in
 
 
+  "homebrew")
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    ;;
+
   "install")
     /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/hencatsmith/dotfiles/trunk/install.sh)"
     ;;
 
-  "install:homebrew")
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-    ;;
-
-  "install:iosevka")
+  "iosevka")
     brew tap homebrew/cask-fonts
     brew cask install font-iosevka
     brew cask install font-iosevka-slab
     ;;
 
-  "install:plugin")
+  "plugin")
     dotfiles submodule add -f $3 .vim/pack/plugins/start/$2
     dotfiles c $2
-    dotfiles install:plugins
+    dotfiles plugins
     ;;
 
-  "install:plugins")
+  "plugins")
     rm -rf ~/.vim
     dotfiles checkout trunk -- ~/.vim
     dotfiles submodule update --init --recursive
     ;;
 
-  "install:toolbox")
-    brew install cowsay git sl tree tmux wget
-    ;;
-
   "reinstall")
     dotfiles uninstall
     dotfiles install
+    ;;
+
+  "toolbox")
+    brew install \
+      cowsay \
+      git \
+      nethack \
+      python \
+      sl \
+      telnet \
+      tree \
+      tmux \
+      wget
     ;;
 
   "uninstall")

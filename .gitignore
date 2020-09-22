@@ -2,6 +2,7 @@
 !.gitconfig
 !.gitignore
 !.gitmodules
+!.nethackrc
 !.vim/pack/plugins/start
 !.vimrc
 !.zshrc
