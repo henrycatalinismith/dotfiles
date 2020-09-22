@@ -11,6 +11,12 @@ function dotfiles() {
   fi
 
   case $1 in
+
+
+  "install")
+    /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/hencatsmith/dotfiles/trunk/install.sh)"
+    ;;
+
   "install:homebrew")
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ;;
@@ -35,6 +41,18 @@ function dotfiles() {
 
   "install:toolbox")
     brew install cowsay git sl tree tmux wget
+    ;;
+
+  "reinstall")
+    dotfiles uninstall
+    dotfiles install
+    ;;
+
+  "uninstall")
+    for file in `dotfiles ls-files`; do
+      rm -rf ~/$file;
+    done
+    rm -rf ~/.dotfiles
     ;;
 
   "upload")
