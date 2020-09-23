@@ -13,3 +13,6 @@
 [submodule ".vim/pack/plugins/start/editorconfig"]
 	path = .vim/pack/plugins/start/editorconfig
 	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule ".vim/pack/plugins/start/nerdtree"]
+	path = .vim/pack/plugins/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
