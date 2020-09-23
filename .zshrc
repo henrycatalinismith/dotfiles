@@ -100,7 +100,7 @@ function dotfiles() {
   esac
 }
 
-alias t='tree -L 1'
+alias t='tree -L 1 -C --dirsfirst'
 
 plugins=(git)
 
