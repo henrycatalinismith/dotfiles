@@ -1,8 +1,20 @@
+au BufEnter,BufNewFile,BufRead *.css setlocal shiftwidth=2
+au BufEnter,BufNewFile,BufRead *.css setlocal tabstop=2
+au BufEnter,BufNewFile,BufRead *.html setlocal shiftwidth=2
+au BufEnter,BufNewFile,BufRead *.html setlocal tabstop=2
 au BufEnter,BufNewFile,BufRead *.js setlocal shiftwidth=2
 au BufEnter,BufNewFile,BufRead *.js setlocal tabstop=2
 colorscheme default
 filetype indent plugin on
 inoremap <F1> <nop>
+let NERDTreeMinimalUI=1
+let g:ctrlp_user_command = {
+  \ 'types': {
+    \ 1: ['.git', 'cd %s && git ls-files'],
+    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+  \ },
+  \ 'fallback': 'find %s -type f'
+\ }
 map <Space> <Leader>
 map Q <nop>
 map Y y$
