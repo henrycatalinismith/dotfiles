@@ -100,7 +100,8 @@ function dotfiles() {
   esac
 }
 
-alias t='tree -L 1 -C --dirsfirst'
+alias pico8="/Applications/PICO-8.app/Contents/MacOS/pico8"
+alias t="tree -L 1 -C --dirsfirst"
 
 plugins=(git)
 
