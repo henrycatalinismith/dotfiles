@@ -4,6 +4,9 @@ au BufEnter,BufNewFile,BufRead *.html setlocal shiftwidth=2
 au BufEnter,BufNewFile,BufRead *.html setlocal tabstop=2
 au BufEnter,BufNewFile,BufRead *.js setlocal shiftwidth=2
 au BufEnter,BufNewFile,BufRead *.js setlocal tabstop=2
+au BufEnter,BufNewFile,BufRead *.p8 setlocal expandtab
+au BufEnter,BufNewFile,BufRead *.p8 setlocal shiftwidth=1
+au BufEnter,BufNewFile,BufRead *.p8 setlocal tabstop=1
 colorscheme default
 filetype indent plugin on
 inoremap <F1> <nop>
