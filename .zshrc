@@ -42,6 +42,7 @@ function dotfiles() {
 
     "toolbox")
       brew install \
+        coreutils \
         cowsay \
         ffmpeg \
         fzf \
@@ -52,6 +53,8 @@ function dotfiles() {
         nmap \
         node \
         python \
+        rbenv \
+        ruby-build \
         sl \
         telnet \
         tldr \
