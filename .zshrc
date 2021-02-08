@@ -103,7 +103,7 @@ function dotfiles() {
 alias pico8="/Applications/PICO-8.app/Contents/MacOS/pico8"
 alias t="tree -L 1 -C --dirsfirst"
 
-plugins=(git)
+plugins=(git rbenv)
 
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="sunrise"
