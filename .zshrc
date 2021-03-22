@@ -24,54 +24,38 @@ function dotfiles() {
     ;;
 
     "macos")
-      defaults write com.apple.dock mouse-over-hilite-stack -bool true
-      defaults write com.apple.dock tilesize -int 64
-      defaults write com.apple.dock mineffect -string "scale"
-      defaults write com.apple.dock show-process-indicators -bool true
-      defaults write com.apple.dock launchanim -bool false
-      defaults write com.apple.dock autohide-time-modifier -float 0
-      defaults write com.apple.dock autohide-delay -float 0
-      defaults write com.apple.dock autohide -bool true
-      defaults write com.apple.dock showhidden -bool true
-      defaults write com.apple.dock show-recents -bool false
-      killall Dock
       defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-      defaults write com.apple.finder NewWindowTarget -string "Pflo"
-      defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
-      defaults write com.apple.finder ShowStatusBar -bool true
-      defaults write com.apple.finder ShowPathbar -bool true
-      defaults write com.apple.finder ShowRecentTags -bool false
-      defaults write com.apple.finder SidebarWidth -int 164
-      defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-      defaults write com.apple.finder _FXSortFoldersFirst -bool true
-      defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-      defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-      defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
-      defaults write com.apple.frameworks.diskimages skip-verify -bool true
-      defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
-      defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
-      defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
-      defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
-      defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
-      defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
-      killall Finder
-      defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
-      defaults write com.apple.Safari HomePage -string "about:blank"
+      defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
       defaults write com.apple.Safari ShowFavoritesBar -bool false
       defaults write com.apple.Safari IncludeDevelopMenu -bool true
       defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
-      defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
-      defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-      defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-      defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
-      killall Safari
-      defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
-      defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
-      defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
-      defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
-      defaults write com.apple.SoftwareUpdate ConfigDataInstall -int 1
-      defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
-      defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+      # https://developer.apple.com/documentation/devicemanagement/dock
+      defaults write com.apple.dock mineffect -string "scale"
+      defaults write com.apple.dock minimize-to-application -bool true
+      defaults write com.apple.dock show-process-indicators -bool false
+      defaults write com.apple.dock static-only -bool true
+      defaults write com.apple.dock wvous-bl-corner -int 11
+      defaults write com.apple.dock wvous-bl-modifier -int 0
+      defaults write com.apple.dock wvous-br-corner -int 2
+      defaults write com.apple.dock wvous-br-modifier -int 0
+      killall Dock
+
+      defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+      defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+      defaults write com.apple.finder _FXSortFoldersFirst -bool true
+      defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+      defaults write com.apple.finder NewWindowTarget -string "Pflo"
+      defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+      defaults write com.apple.finder ShowRecentTags -bool false
+      defaults write com.apple.finder SidebarWidth -int 128
+      killall Finder
+
+      defaults write com.apple.frameworks.diskimages skip-verify -bool true
+      defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+      defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
     ;;
 
     "plugin")
