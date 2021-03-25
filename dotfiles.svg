@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" viewBox="-2 0 40 8">
+<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" viewBox="-2 0 40 8" preserveAspectRatio="xMidYMid meet">
   <g>
     <path stroke="#000" stroke-width="2.8" d="M0 4v2h1l1-1V4L1 3H0v2"/>
     <path stroke="#fff1e8" d="M0 4v2h1l1-1V4L1 3H0v2"/>
