@@ -24,7 +24,17 @@ function dotfiles() {
     ;;
 
     "macos")
+      sudo -v
+
+      sudo spctl --master-disable
+      sudo chflags nohidden /Volumes
+
       defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+      defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+      defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+      defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+      defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+      defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
       defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
       defaults write com.apple.Safari ShowFavoritesBar -bool false
@@ -51,6 +61,7 @@ function dotfiles() {
       defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
       defaults write com.apple.finder ShowRecentTags -bool false
       defaults write com.apple.finder SidebarWidth -int 128
+      defaults write com.apple.finder WarnOnEmptyTrash -bool false
       killall Finder
 
       defaults write com.apple.frameworks.diskimages skip-verify -bool true
@@ -76,37 +87,7 @@ function dotfiles() {
     ;;
 
     "toolbox")
-      brew install \
-        coreutils \
-        cowsay \
-        ffmpeg \
-        fzf \
-        git \
-        htop \
-        jq \
-        nethack \
-        nmap \
-        node \
-        python \
-        rbenv \
-        ruby-build \
-        sl \
-        telnet \
-        tldr \
-        tree \
-        tmux \
-        watch \
-        wget \
-        yarn
-
-      case `uname` in
-        Darwin)
-          brew install iterm2 macvim
-          brew tap homebrew/cask-fonts \
-            && brew cask install font-iosevka \
-            && brew cask install font-iosevka-slab
-        ;;
-      esac
+      brew bundle --file=~/.Brewfile
     ;;
 
     "uninstall")
