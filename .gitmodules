@@ -1,21 +1,3 @@
-[submodule ".vim/pack/plugins/start/dracula"]
-	path = .vim/pack/plugins/start/dracula
-	url = https://github.com/dracula/vim.git
-[submodule ".vim/pack/plugins/start/polyglot"]
-	path = .vim/pack/plugins/start/polyglot
-	url = https://github.com/sheerun/vim-polyglot
-[submodule ".vim/pack/plugins/start/ctrlp"]
-	path = .vim/pack/plugins/start/ctrlp
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule ".vim/pack/plugins/start/tabline"]
-	path = .vim/pack/plugins/start/tabline
-	url = https://github.com/mkitt/tabline.vim.git
-[submodule ".vim/pack/plugins/start/editorconfig"]
-	path = .vim/pack/plugins/start/editorconfig
-	url = https://github.com/editorconfig/editorconfig-vim.git
-[submodule ".vim/pack/plugins/start/nerdtree"]
-	path = .vim/pack/plugins/start/nerdtree
-	url = https://github.com/preservim/nerdtree.git
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
