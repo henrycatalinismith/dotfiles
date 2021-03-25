@@ -17,6 +17,7 @@ dotfiles sparse-checkout add .gitmodules
 dotfiles sparse-checkout add .irbrc
 dotfiles sparse-checkout add .nethackrc
 dotfiles sparse-checkout add .railsrc
+dotfiles sparse-checkout add .tmux
 dotfiles sparse-checkout add .vim
 dotfiles sparse-checkout add .vimrc
 dotfiles sparse-checkout add .zshrc
