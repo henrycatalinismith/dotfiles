@@ -5,9 +5,7 @@
     height="64"
     width="256"
   />
-</p>
-
-<p align="center">
+  <br />
   <strong>
     my devtools setup
   </strong>
