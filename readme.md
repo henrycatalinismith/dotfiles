@@ -106,15 +106,6 @@ function dotfiles() {
 }
 ```
 
-#### iTerm2
-
-Would have been nice to automate the iTerm2 theme installation and keyboard config, but the Python API for that thing seems to require manual work of its own to enable, so there's not really much point using it for this. So instead here's some bookmarks.
-
-1. https://www.iterm2.com/
-1. https://draculatheme.com/iterm/
-1. https://medium.com/@jonnyhaynes/jump-forwards-backwards-and-delete-a-word-in-iterm2-on-mac-os-43821511f0a/
-
-
 [How to store dotfiles]: https://www.atlassian.com/git/tutorials/dotfiles
 [homebrew]: https://brew.sh
 [oh-my-zsh]: https://ohmyz.sh
