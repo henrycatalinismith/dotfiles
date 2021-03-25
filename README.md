@@ -9,6 +9,11 @@ the usage guide from .zshrc](https://github.com/hendotcat/dotfiles/blob/trunk/sc
 
 ### Install
 
+Run `xcode-select --install` first.
+Then install [homebrew] and [oh-my-zsh].
+Run `brew install git` to update Git.
+Once all that's done, run this:
+
 ```bash
 /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/hendotcat/dotfiles/trunk/install.sh)"
 ```
@@ -104,6 +109,8 @@ Would have been nice to automate the iTerm2 theme installation and keyboard conf
 
 
 [How to store dotfiles]: https://www.atlassian.com/git/tutorials/dotfiles
+[homebrew]: https://brew.sh
+[oh-my-zsh]: https://ohmyz.sh
 [--bare]: https://git-scm.com/docs/git#Documentation/git.txt---bare
 [--work-tree]: https://git-scm.com/docs/git#Documentation/git.txt---work-treeltpathgt
 [sparse-checkout]: https://git-scm.com/docs/git-sparse-checkout
