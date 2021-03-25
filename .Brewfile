@@ -25,6 +25,7 @@ brew "wget"
 brew "yarn"
 
 cask "font-iosevka"
+cask "font-iosevka-nerd-font"
 cask "font-iosevka-slab"
 
 cask "alacritty"
