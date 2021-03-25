@@ -27,10 +27,10 @@ brew "yarn"
 cask "font-iosevka"
 cask "font-iosevka-slab"
 
+cask "alacritty"
 cask "figma"
 cask "firefox"
 cask "google-chrome"
-cask "iterm2"
 cask "slack"
 cask "visual-studio-code"
 
