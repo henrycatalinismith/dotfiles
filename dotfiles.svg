@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" viewBox="-1 0 38 8">
+  <g>
+    <path stroke="#000" stroke-width="2.8" d="M0 4v2h1l1-1V4L1 3H0v2"/>
+    <path stroke="#fff1e8" d="M0 4v2h1l1-1V4L1 3H0v2"/>
+  </g>
+  <g>
+    <path stroke="#000" stroke-width="2.8" d="M4.8 5v1h1l1-1V3h-1l-1 1v1"/>
+    <path stroke="#fff1e8" d="M4.8 5v1h1l1-1V3h-1l-1 1v1"/>
+  </g>
+  <g>
+    <path stroke="#000" stroke-width="2.8" d="M9.6 3h2m-1 0v3"/>
+    <path stroke="#fff1e8" d="M9.6 3h2m-1 0v3"/>
+  </g>
+  <g>
+    <path stroke="#000" stroke-width="2.8" d="M16.4 3h-2v3m1-1h-1"/>
+    <path stroke="#fff1e8" d="M16.4 3h-2v3m1-1h-1"/>
+  </g>
+  <g>
+    <path stroke="#000" stroke-width="2.8" d="M19.2 3h2m-2 3h2m-1-3v3"/>
+    <path stroke="#fff1e8" d="M19.2 3h2m-2 3h2m-1-3v3"/>
+  </g>
+  <g>
+    <path stroke="#000" stroke-width="2.8" d="M24 3v3h2"/>
+    <path stroke="#fff1e8" d="M24 3v3h2"/>
+  </g>
+  <g>
+    <path stroke="#000" stroke-width="2.8" d="M30.8 3h-2v3h2m-1-1.5h-1"/>
+    <path stroke="#fff1e8" d="M30.8 3h-2v3h2m-1-1.5h-1"/>
+  </g>
+  <g>
+    <path stroke="#000" stroke-width="2.8" d="M35.6 3h-1l-1 1 2 1-1 1h-1"/>
+    <path stroke="#fff1e8" d="M35.6 3h-1l-1 1 2 1-1 1h-1"/>
+  </g>
+</svg>
+
