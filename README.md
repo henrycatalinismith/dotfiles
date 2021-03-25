@@ -3,6 +3,7 @@
     alt="dotfiles"
     src="https://raw.githubusercontent.com/hendotcat/dotfiles/trunk/dotfiles.svg"
     height="64"
+    width="256"
   />
 </p>
 
