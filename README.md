@@ -1,8 +1,16 @@
-dotfiles
-========
+<p align="center">
+  <img
+    alt="dotfiles"
+    src="https://raw.githubusercontent.com/hendotcat/dotfiles/trunk/dotfiles.svg"
+    height="64"
+  />
+</p>
 
-_**my devtools setup**_
-
+<p align="center">
+  <strong>
+    my devtools setup
+  </strong>
+</p>
 
 ![Screenshot showing the 'dotfiles' command running with no arguments outputting
 the usage guide from .zshrc](https://github.com/hendotcat/dotfiles/blob/trunk/screenshot.png?raw=true)
