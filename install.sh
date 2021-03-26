@@ -10,6 +10,7 @@ dotfiles config --local status.showUntrackedFiles no
 dotfiles sparse-checkout init
 dotfiles sparse-checkout set Library/Application\ Support/Code/User/settings.json
 dotfiles sparse-checkout add .Brewfile
+dotfiles sparse-checkout add .alacritty.yml
 dotfiles sparse-checkout add .config/nvim/init.vim
 dotfiles sparse-checkout add .gemrc
 dotfiles sparse-checkout add .gitconfig
@@ -19,6 +20,7 @@ dotfiles sparse-checkout add .irbrc
 dotfiles sparse-checkout add .nethackrc
 dotfiles sparse-checkout add .railsrc
 dotfiles sparse-checkout add .tmux
+dotfiles sparse-checkout add .tmux.conf
 dotfiles sparse-checkout add .zshrc
 dotfiles checkout
 
