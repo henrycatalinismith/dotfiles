@@ -1,7 +1,5 @@
-
-if empty(glob("~/.config/nvim/autoload/plug.vim"))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
+if empty(glob("~/.local/share/nvim/site/pack/packer/start/packer.nvim"))
+  silent !git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 endif
 
 let g:ctrlp_user_command = {
@@ -13,14 +11,10 @@ let g:ctrlp_user_command = {
 
 let g:nvim_tree_width = 32
 
-call plug#begin("~/.config/nvim/plugged")
-Plug 'editorconfig/editorconfig-vim'
-Plug 'kien/ctrlp.vim'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'mkitt/tabline.vim'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'sheerun/vim-polyglot'
-call plug#end()
+set number
+set showtabline=2
+set signcolumn=yes
+set termguicolors
 
 map <Space> <Leader>
 nnoremap <leader>p  :CtrlP<CR>
@@ -29,10 +23,14 @@ nnoremap <leader>t  :NvimTreeToggle<CR>
 nnoremap <leader>w  :write<CR>
 nnoremap <leader>wq :write<CR>:quit!<CR>
 
-hi TabLine      ctermfg=White  ctermbg=NONE  cterm=NONE
-hi TabLineFill  ctermfg=Black  ctermbg=NONE  cterm=NONE
-hi TabLineSel   ctermfg=Black  ctermbg=DarkMagenta  cterm=NONE
+hi LineNr       guifg=#83769C
+hi Pmenu        guibg=#f8f8f2 guifg=#282a36
+hi PmenuSbar    guibg=#44475a
+hi PmenuSel     guibg=#6272a4
+hi SignColumn   guibg=#21222C
+hi TabLine      guifg=#ffffff  guibg=NONE
+hi TabLineFill  guifg=#282b36
+hi TabLineSel   guifg=#000000  guibg=#bd93f9
 
-set number
-set showtabline=2
+hi CocErrorFloat guibg=#ff5555
 

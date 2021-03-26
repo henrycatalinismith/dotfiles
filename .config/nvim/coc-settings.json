@@ -1,0 +1,10 @@
+{
+  "languageserver": {
+    "css": {
+      "lint": {
+        "emptyRules": "ignore"
+      }
+    }
+	}
+}
+
