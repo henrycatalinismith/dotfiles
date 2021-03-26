@@ -4,6 +4,7 @@ local cmd = vim.api.nvim_command
   --silent !git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 --endif
 
+vim.o.mouse = "a"
 vim.wo.number = true
 vim.o.showtabline = 2
 vim.wo.signcolumn = "yes"
