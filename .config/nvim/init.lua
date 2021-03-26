@@ -38,5 +38,7 @@ cmd("hi GitSignsAdd    guibg=#21222C guifg=#50fa7b")
 cmd("hi GitSignsChange guibg=#21222C guifg=#8be9fd")
 cmd("hi GitSignsDelete guibg=#21222C guifg=#ff5555")
 
+cmd("hi VertSplit guibg=#282a36 guifg=#44475a")
+
 require("plugins")
 

@@ -5,6 +5,7 @@ return require("packer").startup(function()
  use { "mkitt/tabline.vim" }
  use { "neoclide/coc.nvim", branch = "release" }
  use { "sheerun/vim-polyglot" }
+ use { "kyazdani42/nvim-tree.lua" }
 
  use {
   "nvim-telescope/telescope.nvim",
