@@ -92,6 +92,7 @@ function dotfiles() {
 
     "uninstall")
       for file in `dotfiles ls-files`; do
+        echo $file
         rm -rf ~/$file;
       done
       rm -rf ~/.dotfiles
