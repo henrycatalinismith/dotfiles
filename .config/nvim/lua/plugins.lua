@@ -1,4 +1,5 @@
 return require("packer").startup(function()
+ use "wbthomason/packer.nvim"
  use { "dracula/vim" }
  use { "editorconfig/editorconfig-vim" }
  use { "mkitt/tabline.vim" }
@@ -19,6 +20,15 @@ return require("packer").startup(function()
   config = function()
    require("gitsigns").setup()
   end
+ }
+
+ use {
+  "hoob3rt/lualine.nvim",
+  requires = {
+   "kyazdani42/nvim-web-devicons",
+   opt = true
+  },
+  config = function() require('lualine').setup() end
  }
 
 end)
