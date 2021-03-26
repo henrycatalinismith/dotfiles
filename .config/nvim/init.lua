@@ -33,5 +33,9 @@ cmd("hi TabLineFill  guifg=#282b36")
 cmd("hi TabLineSel   guifg=#000000  guibg=#bd93f9")
 cmd("hi CocErrorFloat guibg=#ff5555")
 
+cmd("hi GitSignsAdd    guibg=#21222C guifg=#50fa7b")
+cmd("hi GitSignsChange guibg=#21222C guifg=#8be9fd")
+cmd("hi GitSignsDelete guibg=#21222C guifg=#ff5555")
+
 require("plugins")
 
