@@ -24,6 +24,5 @@ dotfiles sparse-checkout add .tmux.conf
 dotfiles sparse-checkout add .zshrc
 dotfiles checkout
 
-dotfiles checkout trunk -- .vim
 dotfiles submodule update --init --recursive
 
