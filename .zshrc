@@ -1,7 +1,18 @@
 source /usr/local/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen theme denysdovhan/spaceship-prompt
+antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
+
+SPACESHIP_DIR_PREFIX=""
+SPACESHIP_GIT_PREFIX=""
+SPACESHIP_NODE_SHOW=false
+SPACESHIP_PACKAGE_SHOW=false
+SPACESHIP_PROMPT_SEPARATE_LINE=false
+SPACESHIP_RUBY_SHOW=false
+SPACESHIP_TIME_COLOR=blue
+SPACESHIP_TIME_FORMAT="20%D %T"
+SPACESHIP_TIME_SHOW=true
 
 function dotfiles() {
   if [[ $# -eq 0 ]]
@@ -130,15 +141,4 @@ alias t="tree -L 1 -C --dirsfirst"
 alias vim="sl"
 
 plugins=(git rbenv)
-
-#export ZSH="$HOME/.oh-my-zsh"
-#export ZSH_THEME="sunrise"
-
-if [[ -d ~/$file ]]
-then
-  #source $HOME/.oh-my-zsh/oh-my-zsh.sh
-fi
-
-#export ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_no_bold[cyan]%}‹"
-#export ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg_no_bold[cyan]%}›%{$RESET%} "
 
