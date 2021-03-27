@@ -1,7 +1,7 @@
 local packer = require("packer")
 
 local plugins = packer.startup(
- function()
+ function(use)
 
   -- https://github.com/wbthomason/packer.nvim
   use({
