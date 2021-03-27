@@ -29,11 +29,6 @@ local plugins = packer.startup(
    branch = "release",
   })
 
-  -- https://github.com/sheerun/vim-polyglot
-  use({
-   "sheerun/vim-polyglot",
-  })
-
   -- https://github.com/kyazdani42/nvim-tree.lua
   use({
    "kyazdani42/nvim-tree.lua",
@@ -65,6 +60,20 @@ local plugins = packer.startup(
    }},
    config = function()
     require("lualine").setup()
+   end
+  })
+
+  -- https://github.com/nvim-treesitter/nvim-treesitter
+  use({
+   "nvim-treesitter/nvim-treesitter",
+   config = function()
+    require("nvim-treesitter.configs").setup({
+     ensure_installed = "all",
+     ignore_install = { "haskell" },
+     highlight = {
+      enable = true,
+     },
+    })
    end
   })
 
