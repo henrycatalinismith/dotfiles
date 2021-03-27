@@ -1,28 +1,26 @@
 local cmd = vim.api.nvim_command
 
---if empty(glob("~/.local/share/nvim/site/pack/packer/start/packer.nvim"))
-  --silent !git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
---endif
-
+vim.g.mapleader = " "
 vim.o.mouse = "a"
-vim.wo.number = true
 vim.o.showtabline = 2
-vim.wo.signcolumn = "yes"
 vim.o.termguicolors = true
+vim.wo.number = true
+vim.wo.signcolumn = "yes"
 
-local function map(mode, lhs, rhs, opts)
- local options = {noremap = true}
- if opts then options = vim.tbl_extend('force', options, opts) end
- vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+function leader(key, cmd)
+ vim.api.nvim_set_keymap(
+  "n",
+  "<leader>" .. key,
+  cmd,
+  { noremap = true }
+ )
 end
 
-vim.g.mapleader = " "
-map("n", "<leader>p", ":Telescope find_files<CR>")
-map("n", "<leader>q", ":quit!<CR>")
-map("n", "<leader>t", ":NvimTreeToggle<CR>")
-map("n", "<leader>w", ":write<CR>")
-map("n", "<leader>wq", ":write<CR>:quit!<CR>")
-
+leader("p", ":Telescope find_files<CR>")
+leader("q", ":quit!<CR>")
+leader("t", ":NvimTreeToggle<CR>")
+leader("w", ":write<CR>")
+leader("wq", ":write<CR>:quit!<CR>")
 
 cmd("hi LineNr       guifg=#83769C")
 cmd("hi Pmenu        guibg=#f8f8f2 guifg=#282a36")
