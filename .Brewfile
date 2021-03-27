@@ -1,6 +1,7 @@
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 
+brew "antigen"
 brew "bat"
 brew "coreutils"
 brew "cowsay"

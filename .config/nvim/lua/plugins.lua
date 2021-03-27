@@ -8,9 +8,8 @@ local plugins = packer.startup(
    "wbthomason/packer.nvim",
   })
 
-  -- https://github.com/dracula/vim
   use({
-   "dracula/vim",
+   "lifepillar/vim-solarized8",
   })
 
   -- https://github.com/editorconfig/editorconfig-vim
@@ -59,7 +58,9 @@ local plugins = packer.startup(
     opt = true
    }},
    config = function()
-    require("lualine").setup()
+    require("lualine").setup({
+     theme = "solarized_dark"
+    })
    end
   })
 

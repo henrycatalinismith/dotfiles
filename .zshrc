@@ -1,3 +1,8 @@
+source /usr/local/share/antigen/antigen.zsh
+antigen use oh-my-zsh
+antigen theme denysdovhan/spaceship-prompt
+antigen apply
+
 function dotfiles() {
   if [[ $# -eq 0 ]]
   then
@@ -122,17 +127,18 @@ function dotfiles() {
 
 alias pico8="/Applications/PICO-8.app/Contents/MacOS/pico8"
 alias t="tree -L 1 -C --dirsfirst"
+alias vim="sl"
 
 plugins=(git rbenv)
 
-export ZSH="$HOME/.oh-my-zsh"
-export ZSH_THEME="sunrise"
+#export ZSH="$HOME/.oh-my-zsh"
+#export ZSH_THEME="sunrise"
 
 if [[ -d ~/$file ]]
 then
-  source $HOME/.oh-my-zsh/oh-my-zsh.sh
+  #source $HOME/.oh-my-zsh/oh-my-zsh.sh
 fi
 
-export ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_no_bold[cyan]%}‹"
-export ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg_no_bold[cyan]%}›%{$RESET%} "
+#export ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_no_bold[cyan]%}‹"
+#export ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg_no_bold[cyan]%}›%{$RESET%} "
 
