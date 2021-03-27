@@ -13,6 +13,7 @@ dotfiles sparse-checkout add .Brewfile
 dotfiles sparse-checkout add .alacritty.yml
 dotfiles sparse-checkout add .config/nvim/init.lua
 dotfiles sparse-checkout add .config/nvim/lua/plugins.lua
+dotfiles sparse-checkout add .config/nvim/coc-settings.json
 dotfiles sparse-checkout add .editorconfig
 dotfiles sparse-checkout add .gemrc
 dotfiles sparse-checkout add .gitconfig
