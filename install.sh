@@ -10,7 +10,7 @@ dotfiles config --local status.showUntrackedFiles no
 dotfiles sparse-checkout init
 dotfiles sparse-checkout set Library/Application\ Support/Code/User/settings.json
 dotfiles sparse-checkout add .Brewfile
-dotfiles sparse-checkout add .alacritty.yml
+dotfiles sparse-checkout add .config/alacritty/alacritty.yml
 dotfiles sparse-checkout add .config/coc/extensions/package.json
 dotfiles sparse-checkout add .config/gem/gemrc
 dotfiles sparse-checkout add .config/irb/irbrc
