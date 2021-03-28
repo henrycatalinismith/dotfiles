@@ -32,7 +32,9 @@ function dotfiles() {
 
   case $1 in
     "install")
-      echo "TODO: reimplement install"
+      git clone -o github git@github.com:hendotcat/dotfiles.git .config
+      cd .config
+      make install
     ;;
 
     "macos")
@@ -91,15 +93,16 @@ function dotfiles() {
     ;;
 
     "uninstall")
-      echo "TODO: reimplement uninstall"
+      cd ~/.config && make clean
+      rm -rf ~/.config
     ;;
 
     "update")
-      echo "TODO: reimplement update"
+      dotfiles pull --rebase github trunk
     ;;
 
     "upload")
-      echo "TODO: reimplement upload"
+      dotfiles push github trunk
     ;;
 
     *)

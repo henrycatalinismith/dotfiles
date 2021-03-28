@@ -20,7 +20,7 @@ Lots of chaos here right now so only vague install steps
 
 ```bash
 git clone -o github git@github.com:hendotcat/dotfiles.git .config
-cd config
+cd .config
 make install
 ```
 
