@@ -13,7 +13,7 @@ SPACESHIP_RUBY_SHOW=false
 SPACESHIP_TIME_COLOR=blue
 SPACESHIP_TIME_FORMAT="20%D %T"
 SPACESHIP_TIME_SHOW=true
-XDG_CONFIG_HOME=~/.config
+XDG_CONFIG_HOME=$HOME/.config
 
 function dotfiles() {
   if [[ $# -eq 0 ]]

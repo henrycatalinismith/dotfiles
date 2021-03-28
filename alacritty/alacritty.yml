@@ -71,8 +71,6 @@ shell:
   program: /bin/zsh
   args:
     - -l
-    - -c
-    - "tmux"
 
 window:
   startup_mode: Maximized
