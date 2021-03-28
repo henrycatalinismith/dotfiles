@@ -20,13 +20,18 @@ dotfiles sparse-checkout add .config/nvim/coc-settings.json
 dotfiles sparse-checkout add .config/rails/railsrc
 dotfiles sparse-checkout add .config/tmux/plugins/tpm
 dotfiles sparse-checkout add .config/tmux/tmux.conf
+dotfiles sparse-checkout add .config/zsh/.zshrc
 dotfiles sparse-checkout add .editorconfig
 dotfiles sparse-checkout add .gitconfig
 dotfiles sparse-checkout add .gitignore
 dotfiles sparse-checkout add .gitmodules
 dotfiles sparse-checkout add .nethackrc
-dotfiles sparse-checkout add .zshrc
 dotfiles checkout
 
 dotfiles submodule update --init --recursive
+
+cat > ~.zshenv <<- EOS
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:=${HOME}/.config}
+export ZDOTDIR=${ZDOTDIR:=${XDG_CONFIG_HOME}/zsh}
+EOS
 
