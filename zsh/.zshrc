@@ -31,13 +31,8 @@ function dotfiles() {
   fi
 
   case $1 in
-
-    "homebrew")
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-    ;;
-
     "install")
-      /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/hencatsmith/dotfiles/trunk/install.sh)"
+      echo "TODO: reimplement install"
     ;;
 
     "macos")
@@ -86,49 +81,25 @@ function dotfiles() {
       defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
     ;;
 
-    "plugin")
-      dotfiles submodule add -f $3 .vim/pack/plugins/start/$2
-      dotfiles c $2
-      dotfiles plugins
-    ;;
-
-    "plugins")
-      rm -rf ~/.vim
-      dotfiles checkout trunk -- ~/.vim
-      dotfiles submodule update --init --recursive
-    ;;
-
     "reinstall")
       dotfiles uninstall
       dotfiles install
     ;;
 
     "toolbox")
-      brew bundle --file=~/.Brewfile
+      brew bundle --file=~/.config/homebrew/Brewfile
     ;;
 
     "uninstall")
-      for file in `dotfiles ls-files`; do
-        echo $file
-        rm -rf ~/$file;
-      done
-      rm -rf ~/.dotfiles
+      echo "TODO: reimplement uninstall"
     ;;
 
     "update")
-      dotfiles fetch --all
-      dotfiles checkout
-      for file in `dotfiles ls-files`; do
-        if [[ -f ~/$file ]]
-        then
-          dotfiles reset ~/$file
-          dotfiles checkout -- ~/$file
-        fi
-      done
+      echo "TODO: reimplement update"
     ;;
 
     "upload")
-      dotfiles push origin trunk
+      echo "TODO: reimplement upload"
     ;;
 
     *)
