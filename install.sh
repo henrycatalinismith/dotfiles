@@ -30,7 +30,7 @@ dotfiles checkout
 
 dotfiles submodule update --init --recursive
 
-cat > ~.zshenv <<- EOS
+cat > ~/.zshenv <<- EOS
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:=${HOME}/.config}
 export ZDOTDIR=${ZDOTDIR:=${XDG_CONFIG_HOME}/zsh}
 EOS
