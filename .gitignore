@@ -1,10 +1,11 @@
 *
+!Makefile
 !alacritty/alacritty.yml
 !coc/extensions/package.json
 !dotfiles.svg
-!homebrew/Brewfile
 !gem/gemrc
 !git/config
+!homebrew/Brewfile
 !install.sh
 !irb/irbrc
 !nvim/coc-settings.json
