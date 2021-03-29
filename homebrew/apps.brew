@@ -1,0 +1,10 @@
+tap "homebrew/cask"
+cask "alacritty"
+cask "figma"
+cask "firefox"
+cask "google-chrome"
+cask "slack"
+cask "spotify"
+cask "telegram"
+cask "visual-studio-code"
+

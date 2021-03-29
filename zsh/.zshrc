@@ -1,6 +1,6 @@
 source /usr/local/share/antigen/antigen.zsh
 antigen use oh-my-zsh
-antigen theme denysdovhan/spaceship-prompt
+antigen theme romkatv/powerlevel10k
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
@@ -31,6 +31,10 @@ function dotfiles() {
   fi
 
   case $1 in
+    "brew")
+      brew bundle --file ~/.config/homebrew/$2.brew
+    ;;
+
     "install")
       git clone -o github git@github.com:hendotcat/dotfiles.git .config
       cd .config
@@ -118,4 +122,23 @@ alias vim="sl"
 plugins=(git rbenv)
 
 eval "$(rbenv init -)"
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+  dir
+  vcs
+)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
+  status
+  command_execution_time
+  time
+)
+
+GIT_BG=0
+GIT_FG=12
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND=$GIT_BG
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=$GIT_BG
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=$GIT_BG
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND=$GIT_FG
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=$GIT_FG
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=$GIT_FG
 

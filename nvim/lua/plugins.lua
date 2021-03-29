@@ -9,7 +9,11 @@ local plugins = packer.startup(
   })
 
   use({
-   "dracula/vim",
+   "overcache/NeoSolarized",
+   config = function()
+    vim.api.nvim_command("set background=dark")
+    vim.api.nvim_command("colorscheme NeoSolarized")
+   end
   })
 
   -- https://github.com/editorconfig/editorconfig-vim
