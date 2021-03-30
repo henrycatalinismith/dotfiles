@@ -35,6 +35,14 @@ local plugins = packer.startup(
   -- https://github.com/kyazdani42/nvim-tree.lua
   use({
    "kyazdani42/nvim-tree.lua",
+   config = function()
+    vim.api.nvim_set_keymap(
+     "n",
+     "<leader>t",
+     ":NvimTreeToggle<CR>",
+     { noremap = true }
+    )
+   end
   })
 
   -- https://github.com/nvim-telescope/telescope.nvim
@@ -43,7 +51,15 @@ local plugins = packer.startup(
    requires = {
     {"nvim-lua/popup.nvim"},
     {"nvim-lua/plenary.nvim"},
-   }
+   },
+   config = function()
+    vim.api.nvim_set_keymap(
+     "n",
+     "<leader>p",
+     ":Telescope git_files<CR>",
+     { noremap = true }
+    )
+   end
   })
 
   -- https://github.com/lewis6991/gitsigns.nvim
