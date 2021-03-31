@@ -79,7 +79,11 @@ local plugins = packer.startup(
     opt = true
    }},
    config = function()
-    require("lualine").setup()
+    require("lualine").setup({
+     options = {
+      theme = "solarized_dark",
+     },
+    })
    end
   })
 
