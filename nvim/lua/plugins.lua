@@ -8,6 +8,7 @@ local plugins = packer.startup(
    "wbthomason/packer.nvim",
   })
 
+  -- https://github.com/overcache/NeoSolarized
   use({
    "overcache/NeoSolarized",
    config = function()
@@ -115,6 +116,11 @@ local plugins = packer.startup(
      },
     })
    end
+  })
+
+  -- https://github.com/wellle/tmux-complete.vim
+  use({
+   "wellle/tmux-complete.vim",
   })
 
  end
