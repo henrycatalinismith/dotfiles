@@ -127,6 +127,25 @@ local plugins = packer.startup(
    "wellle/tmux-complete.vim",
   })
 
+  -- https://github.com/monaqa/dial.nvim
+  use({
+   "monaqa/dial.nvim",
+   config = function()
+    vim.api.nvim_set_keymap(
+     "n",
+     "<leader>a",
+     "<Plug>(dial-increment)",
+     {}
+    )
+    vim.api.nvim_set_keymap(
+     "n",
+     "<leader>x",
+     "<Plug>(dial-decrement)",
+     {}
+    )
+   end
+  })
+
  end
 )
 
