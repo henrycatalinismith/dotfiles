@@ -51,17 +51,60 @@ font:
     style: Bold
 
 key_bindings:
+  - key: D
+    mods: Command
+    command:
+      program: /usr/local/bin/tmux
+      args: [split-window, "-h"]
+
+  - key: D
+    mods: Command|Shift
+    command:
+      program: /usr/local/bin/tmux
+      args: [split-window, "-v"]
+
   - key: Left
-    mods: Alt
-    chars: "\x1bb"
+    mods: Command
+    command:
+      program: /usr/local/bin/tmux
+      args: [prev]
+
+  - key: N
+    mods: Command
+    command:
+      program: /usr/local/bin/tmux
+      args: [new-window]
+
   - key: Right
-    mods: Alt
-    chars: "\x1bf"
+    mods: Command
+    command:
+      program: /usr/local/bin/tmux
+      args: [next]
+
+  - key: Tab
+    mods: Control
+    command:
+      program: /usr/local/bin/tmux
+      args: [next]
+
+  - key: Tab
+    mods: Control|Shift
+    command:
+      program: /usr/local/bin/tmux
+      args: [prev]
+
+  - key: W
+    mods: Command
+    command:
+      program: /usr/local/bin/tmux
+      args: [kill-pane]
 
 shell:
   program: /bin/zsh
   args:
     - -l
+    - -c
+    - tmux attach || tmux
 
 window:
   startup_mode: Maximized
