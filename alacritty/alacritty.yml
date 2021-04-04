@@ -51,6 +51,14 @@ font:
     style: Bold
 
 key_bindings:
+  - key: Left
+    mods: Alt
+    chars: "\x1bb"
+
+  - key: Right
+    mods: Alt
+    chars: "\x1bf"
+
   - key: D
     mods: Command
     command:
