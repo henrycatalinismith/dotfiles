@@ -1,6 +1,8 @@
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
+tap "colindean/fonts-nonfree"
 cask "font-iosevka"
 cask "font-iosevka-nerd-font"
 cask "font-iosevka-slab"
+cask "font-microsoft-office"
 
