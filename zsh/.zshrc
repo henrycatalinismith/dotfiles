@@ -110,7 +110,7 @@ alias pico8="/Applications/PICO-8.app/Contents/MacOS/pico8"
 alias t="tree -L 1 -C --dirsfirst"
 alias vim="sl"
 
-plugins=(git rbenv)
+plugins=(gem git rbenv)
 
 eval "$(rbenv init -)"
 
@@ -136,3 +136,4 @@ POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=$GIT_FG
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=$GIT_FG
 ZLE_RPROMPT_INDENT=0
 
+PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
