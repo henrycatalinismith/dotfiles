@@ -1,4 +1,8 @@
-source /usr/local/share/antigen/antigen.zsh
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export XDG_CONFIG_HOME="$HOME/.config"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+source /opt/homebrew/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen theme romkatv/powerlevel10k
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -112,7 +116,7 @@ alias vim="sl"
 
 plugins=(gem git rbenv)
 
-eval "$(rbenv init -)"
+eval "$(/opt/homebrew/bin/rbenv init -)"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
   dir
