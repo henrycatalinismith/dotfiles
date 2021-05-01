@@ -24,6 +24,7 @@
 	re   = "!f() { git rh $1; git c- $1; }; f"
 	rh   = reset HEAD
 	s    = status --short --branch
+	sad  = submodule add
 	up   = "!git remote update -p; git merge --ff-only @{u}"
 
 [core]
