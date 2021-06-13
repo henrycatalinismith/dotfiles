@@ -26,6 +26,37 @@ function dotfiles() {
   fi
 
   case $1 in
+    "asdf")
+
+      asdf plugin add bundler
+      asdf plugin add dart
+      asdf plugin add jq
+      asdf plugin add kubectl
+      asdf plugin add lua
+      asdf plugin add nodejs
+      asdf plugin add sqlite
+      asdf plugin add yarn
+
+      asdf install bundler latest
+      asdf install dart latest
+      asdf install jq latest
+      asdf install kubectl latest
+      asdf install lua latest
+      asdf install nodejs latest
+      asdf install sqlite latest
+      asdf install yarn latest
+
+      asdf global bundler latest
+      asdf global dart latest
+      asdf global jq latest
+      asdf global kubectl latest
+      asdf global lua latest
+      asdf global nodejs latest
+      asdf global sqlite latest
+      asdf global yarn latest
+
+    ;;
+
     "brew")
       brew bundle --file ~/.config/homebrew/$2.brew
     ;;
@@ -128,6 +159,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
   time
 )
 
+ASDF_CONFIG_FILE=$HOME/.config/asdf/asdfrc
 GIT_BG=4
 GIT_FG=15
 POWERLEVEL9K_DIR_BACKGROUND=5
@@ -144,4 +176,5 @@ PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH:$HOME/.pub-cache/bin"
 
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+$(brew --prefix asdf)/asdf.sh
 
