@@ -10,6 +10,7 @@ brew "git-delta"
 brew "hexyl"
 brew "htop"
 brew "jq"
+brew "kubectl"
 brew "neofetch"
 brew "neovim", args: ["HEAD"]
 brew "nethack"
@@ -25,4 +26,5 @@ brew "tree"
 brew "watch"
 brew "wget"
 brew "yarn"
+cask "gcloud"
 

@@ -140,4 +140,8 @@ POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=$GIT_FG
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=$GIT_FG
 ZLE_RPROMPT_INDENT=0
 
-PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
+PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH:$HOME/.pub-cache/bin"
+
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+
