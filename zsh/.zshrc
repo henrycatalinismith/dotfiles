@@ -1,72 +1,52 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
-export XDG_CONFIG_HOME="$HOME/.config"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+if [ -s "/opt/homebrew/bin/brew" ]
+then
+  eval $(/opt/homebrew/bin/brew shellenv)
+elif [ -s "/usr/local/bin/brew" ]
+then
+  eval $(/usr/local/bin/brew shellenv)
+fi
 
-source /opt/homebrew/share/antigen/antigen.zsh
-antigen use oh-my-zsh
-antigen theme romkatv/powerlevel10k
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen apply
+if [ -s "$HOMEBREW_PREFIX/share/antigen/antigen.zsh" ]
+then
+  source $HOMEBREW_PREFIX/share/antigen/antigen.zsh
+  antigen bundle zsh-users/zsh-syntax-highlighting
+  antigen theme romkatv/powerlevel10k
+  antigen use oh-my-zsh
+  antigen apply
 
-XDG_CONFIG_HOME=$HOME/.config
+  POWERLEVEL9K_DIR_BACKGROUND="#d33682"
+  POWERLEVEL9K_DIR_FOREGROUND="#eee8d5"
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+    dir
+    vcs
+  )
+  POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+  POWERLEVEL9K_VCS_CLEAN_BACKGROUND="#268bd2"
+  POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="#268bd2"
+  POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="#268bd2"
+  POWERLEVEL9K_VCS_CLEAN_FOREGROUND="#eee8d5"
+  POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="#eee8d5"
+  POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="#eee8d5"
+  ZLE_RPROMPT_INDENT=0
+fi
+
+if [ -s "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" ]
+then
+  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+fi
+
+if [ -s "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" ]
+then
+  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+fi
 
 function dotfiles() {
   if [[ $# -eq 0 ]]
   then
-    echo "$fg_no_bold[cyan]homebrew$reset_color   install homebrew"
-    echo "$fg_no_bold[cyan]install$reset_color    install dotfiles"
-    echo "$fg_no_bold[cyan]plugin$reset_color     add a new vim plugin"
-    echo "$fg_no_bold[cyan]plugins$reset_color    install all vim plugins"
-    echo "$fg_no_bold[cyan]reinstall$reset_color  clean out + start again"
-    echo "$fg_no_bold[cyan]toolbox$reset_color    install usual homebrew tools"
-    echo "$fg_no_bold[cyan]uninstall$reset_color  undo installation"
-    echo "$fg_no_bold[cyan]update$reset_color     pull changes from github"
-    echo "$fg_no_bold[cyan]upload$reset_color     push changes to github"
-    return
+    echo "$fg[cyan]macos$reset_color    configure macOS settings"
   fi
 
   case $1 in
-    "asdf")
-
-      asdf plugin add bundler
-      asdf plugin add dart
-      asdf plugin add jq
-      asdf plugin add kubectl
-      asdf plugin add lua
-      asdf plugin add nodejs
-      asdf plugin add sqlite
-      asdf plugin add yarn
-
-      asdf install bundler latest
-      asdf install dart latest
-      asdf install jq latest
-      asdf install kubectl latest
-      asdf install lua latest
-      asdf install nodejs latest
-      asdf install sqlite latest
-      asdf install yarn latest
-
-      asdf global bundler latest
-      asdf global dart latest
-      asdf global jq latest
-      asdf global kubectl latest
-      asdf global lua latest
-      asdf global nodejs latest
-      asdf global sqlite latest
-      asdf global yarn latest
-
-    ;;
-
-    "brew")
-      brew bundle --file ~/.config/homebrew/$2.brew
-    ;;
-
-    "install")
-      git clone -o github git@github.com:hendotcat/dotfiles.git .config
-      cd .config
-      make install
-    ;;
-
     "macos")
       sudo -v
 
@@ -112,70 +92,5 @@ function dotfiles() {
       defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
       defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
     ;;
-
-    "reinstall")
-      dotfiles uninstall
-      dotfiles install
-    ;;
-
-    "toolbox")
-      brew bundle --file=~/.config/homebrew/Brewfile
-    ;;
-
-    "uninstall")
-      cd ~/.config && make clean
-      rm -rf ~/.config
-    ;;
-
-    "update")
-      dotfiles pull --rebase github trunk
-    ;;
-
-    "upload")
-      dotfiles push github trunk
-    ;;
-
-    *)
-      git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
-    ;;
   esac
 }
-
-alias pico8="/Applications/PICO-8.app/Contents/MacOS/pico8"
-alias t="tree -L 1 -C --dirsfirst"
-alias vim="sl"
-
-plugins=(gem git rbenv)
-
-eval "$(/opt/homebrew/bin/rbenv init -)"
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-  dir
-  vcs
-)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
-  status
-  command_execution_time
-  time
-)
-
-ASDF_CONFIG_FILE=$HOME/.config/asdf/asdfrc
-GIT_BG=4
-GIT_FG=15
-POWERLEVEL9K_DIR_BACKGROUND=5
-POWERLEVEL9K_DIR_FOREGROUND=7
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND=$GIT_BG
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=$GIT_BG
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=$GIT_BG
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND=$GIT_FG
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=$GIT_FG
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=$GIT_FG
-ZLE_RPROMPT_INDENT=0
-
-PATH="/opt/homebrew/Cellar/ruby/3.0.1/bin/:$PATH"
-PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH:$HOME/.pub-cache/bin"
-
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-source $(brew --prefix asdf)/asdf.sh
-

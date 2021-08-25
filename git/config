@@ -18,6 +18,7 @@
 	git  = !git $1
 	ig   = ls-files --others -i --exclude-standard
 	l    = log --graph --stat --decorate
+	lp   = log --patch
 	lod  = log --oneline --decorate
 	lodg = log --oneline --decorate --graph
 	m    = merge
@@ -26,12 +27,6 @@
 	s    = status --short --branch
 	sad  = submodule add
 	up   = "!git remote update -p; git merge --ff-only @{u}"
-
-[core]
-	autocrlf = false
-	editor = vim
-	pager = delta
-	whitespace = trailing-space,space-before-tab
 
 [clean]
 	requireForce = false
@@ -77,15 +72,28 @@
 	changed   = magenta
 	untracked = cyan
 
-[user]
-	name = Henry Catalini Smith
-	email = smith@hen.cat
+[core]
+	autocrlf = false
+	editor = vim
+	pager = delta
+	whitespace = trailing-space,space-before-tab
 
 [delta]
-	features = side-by-side line-numbers decorations
-	syntax-theme = Dracula
-	plus-style = syntax "#003800"
-	minus-style = syntax "#3f0001"
+	commit-decoration-style = bold ul
+	file-style = bold brightCyan
+	hunk-header-decoration-style = none
+	features = line-numbers decorations
+	plus-style = syntax "#003336"
+	minus-style = syntax "#3d1a37"
+	line-numbers = true
+	line-numbers-minus-style = "#F0FFF0"
+	line-numbers-zero-style = "#F0FFF0"
+	line-numbers-plus-style = "#F0FFF0"
+	line-numbers-left-format = "{nm:>4}┊"
+	line-numbers-right-format = "{np:>4}│"
+	line-numbers-left-style = blue
+	line-numbers-right-style = blue
+
 
 [delta "decorations"]
 	commit-decoration-style = bold yellow box ul
@@ -102,3 +110,9 @@
 [init]
 	defaultBranch = trunk
 
+[log]
+	date = iso
+
+[user]
+	name = Henry Catalini Smith
+	email = smith@hen.cat

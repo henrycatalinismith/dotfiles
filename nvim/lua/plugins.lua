@@ -1,4 +1,5 @@
 local packer = require("packer")
+local telescope = require("./telescope")
 
 local plugins = packer.startup(
  function(use)
@@ -22,11 +23,6 @@ local plugins = packer.startup(
    "editorconfig/editorconfig-vim",
   })
 
-  -- https://github.com/mkitt/tabline.vim
-  use({
-   "mkitt/tabline.vim",
-  })
-
   -- https://github.com/neoclide/coc.nvim
   use({
    "neoclide/coc.nvim",
@@ -46,29 +42,16 @@ local plugins = packer.startup(
    end
   })
 
-  -- https://github.com/nvim-telescope/telescope.nvim
-  use({
-   "nvim-telescope/telescope.nvim",
-   requires = {
-    {"nvim-lua/popup.nvim"},
-    {"nvim-lua/plenary.nvim"},
-   },
-   config = function()
-    vim.api.nvim_set_keymap(
-     "n",
-     "<leader>p",
-     ":Telescope git_files<CR>",
-     { noremap = true }
-    )
-   end
-  })
-
   -- https://github.com/lewis6991/gitsigns.nvim
   use({
    "lewis6991/gitsigns.nvim",
    requires = {
     {"nvim-lua/plenary.nvim"},
-   }
+   },
+   config = function()
+    vim.wo.signcolumn = "yes"
+    require("gitsigns").setup()
+   end
   })
 
   -- https://github.com/hoob3rt/lualine.nvim
@@ -87,67 +70,42 @@ local plugins = packer.startup(
    end
   })
 
-  -- https://github.com/nvim-treesitter/nvim-treesitter
-  use({
-   "nvim-treesitter/nvim-treesitter",
-   config = function()
-    require("nvim-treesitter.configs").setup({
-     ensure_installed = {
-      "bash",
-      "c",
-      "comment",
-      "cpp",
-      "css",
-      "dart",
-      "go",
-      "graphql",
-      "html",
-      "java",
-      "javascript",
-      "jsdoc",
-      "json",
-      "jsonc",
-      "lua",
-      "php",
-      "python",
-      "ruby",
-      "svelte",
-      "vue",
-      "yaml",
-     },
-     highlight = {
-      enable = true,
-     },
-    })
-   end
-  })
-
   -- https://github.com/wellle/tmux-complete.vim
   use({
    "wellle/tmux-complete.vim",
   })
 
-  -- https://github.com/monaqa/dial.nvim
+  -- https://github.com/nvim-telescope/telescope.nvim
   use({
-   "monaqa/dial.nvim",
+   "nvim-telescope/telescope.nvim",
+   requires = {
+    {"nvim-lua/popup.nvim"},
+    {"nvim-lua/plenary.nvim"},
+   },
    config = function()
     vim.api.nvim_set_keymap(
      "n",
-     "<leader>a",
-     "<Plug>(dial-increment)",
-     {}
+     "<leader>g",
+     ":lua require('./telescope').live_grep()<CR>",
+     { noremap = true }
     )
+
     vim.api.nvim_set_keymap(
      "n",
-     "<leader>x",
-     "<Plug>(dial-decrement)",
-     {}
+     "<leader>h",
+     ":lua require('./telescope').git_bcommits()<CR>",
+     { noremap = true }
     )
+
+    vim.api.nvim_set_keymap(
+     "n",
+     "<leader>p",
+     ":lua require('./telescope').git_files()<CR>",
+     { noremap = true }
+    )
+
    end
   })
 
  end
 )
-
-return plugins
-
