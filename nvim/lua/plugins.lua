@@ -1,6 +1,13 @@
 local packer = require("packer")
 local telescope = require("./telescope")
 
+vim.g.coc_global_extensions = {
+ "coc-css",
+ "coc-json",
+ "coc-lua",
+ "coc-tsserver",
+}
+
 local plugins = packer.startup(
  function(use)
 
@@ -27,6 +34,29 @@ local plugins = packer.startup(
   use({
    "neoclide/coc.nvim",
    branch = "release",
+   config = function()
+   end
+  })
+
+  -- https://github.com/nvim-treesitter/nvim-treesitter
+  use({
+   "nvim-treesitter/nvim-treesitter",
+   run = ":TSUpdate",
+   config = function()
+    require("nvim-treesitter.configs").setup({
+     ensure_installed = {
+      "c",
+      "dart",
+      "javascript",
+      "lua",
+      "ruby",
+      "typescript",
+     },
+     highlight = {
+      enable = true,
+     },
+    })
+   end
   })
 
   -- https://github.com/kyazdani42/nvim-tree.lua
@@ -39,6 +69,25 @@ local plugins = packer.startup(
      ":NvimTreeToggle<CR>",
      { noremap = true }
     )
+    vim.g.nvim_tree_follow = 1
+    vim.g.nvim_tree_gitignore = 1
+    vim.g.nvim_tree_show_icons = {
+     git = 0,
+     folders = 0,
+     files = 0
+    }
+    vim.g.nvim_tree_icons = {
+     default = "",
+     git = {
+      unstaged = "",
+      staged = "",
+      unmerged = "",
+      renamed = "",
+      untracked = "",
+      deleted = "",
+      ignored = ""
+     },
+    }
    end
   })
 
@@ -62,6 +111,8 @@ local plugins = packer.startup(
     opt = true
    }},
    config = function()
+    -- https://github.com/hoob3rt/lualine.nvim/issues/276#issuecomment-877825032
+    require("plenary.reload").reload_module("lualine", true)
     require("lualine").setup({
      options = {
       theme = "solarized_dark",
