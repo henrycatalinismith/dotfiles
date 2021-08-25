@@ -9,6 +9,7 @@
 	ci   = "!f() { git commit -m \"$*\"; }; f"
 	cia  = commit --amend
 	co   = checkout
+	cow  = "!f() { cowsay \"$*\" | git commit -a -F -; }; f"
 	c-   = checkout --
 	cp   = cherry-pick
 	d    = diff
