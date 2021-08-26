@@ -21,9 +21,9 @@ then
     vcs
   )
   POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-  POWERLEVEL9K_VCS_CLEAN_BACKGROUND="#268bd2"
-  POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="#268bd2"
-  POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="#268bd2"
+  POWERLEVEL9K_VCS_CLEAN_BACKGROUND="#28515d"
+  POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="#28515d"
+  POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="#28515d"
   POWERLEVEL9K_VCS_CLEAN_FOREGROUND="#eee8d5"
   POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="#eee8d5"
   POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="#eee8d5"
@@ -91,6 +91,10 @@ function dotfiles() {
       defaults write com.apple.frameworks.diskimages skip-verify -bool true
       defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
       defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
+    ;;
+
+    *)
+      git --git-dir=$HOME/.config/.git --work-tree=$HOME/.config/ $@
     ;;
   esac
 }

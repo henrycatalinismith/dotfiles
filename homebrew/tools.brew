@@ -15,6 +15,7 @@ brew "neofetch"
 brew "neovim", args: ["HEAD"]
 brew "nethack"
 brew "nmap"
+brew "rg"
 brew "ruby-build"
 brew "sl"
 brew "telnet"

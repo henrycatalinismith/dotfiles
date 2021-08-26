@@ -1,8 +1,9 @@
 local packer = require("packer")
-local telescope = require("./telescope")
+local telescope = require("./plugins/telescope")
 
 vim.g.coc_global_extensions = {
  "coc-css",
+ "coc-flutter",
  "coc-json",
  "coc-lua",
  "coc-tsserver",
@@ -134,24 +135,46 @@ local plugins = packer.startup(
     {"nvim-lua/plenary.nvim"},
    },
    config = function()
+    require("telescope").setup({
+     defaults = {
+      dynamic_preview_title = true,
+     },
+    })
+
     vim.api.nvim_set_keymap(
      "n",
      "<leader>g",
-     ":lua require('./telescope').live_grep()<CR>",
+     ":lua require('./plugins/telescope').live_grep()<CR>",
      { noremap = true }
     )
 
     vim.api.nvim_set_keymap(
      "n",
      "<leader>h",
-     ":lua require('./telescope').git_bcommits()<CR>",
+     ":lua require('./plugins/telescope').git_bcommits()<CR>",
      { noremap = true }
     )
 
     vim.api.nvim_set_keymap(
      "n",
      "<leader>p",
-     ":lua require('./telescope').git_files()<CR>",
+     ":lua require('./plugins/telescope').git_files()<CR>",
+     { noremap = true }
+    )
+
+   end
+  })
+
+  -- https://github.com/AckslD/nvim-neoclip.lua
+  use({
+   "AckslD/nvim-neoclip.lua",
+   config = function()
+    require("neoclip").setup()
+
+    vim.api.nvim_set_keymap(
+     "n",
+     "<leader>c",
+     ":lua require('telescope').extensions.neoclip.default()<CR>",
      { noremap = true }
     )
 
