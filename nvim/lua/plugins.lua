@@ -4,7 +4,6 @@ local telescope = require("./plugins/telescope")
 vim.g.coc_global_extensions = {
  "coc-css",
  "coc-flutter",
- "coc-json",
  "coc-lua",
  "coc-tsserver",
 }

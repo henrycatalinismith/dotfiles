@@ -30,6 +30,11 @@ then
   ZLE_RPROMPT_INDENT=0
 fi
 
+if [ -s "$(brew --prefix)/opt/asdf/asdf.sh" ]
+then
+  source "$(brew --prefix)/opt/asdf/asdf.sh"
+fi
+
 if [ -s "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" ]
 then
   source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
@@ -38,6 +43,11 @@ fi
 if [ -s "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" ]
 then
   source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+fi
+
+if [ -s ~/soundtrap/.zshrc ]
+then
+  source ~/soundtrap/.zshrc
 fi
 
 function dotfiles() {
@@ -97,6 +107,10 @@ function dotfiles() {
       git --git-dir=$HOME/.config/.git --work-tree=$HOME/.config/ $@
     ;;
   esac
+}
+
+function meg() {
+	meta exec "git $1"
 }
 
 alias ibrew="arch -x86_64 /usr/local/bin/brew"
