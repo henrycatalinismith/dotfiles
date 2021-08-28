@@ -79,12 +79,7 @@ key_bindings:
 
   - key: N
     mods: Command
-    command:
-      program: *tmux
-      args: [
-        run-shell,
-        "tmux switch-client -t $(tmux new-session -dP)",
-      ]
+    chars: "\x01\x6e"
 
   - key: Right
     mods: Command
@@ -100,9 +95,7 @@ key_bindings:
 
   - key: T
     mods: Command
-    command:
-      program: *tmux
-      args: [new-window]
+    chars: "\x01\x74"
 
   - key: Tab
     mods: Control
@@ -130,14 +123,11 @@ key_bindings:
 
   - key: W
     mods: Command
-    command:
-      program: *tmux
-      args: [kill-pane]
+    chars: "\x01\x77"
 
 shell:
   program: /bin/zsh
   args:
-    - -l
     - -c
     - >
       /usr/local/bin/tmux attach

@@ -30,19 +30,19 @@ then
   ZLE_RPROMPT_INDENT=0
 fi
 
-if [ -s "$(brew --prefix)/opt/asdf/asdf.sh" ]
+if [ -s "$HOMEBREW_PREFIX/opt/asdf/asdf.sh" ]
 then
-  source "$(brew --prefix)/opt/asdf/asdf.sh"
+  source "$HOMEBREW_PREFIX/opt/asdf/asdf.sh"
 fi
 
-if [ -s "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" ]
+if [ -s "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" ]
 then
-  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+  source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 fi
 
-if [ -s "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" ]
+if [ -s "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" ]
 then
-  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+  source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 fi
 
 if [ -s ~/soundtrap/.zshrc ]

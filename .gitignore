@@ -17,5 +17,6 @@
 !readme.md
 !screenshot.png
 !tmux/tmux.conf
+!tmux/kill.sh
 !zsh/.zprofile
 !zsh/.zshrc

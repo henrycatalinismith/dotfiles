@@ -110,8 +110,6 @@
 	line-numbers-minus-style = 124
 	line-numbers-plus-style = 28
 
-[includeIf "gitdir:~/soundtrap/"]              
-	path = ~/soundtrap/.gitconfig
 
 [init]
 	defaultBranch = trunk
