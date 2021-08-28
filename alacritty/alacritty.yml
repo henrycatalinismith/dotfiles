@@ -1,3 +1,5 @@
+tmux: &tmux /opt/homebrew/bin/tmux
+
 colors:
   primary:
     background: "#002b36"
@@ -54,49 +56,82 @@ key_bindings:
   - key: D
     mods: Command
     command:
-      program: /opt/homebrew/bin/tmux
+      program: *tmux
       args: [split-window, "-h"]
 
   - key: D
     mods: Command|Shift
     command:
-      program: /opt/homebrew/bin/tmux
+      program: *tmux
       args: [split-window, "-v"]
+
+  - key: L
+    mods: Command
+    command:
+      program: *tmux
+      args: [list-sessions]
 
   - key: Left
     mods: Command
     command:
-      program: /opt/homebrew/bin/tmux
+      program: *tmux
       args: [prev]
 
   - key: N
     mods: Command
     command:
-      program: /opt/homebrew/bin/tmux
-      args: [new-window]
+      program: *tmux
+      args: [
+        run-shell,
+        "tmux switch-client -t $(tmux new-session -dP)",
+      ]
 
   - key: Right
     mods: Command
     command:
-      program: /opt/homebrew/bin/tmux
+      program: *tmux
       args: [next]
+
+  - key: L
+    mods: Command
+    command:
+      program: *tmux
+      args: [choose-session]
+
+  - key: T
+    mods: Command
+    command:
+      program: *tmux
+      args: [new-window]
 
   - key: Tab
     mods: Control
     command:
-      program: /opt/homebrew/bin/tmux
+      program: *tmux
       args: [next]
 
   - key: Tab
     mods: Control|Shift
     command:
-      program: /opt/homebrew/bin/tmux
+      program: *tmux
       args: [prev]
+
+  - key: Up
+    mods: Command
+    command:
+      program: *tmux
+      args: [switch-client, "-p"]
+
+  - key: Down
+    mods: Command
+    command:
+      program: *tmux
+      args: [switch-client, "-n"]
 
   - key: W
     mods: Command
     command:
-      program: /opt/homebrew/bin/tmux
+      program: *tmux
       args: [kill-pane]
 
 shell:
