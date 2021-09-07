@@ -22,6 +22,7 @@ then
   )
   POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
   POWERLEVEL9K_VCS_BRANCH_ICON=""
+  POWERLEVEL9K_VCS_LOADING_BACKGROUND="#28515d"
   POWERLEVEL9K_VCS_CLEAN_BACKGROUND="#28515d"
   POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="#28515d"
   POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="#28515d"
@@ -46,9 +47,9 @@ then
   source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 fi
 
-if [ -s ~/soundtrap/.zshrc ]
+if [ -s ~/spotify/.zshrc ]
 then
-  source ~/soundtrap/.zshrc
+  source ~/spotify/.zshrc
 fi
 
 function dotfiles() {
