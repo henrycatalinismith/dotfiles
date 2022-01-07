@@ -12,7 +12,7 @@
 </p>
 
 ![Screenshot showing the 'dotfiles' command running with no arguments outputting
-the usage guide from .zshrc](https://github.com/hendotcat/dotfiles/blob/trunk/screenshot.png?raw=true)
+the usage guide from .zshrc](https://github.com/henrycatalinismith/dotfiles/blob/trunk/screenshot.png?raw=true)
 
 ### Install
 
