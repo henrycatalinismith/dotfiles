@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 vim.g.wildmode = "longest:list,full"
 vim.g.wildoptions = "pum"
 
-vim.o.cursorcolumn = true
+--vim.o.cursorcolumn = true
 vim.o.cursorline = true
 vim.o.expandtab = true
 vim.o.incsearch = true
@@ -23,6 +23,13 @@ vim.api.nvim_set_keymap(
  "n",
  "<leader>q",
  ":quit!<CR>",
+ { noremap = true }
+)
+
+vim.api.nvim_set_keymap(
+ "n",
+ "<leader>t",
+ ":tabnew<CR>",
  { noremap = true }
 )
 
@@ -64,7 +71,7 @@ local colors = {
  aliceblue = "#F0F8FF",
  amethyst = "#9966CC",
  antiquewhite = "#FAEBD7",
- aqua = "#00FFFF",
+aqua = "#00FFFF",
  aquamarine = "#7FFFD4",
  azure = "#F0FFFF",
  beige = "#F5F5DC",
@@ -257,6 +264,7 @@ end
 
 fg("Normal", colors.darkslategray)
 bg("Normal", colors.snow)
+fg("EndOfBuffer", colors.snow)
 
 bg("PMenu", colors.darkslategray)
 fg("PMenu", colors.snow)
@@ -273,6 +281,7 @@ bg("PmenuSbar", colors.lightgrey)
 bg("PMenuThumb", colors.slategray)
 
 fg("LineNr", colors.thistle)
+fg("MsgArea", colors.darkslategray)
 
 function syntax(group, symbols)
  for i = 1,#symbols do
@@ -315,23 +324,22 @@ bg("IncSearch", colors.yellow)
 bg("Search", colors.yellow)
 
 local crosshair = colors.lavenderblush
-bg("CursorColumn", crosshair)
-bg("CursorLine", crosshair)
-bg("CursorLineNR", crosshair)
-bg("CursorLineSign", crosshair)
+--bg("CursorColumn", crosshair)
+--bg("CursorLine", crosshair)
 
 fg("CursorLineNR", colors.deeppink)
 
 fg("Cursor", colors.deeppink)
 bg("Cursor", colors.deeppink)
 
-bg("StatusLine", colors.lavender)
-bg("SignColumn", colors.whitesmoke)
+--bg("SignColumn", colors.crosshair)
+fg("SignColumn", colors.deeppink)
 
 bg("TabLineSel", colors.snow)
 fg("TabLineSel", colors.deeppink)
 
-bg("TabLine", colors.whitesmoke)
+-- bg("TabLine", colors.whitesmoke)
+fg("TabLine", colors.thistle)
 bg("TabLineFill", colors.whitesmoke)
 
 function highlight_group()
@@ -363,13 +371,21 @@ function lol()
  return "lol"
 end
 
-local statusline_parts = {}
-table.insert(statusline_parts, "\\ %t")
-table.insert(statusline_parts, "\\ [%{%v:lua.vim.api.nvim_get_mode().mode%}]")
-table.insert(statusline_parts, "%y%h%w%m%r")
-table.insert(statusline_parts, "%=\\ ")
+bg("StatusLine", colors.lavender)
+bg("StatusLineMode", colors.lavender)
+fg("StatusLine", colors.darkslategray)
+
+local statusline_parts = {
+  -- "%#SignColumn#\\ \\ ",
+  -- "%#LineNr#\\ \\ \\ \\ ",
+  "%#StatusLine#",
+ }
+table.insert(statusline_parts, "%=")
 table.insert(statusline_parts, "%{%v:lua.highlight_group()%}")
-table.insert(statusline_parts, "[%l,%c]\\ ")
+table.insert(statusline_parts, "%#StatusLine#")
+table.insert(statusline_parts, "%y%h%w%m%r")
+table.insert(statusline_parts, "[%-3l,%-03c]")
+table.insert(statusline_parts, "[%{%v:lua.vim.api.nvim_get_mode().mode%}]\\ ")
 
 local statusline_cmd = string.format(
  "set statusline=%s",
@@ -408,63 +424,197 @@ vim.opt.matchpairs:append "`:`"
 -- ]], "")
 --
 
-function buffer_is_valid(buf_num)
- if not buf_num or buf_num < 1 then return false end
- local exists = vim.api.nvim_buf_is_valid(buf_num)
- return vim.bo[buf_num].buflisted and exists
-end
-
-function get_valid_buffers()
- return vim.tbl_filter(buffer_is_valid, vim.api.nvim_list_bufs())
-end
-
-bg("Buffer", colors.snow)
-fg("Buffer", colors.darkslategray)
-
-bg("BufferSel", colors.snow)
-fg("BufferSel", colors.deeppink)
-
-fg("BufferLineFill", colors.snow)
+fg("TabLineFill", colors.snow)
 
 function tabline()
+ local cur = vim.fn.tabpagenr()
+ local max = vim.fn.tabpagenr("$")
+
  local parts = {
-  "%#SignColumn#  ",
-  "%#LineNr#    ",
+  "%#SignColumn# ",
+  "%#LineNr#  ",
  }
 
- local buffers = get_valid_buffers()
- for i, buf_id in ipairs(buffers) do
-  local name = vim.api.nvim_buf_get_name(buf_id)
-  local iscur = vim.api.nvim_get_current_buf() == buf_id
-  local group = "Buffer"
-  if iscur then
-   group = "BufferSel"
-  end
-  name = name:match("^.+/(.+)$")
-  local buffer = {}
-  table.insert(buffer, "%#")
-  table.insert(buffer, group)
-  table.insert(buffer, "# ")
-  table.insert(buffer, name)
-  table.insert(buffer, " ")
-  table.insert(parts, table.concat(buffer, ""))
+ if cur == 0 then
+ else
  end
 
- table.insert(parts, "%#BufferlineFill#")
- table.insert(parts, "%=")
+ for i = 1,max do
+  local bufnr = vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]
+  local file = vim.fn.bufname(bufnr)
+  local name = "No name"
+  if file:match("^.+/(.+)$") ~= nil then
+   name = file:match("^.+/(.+)$")
+  elseif file ~= nil and file ~= "" then
+   name = file
+  end
 
- local tabs = vim.fn.gettabinfo()
- for i = 1,#tabs do
+  local iscur = i == cur
+  local group = "TabLine"
+  if iscur then
+   group = "TabLineSel"
+   name = string.format(
+    "%s %s",
+    "◆",
+    name
+   )
+  else
+   name = "  "..name
+  end
+
   local tab = {}
-  table.insert(tab, "%#Tab#[")
-  table.insert(tab, tabs[i].tabnr)
-  table.insert(tab, "]")
+  table.insert(tab, "%#")
+  table.insert(tab, group)
+  table.insert(tab, "#")
+  table.insert(tab, name)
+  table.insert(tab, "")
   table.insert(parts, table.concat(tab, ""))
  end
 
- local line = table.concat(parts, "") .. " "
+ local line = table.concat(parts, " ") .. " "
  return line
 end
 
 vim.o.showtabline = 2
 vim.o.tabline = "%!v:lua.tabline()"
+
+function popup()
+ local relative = 'editor'
+ local columns, lines = vim.o.columns, vim.o.lines
+ if relative == 'win' then
+  columns, lines = vim.api.nvim_win_get_width(0), vim.api.nvim_win_get_height(0)
+ end
+
+ local win_opts = {
+  width = math.min(columns - 4, math.max(80, columns - 20)),
+  height = math.min(lines - 4, math.max(20, lines - 10)),
+  style = "minimal",
+  relative = relative,
+ }
+
+ win_opts.row = math.floor(((lines - win_opts.height) / 2) - 1)
+ win_opts.col = math.floor((columns - win_opts.width) / 2)
+
+ local bufnr = vim.api.nvim_create_buf(false, true)
+ local winid = vim.api.nvim_open_win(bufnr, true, win_opts)
+
+ print "pop"
+ return bufnr, winid
+end
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+ pattern = {
+  "*.html",
+ },
+ callback = function()
+  vim.api.nvim_command("syntax clear Comment")
+  vim.api.nvim_command([[syntax match Comment "--.*$"]])
+  vim.api.nvim_command([[syntax region Comment start=+<!--+ end=+--\s*>+]])
+ end,
+ group = vim.api.nvim_create_augroup("html", {
+  clear = false,
+ }),
+})
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+ pattern = {
+  "*.lua",
+ },
+ callback = function()
+  vim.api.nvim_command("syntax clear Comment")
+  vim.api.nvim_command([[syntax match Comment "--.*$"]])
+ end,
+ group = vim.api.nvim_create_augroup("lua", {
+  clear = false,
+ }),
+})
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+ pattern = {
+  "*.css",
+ },
+ callback = function()
+  vim.api.nvim_command("syntax clear Comment")
+  vim.api.nvim_command([[syntax region Comment start="/\*" end="\*/"]])
+ end,
+ group = vim.api.nvim_create_augroup("css", {
+  clear = false,
+ }),
+})
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+ pattern = {
+  "*.py",
+  "*.rb",
+  "*.sh",
+  "*.yaml",
+  "*.yml",
+  "*.zsh",
+  "Makefile",
+  "makefile",
+ },
+ callback = function()
+  vim.api.nvim_command("syntax clear Comment")
+  vim.api.nvim_command([[syntax match Comment "#.*$"]])
+ end,
+ group = vim.api.nvim_create_augroup("ruby", {
+  clear = false,
+ }),
+})
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+ pattern = {
+   "*.c",
+   "*.cpp",
+   "*.dart",
+   "*.java",
+   "*.js",
+   "*.jsx",
+   "*.php",
+   "*.scss",
+   "*.ts",
+   "*.tsx",
+ },
+ callback = function()
+  vim.api.nvim_command("syntax clear Comment")
+  vim.api.nvim_command([[syntax match Comment "\/\/.*"]])
+  vim.api.nvim_command([[syntax region Comment start="/\*" end="\*/"]])
+ end,
+ group = vim.api.nvim_create_augroup("c++", {
+  clear = false,
+ }),
+})
+
+-- comment
+fg("Comment", colors.dodgerblue)
+
+local sciid = nil
+local scins = vim.api.nvim_create_namespace("SignColumnIndicator")
+vim.api.nvim_create_autocmd({"CursorMoved", "CursorMovedI", "BufEnter", "BufLeave"}, {
+ callback = function(event)
+  if sciid ~= nil then
+   vim.api.nvim_buf_del_extmark(0, scins, sciid)
+  end
+  if event.event == "BufLeave" then
+   return
+  end
+  local r = vim.api.nvim_win_get_cursor(0)[1] - 1
+  local c = vim.api.nvim_win_get_cursor(0)[2]
+  sciid = vim.api.nvim_buf_set_extmark(
+   0,
+   scins,
+   r,
+   0,
+   {
+    --sign_text = ""..c,
+    --sign_text = "->",
+    sign_text = " ◆",
+    sign_hl_group = "SignColumn",
+   }
+  )
+ end,
+ group = vim.api.nvim_create_augroup("SignColumnIndicator", {
+  clear = false,
+ }),
+})
+
