@@ -1,77 +1,186 @@
+-- Turn off syntax autoloading
+--
+-- Leaves syntax highlighting
+-- enabled but switches off
+-- automatic loading of
+-- language-specific syntax
+-- rules.
+--
+-- Grammar-aware highlighting
+-- that knows about keywords
+-- and syntax errors and so on
+-- is nice but dependency-heavy
+-- and brittle. Manual syntax
+-- isn't as impressive to look
+-- at but it works the same in
+-- every language with zero
+-- setup or dependencies.
 vim.api.nvim_command("syntax manual")
 
-vim.g.mapleader = " "
-vim.g.wildmode = "longest:list,full"
-vim.g.wildoptions = "pum"
+-- Disable remote plugins
+--
+-- These aren't particularly
+-- useful and they depend on
+-- having packages installed
+-- for each language. If those
+-- packages are missing you get
+-- unwanted :checkhealth noise.
+vim.g.loaded_node_provider = false
+vim.g.loaded_perl_provider = false
+vim.g.loaded_ruby_provider = false
 
---vim.o.cursorcolumn = true
+-- Use space as the leader key
+--
+-- Space is the biggest key on
+-- a standard keyboard and
+-- doesn't do anything by
+-- default in normal mode.
+vim.g.mapleader = " "
+
+-- Most intuitive wildmenu
+--
+-- Always show the list of
+-- matches if there is one and
+-- choose the longest match.
+vim.g.wildmode = "longest:list"
+
+-- Highlight the cursor line
+--
+-- Even if the whole line
+-- isn't being highlighted it's
+-- useful to at least highlight
+-- the current line number.
 vim.o.cursorline = true
+
+-- Default to spaces, not tabs
+--
+-- Indentation using spaces is
+-- more ubiquitous than tabs so
+-- this is a better starting
+-- point.
 vim.o.expandtab = true
-vim.o.incsearch = true
-vim.o.hlsearch = true
-vim.o.mouse = "a"
-vim.o.scrolloff = 8
+
+-- 1 space indents by default
+--
+-- This is intentionally small
+-- in order to optimize for
+-- shorter lines. Code that fits
+-- in a narrow column is more
+-- legible in space-constrained
+-- contexts like mobile devices,
+-- refreshable braille displays,
+-- and split diffs.
 vim.o.shiftwidth = 1
-vim.o.signcolumn = "yes:1"
+
+-- Line numbers up to 9999
+--
+-- Setting a wide column for the
+-- line numbers minimizes UI
+-- movement when file lengths
+-- change.
+vim.o.number = true
+vim.o.numberwidth = 4
+
+-- Max out the signcolumn
+--
+-- Using both available columns
+-- for this allows for a little
+-- bit of whitespace between an
+-- icon and the left of the
+-- window.
+vim.o.signcolumn = "yes:2"
+
+-- Terminal colors on
+--
+-- Without this none of the
+-- colors work properly in the
+-- terminal.
 vim.o.termguicolors = true
 
-vim.wo.number = true
-vim.wo.numberwidth = 5
-vim.wo.fillchars = "eob: "
-
-vim.api.nvim_set_keymap(
- "n",
- "<leader>q",
- ":quit!<CR>",
- { noremap = true }
-)
-
-vim.api.nvim_set_keymap(
- "n",
- "<leader>t",
- ":tabnew<CR>",
- { noremap = true }
-)
-
-vim.api.nvim_set_keymap(
- "n",
- "<leader>w",
- ":write<CR>",
- { noremap = true }
-)
-
-local highlight_groups = vim.split(
- vim.api.nvim_command_output("hi"),
- "\n"
-)
-
-for i = 1,#highlight_groups do
- local line = highlight_groups[i]
- local group = string.match(line, "%w+")
-
- if string.match(line, "=") ~= nil then
-  vim.api.nvim_command(
-   string.format(
-    "highlight clear %s",
-    group
-   )
-  )
- elseif string.match(line, "links to") ~= nil then
-  vim.api.nvim_command(
-   string.format(
-    "highlight link %s NONE",
-    group
-   )
-  )
- end
-
+-- Create normal mode keymap
+function nmap(lhs, rhs)
+ vim.api.nvim_set_keymap(
+  "n",
+  lhs,
+  rhs,
+  { noremap = true }
+ )
 end
+
+nmap("<leader>q", ":quit!<CR>")
+nmap("<leader>t", ":tabnew<CR>")
+nmap("<leader>w", ":write<CR>")
+
+-- Remove all highlights
+--
+-- This function resets all
+-- highlight rules back to
+-- zero. It removes all default
+-- foreground and background
+-- colors, and also removes all
+-- links between highlight
+-- groups.
+function hireset()
+
+ -- Enumerate default highlights
+ --
+ -- The table produced looks
+ -- like this: {
+ --  "SpecialKey     xxx ctermfg=81 guifg=Cyan",
+ --  "EndOfBuffer    xxx links to NonText",
+ --  "TermCursor     xxx cterm=reverse gui=reverse",
+ --  "TermCursorNC   xxx cleared",
+ --  "NonText        xxx ctermfg=12 gui=bold guifg=Blue",
+ --  "Directory      xxx ctermfg=159 guifg=Cyan",
+ --  "ErrorMsg       xxx ctermfg=15 ctermbg=1 guifg=White guibg=Red",
+ -- }
+ local highlight_groups = vim.split(
+  vim.api.nvim_command_output("hi"),
+  "\n"
+ )
+
+ for i,line in pairs(highlight_groups) do
+  -- Extracts the first word:
+  -- line: "Pmenu          xxx ctermfg=0 ctermbg=13 guibg=Magenta"
+  -- group: "Pmenu"
+  local group = string.match(line, "%w+")
+
+  -- Lines with = signs in them
+  -- set colors. For example:
+  -- "ErrorMsg       xxx ctermfg=15 ctermbg=1 guifg=White guibg=Red",
+  local is_color = string.match(line, "=") ~= nil
+
+  -- Lines containing "links to"
+  -- link one group to another,
+  -- For example:
+  -- "EndOfBuffer    xxx links to NonText",
+  local is_link = string.match(line, "links to") ~= nil
+
+  if is_color then
+   vim.api.nvim_command(
+    string.format(
+     "highlight clear %s",
+     group
+    )
+   )
+  elseif is_link then
+   vim.api.nvim_command(
+    string.format(
+     "highlight link %s NONE",
+     group
+    )
+   )
+  end
+ end
+end
+
+hireset()
 
 local colors = {
  aliceblue = "#F0F8FF",
  amethyst = "#9966CC",
  antiquewhite = "#FAEBD7",
-aqua = "#00FFFF",
+ aqua = "#00FFFF",
  aquamarine = "#7FFFD4",
  azure = "#F0FFFF",
  beige = "#F5F5DC",
@@ -213,75 +322,35 @@ aqua = "#00FFFF",
  yellowgreen = "#9ACD32",
 }
 
-function kmap(tbl, f)
- local t = {}
- for k,v in pairs(tbl) do
-  t[#t + 1] = f(k, v)
- end
- return t
-end
-
-function merge(a, b)
- local c = {}
- for k,v in pairs(a) do c[k] = v end
- for k,v in pairs(b) do c[k] = v end
- return c
-end
-
-function hi(group, properties)
- vim.api.nvim_command(string.format(
-  "highlight %s %s",
-  group,
-  table.concat(
-   kmap(
-    properties,
-    function(k, v)
-     return string.format("%s=%s", k, v)
-    end
-   ),
-   " "
+-- Add a highlight group
+--
+-- Example commands:
+-- :highlight Normal guibg=#FFFAFA
+-- :highlight String guifg=#FF1493
+function hi(group, name, value)
+ vim.api.nvim_command(
+  string.format(
+   "highlight %s %s=%s",
+   group,
+   name,
+   value
   )
- ))
-end
-
-function bg(name, color, extras)
- hi(
-  name,
-  merge({
-   guibg = color
-  }, extras or {})
  )
 end
 
-function fg(name, color, extras)
- hi(
-  name,
-  merge({
-   guifg = color
-  }, extras or {})
- )
+-- Highlight background color
+--
+-- :highlight Normal guibg=#FFFAFA
+function bg(group, color)
+ hi(group, "guibg", color)
 end
 
-fg("Normal", colors.darkslategray)
-bg("Normal", colors.snow)
-fg("EndOfBuffer", colors.snow)
-
-bg("PMenu", colors.darkslategray)
-fg("PMenu", colors.snow)
-
-bg("Visual", colors.lightskyblue)
-
-bg("NormalFloat", colors.darkslategray)
-fg("NormalFloat", colors.snow)
-
-bg("PMenuSel", colors.deeppink)
-fg("PMenuSel", colors.snow)
-
-bg("PmenuSbar", colors.lightgrey)
-bg("PMenuThumb", colors.slategray)
-
-fg("LineNr", colors.thistle)
-fg("MsgArea", colors.darkslategray)
+-- Highlight foreground color
+--
+-- :highlight String guifg=#FF1493
+function fg(group, color)
+ hi(group, "guifg", color)
+end
 
 function syntax(group, symbols)
  for i = 1,#symbols do
@@ -302,11 +371,9 @@ syntax("Bracket", {
  "<", ">",
 })
 
-fg("Bracket", colors.tomato)
 
 vim.cmd([[au BufEnter * syntax match Number /\d\+/]])
 vim.cmd([[au BufEnter * syntax match Number /[0-9a-fA-F]\{6\}/]])
-fg("Number", colors.magenta)
 
 syntax("Math", {
  "+", "-", "=", "*", "/", "~=", "!=",
@@ -317,30 +384,6 @@ syntax("String", {
  '\\".*\\"',
 })
 
-fg("Math", colors.dodgerblue)
-
-fg("String", colors.deeppink)
-bg("IncSearch", colors.yellow)
-bg("Search", colors.yellow)
-
-local crosshair = colors.lavenderblush
---bg("CursorColumn", crosshair)
---bg("CursorLine", crosshair)
-
-fg("CursorLineNR", colors.deeppink)
-
-fg("Cursor", colors.deeppink)
-bg("Cursor", colors.deeppink)
-
---bg("SignColumn", colors.crosshair)
-fg("SignColumn", colors.deeppink)
-
-bg("TabLineSel", colors.snow)
-fg("TabLineSel", colors.deeppink)
-
--- bg("TabLine", colors.whitesmoke)
-fg("TabLine", colors.thistle)
-bg("TabLineFill", colors.whitesmoke)
 
 function highlight_group()
  local pos = vim.api.nvim_win_get_cursor(0)
@@ -371,32 +414,25 @@ function lol()
  return "lol"
 end
 
-bg("StatusLine", colors.lavender)
-bg("StatusLineMode", colors.lavender)
-fg("StatusLine", colors.darkslategray)
 
 local statusline_parts = {
-  -- "%#SignColumn#\\ \\ ",
-  -- "%#LineNr#\\ \\ \\ \\ ",
-  "%#StatusLine#",
- }
-table.insert(statusline_parts, "%=")
-table.insert(statusline_parts, "%{%v:lua.highlight_group()%}")
-table.insert(statusline_parts, "%#StatusLine#")
-table.insert(statusline_parts, "%y%h%w%m%r")
-table.insert(statusline_parts, "[%-3l,%-03c]")
-table.insert(statusline_parts, "[%{%v:lua.vim.api.nvim_get_mode().mode%}]\\ ")
+ "%#StatusLine#",
+ "%=",
+ "%=",
+ "%{%v:lua.highlight_group()%}",
+ "%#StatusLine#",
+ "%y%h%w%m%r",
+ "[%-3l,%-03c]",
+ "[%{%v:lua.vim.api.nvim_get_mode().mode%}]\\ ",
+}
+
 
 local statusline_cmd = string.format(
  "set statusline=%s",
  table.concat(statusline_parts, "")
 )
 
---vim.api.nvim_command("set statusline=%f\\ %h%w%m%r\\ %=%{%v:lua.highlight_group()%}\\ %(%l,%c%V\\ %=\\ %P%)")
---vim.api.nvim_command("set statusline=%{%v:lua.vim.api.nvim()%}\\ %{%v:lua.highlight_group()%}")
 vim.api.nvim_command(statusline_cmd)
-
---vim.cmd([[autocmd BufWritePost init.lua luafile %]])
 
 vim.opt.matchpairs:append "（:）"
 vim.opt.matchpairs:append "「:」"
@@ -416,28 +452,13 @@ vim.opt.matchpairs:append "[:]"
 vim.opt.matchpairs:append "<:>"
 vim.opt.matchpairs:append "`:`"
 
--- vim.cmd([[
---  augroup fold
---   au BufReadPre * setlocal foldmethod=indent
---   au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
---  augroup END
--- ]], "")
---
-
-fg("TabLineFill", colors.snow)
-
 function tabline()
  local cur = vim.fn.tabpagenr()
  local max = vim.fn.tabpagenr("$")
 
  local parts = {
-  "%#SignColumn# ",
-  "%#LineNr#  ",
+  "%=",
  }
-
- if cur == 0 then
- else
- end
 
  for i = 1,max do
   local bufnr = vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]
@@ -449,17 +470,15 @@ function tabline()
    name = file
   end
 
+  name = string.format(
+   " %s ",
+   name
+  )
+
   local iscur = i == cur
   local group = "TabLine"
   if iscur then
    group = "TabLineSel"
-   name = string.format(
-    "%s %s",
-    "◆",
-    name
-   )
-  else
-   name = "  "..name
   end
 
   local tab = {}
@@ -477,30 +496,6 @@ end
 
 vim.o.showtabline = 2
 vim.o.tabline = "%!v:lua.tabline()"
-
-function popup()
- local relative = 'editor'
- local columns, lines = vim.o.columns, vim.o.lines
- if relative == 'win' then
-  columns, lines = vim.api.nvim_win_get_width(0), vim.api.nvim_win_get_height(0)
- end
-
- local win_opts = {
-  width = math.min(columns - 4, math.max(80, columns - 20)),
-  height = math.min(lines - 4, math.max(20, lines - 10)),
-  style = "minimal",
-  relative = relative,
- }
-
- win_opts.row = math.floor(((lines - win_opts.height) / 2) - 1)
- win_opts.col = math.floor((columns - win_opts.width) / 2)
-
- local bufnr = vim.api.nvim_create_buf(false, true)
- local winid = vim.api.nvim_open_win(bufnr, true, win_opts)
-
- print "pop"
- return bufnr, winid
-end
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
  pattern = {
@@ -585,36 +580,35 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
  }),
 })
 
--- comment
-fg("Comment", colors.dodgerblue)
+bg("Cursor", colors.deeppink)
+bg("IncSearch", colors.yellow)
+bg("Normal", colors.snow)
+bg("NormalFloat", colors.darkslategray)
+bg("PMenu", colors.darkslategray)
+bg("PMenuSel", colors.deeppink)
+bg("PMenuThumb", colors.slategray)
+bg("PmenuSbar", colors.lightgrey)
+bg("Search", colors.yellow)
+bg("StatusLine", colors.lavender)
+bg("Visual", colors.lightskyblue)
 
-local sciid = nil
-local scins = vim.api.nvim_create_namespace("SignColumnIndicator")
-vim.api.nvim_create_autocmd({"CursorMoved", "CursorMovedI", "BufEnter", "BufLeave"}, {
- callback = function(event)
-  if sciid ~= nil then
-   vim.api.nvim_buf_del_extmark(0, scins, sciid)
-  end
-  if event.event == "BufLeave" then
-   return
-  end
-  local r = vim.api.nvim_win_get_cursor(0)[1] - 1
-  local c = vim.api.nvim_win_get_cursor(0)[2]
-  sciid = vim.api.nvim_buf_set_extmark(
-   0,
-   scins,
-   r,
-   0,
-   {
-    --sign_text = ""..c,
-    --sign_text = "->",
-    sign_text = " ◆",
-    sign_hl_group = "SignColumn",
-   }
-  )
- end,
- group = vim.api.nvim_create_augroup("SignColumnIndicator", {
-  clear = false,
- }),
-})
+fg("Bracket", colors.tomato)
+fg("Comment", colors.dodgerblue)
+fg("Cursor", colors.deeppink)
+fg("CursorLineNR", colors.deeppink)
+fg("EndOfBuffer", colors.snow)
+fg("LineNr", colors.thistle)
+fg("Math", colors.dodgerblue)
+fg("MsgArea", colors.darkslategray)
+fg("Normal", colors.darkslategray)
+fg("NormalFloat", colors.snow)
+fg("Number", colors.magenta)
+fg("PMenu", colors.snow)
+fg("PMenuSel", colors.snow)
+fg("SignColumn", colors.deeppink)
+fg("StatusLine", colors.darkslategray)
+fg("String", colors.deeppink)
+fg("TabLine", colors.thistle)
+fg("TabLineFill", colors.snow)
+fg("TabLineSel", colors.deeppink)
 
