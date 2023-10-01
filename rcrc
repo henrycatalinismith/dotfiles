@@ -1,0 +1,3 @@
+EXCLUDES="makefile"
+DOTFILES_DIRS="$HOME/dotfiles"
+COPY_ALWAYS="git_template/HEAD"

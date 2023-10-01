@@ -90,4 +90,4 @@
 	email = henry@catalinismith.com
 
 [advice]
-	addEmptyPathspec = false
+	#addEmptyPathspec = false
