@@ -75,46 +75,12 @@
 
 [core]
 	autocrlf = false
-	editor = vim
-	pager = delta
+	editor = nvim
 	whitespace = trailing-space,space-before-tab
 	excludesfile = ~/.config/git/ignore
 
-[delta]
-	commit-decoration-style = bold ul
-	file-style = bold brightCyan
-	hunk-header-decoration-style = none
-	features = line-numbers decorations
-	plus-style = syntax "#003336"
-	minus-style = syntax "#3d1a37"
-	line-numbers = true
-	line-numbers-minus-style = "#F0FFF0"
-	line-numbers-zero-style = "#F0FFF0"
-	line-numbers-plus-style = "#F0FFF0"
-	line-numbers-left-format = "{nm:>4}┊"
-	line-numbers-right-format = "{np:>4}│"
-	line-numbers-left-style = blue
-	line-numbers-right-style = blue
-	syntax-theme = Solarized (dark)
-
-
-[delta "decorations"]
-	commit-decoration-style = bold yellow box ul
-	file-style = bold yellow ul
-	file-decoration-style = none
-	hunk-header-decoration-style = cyan box ul
-
-[delta "line-numbers"]
-	line-numbers-left-style = cyan
-	line-numbers-right-style = cyan
-	line-numbers-minus-style = 124
-	line-numbers-plus-style = 28
-
-[includeIf "gitdir:~/soundtrap/"]
-    path = ~/soundtrap/.gitconfig
-
 [init]
-	defaultBranch = trunk
+	defaultBranch = main
 
 [log]
 	date = iso
@@ -123,3 +89,5 @@
 	name = Henry Catalini Smith
 	email = henry@catalinismith.com
 
+[advice]
+	addEmptyPathspec = false
