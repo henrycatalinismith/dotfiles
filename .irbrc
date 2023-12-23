@@ -7,4 +7,3 @@ IRB.conf[:PROMPT][:CUSTOM] = {
   :PROMPT_N => ".. ",
   :RETURN => "=> %s\n"
 }
-

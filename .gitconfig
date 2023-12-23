@@ -88,6 +88,3 @@
 [user]
 	name = Henry Catalini Smith
 	email = henry@catalinismith.com
-
-[advice]
-	#addEmptyPathspec = false
