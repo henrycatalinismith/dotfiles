@@ -3,8 +3,6 @@
 	ap   = add --patch
 	b    = branch --verbose
 	ba   = branch --all
-	bc   = branch --contains
-	br   = branch --remote
 	c    = "!f() { git commit -am \"$*\"; }; f"
 	ci   = "!f() { git commit -m \"$*\"; }; f"
 	cia  = commit --amend
@@ -17,16 +15,14 @@
 	g    = grep -n
 	gi   = grep -ni
 	git  = !git $1
-	ig   = ls-files --others -i --exclude-standard
 	l    = log --graph --stat --decorate
-	lp   = log --patch
 	lod  = log --oneline --decorate
 	lodg = log --oneline --decorate --graph
 	m    = merge
 	re   = "!f() { git rh $1; git c- $1; }; f"
 	rh   = reset HEAD
+	ri   = "!f() { git rebase -i HEAD~$*; }; f"
 	s    = status --short --branch
-	sad  = submodule add
 	up   = "!git remote update -p; git merge --ff-only @{u}"
 
 [clean]
@@ -77,7 +73,6 @@
 	autocrlf = false
 	editor = nvim
 	whitespace = trailing-space,space-before-tab
-	excludesfile = ~/.config/git/ignore
 
 [init]
 	defaultBranch = main
