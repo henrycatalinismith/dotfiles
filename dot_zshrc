@@ -1,0 +1,8 @@
+PROMPT="%F{blue}%~%f $ "
+
+ZSH_THEME="sunrise"
+plugins=(atuin gh git npm nvm rails rbenv yarn)
+
+if [ -s "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]; then
+  source "${HOME}/.oh-my-zsh/oh-my-zsh.sh" 
+fi
