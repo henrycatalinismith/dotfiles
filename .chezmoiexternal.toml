@@ -19,3 +19,8 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
+[".oh-my-zsh/custom/themes/bluesunrise.zsh-theme"]
+    type = "file"
+    url = "https://gist.githubusercontent.com/henrycatalinismith/e7c0cac7e938df7568a3488d27e368ac/raw"
+    refreshPeriod = "168h"
+

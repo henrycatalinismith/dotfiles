@@ -1,4 +1,4 @@
-ZSH_THEME="sunrise"
+ZSH_THEME="bluesunrise"
 plugins=(atuin gh git npm nvm rails rbenv yarn zsh-syntax-highlighting)
 
 if [ -s "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]; then
