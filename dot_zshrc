@@ -1,5 +1,5 @@
 ZSH_THEME="bluesunrise"
-plugins=(atuin brew gh git npm nvm rails rbenv yarn zsh-syntax-highlighting)
+plugins=(brew atuin gh git npm nvm rails rbenv yarn zsh-syntax-highlighting)
 
 if [ -s "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]; then
   source "${HOME}/.oh-my-zsh/oh-my-zsh.sh" 
