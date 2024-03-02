@@ -83,3 +83,5 @@
 [user]
 	name = Henry Catalini Smith
 	email = henry@catalinismith.com
+[push]
+	autoSetupRemote = true
