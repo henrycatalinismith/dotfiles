@@ -1,24 +1,10 @@
 [alias]
-	a    = add
 	ap   = add --patch
-	b    = branch --verbose
-	ba   = branch --all
-	c    = "!f() { git commit -am \"$*\"; }; f"
-	ci   = "!f() { git commit -m \"$*\"; }; f"
-	cia  = commit --amend
-	co   = checkout
 	cow  = "!f() { cowsay \"$*\" | git commit -a -F -; }; f"
-	c-   = checkout --
 	cp   = cherry-pick
-	d    = diff
-	dc   = diff --cached
 	g    = grep -n
 	gi   = grep -ni
 	git  = !git $1
-	l    = log --graph --stat --decorate
-	lod  = log --oneline --decorate
-	lodg = log --oneline --decorate --graph
-	m    = merge
 	re   = "!f() { git rh $1; git c- $1; }; f"
 	rh   = reset HEAD
 	ri   = "!f() { git rebase -i HEAD~$*; }; f"
