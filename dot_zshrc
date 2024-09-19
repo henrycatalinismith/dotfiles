@@ -1,3 +1,4 @@
+COREPACK_ENABLE_AUTO_PIN=0
 ZSH_THEME="bluesunrise"
 
 plugins=(
@@ -6,6 +7,7 @@ plugins=(
   gh
   git
   git-extras
+  kubectl
   npm
   nvm
   rails
