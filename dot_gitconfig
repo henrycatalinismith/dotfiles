@@ -8,8 +8,8 @@
 	re   = "!f() { git rh $1; git c- $1; }; f"
 	rh   = reset HEAD
 	ri   = "!f() { git rebase -i HEAD~$*; }; f"
-	s   = "!f() { sl; cowsay "gsb"; }; f"
-	up   = "!git remote update -p; git merge --ff-only @{u}"
+	s    = "!f() { sl; cowsay "gsb"; }; f"
+	up   = "!f() { sl; cowsay "gup"; }; f"
 
 [clean]
 	requireForce = false
