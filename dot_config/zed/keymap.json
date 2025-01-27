@@ -1,16 +1,15 @@
 [
   {
-    "context": "Workspace",
     "bindings": {
+      "cmd-shift-j": "journal::NewJournalEntry",
       "ctrl-shift-tab": "pane::ActivatePrevItem",
       "ctrl-tab": "pane::ActivateNextItem",
-      "cmd-shift-j": "journal::NewJournalEntry"
-    }
+      "ctrl-~": "workspace::NewCenterTerminal"
+    },
+    "context": "Workspace"
   },
   {
-    "context": "Editor",
-    "bindings": {
-      // "j k": ["workspace::SendKeystrokes", "escape"]
-    }
+    "bindings": {},
+    "context": "Editor"
   }
 ]
