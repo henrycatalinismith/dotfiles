@@ -24,3 +24,30 @@
     url = "https://gist.githubusercontent.com/henrycatalinismith/e7c0cac7e938df7568a3488d27e368ac/raw"
     refreshPeriod = "168h"
 
+[".vim/pack/themes/opt/solarized8"]
+  type = "git-repo"
+  url = "https://github.com/lifepillar/vim-solarized8"
+
+[".vim/pack/plugin/start/nerdtree"]
+  type = "git-repo"
+  url = "https://github.com/preservim/nerdtree"
+
+[".vim/pack/plugin/start/vim-airline"]
+  type = "git-repo"
+  url = "https://github.com/vim-airline/vim-airline.git"
+
+[".vim/pack/plugin/start/vim-airline-themes"]
+  type = "git-repo"
+  url = "https://github.com/vim-airline/vim-airline-themes"
+
+[".vim/pack/plugin/start/yats"]
+  type = "git-repo"
+  url = "https://github.com/HerringtonDarkholme/yats.vim.git"
+
+[".vim/pack/plugin/start/fzf.vim"]
+  type = "git-repo"
+  url = "https://github.com/junegunn/fzf.vim"
+
+[".vim/pack/plugin/start/fzf"]
+  type = "git-repo"
+  url = "https://github.com/junegunn/fzf"
