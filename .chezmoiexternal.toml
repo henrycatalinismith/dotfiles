@@ -24,6 +24,22 @@
     url = "https://gist.githubusercontent.com/henrycatalinismith/e7c0cac7e938df7568a3488d27e368ac/raw"
     refreshPeriod = "168h"
 
+[".tmux/plugins/tpm"]
+  type = "git-repo"
+  url = "https://github.com/tmux-plugins/tpm.git"
+
+[".tmux/plugins/tmux-sensible"]
+  type = "git-repo"
+  url = "https://github.com/tmux-plugins/tmux-sensible.git"
+
+[".tmux/plugins/tmux-pain-control"]
+  type = "git-repo"
+  url = "https://github.com/tmux-plugins/tmux-pain-control.git"
+
+[".tmux/plugins/extrakto"]
+  type = "git-repo"
+  url = "https://github.com/laktak/extrakto.git"
+
 [".vim/pack/themes/opt/solarized8"]
   type = "git-repo"
   url = "https://github.com/lifepillar/vim-solarized8"
