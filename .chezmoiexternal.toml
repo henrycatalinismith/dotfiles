@@ -40,6 +40,10 @@
   type = "git-repo"
   url = "https://github.com/laktak/extrakto.git"
 
+[".tmux/plugins/airline"]
+  type = "git-repo"
+  url = "https://github.com/andrewjstryker/tmux-airline.git"
+
 [".vim/pack/themes/opt/solarized8"]
   type = "git-repo"
   url = "https://github.com/lifepillar/vim-solarized8"

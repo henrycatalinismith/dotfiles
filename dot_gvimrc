@@ -1,22 +1,18 @@
 " autocmd VimEnter * NERDTree | wincmd l | terminal ++curwin
+autocmd TermOpen * setlocal nonumber
 autocmd FileType nerdtree setlocal wincolor=NERDTreeNormal
-autocmd VimEnter * if argc() == 0 | NERDTree | wincmd l | silent execute "terminal ++curwin" | endif
-autocmd VimEnter * if argc() > 0 | NERDTree | endif
-
-autocmd TermEnter * map <C-Tab> :tabnext<CR>
-autocmd TermEnter * map <C-S-Tab> :tabprevious<CR>
-
-autocmd TermEnter * tnoremap <C-Tab> :tabnext<CR>
-autocmd TermEnter * tnoremap <C-S-Tab> :tabprevious<CR>
-
+" autocmd VimEnter * if argc() == 0 | NERDTree | wincmd l | silent execute "terminal ++curwin" | endif
+aset fillchars+=stl:\ ,stlnc:\   utocmd VimEnter * if argc() > 0 | NERDTree | endif
 colorscheme solarized8
 highlight NERDTreeNormal guibg=#0c313c
 highlight EndOfBuffer guifg=bg
 highlight LineNr guibg=#052c39 
-highlight Normal guibg=#052c39
+highlight Normal guibg=#052c39 guifg=#fdf5dc
 highlight VertSplit guibg=#223d46
 let g:NERDTreeHighlightCursorline = 1
+let g:NERDTreeMinimalUI=1
 let g:NERDTreeMouseMode=2
+let g:airline_powerline_fonts = 1 
 let g:airline_theme='solarized_flood'
 let g:nerdtree_tabs_open_on_console_startup = 1
 let g:nerdtree_tabs_open_on_new_tab = 1
@@ -25,17 +21,23 @@ let g:nerdtree_tabs_autofind = 1
 map <Space> <Leader>
 map Q <nop>
 map Y y$
-nnoremap <leader>p  :GFiles<CR>
-nnoremap <leader>q  :quit!<CR>
-nnoremap <leader>w  :write<CR>
+nnoremap <C-S-Tab> :tabprevious<CR>
+nnoremap <D-`> :tabnew \| terminal ++curwin<CR>
+nnoremap <leader>p :GFiles<CR>
+nnoremap <leader>q :quit!<CR>
+nnoremap <leader>w :write<CR>
 nnoremap <leader>wq :write<CR>:quit!<CR>
 set bg=dark
 set fillchars=""
-set guifont=Iosevka:h18
+set guifont=Iosevka\ Nerd\ Font\ Mono:h18
 set guioptions=
 set ignorecase
 set incsearch
 set noerrorbells
+set noswapfile
 set novisualbell
 set number
 set showtabline=2
+tnoremap <C-Tab> <C-\><C-N>:tabnext<CR>
+tnoremap <C-S-Tab> <C-\><C-N>:tabprevious<CR>
+tnoremap <D-`> <C-\><C-N>:tabnew \| terminal ++curwin<CR>
