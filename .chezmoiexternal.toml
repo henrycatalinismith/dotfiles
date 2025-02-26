@@ -52,6 +52,14 @@
   type = "git-repo"
   url = "https://github.com/preservim/nerdtree"
 
+[".vim/pack/plugin/start/fugitive"]
+  type = "git-repo"
+  url = "https://github.com/tpope/vim-fugitive.git"
+
+[".vim/pack/plugin/start/gitgutter"]
+  type = "git-repo"
+  url = "https://github.com/airblade/vim-gitgutter.git"
+
 [".vim/pack/plugin/start/vim-airline"]
   type = "git-repo"
   url = "https://github.com/vim-airline/vim-airline.git"

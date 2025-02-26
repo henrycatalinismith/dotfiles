@@ -9,6 +9,8 @@ highlight EndOfBuffer guifg=bg
 highlight LineNr guibg=#052c39 
 highlight Normal guibg=#052c39 guifg=#fdf5dc
 highlight VertSplit guibg=#223d46
+inoremap <M-Up> <Esc>:m -2<CR>
+inoremap <M-Down> <Esc>:m +1<CR>
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeMouseMode=2
@@ -23,14 +25,17 @@ map Q <nop>
 map Y y$
 nnoremap <C-S-Tab> :tabprevious<CR>
 nnoremap <D-`> :tabnew \| terminal ++curwin<CR>
+nnoremap <M-Up> :m .-2<CR>
+nnoremap <M-Down> :m .+1<CR>
 nnoremap <leader>p :GFiles<CR>
 nnoremap <leader>q :quit!<CR>
+nnoremap <leader>t :tabnew \| terminal ++curwin<CR>
 nnoremap <leader>w :write<CR>
 nnoremap <leader>wq :write<CR>:quit!<CR>
 set bg=dark
 set fillchars=""
 set guifont=Iosevka\ Nerd\ Font\ Mono:h18
-set guioptions=
+set guioptions+=e
 set ignorecase
 set incsearch
 set noerrorbells
