@@ -23,3 +23,6 @@ fi
 alias bu="curl -s 'https://gist.githubusercontent.com/henrycatalinismith/ea754f2f6cf5bf49e90f5b0eac7e021c/raw/' | brew bundle --file=-"
 alias gup="git remote update --prune; git merge --ff-only @{u}"
 
+function project() {
+  mvim -c "cd $1"
+}

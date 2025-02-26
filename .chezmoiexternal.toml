@@ -48,6 +48,10 @@
   type = "git-repo"
   url = "https://github.com/lifepillar/vim-solarized8"
 
+[".vim/pack/plugin/start/lsp"]
+  type = "git-repo"
+  url = "https://github.com/prabirshrestha/vim-lsp.git"
+
 [".vim/pack/plugin/start/nerdtree"]
   type = "git-repo"
   url = "https://github.com/preservim/nerdtree"
@@ -71,10 +75,6 @@
 [".vim/pack/plugin/start/yats"]
   type = "git-repo"
   url = "https://github.com/HerringtonDarkholme/yats.vim.git"
-
-[".vim/pack/plugin/start/fzf.vim"]
-  type = "git-repo"
-  url = "https://github.com/junegunn/fzf.vim"
 
 [".vim/pack/plugin/start/fzf"]
   type = "git-repo"
