@@ -1,32 +1,37 @@
-" autocmd VimEnter * NERDTree | wincmd l | terminal ++curwin
-autocmd TermOpen * setlocal nonumber
+autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
+autocmd VimEnter * if argc() == 0 | NERDTree | wincmd l | silent execute "terminal ++curwin" | endif
 autocmd FileType nerdtree setlocal wincolor=NERDTreeNormal
-" autocmd VimEnter * if argc() == 0 | NERDTree | wincmd l | silent execute "terminal ++curwin" | endif
-aset fillchars+=stl:\ ,stlnc:\   utocmd VimEnter * if argc() > 0 | NERDTree | endif
+autocmd! GUIEnter * set vb t_vb=
 colorscheme solarized8
-highlight NERDTreeNormal guibg=#0c313c
-highlight EndOfBuffer guifg=bg
-highlight LineNr guibg=#052c39 
-highlight Normal guibg=#052c39 guifg=#fdf5dc
-highlight VertSplit guibg=#223d46
-inoremap <M-Up> <Esc>:m -2<CR>
+filetype plugin indent on
+highlight! EndOfBuffer guifg=bg
+highlight! GitGutterAdd    guibg=NONE
+highlight! GitGutterChange guibg=NONE
+highlight! GitGutterDelete guibg=NONE
+highlight! LineNr guibg=#052c39 
+highlight! NERDTreeNormal guibg=#0c313c
+highlight! Normal guibg=#052c39 guifg=#fdf5dc
+highlight! VertSplit guibg=#223d46
+highlight! link SignColumn LineNr
 inoremap <M-Down> <Esc>:m +1<CR>
+inoremap <M-Up> <Esc>:m -2<CR>
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeMouseMode=2
+let g:airline_extensions = []
 let g:airline_powerline_fonts = 1 
-let g:airline_theme='solarized_flood'
+let g:airline_theme='solarized'
+let g:nerdtree_tabs_autofind = 1
 let g:nerdtree_tabs_open_on_console_startup = 1
 let g:nerdtree_tabs_open_on_new_tab = 1
 let g:nerdtree_tabs_synchronize_view = 0
-let g:nerdtree_tabs_autofind = 1
 map <Space> <Leader>
 map Q <nop>
 map Y y$
 nnoremap <C-S-Tab> :tabprevious<CR>
 nnoremap <D-`> :tabnew \| terminal ++curwin<CR>
-nnoremap <M-Up> :m .-2<CR>
 nnoremap <M-Down> :m .+1<CR>
+nnoremap <M-Up> :m .-2<CR>
 nnoremap <leader>p :GFiles<CR>
 nnoremap <leader>q :quit!<CR>
 nnoremap <leader>t :tabnew \| terminal ++curwin<CR>
@@ -34,7 +39,7 @@ nnoremap <leader>w :write<CR>
 nnoremap <leader>wq :write<CR>:quit!<CR>
 set bg=dark
 set fillchars=""
-set guifont=Iosevka\ Nerd\ Font\ Mono:h18
+set guifont=Iosevka:h18
 set guioptions+=e
 set ignorecase
 set incsearch
@@ -43,6 +48,10 @@ set noswapfile
 set novisualbell
 set number
 set showtabline=2
-tnoremap <C-Tab> <C-\><C-N>:tabnext<CR>
+set signcolumn=yes
+set smartindent
+set updatetime=16
 tnoremap <C-S-Tab> <C-\><C-N>:tabprevious<CR>
+tnoremap <C-Tab> <C-\><C-N>:tabnext<CR>
 tnoremap <D-`> <C-\><C-N>:tabnew \| terminal ++curwin<CR>
+tnoremap <buffer> <ScrollWheelUp> <C-\><C-N><C-w>k
