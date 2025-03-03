@@ -12,6 +12,15 @@ local function kb_set_leader()
  vim.g.mapleader = " "
 end
 
+local function kb_map_cmdline()
+ vim.keymap.set(
+  "n",
+  "<leader><leader>",
+  ":Telescope cmdline<CR>",
+  {}
+ )
+end
+
 -- Map <leader>. to code_action
 --
 -- Intended to be a bit similar
@@ -22,6 +31,30 @@ local function kb_map_code_action()
   "<leader>.",
   vim.lsp.buf.code_action,
   {}
+ )
+end
+
+local function kb_map_config()
+ vim.keymap.set(
+  "n",
+  "<leader>,",
+  function()
+   if vim.api.nvim_buf_get_name(0) == "" then
+    vim.cmd("e ~/.config/nvim/init.lua")
+   else
+    vim.cmd("tabnew ~/.config/nvim/init.lua")
+   end
+  end,
+  {}
+ )
+end
+
+local function kb_map_find_files()
+ vim.keymap.set(
+  "n",
+  "<leader>p",
+  ":Telescope find_files<CR>",
+  { noremap = true }
  )
 end
 
@@ -78,25 +111,40 @@ local function kb_map_quit()
  )
 end
 
+local function kb_map_rename()
+ vim.keymap.set(
+  "n",
+  "<leader>r",
+  ":Lspsaga rename<CR>",
+  { noremap = true }
+ )
+end
+
+-- Map tab to tabnext
+local function kb_map_tabnext()
+ vim.keymap.set(
+  "n",
+  "<Tab>",
+  ":tabnext<CR>",
+  { noremap = true }
+ )
+end
+
+local function kb_map_tree()
+ vim.keymap.set(
+  "n",
+  "<leader>b",
+  ":NvimTreeToggle<CR>",
+  { noremap = true }
+ )
+end
+
 -- Map <leader>w to write
 local function kb_map_write()
  vim.keymap.set(
   "n",
   "<leader>w",
   ":w<CR>",
-  { noremap = true }
- )
-end
-
--- Map tab to tabnext
---
--- Such a common movement that
--- it deserves its own key.
-local function kb_map_tabnext()
- vim.keymap.set(
-  "n",
-  "<Tab>",
-  ":tabnext<CR>",
   { noremap = true }
  )
 end
@@ -178,6 +226,13 @@ local function pl_barbar()
    "lewis6991/gitsigns.nvim",
    "nvim-tree/nvim-web-devicons",
   },
+  config = function()
+   require("barbar").setup({
+    sidebar_filetypes = {
+     NvimTree = true,
+    }
+   })
+  end
  }
 end
 
@@ -219,6 +274,20 @@ local function pl_lspconfig()
  }
 end
 
+local function pl_lspsaga()
+ return {
+  "nvimdev/lspsaga.nvim",
+  config = function()
+   require('lspsaga').setup({})
+   kb_map_rename()
+  end,
+  dependencies = {
+   "nvim-treesitter/nvim-treesitter",
+   "nvim-tree/nvim-web-devicons",
+  }
+ }
+end
+
 local function pl_lualine()
  return {
   "nvim-lualine/lualine.nvim",
@@ -255,6 +324,29 @@ local function pl_mason_lspconfig()
  }
 end
 
+local function pl_solarized()
+ return {
+  'maxmx03/solarized.nvim',
+  lazy = false,
+  priority = 1000,
+  opts = {
+   on_colors = function()
+    --return {
+     -- base00 = "#fdf4dd",
+     -- base02 = "#1b2e36",
+     -- base03 = "#081418",
+    --}
+   end
+  },
+  config = function(_, opts)
+   vim.o.termguicolors = true
+   vim.o.background = "dark"
+   require("solarized").setup(opts)
+   vim.cmd.colorscheme "solarized"
+  end,
+ }
+end
+
 local function pl_tailwind_tools()
  return {
   "luckasRanarison/tailwind-tools.nvim",
@@ -282,6 +374,35 @@ local function pl_telescope()
   dependencies = {
    "nvim-lua/plenary.nvim",
   },
+  config = function()
+   kb_map_find_files()
+  end
+ }
+end
+
+local function pl_telescope_cmdline()
+ return {
+  "jonarrien/telescope-cmdline.nvim",
+  dependencies = {
+   "nvim-telescope/telescope.nvim",
+   "nvim-tree/nvim-web-devicons",
+  },
+  config = function()
+   require("telescope").setup({
+    extensions = {
+     ["cmdline"] = {
+      icons = {
+       history = "󱑈 ",
+       command = " ",
+       number  = "󰴍 ",
+       system  = "",
+       unknown = "",
+      }
+     }
+    }
+   })
+   kb_map_cmdline()
+  end
  }
 end
 
@@ -297,6 +418,16 @@ local function pl_telescope_ui_select()
     }
    })
    require("telescope").load_extension("ui-select")
+  end
+ }
+end
+
+local function pl_tree()
+ return {
+  "nvim-tree/nvim-tree.lua",
+  config = function()
+   require("nvim-tree").setup()
+   kb_map_tree()
   end
  }
 end
@@ -353,12 +484,16 @@ local function lz_spec()
   pl_cmp_lsp(),
   pl_copilot(),
   pl_lspconfig(),
+  pl_lspsaga(),
   pl_lualine(),
   pl_mason(),
   pl_mason_lspconfig(),
+  pl_solarized(),
   pl_tailwind_tools(),
   pl_telescope(),
+  pl_telescope_cmdline(),
   pl_telescope_ui_select(),
+  pl_tree(),
  }
 end
 
@@ -371,6 +506,7 @@ end
 
 local function init()
  kb_set_leader()
+ kb_map_config()
  kb_map_move_line()
  kb_map_quit()
  kb_map_write()
@@ -388,3 +524,4 @@ local function init()
 end
 
 init()
+
