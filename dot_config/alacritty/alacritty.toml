@@ -45,6 +45,34 @@ mods = "Command"
 
 [terminal]
 
+[colors.primary]
+background = "#032029"
+foreground = "#fdf4dd"
+
+[colors.cursor]
+text = "#002b36"
+cursor = "#839496"
+
+[colors.normal]
+black   = "#032029"
+red     = "#d21d25"
+green   = "#728a06"
+yellow  = "#a57806"
+blue    = "#2175c6"
+magenta = "#c61d6e"
+cyan    = "#269287"
+white   = "#fdf4dd"
+
+[colors.bright]
+black   = "#4a5f66"
+red     = "#690f16"
+green   = "#343b0e"
+yellow  = "#4b340e"
+blue    = "#1a3352"
+magenta = "#5b1431"
+cyan    = "#1a3e3a"
+white   = "#fdf4dd"
+
 [env]
 COLORTERM = "truecolor"
 TERM = "xterm-256color"
@@ -67,11 +95,14 @@ style = "Regular"
 y = 2
 
 [window]
+decorations = "Buttonless"
 dynamic_padding = true
-startup_mode = "Windowed"
+startup_mode = "Maximized"
 
 [window.padding]
-x = 0
-y = 0
+x = 8
+y = 4
 
-[keyboard]
+[terminal.shell]
+program = "/bin/zsh"
+args = ["-c", "/opt/homebrew/bin/tmux attach || /opt/homebrew/bin/tmux"]
