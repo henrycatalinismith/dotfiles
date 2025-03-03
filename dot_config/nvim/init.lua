@@ -120,12 +120,17 @@ local function kb_map_rename()
  )
 end
 
--- Map tab to tabnext
-local function kb_map_tabnext()
+local function kb_map_tabs()
  vim.keymap.set(
   "n",
   "<Tab>",
   ":tabnext<CR>",
+  { noremap = true }
+ )
+ vim.keymap.set(
+  "n",
+  "<S-Tab>",
+  ":tabprev<CR>",
   { noremap = true }
  )
 end
@@ -218,23 +223,6 @@ end
 --------------------------------
 -- pl --------------------------
 --------------------------------
-
-local function pl_barbar()
- return {
-  "romgrk/barbar.nvim",
-  dependencies = {
-   "lewis6991/gitsigns.nvim",
-   "nvim-tree/nvim-web-devicons",
-  },
-  config = function()
-   require("barbar").setup({
-    sidebar_filetypes = {
-     NvimTree = true,
-    }
-   })
-  end
- }
-end
 
 local function pl_cmp()
  return {
@@ -331,11 +319,21 @@ local function pl_solarized()
   priority = 1000,
   opts = {
    on_colors = function()
+    return {
+     base03 = "#032029",
+    }
     --return {
      -- base00 = "#fdf4dd",
      -- base02 = "#1b2e36",
      -- base03 = "#081418",
     --}
+   end,
+   on_highlights = function(colors)
+    return {
+     CursorLineNr = { bg = colors.base02 },
+     LineNr = { bg = colors.base03 },
+     SignColumn = { bg = colors.base03 },
+    }
    end
   },
   config = function(_, opts)
@@ -479,7 +477,6 @@ end
 
 local function lz_spec()
  return {
-  pl_barbar(),
   pl_cmp(),
   pl_cmp_lsp(),
   pl_copilot(),
@@ -510,7 +507,7 @@ local function init()
  kb_map_move_line()
  kb_map_quit()
  kb_map_write()
- kb_map_tabnext()
+ kb_map_tabs()
 
  ui_enable_guicolors()
  ui_hide_tildes()
