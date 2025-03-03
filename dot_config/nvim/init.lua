@@ -442,37 +442,19 @@ end
 local function lz_load()
  local r = "https://github.com/folke/lazy.nvim.git"
  local d = vim.fn.stdpath("data")
- local l = "/lazy/lazy.nvim"
- local lazypath = d .. l
- local exists = vim.fn.isdirectory(r)
- if not exists then
-  local out = vim.fn.system({
-   "git",
-   "clone",
-   "--filter=blob:none",
-   "--branch=stable",
-   r,
-   lazypath
-  })
-  if vim.v.shell_error ~= 0 then
-   vim.api.nvim_echo({
-    {
-     "Failed to clone lazy.nvim:\n",
-     "ErrorMsg",
-    },
-    {
-     out,
-     "WarningMsg",
-    },
-    {
-     "\nPress any key to exit...",
-    },
-   }, true, {})
-   vim.fn.getchar()
-   os.exit(1)
-  end
- end
- vim.opt.rtp:prepend(lazypath)
+ vim.fn.system({ "mkdir", d })
+ vim.fn.system({ "mkdir", d .. "/lazy" })
+ local out = vim.fn.system({
+  "git",
+  "clone",
+  "--filter=blob:none",
+  "--branch=stable",
+  r,
+  d .. "/lazy/lazy.nvim"
+ })
+ vim.opt.rtp:prepend(
+  d .. "/lazy/lazy.nvim"
+ )
 end
 
 local function lz_spec()
@@ -521,4 +503,3 @@ local function init()
 end
 
 init()
-
