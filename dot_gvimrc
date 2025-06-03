@@ -15,14 +15,28 @@ colorscheme solarized8_high
 " Turn on Vim's built-in file type detection magic
 filetype plugin indent on
 
+" Hide the ~ characters in an empty buffer
 highlight! EndOfBuffer guifg=bg
+
+" De-emphasise GitGutter markers
 highlight! GitGutterAdd guibg=NONE
 highlight! GitGutterChange guibg=NONE
 highlight! GitGutterDelete guibg=NONE
-highlight! LineNr guibg=#052c39 
-highlight! NERDTreeNormal guibg=#0c313c
+
+" Make LinNr bg same as editor area bg
+highlight! LineNr guibg=#052c39
 highlight! Normal guibg=#052c39 guifg=#fdf5dc
+
+" Make NERDTree bg a little different to stand out
+highlight! NERDTreeNormal guibg=#0c313c
+
+" This is the main text editor area bg/fg
+highlight! Normal guibg=#052c39 guifg=#fdf5dc
+
+" Slightly brighter splits
 highlight! VertSplit guibg=#223d46
+
+" SignColumn & LineNr => same colour
 highlight! link SignColumn LineNr
 
 inoremap <M-Down> <Esc>:m +1<CR>
