@@ -33,50 +33,104 @@ highlight! NERDTreeNormal guibg=#0c313c
 " This is the main text editor area bg/fg
 highlight! Normal guibg=#052c39 guifg=#fdf5dc
 
+highlight TabLineFill guifg=#25424e
+
 " Slightly brighter splits
 highlight! VertSplit guibg=#223d46
 
 " SignColumn & LineNr => same colour
 highlight! link SignColumn LineNr
 
+" Learned these Alt+Up & Alt+Down shortcuts to move lines around from VS Code
+" and can't live without them any more!
 inoremap <M-Down> <Esc>:m +1<CR>
 inoremap <M-Up> <Esc>:m -2<CR>
-let g:NERDTreeHighlightCursorline = 1
+
+" Hide 'Press ? for help' and so on
 let g:NERDTreeMinimalUI=1
+
+" One click to open directories, two for files
 let g:NERDTreeMouseMode=2
-let g:airline_extensions = []
-let g:airline_powerline_fonts = 1 
-let g:airline_theme='solarized'
-let g:nerdtree_tabs_autofind = 1
-let g:nerdtree_tabs_open_on_console_startup = 1
-let g:nerdtree_tabs_open_on_new_tab = 1
-let g:nerdtree_tabs_synchronize_view = 0
+
+" https://github.com/vim-airline/vim-airline/blob/master/doc/airline.txt
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 0
+let g:airline_theme='solarized_flood'
+
+" Space is the best leader key
 map <Space> <Leader>
+
+" Ex mode: no thanks
 map Q <nop>
+
+" Make Y work like C and D
 map Y y$
+
+" Ctrl + Shift + Tab to go back a tab
 nnoremap <C-S-Tab> :tabprevious<CR>
-nnoremap <D-`> :tabnew \| terminal ++curwin<CR>
+
+" <Space> b to open NERDTree
+nnoremap <leader>b :NERDTree<CR>
+
+" <Space> g to grep
+nnoremap <leader>g :RG<CR>
+
+" Alt+Up and Alt+Down to move lines around
 nnoremap <M-Down> :m .+1<CR>
 nnoremap <M-Up> :m .-2<CR>
+
+" <Space> p for filename fzf
 nnoremap <leader>p :GFiles<CR>
+
+" <Space> q for quick exit
 nnoremap <leader>q :quit!<CR>
+
+" <Space> t to open a new terminal
 nnoremap <leader>t :tabnew \| terminal ++curwin<CR>
+
+" <Space> w for quicksave
 nnoremap <leader>w :write<CR>
-nnoremap <leader>wq :write<CR>:quit!<CR>
+
+" Solarized dark is dark!
 set bg=dark
+
+" Make vsplit markers flat
 set fillchars=""
+
+" https://typeof.net/Iosevka/
 set guifont=Iosevka:h18
-set guioptions+=e
+
+" Case insensitive search
 set ignorecase
+
+" Incremental search
 set incsearch
+
+" No beeping
 set noerrorbells
+
+" Swap files are annoying
 set noswapfile
+
+" Flashing is annoying
 set novisualbell
+
+" Line numbers
 set number
+
+" 2 means always, even when only one tab is open
 set showtabline=2
+
+" Yes means always, even when empty, avoiding a layout shift if enabling later
 set signcolumn=yes
+
+" Smartindent is pretty good
 set smartindent
+
+" Default is 4000 which is too slow for git-related stuff
 set updatetime=16
+
 tnoremap <C-S-Tab> <C-\><C-N>:tabprevious<CR>
 tnoremap <C-Tab> <C-\><C-N>:tabnext<CR>
 tnoremap <D-`> <C-\><C-N>:tabnew \| terminal ++curwin<CR>
@@ -114,4 +168,5 @@ augroup lsp_install
     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
+
 
