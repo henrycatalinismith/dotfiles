@@ -1,5 +1,4 @@
 autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
-autocmd VimEnter * if argc() == 0 | NERDTree | wincmd l | silent execute "terminal ++curwin" | endif
 autocmd FileType nerdtree setlocal wincolor=NERDTreeNormal
 autocmd! GUIEnter * set vb t_vb=
 colorscheme solarized8
