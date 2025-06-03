@@ -1,6 +1,6 @@
 " Mirror NERDTree automatically
 " https://github.com/preservim/nerdtree?tab=readme-ov-file#can-i-have-the-same-nerdtree-on-every-tab-automatically
-autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
+autocmd BufWinEnter * if &buftype != "quickfix" && getcmdwintype() == "" | silent NERDTreeMirror | endif
 
 " Create a custom highlight group for the NERDTree background so it's possible
 " to set a custom background color
@@ -56,7 +56,7 @@ let g:NERDTreeMouseMode=2
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 0
-let g:airline_theme='solarized_flood'
+let g:airline_theme="solarized_flood"
 
 " Space is the best leader key
 map <Space> <Leader>
@@ -87,7 +87,7 @@ nnoremap <leader>p :GFiles<CR>
 nnoremap <leader>q :quit!<CR>
 
 " <Space> t to open a new terminal
-nnoremap <leader>t :tabnew \| terminal ++curwin<CR>
+nnoremap <leader>t :call OpenTerminal()<CR>
 
 " <Space> w for quicksave
 nnoremap <leader>w :write<CR>
@@ -131,42 +131,63 @@ set smartindent
 " Default is 4000 which is too slow for git-related stuff
 set updatetime=16
 
+" Set up next/prev tab shortcuts in terminal mode
 tnoremap <C-S-Tab> <C-\><C-N>:tabprevious<CR>
 tnoremap <C-Tab> <C-\><C-N>:tabnext<CR>
-tnoremap <D-`> <C-\><C-N>:tabnew \| terminal ++curwin<CR>
-tnoremap <buffer> <ScrollWheelUp> <C-\><C-N><C-w>k
 
-if executable('typescript-language-server')
+" Hit escape twice to enter normal mode in the terminal.
+" It's twice instead of the usual once because some terminal programs listen
+" for escape keypresses and we don't want to mess with that.
+tnoremap <Esc><Esc> <C-\><C-N>
+
+if executable("typescript-language-server")
   au User lsp_setup call lsp#register_server({
-    \ 'name': 'typescript support using typescript-language-server',
-    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-    \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-    \ 'whitelist': ['typescript', 'typescript.tsx', 'typescriptreact'],
-    \ })
- end
+  \ "name": "typescript support using typescript-language-server",
+  \ "cmd": {server_info->[&shell, &shellcmdflag, "typescript-language-server --stdio"]},
+  \ "root_uri":{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), "tsconfig.json"))},
+  \ "whitelist": ["typescript", "typescript.tsx", "typescriptreact"],
+  \ })
+end
 
 function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
-    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
-    nmap <buffer> <leader>rn <plug>(lsp-rename)
-    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
-    nmap <buffer> gh <plug>(lsp-hover)
-    nmap <buffer> <leader>. :LspCodeAction --ui=float<CR>
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  if exists("+tagfunc") | setlocal tagfunc=lsp#tagfunc | endif
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> gi <plug>(lsp-implementation)
+  nmap <buffer> gt <plug>(lsp-type-definition)
+  nmap <buffer> <leader>rn <plug>(lsp-rename)
+  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+  nmap <buffer> gh <plug>(lsp-hover)
+  nmap <buffer> <leader>. :LspCodeAction --ui=float<CR>
 
-    let g:lsp_format_sync_timeout = 1000
-    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+  let g:lsp_format_sync_timeout = 1000
+  autocmd! BufWritePre *.rs,*.go call execute("LspDocumentFormatSync")
 endfunction
 
 augroup lsp_install
-    au!
-    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+  au!
+  " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
+function! TerminalInsertMode()
+  echom "TerminalInsertMode called"
+  echom "Current buftype: " . &buftype
+  if &buftype ==# "terminal"
+    call timer_start(10, { -> execute("startinsert") })
+  endif
+endfunction
 
+function! OpenTerminal()
+  let commands = ["terminal ++curwin"]
+  let is_empty_buffer = bufname("%") ==# "" && line("$") == 1 && getline(1) == ""
+  " When opening from an empty buffer we skip the tabnew step and just convert
+  " the current buffer directly to a terminal.
+  if !is_empty_buffer
+    call insert(commands, "tabnew", 0)
+  endif
+  execute join(commands, " | ")
+endfunction
