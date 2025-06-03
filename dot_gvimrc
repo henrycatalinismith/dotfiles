@@ -1,10 +1,22 @@
+" Mirror NERDTree automatically
+" https://github.com/preservim/nerdtree?tab=readme-ov-file#can-i-have-the-same-nerdtree-on-every-tab-automatically
 autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" Create a custom highlight group for the NERDTree background so it's possible
+" to set a custom background color
 autocmd FileType nerdtree setlocal wincolor=NERDTreeNormal
+
+" Turn off the annoying beep
 autocmd! GUIEnter * set vb t_vb=
-colorscheme solarized8
+
+" High contrast solarized with way brighter colours
+colorscheme solarized8_high
+
+" Turn on Vim's built-in file type detection magic
 filetype plugin indent on
+
 highlight! EndOfBuffer guifg=bg
-highlight! GitGutterAdd    guibg=NONE
+highlight! GitGutterAdd guibg=NONE
 highlight! GitGutterChange guibg=NONE
 highlight! GitGutterDelete guibg=NONE
 highlight! LineNr guibg=#052c39 
@@ -12,6 +24,7 @@ highlight! NERDTreeNormal guibg=#0c313c
 highlight! Normal guibg=#052c39 guifg=#fdf5dc
 highlight! VertSplit guibg=#223d46
 highlight! link SignColumn LineNr
+
 inoremap <M-Down> <Esc>:m +1<CR>
 inoremap <M-Up> <Esc>:m -2<CR>
 let g:NERDTreeHighlightCursorline = 1
