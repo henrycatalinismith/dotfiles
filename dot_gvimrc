@@ -1,42 +1,13 @@
-" Mirror NERDTree automatically
-" https://github.com/preservim/nerdtree?tab=readme-ov-file#can-i-have-the-same-nerdtree-on-every-tab-automatically
-autocmd BufWinEnter * if &buftype != "quickfix" && getcmdwintype() == "" | silent NERDTreeMirror | endif
-
-" Create a custom highlight group for the NERDTree background so it's possible
-" to set a custom background color
-autocmd FileType nerdtree setlocal wincolor=NERDTreeNormal
+set nocompatible
 
 " Turn off the annoying beep
 autocmd! GUIEnter * set vb t_vb=
-
-" High contrast solarized with way brighter colours
-colorscheme solarized8_high
 
 " Turn on Vim's built-in file type detection magic
 filetype plugin indent on
 
 " Hide the ~ characters in an empty buffer
 highlight! EndOfBuffer guifg=bg
-
-" De-emphasise GitGutter markers
-highlight! GitGutterAdd guibg=NONE
-highlight! GitGutterChange guibg=NONE
-highlight! GitGutterDelete guibg=NONE
-
-" Make LinNr bg same as editor area bg
-highlight! LineNr guibg=#052c39
-highlight! Normal guibg=#052c39 guifg=#fdf5dc
-
-" Make NERDTree bg a little different to stand out
-highlight! NERDTreeNormal guibg=#0c313c
-
-" This is the main text editor area bg/fg
-highlight! Normal guibg=#052c39 guifg=#fdf5dc
-
-highlight TabLineFill guifg=#25424e
-
-" Slightly brighter splits
-highlight! VertSplit guibg=#223d46
 
 " SignColumn & LineNr => same colour
 highlight! link SignColumn LineNr
@@ -45,18 +16,6 @@ highlight! link SignColumn LineNr
 " and can't live without them any more!
 inoremap <M-Down> <Esc>:m +1<CR>
 inoremap <M-Up> <Esc>:m -2<CR>
-
-" Hide 'Press ? for help' and so on
-let g:NERDTreeMinimalUI=1
-
-" One click to open directories, two for files
-let g:NERDTreeMouseMode=2
-
-" https://github.com/vim-airline/vim-airline/blob/master/doc/airline.txt
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 0
-let g:airline_theme="solarized_flood"
 
 " Space is the best leader key
 map <Space> <Leader>
@@ -67,21 +26,17 @@ map Q <nop>
 " Make Y work like C and D
 map Y y$
 
+" Ctrl + Tab to go forward a tab
+nnoremap <C-Tab> :tabnext<CR>
+
 " Ctrl + Shift + Tab to go back a tab
 nnoremap <C-S-Tab> :tabprevious<CR>
 
-" <Space> b to open NERDTree
-nnoremap <leader>b :NERDTree<CR>
+" <Space> , to open config
+nnoremap <leader>, :call OpenConfig()<CR>
 
-" <Space> g to grep
-nnoremap <leader>g :RG<CR>
-
-" Alt+Up and Alt+Down to move lines around
-nnoremap <M-Down> :m .+1<CR>
-nnoremap <M-Up> :m .-2<CR>
-
-" <Space> p for filename fzf
-nnoremap <leader>p :GFiles<CR>
+" <Space> m to open :messages in a split pane
+nnoremap <leader>m :call ShowMessages()<CR>
 
 " <Space> q for quick exit
 nnoremap <leader>q :quit!<CR>
@@ -92,20 +47,27 @@ nnoremap <leader>t :call OpenTerminal()<CR>
 " <Space> w for quicksave
 nnoremap <leader>w :write<CR>
 
-" Solarized dark is dark!
+" Dark mode
 set bg=dark
 
 " Make vsplit markers flat
-set fillchars=""
+" set fillchars=""
+set fillchars=eob:\ 
 
 " https://typeof.net/Iosevka/
 set guifont=Iosevka:h18
+
+" No fancy GUI tabs
+set guioptions-=e
 
 " Case insensitive search
 set ignorecase
 
 " Incremental search
 set incsearch
+
+" Always show statusbar
+set laststatus=2
 
 " No beeping
 set noerrorbells
@@ -128,58 +90,25 @@ set signcolumn=yes
 " Smartindent is pretty good
 set smartindent
 
-" Default is 4000 which is too slow for git-related stuff
-set updatetime=16
+" https://www.nerdbude.com/vim_statusline.html
+set statusline=
+set statusline+=\ %#NormalC#%{(mode()=='n')?'\ NORMAL\ ':''}
+set statusline+=%#InsertC#%{(mode()=='i')?'\ INSERT\ ':''}
+set statusline+=%#VisualC#%{(mode()=='v')?'\ VISUAL\ ':''}
+set statusline+=%#Filename#
+set statusline+=\ %f
+set statusline+=%#ReadOnly#
+set statusline+=\ %r
+set statusline+=%m
+set statusline+=%=
+set statusline+=%#Fileformat#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ [%{&fileformat}\]
+set statusline+=%#Position#
+set statusline+=\ [%l/%L]
 
-" Set up next/prev tab shortcuts in terminal mode
-tnoremap <C-S-Tab> <C-\><C-N>:tabprevious<CR>
-tnoremap <C-Tab> <C-\><C-N>:tabnext<CR>
-
-" Hit escape twice to enter normal mode in the terminal.
-" It's twice instead of the usual once because some terminal programs listen
-" for escape keypresses and we don't want to mess with that.
-tnoremap <Esc><Esc> <C-\><C-N>
-
-if executable("typescript-language-server")
-  au User lsp_setup call lsp#register_server({
-  \ "name": "typescript support using typescript-language-server",
-  \ "cmd": {server_info->[&shell, &shellcmdflag, "typescript-language-server --stdio"]},
-  \ "root_uri":{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), "tsconfig.json"))},
-  \ "whitelist": ["typescript", "typescript.tsx", "typescriptreact"],
-  \ })
-end
-
-function! s:on_lsp_buffer_enabled() abort
-  setlocal omnifunc=lsp#complete
-  setlocal signcolumn=yes
-  if exists("+tagfunc") | setlocal tagfunc=lsp#tagfunc | endif
-  nmap <buffer> gd <plug>(lsp-definition)
-  nmap <buffer> gr <plug>(lsp-references)
-  nmap <buffer> gi <plug>(lsp-implementation)
-  nmap <buffer> gt <plug>(lsp-type-definition)
-  nmap <buffer> <leader>rn <plug>(lsp-rename)
-  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
-  nmap <buffer> gh <plug>(lsp-hover)
-  nmap <buffer> <leader>. :LspCodeAction --ui=float<CR>
-
-  let g:lsp_format_sync_timeout = 1000
-  autocmd! BufWritePre *.rs,*.go call execute("LspDocumentFormatSync")
-endfunction
-
-augroup lsp_install
-  au!
-  " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-
-function! TerminalInsertMode()
-  echom "TerminalInsertMode called"
-  echom "Current buftype: " . &buftype
-  if &buftype ==# "terminal"
-    call timer_start(10, { -> execute("startinsert") })
-  endif
-endfunction
+syntax off
 
 function! OpenTerminal()
   let commands = ["terminal ++curwin"]
@@ -191,3 +120,69 @@ function! OpenTerminal()
   endif
   execute join(commands, " | ")
 endfunction
+
+" chartreuse 7fff00
+" darkslategray 2f4f4f
+" greenyellow adff2f
+" green 008000
+" lawngreen 7cfc00
+" lightgreen 90ee90
+" lime 00ff00
+" limegreen 32cd32
+" mediumseagreen 3cb371
+" olive 808000
+" olivedrab 6b8e23
+" yellowgreen 9acd32
+
+hi NormalC guifg=#7cfc00 guibg=#1a1a1a
+hi InsertC guifg=#7cfc00 guibg=#1a1a1a
+hi VisualC guifg=#7cfc00 guibg=#1a1a1a
+hi Filename guifg=#adff2f guibg=#1a1a1a
+
+hi Normal guifg=#7fff00 guibg=#000000
+hi Question guifg=#7fff00
+hi clear Title
+hi Title guifg=#7fff00
+hi StatusLine guibg=#1a1a1a guifg=#008000
+hi StatusLineTerm guibg=#1a1a1a guifg=#008000
+hi LineNr guibg=#000000 guifg=#008000
+hi TabLineFill guifg=#1a1a1a
+hi TabLine guibg=#1a1a1a guifg=#008000
+hi Cursor guifg=#000000 guibg=#7fff00
+hi iCursor guifg=#000000 guibg=#00ff0
+hi SignColumn guibg=#000000
+hi Visual guibg=#004400 guifg=NONE
+hi Pmenu guibg=#1a1a1a guifg=#7fff00
+hi PmenuSel guibg=#3cb371 guifg=#000000
+hi MatchParen guibg=#006400 guifg=#adff2f gui=bold
+
+" Set up next/prev tab shortcuts in terminal mode
+tnoremap <C-S-Tab> <C-\><C-N>:tabprevious<CR>
+tnoremap <C-Tab> <C-\><C-N>:tabnext<CR>
+
+" Hit escape twice to enter normal mode in the terminal.
+" It's twice instead of the usual once because some terminal programs listen
+" for escape keypresses and we don't want to mess with that.
+tnoremap <Esc><Esc> <C-\><C-N>
+
+function! ShowMessages()
+  redir => messages_output
+  silent messages
+  redir END
+  belowright new
+  setlocal buftype=nofile bufhidden=wipe noswapfile nobuflisted
+  call setline(1, split(messages_output, "\n"))
+endfunction
+
+function! OpenConfig()
+  let is_empty = bufname("%") ==# "" && line("$") == 1 && getline(1) == ""
+  if is_empty
+    execute "edit" fnameescape(expand("~/.gvimrc"))
+  else
+    execute "tabedit" fnameescape(expand("~/.gvimrc"))
+  endif
+endfunction
+
+set path+=**
+set wildmenu
+
