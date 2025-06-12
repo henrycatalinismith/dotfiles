@@ -30,11 +30,6 @@ sudo apt install -y ffmpeg
 sudo snap install nvim --classic
 sudo snap install zellij --classic
 
-sudo add-apt-repository universe -y
-sudo add-apt-repository ppa:agornostal/ulauncher -y
-sudo apt update -y
-sudo apt install -y ulauncher
-
 sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch
 sudo apt update -y
 sudo apt install -y fastfetch
@@ -121,5 +116,6 @@ gsettings set org.gnome.shell.extensions.tiling-assistant tile-topright-quarter 
 
 gsettings set org.gnome.desktop.wm.keybindings close "['<Super>Q']"
 
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left ['<Super>Left']
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right ['<Super>Right']
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['<Super>Left']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['<Super>Right']"
+
