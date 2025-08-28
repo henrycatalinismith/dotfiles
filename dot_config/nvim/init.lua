@@ -247,7 +247,16 @@ local function pl_cmp_lsp()
  return {
   "hrsh7th/cmp-nvim-lsp",
   config = function()
+   local cmp = require"cmp"
    require("cmp").setup({
+    mapping = cmp.mapping.preset.insert({
+     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+     ["<C-f>"] = cmp.mapping.scroll_docs(4),
+     ["<C-Space>"] = cmp.mapping.complete(),
+     ["<C-e>"] = cmp.mapping.abort(),
+     ["<CR>"] = cmp.mapping.confirm({ select = true }),
+     ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+    }),
     sources = {
      { name = "nvim_lsp" },
     }
