@@ -58,6 +58,15 @@ local function kb_map_find_files()
  )
 end
 
+local function kb_map_format()
+ vim.keymap.set(
+  "n",
+  "<leader>f",
+  ":lua require('conform').format({ async = true })<CR>",
+  { noremap = true }
+ )
+end
+
 local function kb_map_move_line()
  vim.keymap.set(
   "n",
@@ -133,6 +142,10 @@ local function kb_map_tabs()
   ":tabprev<CR>",
   { noremap = true }
  )
+end
+
+local function opt_clipboard()
+ vim.opt.clipboard = "unnamedplus"
 end
 
 local function kb_map_tree()
@@ -243,15 +256,33 @@ local function pl_cmp_lsp()
  }
 end
 
+local function pl_conform()
+ return {
+  "stevearc/conform.nvim",
+  config = function()
+   require("conform").setup({
+    format_on_save = { timeout_ms = 500 },
+    formatters_by_ft = {
+     javascript = { "prettier" },
+     javascriptreact = { "prettier" },
+     typescript = { "prettier" },
+     typescriptreact = { "prettier" },
+    },
+   })
+   kb_map_format()
+  end
+ }
+end
+
 local function pl_lspconfig()
  return {
   "neovim/nvim-lspconfig",
   config = function()
    kb_map_code_action()
   end,
-		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
+  dependencies = {
+   "williamboman/mason.nvim",
+   "williamboman/mason-lspconfig.nvim",
   }
  }
 end
@@ -308,7 +339,7 @@ end
 
 local function pl_solarized()
  return {
-  'maxmx03/solarized.nvim',
+  "maxmx03/solarized.nvim",
   lazy = false,
   priority = 1000,
   opts = {
@@ -455,6 +486,7 @@ local function lz_spec()
  return {
   pl_cmp(),
   pl_cmp_lsp(),
+  pl_conform(),
   pl_lspconfig(),
   pl_lspsaga(),
   pl_lualine(),
@@ -483,6 +515,8 @@ local function init()
  kb_map_quit()
  kb_map_write()
  kb_map_tabs()
+
+ opt_clipboard()
 
  ui_enable_guicolors()
  ui_hide_tildes()
