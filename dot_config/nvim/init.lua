@@ -67,6 +67,24 @@ local function kb_map_format()
  )
 end
 
+local function kb_map_goto_definition()
+ vim.keymap.set(
+  "n",
+  "<leader>d",
+  ":Lspsaga goto_definition<CR>",
+  { noremap = true }
+ )
+end
+
+local function kb_map_hover()
+ vim.keymap.set(
+  "n",
+  "<leader>h",
+  ":Lspsaga hover_doc<CR>",
+  { noremap = true }
+ )
+end
+
 local function kb_map_move_line()
  vim.keymap.set(
   "n",
@@ -300,7 +318,13 @@ local function pl_lspsaga()
  return {
   "nvimdev/lspsaga.nvim",
   config = function()
-   require('lspsaga').setup({})
+   require('lspsaga').setup({
+    lightbulb = {
+     virtual_text = false,
+    },
+   })
+   kb_map_goto_definition()
+   kb_map_hover()
    kb_map_rename()
   end,
   dependencies = {
