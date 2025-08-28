@@ -243,12 +243,6 @@ local function pl_cmp_lsp()
  }
 end
 
-local function pl_copilot()
- return {
-  "github/copilot.vim",
- }
-end
-
 local function pl_lspconfig()
  return {
   "neovim/nvim-lspconfig",
@@ -461,7 +455,6 @@ local function lz_spec()
  return {
   pl_cmp(),
   pl_cmp_lsp(),
-  pl_copilot(),
   pl_lspconfig(),
   pl_lspsaga(),
   pl_lualine(),
