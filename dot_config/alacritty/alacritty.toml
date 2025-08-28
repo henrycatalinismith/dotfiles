@@ -34,3 +34,16 @@ magenta = "#5b1431"
 cyan    = "#1a3e3a"
 white   = "#fdf4dd"
 
+[font]
+size = 18
+
+[font.bold]
+family = "Iosevka Nerd Font Mono"
+style = "Bold"
+
+[font.glyph_offset]
+y = 2
+
+[font.normal]
+family = "Iosevka Nerd Font Mono"
+style = "Regular"
