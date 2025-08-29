@@ -166,6 +166,11 @@ local function opt_clipboard()
  vim.opt.clipboard = "unnamedplus"
 end
 
+-- https://neovim.io/doc/user/options.html#'exrc'
+local function opt_exrc()
+ vim.opt.exrc = true
+end
+
 local function kb_map_tree()
  vim.keymap.set(
   "n",
@@ -283,23 +288,23 @@ local function pl_cmp_lsp()
  }
 end
 
-local function pl_conform()
- return {
-  "stevearc/conform.nvim",
-  config = function()
-   require("conform").setup({
-    format_on_save = { timeout_ms = 500 },
-    formatters_by_ft = {
-     javascript = { "prettier" },
-     javascriptreact = { "prettier" },
-     typescript = { "prettier" },
-     typescriptreact = { "prettier" },
-    },
-   })
-   kb_map_format()
-  end
- }
-end
+-- local function pl_conform()
+ -- return {
+  -- "stevearc/conform.nvim",
+  -- config = function()
+   -- require("conform").setup({
+    -- format_on_save = { timeout_ms = 500 },
+    -- formatters_by_ft = {
+     -- javascript = { "prettier" },
+     -- javascriptreact = { "prettier" },
+     -- typescript = { "prettier" },
+     -- typescriptreact = { "prettier" },
+    -- },
+   -- })
+   -- kb_map_format()
+  -- end
+ -- }
+-- end
 
 local function pl_lspconfig()
  return {
@@ -519,7 +524,7 @@ local function lz_spec()
  return {
   pl_cmp(),
   pl_cmp_lsp(),
-  pl_conform(),
+  --pl_conform(),
   pl_lspconfig(),
   pl_lspsaga(),
   pl_lualine(),
@@ -550,6 +555,7 @@ local function init()
  kb_map_tabs()
 
  opt_clipboard()
+ opt_exrc()
 
  ui_enable_guicolors()
  ui_hide_tildes()
