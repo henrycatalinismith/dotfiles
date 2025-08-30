@@ -1,6 +1,6 @@
-[terminal.shell]
-program = "zellij"
-args = ["-l", "welcome"]
+#[terminal.shell]
+#program = "zellij"
+#args = ["-l", "welcome"]
 
 [window]
 decorations = "None"
@@ -47,3 +47,16 @@ y = 2
 [font.normal]
 family = "Iosevka Nerd Font Mono"
 style = "Regular"
+
+[[keyboard.bindings]]
+key = "T"
+mods = "Command"
+command.program = "/opt/homebrew/bin/zellij"
+command.args = ["action", "new-tab"]
+
+[[keyboard.bindings]]
+key = "W"
+mods = "Command"
+command.program = "/opt/homebrew/bin/zellij"
+command.args = ["action", "close-tab"]
+
