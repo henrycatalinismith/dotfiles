@@ -306,6 +306,21 @@ end
  -- }
 -- end
 
+local function pl_gitsigns()
+ return {
+  "lewis6991/gitsigns.nvim",
+  config = function()
+   require("gitsigns").setup({
+    current_line_blame = true,
+    current_line_blame_opts = {
+     delay = 32,
+     virt_text_pos = "right_align",
+    }
+   })
+  end,
+ }
+end
+
 local function pl_lspconfig()
  return {
   "neovim/nvim-lspconfig",
@@ -525,6 +540,7 @@ local function lz_spec()
   pl_cmp(),
   pl_cmp_lsp(),
   --pl_conform(),
+  pl_gitsigns(),
   pl_lspconfig(),
   pl_lspsaga(),
   pl_lualine(),
