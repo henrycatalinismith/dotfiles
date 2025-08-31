@@ -1,4 +1,51 @@
 --------------------------------
+-- au --------------------------
+--------------------------------
+
+-- Open diagnostic on cursorhold
+local function au_cursorhold()
+ vim.api.nvim_create_autocmd(
+  "CursorHold",
+  {
+   callback = function()
+    vim.diagnostic.open_float(
+     nil,
+     {
+      focus = false,
+      scope = "line",
+      border = "rounded",
+      max_width = 80,
+      header = " Diagnostics",
+      source = "always",
+     }
+    )
+   end,
+  }
+ )
+end
+
+-- Set up [jt]sx? config
+local function au_js()
+ vim.api.nvim_create_autocmd(
+  "FileType",
+  {
+   pattern = {
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "javascriptreact",
+   },
+   callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.expandtab = true
+   end,
+  }
+ )
+end
+
+--------------------------------
 -- kb --------------------------
 --------------------------------
 
@@ -263,6 +310,18 @@ local function opt_exrc()
  vim.opt.exrc = true
 end
 
+-- > If this many milliseconds
+-- > nothing is typed the swap
+-- > file will be written to
+-- > disk (see crash-recovery).
+-- > Also used for the
+-- > CursorHold autocommand
+-- > event.
+-- > https://neovim.io/doc/user/options.html#'updatetime'
+local function opt_updatetime()
+ vim.opt.updatetime = 512
+end
+
 --------------------------------
 -- ui --------------------------
 --------------------------------
@@ -491,6 +550,23 @@ local function pl_mason_lspconfig()
  }
 end
 
+-- > https://github.com/nvimtools/none-ls.nvim
+local function pl_none_ls()
+ return {
+  "nvimtools/none-ls.nvim",
+  config = function()
+   require("null-ls").setup({
+    sources = {
+     require("none-ls.diagnostics.eslint")
+    },
+   })
+  end,
+  dependencies = {
+   "nvimtools/none-ls-extras.nvim",
+  }
+ }
+end
+
 -- > Solarized port for Neovim
 -- > https://github.com/maxmx03/solarized.nvim
 local function pl_solarized()
@@ -667,6 +743,7 @@ local function lz_spec()
   pl_lualine(),
   pl_mason(),
   pl_mason_lspconfig(),
+  pl_none_ls(),
   pl_solarized(),
   pl_tailwind_tools(),
   pl_telescope(),
@@ -684,6 +761,9 @@ local function lz_setup()
 end
 
 local function init()
+ au_cursorhold()
+ au_js()
+
  kb_set_leader()
  kb_map_config()
  kb_map_move_line()
@@ -693,6 +773,7 @@ local function init()
 
  opt_clipboard()
  opt_exrc()
+ opt_updatetime()
 
  ui_enable_guicolors()
  ui_hide_tildes()
@@ -707,12 +788,3 @@ end
 
 init()
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-  callback = function()
-    vim.opt_local.shiftwidth = 2
-    vim.opt_local.tabstop = 2
-    vim.opt_local.softtabstop = 2
-    vim.opt_local.expandtab = true
-  end,
-})
