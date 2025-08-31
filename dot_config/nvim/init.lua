@@ -1,4 +1,4 @@
--------------------------------
+--------------------------------
 -- kb --------------------------
 --------------------------------
 
@@ -162,6 +162,10 @@ local function kb_map_tabs()
  )
 end
 
+--------------------------------
+-- opt -------------------------
+--------------------------------
+
 local function opt_clipboard()
  vim.opt.clipboard = "unnamedplus"
 end
@@ -260,12 +264,14 @@ end
 -- pl --------------------------
 --------------------------------
 
+-- https://github.com/hrsh7th/nvim-cmp
 local function pl_cmp()
  return {
   "hrsh7th/nvim-cmp",
  }
 end
 
+-- https://github.com/hrsh7th/cmp-nvim-lsp
 local function pl_cmp_lsp()
  return {
   "hrsh7th/cmp-nvim-lsp",
@@ -288,24 +294,26 @@ local function pl_cmp_lsp()
  }
 end
 
--- local function pl_conform()
- -- return {
-  -- "stevearc/conform.nvim",
-  -- config = function()
-   -- require("conform").setup({
-    -- format_on_save = { timeout_ms = 500 },
-    -- formatters_by_ft = {
-     -- javascript = { "prettier" },
-     -- javascriptreact = { "prettier" },
-     -- typescript = { "prettier" },
-     -- typescriptreact = { "prettier" },
-    -- },
-   -- })
-   -- kb_map_format()
-  -- end
- -- }
--- end
+-- https://github.com/stevearc/conform.nvim
+local function pl_conform()
+ return {
+  "stevearc/conform.nvim",
+  config = function()
+   require("conform").setup({
+    format_on_save = { timeout_ms = 500 },
+    formatters_by_ft = {
+     javascript = { "prettier" },
+     javascriptreact = { "prettier" },
+     typescript = { "prettier" },
+     typescriptreact = { "prettier" },
+    },
+   })
+   kb_map_format()
+  end
+ }
+end
 
+-- https://github.com/lewis6991/gitsigns.nvim
 local function pl_gitsigns()
  return {
   "lewis6991/gitsigns.nvim",
@@ -321,6 +329,7 @@ local function pl_gitsigns()
  }
 end
 
+-- https://github.com/neovim/nvim-lspconfig
 local function pl_lspconfig()
  return {
   "neovim/nvim-lspconfig",
@@ -334,11 +343,12 @@ local function pl_lspconfig()
  }
 end
 
+-- https://github.com/nvimdev/lspsaga.nvim
 local function pl_lspsaga()
  return {
   "nvimdev/lspsaga.nvim",
   config = function()
-   require('lspsaga').setup({
+   require("lspsaga").setup({
     lightbulb = {
      virtual_text = false,
     },
@@ -354,6 +364,7 @@ local function pl_lspsaga()
  }
 end
 
+-- https://github.com/nvim-lualine/lualine.nvim
 local function pl_lualine()
  return {
   "nvim-lualine/lualine.nvim",
@@ -361,11 +372,12 @@ local function pl_lualine()
    "nvim-tree/nvim-web-devicons"
   },
   config = function()
-   require('lualine').setup()
+   require("lualine").setup()
   end
  }
 end
 
+-- https://github.com/mason-org/mason.nvim
 local function pl_mason()
  return {
   "williamboman/mason.nvim",
@@ -375,6 +387,7 @@ local function pl_mason()
  }
 end
 
+-- https://github.com/mason-org/mason-lspconfig.nvim
 local function pl_mason_lspconfig()
  return {
   "williamboman/mason-lspconfig.nvim",
@@ -390,6 +403,7 @@ local function pl_mason_lspconfig()
  }
 end
 
+-- https://github.com/maxmx03/solarized.nvim
 local function pl_solarized()
  return {
   "maxmx03/solarized.nvim",
@@ -423,6 +437,7 @@ local function pl_solarized()
  }
 end
 
+-- https://github.com/luckasRanarison/tailwind-tools.nvim
 local function pl_tailwind_tools()
  return {
   "luckasRanarison/tailwind-tools.nvim",
@@ -444,6 +459,7 @@ local function pl_tailwind_tools()
  }
 end
 
+-- https://github.com/nvim-telescope/telescope.nvim
 local function pl_telescope()
  return {
   "nvim-telescope/telescope.nvim",
@@ -456,6 +472,7 @@ local function pl_telescope()
  }
 end
 
+-- https://github.com/jonarrien/telescope-cmdline.nvim
 local function pl_telescope_cmdline()
  return {
   "jonarrien/telescope-cmdline.nvim",
@@ -482,6 +499,7 @@ local function pl_telescope_cmdline()
  }
 end
 
+-- https://github.com/nvim-telescope/telescope-ui-select.nvim
 local function pl_telescope_ui_select()
  return {
   "nvim-telescope/telescope-ui-select.nvim",
@@ -498,6 +516,7 @@ local function pl_telescope_ui_select()
  }
 end
 
+-- https://github.com/nvim-tree/nvim-tree.lua
 local function pl_tree()
  return {
   "nvim-tree/nvim-tree.lua",
@@ -522,7 +541,7 @@ local function lz_load()
  local d = vim.fn.stdpath("data")
  vim.fn.system({ "mkdir", d })
  vim.fn.system({ "mkdir", d .. "/lazy" })
- local out = vim.fn.system({
+ vim.fn.system({
   "git",
   "clone",
   "--filter=blob:none",
@@ -539,7 +558,7 @@ local function lz_spec()
  return {
   pl_cmp(),
   pl_cmp_lsp(),
-  --pl_conform(),
+  pl_conform(),
   pl_gitsigns(),
   pl_lspconfig(),
   pl_lspsaga(),
