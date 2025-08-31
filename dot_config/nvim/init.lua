@@ -12,6 +12,7 @@ local function kb_set_leader()
  vim.g.mapleader = " "
 end
 
+-- Space twice to open cmdline
 local function kb_map_cmdline()
  vim.keymap.set(
   "n",
@@ -34,6 +35,11 @@ local function kb_map_code_action()
  )
 end
 
+-- Map <leader>, to open config
+--
+-- Intended to resemble <Cmd>,
+-- which by convention opens
+-- config menus in macOS apps.
 local function kb_map_config()
  vim.keymap.set(
   "n",
@@ -49,6 +55,11 @@ local function kb_map_config()
  )
 end
 
+-- Map <leader>p to fuzzy find
+--
+-- <Cmd>P opens this menu in
+-- many editors so this imitates
+-- that.
 local function kb_map_find_files()
  vim.keymap.set(
   "n",
@@ -58,6 +69,7 @@ local function kb_map_find_files()
  )
 end
 
+-- Map <leader>f to autoformat
 local function kb_map_format()
  vim.keymap.set(
   "n",
@@ -67,6 +79,11 @@ local function kb_map_format()
  )
 end
 
+-- Map <leader>d to definition
+--
+-- This is usually invoked by
+-- clicking while holding <Cmd>
+-- but we're not in mouseland.
 local function kb_map_goto_definition()
  vim.keymap.set(
   "n",
@@ -76,6 +93,12 @@ local function kb_map_goto_definition()
  )
 end
 
+-- Map <leader>h to hover
+--
+-- Hovering the mouse cursor
+-- would be the usual way to
+-- invoke this in other
+-- editors.
 local function kb_map_hover()
  vim.keymap.set(
   "n",
@@ -85,6 +108,14 @@ local function kb_map_hover()
  )
 end
 
+-- Map <alt>+↕ to move lines
+--
+-- Very common for this
+-- keybinding to move lines up
+-- and down in many editors.
+--
+-- Clashes unfortunately with
+-- Zellij's use of the alt key.
 local function kb_map_move_line()
  vim.keymap.set(
   "n",
@@ -138,6 +169,12 @@ local function kb_map_quit()
  )
 end
 
+-- Map <leader>r to rename
+--
+-- Typically mapped to F12, this
+-- one, which I've always found
+-- an odd choice given how often
+-- it needs using.
 local function kb_map_rename()
  vim.keymap.set(
   "n",
@@ -147,6 +184,13 @@ local function kb_map_rename()
  )
 end
 
+-- Map <Tab> to tabnext
+--
+-- gt and gT are fine but in
+-- normal mode it feels like a
+-- missed opportunity not
+-- mapping these keys to
+-- something useful.
 local function kb_map_tabs()
  vim.keymap.set(
   "n",
@@ -162,19 +206,7 @@ local function kb_map_tabs()
  )
 end
 
---------------------------------
--- opt -------------------------
---------------------------------
-
-local function opt_clipboard()
- vim.opt.clipboard = "unnamedplus"
-end
-
--- https://neovim.io/doc/user/options.html#'exrc'
-local function opt_exrc()
- vim.opt.exrc = true
-end
-
+-- Map <leader>t to nvim tree
 local function kb_map_tree()
  vim.keymap.set(
   "n",
@@ -192,6 +224,43 @@ local function kb_map_write()
   ":w<CR>",
   { noremap = true }
  )
+end
+
+--------------------------------
+-- opt -------------------------
+--------------------------------
+
+-- > unnamedplus
+-- >
+-- > A variant of the "unnamed"
+-- > flag which uses the
+-- > clipboard register "+"
+-- > instead of register "*"
+-- > for all yank, delete,
+-- > change and put operations
+-- > which would normally go to
+-- > the unnamed register.
+-- >
+-- > https://neovim.io/doc/user/options.html#'clipboard'
+local function opt_clipboard()
+ vim.opt.clipboard = "unnamedplus"
+end
+
+-- > exrc
+-- >
+-- > Enables project-local
+-- > configuration. Nvim will
+-- > execute any .nvim.lua,
+-- > .nvimrc, or .exrc file
+-- > found in the current-
+-- > directory and all parent
+-- > directories (ordered
+-- > upwards), if the files are
+-- > in the trust list.
+-- >
+-- > https://neovim.io/doc/user/options.html#'exrc'
+local function opt_exrc()
+ vim.opt.exrc = true
 end
 
 --------------------------------
@@ -264,14 +333,18 @@ end
 -- pl --------------------------
 --------------------------------
 
--- https://github.com/hrsh7th/nvim-cmp
+-- > A completion plugin for
+-- > neovim coded in Lua.
+-- > https://github.com/hrsh7th/nvim-cmp
 local function pl_cmp()
  return {
   "hrsh7th/nvim-cmp",
  }
 end
 
--- https://github.com/hrsh7th/cmp-nvim-lsp
+-- > nvim-cmp source for neovim
+-- > builtin LSP client
+-- > https://github.com/hrsh7th/cmp-nvim-lsp
 local function pl_cmp_lsp()
  return {
   "hrsh7th/cmp-nvim-lsp",
@@ -283,7 +356,6 @@ local function pl_cmp_lsp()
      ["<C-f>"] = cmp.mapping.scroll_docs(4),
      ["<C-Space>"] = cmp.mapping.complete(),
      ["<C-e>"] = cmp.mapping.abort(),
-     ["<CR>"] = cmp.mapping.confirm({ select = true }),
      ["<Tab>"] = cmp.mapping.confirm({ select = true }),
     }),
     sources = {
@@ -294,7 +366,9 @@ local function pl_cmp_lsp()
  }
 end
 
--- https://github.com/stevearc/conform.nvim
+-- > Lightweight yet powerful
+-- > formatter plugin for Neovim
+-- > https://github.com/stevearc/conform.nvim
 local function pl_conform()
  return {
   "stevearc/conform.nvim",
@@ -313,7 +387,8 @@ local function pl_conform()
  }
 end
 
--- https://github.com/lewis6991/gitsigns.nvim
+-- > Git integration for buffers
+-- > https://github.com/lewis6991/gitsigns.nvim
 local function pl_gitsigns()
  return {
   "lewis6991/gitsigns.nvim",
@@ -329,7 +404,8 @@ local function pl_gitsigns()
  }
 end
 
--- https://github.com/neovim/nvim-lspconfig
+-- > Quickstart configs for Nvim LSP
+-- > https://github.com/neovim/nvim-lspconfig
 local function pl_lspconfig()
  return {
   "neovim/nvim-lspconfig",
@@ -343,7 +419,8 @@ local function pl_lspconfig()
  }
 end
 
--- https://github.com/nvimdev/lspsaga.nvim
+-- > improve neovim lsp experience
+-- > https://github.com/nvimdev/lspsaga.nvim
 local function pl_lspsaga()
  return {
   "nvimdev/lspsaga.nvim",
@@ -364,6 +441,10 @@ local function pl_lspsaga()
  }
 end
 
+-- > A blazing fast and easy to
+-- > configure neovim
+-- > statusline plugin written
+-- > in pure lua.
 -- https://github.com/nvim-lualine/lualine.nvim
 local function pl_lualine()
  return {
@@ -377,7 +458,10 @@ local function pl_lualine()
  }
 end
 
--- https://github.com/mason-org/mason.nvim
+-- > Portable package manager
+-- > for Neovim that runs
+-- > everywhere Neovim runs
+-- > https://github.com/mason-org/mason.nvim
 local function pl_mason()
  return {
   "williamboman/mason.nvim",
@@ -387,7 +471,11 @@ local function pl_mason()
  }
 end
 
--- https://github.com/mason-org/mason-lspconfig.nvim
+-- > Extension to mason.nvim
+-- > that makes it easier to
+-- > use lspconfig with
+-- > mason.nvim.
+-- > https://github.com/mason-org/mason-lspconfig.nvim
 local function pl_mason_lspconfig()
  return {
   "williamboman/mason-lspconfig.nvim",
@@ -403,7 +491,8 @@ local function pl_mason_lspconfig()
  }
 end
 
--- https://github.com/maxmx03/solarized.nvim
+-- > Solarized port for Neovim
+-- > https://github.com/maxmx03/solarized.nvim
 local function pl_solarized()
  return {
   "maxmx03/solarized.nvim",
@@ -414,11 +503,6 @@ local function pl_solarized()
     return {
      base03 = "#032029",
     }
-    --return {
-     -- base00 = "#fdf4dd",
-     -- base02 = "#1b2e36",
-     -- base03 = "#081418",
-    --}
    end,
    on_highlights = function(colors)
     return {
@@ -429,7 +513,6 @@ local function pl_solarized()
    end
   },
   config = function(_, opts)
-   vim.o.termguicolors = true
    vim.o.background = "dark"
    require("solarized").setup(opts)
    vim.cmd.colorscheme "solarized"
@@ -437,7 +520,10 @@ local function pl_solarized()
  }
 end
 
--- https://github.com/luckasRanarison/tailwind-tools.nvim
+-- > An unofficial Tailwind CSS
+-- > integration and tooling
+-- > for Neovim
+-- > https://github.com/luckasRanarison/tailwind-tools.nvim
 local function pl_tailwind_tools()
  return {
   "luckasRanarison/tailwind-tools.nvim",
@@ -459,7 +545,10 @@ local function pl_tailwind_tools()
  }
 end
 
--- https://github.com/nvim-telescope/telescope.nvim
+-- > Find, Filter, Preview,
+-- > Pick. All lua, all the
+-- > time.
+-- > https://github.com/nvim-telescope/telescope.nvim
 local function pl_telescope()
  return {
   "nvim-telescope/telescope.nvim",
@@ -472,7 +561,8 @@ local function pl_telescope()
  }
 end
 
--- https://github.com/jonarrien/telescope-cmdline.nvim
+-- > Telescope cmdline
+-- > https://github.com/jonarrien/telescope-cmdline.nvim
 local function pl_telescope_cmdline()
  return {
   "jonarrien/telescope-cmdline.nvim",
@@ -499,7 +589,12 @@ local function pl_telescope_cmdline()
  }
 end
 
--- https://github.com/nvim-telescope/telescope-ui-select.nvim
+-- > sets vim.ui.select to
+-- > telescope. That means for
+-- > example that neovim core
+-- > stuff can fill the telescope
+-- > picker
+-- > https://github.com/nvim-telescope/telescope-ui-select.nvim
 local function pl_telescope_ui_select()
  return {
   "nvim-telescope/telescope-ui-select.nvim",
@@ -516,7 +611,9 @@ local function pl_telescope_ui_select()
  }
 end
 
--- https://github.com/nvim-tree/nvim-tree.lua
+-- > A file explorer tree for
+-- > neovim written in lua
+-- > https://github.com/nvim-tree/nvim-tree.lua
 local function pl_tree()
  return {
   "nvim-tree/nvim-tree.lua",
@@ -554,6 +651,11 @@ local function lz_load()
  )
 end
 
+-- Configure lazy.nvim
+--
+-- This is where plugins get
+-- installed. Each line here
+-- corresponds to a plugin.
 local function lz_spec()
  return {
   pl_cmp(),
@@ -604,3 +706,13 @@ local function init()
 end
 
 init()
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+  callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.expandtab = true
+  end,
+})
