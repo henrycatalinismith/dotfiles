@@ -2,7 +2,6 @@
 program = "/bin/zsh"
 args = ["-l", "-c", "zellij -l welcome"]
 
-
 [window]
 decorations = "None"
 startup_mode = "Maximized"
@@ -59,15 +58,19 @@ key = "ArrowRight"
 mods = "Option"
 chars = "\u001bf"
 
-# [[keyboard.bindings]]
-# key = "t"
-# mods = "Command"
-# command.program = "zsh"
-# command.args = ["-c", "zellij action new-tab"]
+[[keyboard.bindings]]
+chars = "\u001bn"
+mods = "Command"
+key = "N"
 
-# [[keyboard.bindings]]
-# key = "W"
-# mods = "Command"
-# command.program = "zsh"
-# command.args = ["-c", "zellij action new-tab"]
+[[keyboard.bindings]]
+mods = "Command"
+key = "T"
+chars = "\u001bt"
+
+[[keyboard.bindings]]
+chars = "\u001bw"
+mods = "Command"
+key = "W"
+
 
