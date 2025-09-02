@@ -1,6 +1,7 @@
 [terminal.shell]
-program = "zellij"
-args = ["-l", "welcome"]
+program = "/bin/zsh"
+args = ["-l", "-c", "zellij -l welcome"]
+
 
 [window]
 decorations = "None"
@@ -47,4 +48,26 @@ y = 2
 [font.normal]
 family = "Iosevka Nerd Font Mono"
 style = "Regular"
+
+[[keyboard.bindings]]
+key = "ArrowLeft"
+mods = "Option"
+chars = "\u001bb"
+
+[[keyboard.bindings]]
+key = "ArrowRight"
+mods = "Option"
+chars = "\u001bf"
+
+# [[keyboard.bindings]]
+# key = "t"
+# mods = "Command"
+# command.program = "zsh"
+# command.args = ["-c", "zellij action new-tab"]
+
+# [[keyboard.bindings]]
+# key = "W"
+# mods = "Command"
+# command.program = "zsh"
+# command.args = ["-c", "zellij action new-tab"]
 
