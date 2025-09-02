@@ -145,7 +145,7 @@ keybinds clear-defaults=true {
     }
     shared_except "locked" "move" {
         bind "Super j" { SwitchToMode "move"; }
-        bind "Alt h" { SwitchToMode "move"; }
+        bind "Alt j" { SwitchToMode "move"; }
     }
     shared_except "locked" "session" {
         bind "Super o" { SwitchToMode "session"; }
@@ -157,8 +157,8 @@ keybinds clear-defaults=true {
         bind "Super b" { SwitchToMode "tmux"; }
     }
     shared_except "locked" "tab" {
-        bind "Super t" { SwitchToMode "tab"; }
-        bind "Alt t" { SwitchToMode "tab"; }
+	bind "Super t" { SwitchToMode "tab"; }
+	bind "Alt t" { SwitchToMode "tab"; }
     }
     shared_except "locked" "pane" {
         bind "Super p" { SwitchToMode "pane"; }
