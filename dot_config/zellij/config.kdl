@@ -73,7 +73,7 @@ keybinds clear-defaults=true {
         bind "k" { Resize "Increase up"; }
         bind "l" { Resize "Increase right"; }
         bind "Super n" { SwitchToMode "normal"; }
-        bind "Alt n" { SwitchToMode "normal"; }
+        bind "Alt r" { SwitchToMode "normal"; }
     }
     move {
         bind "left" { MovePane "left"; }
@@ -141,7 +141,6 @@ keybinds clear-defaults=true {
     }
     shared_except "locked" {
         bind "Super g" { SwitchToMode "locked"; }
-        bind "Super q" { Quit; }
     }
     shared_except "locked" "move" {
         bind "Super j" { SwitchToMode "move"; }
@@ -164,8 +163,8 @@ keybinds clear-defaults=true {
         bind "Super p" { SwitchToMode "pane"; }
     }
     shared_except "locked" "resize" {
-        bind "Super n" { SwitchToMode "resize"; }
-        bind "Alt n" { SwitchToMode "resize"; }
+        bind "Super r" { SwitchToMode "resize"; }
+        bind "Alt r" { SwitchToMode "resize"; }
     }
     shared_except "normal" "locked" {
         bind "Super left" { MoveFocusOrTab "left"; }
