@@ -1,5 +1,6 @@
 --------------------------------
 -- au --------------------------
+------ autocmds ----------------
 --------------------------------
 
 -- Open diagnostic on cursorhold
@@ -47,6 +48,7 @@ end
 
 --------------------------------
 -- kb --------------------------
+------ keyboard ----------------
 --------------------------------
 
 -- Use space as the leader key
@@ -275,6 +277,7 @@ end
 
 --------------------------------
 -- opt -------------------------
+------- options ----------------
 --------------------------------
 
 -- > unnamedplus
@@ -324,6 +327,7 @@ end
 
 --------------------------------
 -- ui --------------------------
+------ user interface ----------
 --------------------------------
 
 -- Terminal colors on
@@ -390,23 +394,22 @@ end
 
 --------------------------------
 -- pl --------------------------
+------ plugins -----------------
 --------------------------------
 
 -- > A completion plugin for
 -- > neovim coded in Lua.
--- > https://github.com/hrsh7th/nvim-cmp
 local function pl_cmp()
  return {
-  "hrsh7th/nvim-cmp",
+  "https://github.com/hrsh7th/nvim-cmp",
  }
 end
 
 -- > nvim-cmp source for neovim
 -- > builtin LSP client
--- > https://github.com/hrsh7th/cmp-nvim-lsp
 local function pl_cmp_lsp()
  return {
-  "hrsh7th/cmp-nvim-lsp",
+  "https://github.com/hrsh7th/cmp-nvim-lsp",
   config = function()
    local cmp = require"cmp"
    require("cmp").setup({
@@ -427,10 +430,9 @@ end
 
 -- > Lightweight yet powerful
 -- > formatter plugin for Neovim
--- > https://github.com/stevearc/conform.nvim
 local function pl_conform()
  return {
-  "stevearc/conform.nvim",
+  "https://github.com/stevearc/conform.nvim",
   config = function()
    require("conform").setup({
     format_on_save = { timeout_ms = 500 },
@@ -447,10 +449,9 @@ local function pl_conform()
 end
 
 -- > Git integration for buffers
--- > https://github.com/lewis6991/gitsigns.nvim
 local function pl_gitsigns()
  return {
-  "lewis6991/gitsigns.nvim",
+  "https://github.com/lewis6991/gitsigns.nvim",
   config = function()
    require("gitsigns").setup({
     current_line_blame = true,
@@ -464,10 +465,9 @@ local function pl_gitsigns()
 end
 
 -- > Quickstart configs for Nvim LSP
--- > https://github.com/neovim/nvim-lspconfig
 local function pl_lspconfig()
  return {
-  "neovim/nvim-lspconfig",
+  "https://github.com/neovim/nvim-lspconfig",
   config = function()
    kb_map_code_action()
   end,
@@ -479,10 +479,9 @@ local function pl_lspconfig()
 end
 
 -- > improve neovim lsp experience
--- > https://github.com/nvimdev/lspsaga.nvim
 local function pl_lspsaga()
  return {
-  "nvimdev/lspsaga.nvim",
+  "https://github.com/nvimdev/lspsaga.nvim",
   config = function()
    require("lspsaga").setup({
     lightbulb = {
@@ -504,10 +503,9 @@ end
 -- > configure neovim
 -- > statusline plugin written
 -- > in pure lua.
--- https://github.com/nvim-lualine/lualine.nvim
 local function pl_lualine()
  return {
-  "nvim-lualine/lualine.nvim",
+  "https://github.com/nvim-lualine/lualine.nvim",
   dependencies = {
    "nvim-tree/nvim-web-devicons"
   },
@@ -520,10 +518,9 @@ end
 -- > Portable package manager
 -- > for Neovim that runs
 -- > everywhere Neovim runs
--- > https://github.com/mason-org/mason.nvim
 local function pl_mason()
  return {
-  "williamboman/mason.nvim",
+  "https://github.com/mason-org/mason.nvim",
   config = function()
    require("mason").setup()
   end,
@@ -534,10 +531,9 @@ end
 -- > that makes it easier to
 -- > use lspconfig with
 -- > mason.nvim.
--- > https://github.com/mason-org/mason-lspconfig.nvim
 local function pl_mason_lspconfig()
  return {
-  "williamboman/mason-lspconfig.nvim",
+  "https://github.com/mason-org/mason-lspconfig.nvim",
   config = function()
    require("mason-lspconfig").setup()
    require("lspconfig").lua_ls.setup {}
@@ -550,10 +546,9 @@ local function pl_mason_lspconfig()
  }
 end
 
--- > https://github.com/nvimtools/none-ls.nvim
 local function pl_none_ls()
  return {
-  "nvimtools/none-ls.nvim",
+  "https://github.com/nvimtools/none-ls.nvim",
   config = function()
    require("null-ls").setup({
     sources = {
@@ -568,10 +563,9 @@ local function pl_none_ls()
 end
 
 -- > Solarized port for Neovim
--- > https://github.com/maxmx03/solarized.nvim
 local function pl_solarized()
  return {
-  "maxmx03/solarized.nvim",
+  "https://github.com/maxmx03/solarized.nvim",
   lazy = false,
   priority = 1000,
   opts = {
@@ -599,10 +593,9 @@ end
 -- > An unofficial Tailwind CSS
 -- > integration and tooling
 -- > for Neovim
--- > https://github.com/luckasRanarison/tailwind-tools.nvim
 local function pl_tailwind_tools()
  return {
-  "luckasRanarison/tailwind-tools.nvim",
+  "https://github.com/luckasRanarison/tailwind-tools.nvim",
   name = "tailwind-tools",
   build = ":UpdateRemotePlugins",
   dependencies = {
@@ -624,10 +617,9 @@ end
 -- > Find, Filter, Preview,
 -- > Pick. All lua, all the
 -- > time.
--- > https://github.com/nvim-telescope/telescope.nvim
 local function pl_telescope()
  return {
-  "nvim-telescope/telescope.nvim",
+  "https://github.com/nvim-telescope/telescope.nvim",
   dependencies = {
    "nvim-lua/plenary.nvim",
   },
@@ -638,10 +630,9 @@ local function pl_telescope()
 end
 
 -- > Telescope cmdline
--- > https://github.com/jonarrien/telescope-cmdline.nvim
 local function pl_telescope_cmdline()
  return {
-  "jonarrien/telescope-cmdline.nvim",
+  "https://github.com/jonarrien/telescope-cmdline.nvim",
   dependencies = {
    "nvim-telescope/telescope.nvim",
    "nvim-tree/nvim-web-devicons",
@@ -670,10 +661,9 @@ end
 -- > example that neovim core
 -- > stuff can fill the telescope
 -- > picker
--- > https://github.com/nvim-telescope/telescope-ui-select.nvim
 local function pl_telescope_ui_select()
  return {
-  "nvim-telescope/telescope-ui-select.nvim",
+  "https://github.com/nvim-telescope/telescope-ui-select.nvim",
   config = function()
    require("telescope").setup({
     extensions = {
