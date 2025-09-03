@@ -717,7 +717,6 @@ local function pl_tree()
     update_focused_file = {
      enable = true,
     },
-    width = 32,
    })
    kb_map_tree()
   end
