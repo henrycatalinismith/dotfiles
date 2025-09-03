@@ -47,6 +47,23 @@ local function au_js()
 end
 
 --------------------------------
+-- hl --------------------------
+------ highlighting ------------
+--------------------------------
+
+local function hl_trailing_whitespace()
+ vim.api.nvim_set_hl(
+  0,
+  "TrailingWhitespace",
+  {
+   ctermbg = "gray",
+   bg = "#555555"
+  }
+ )
+ vim.cmd([[match TrailingWhitespace /\s\+$/]])
+end
+
+--------------------------------
 -- kb --------------------------
 ------ keyboard ----------------
 --------------------------------
@@ -590,6 +607,18 @@ local function pl_solarized()
  }
 end
 
+-- > A declarative, highly
+-- > configurable, and neovim
+-- > style tabline plugin.
+local function pl_tabby()
+ return {
+  "https://github.comnanozuki/tabby.nvim",
+  config = function()
+   require("tabby").setup({})
+  end
+ }
+end
+
 -- > An unofficial Tailwind CSS
 -- > integration and tooling
 -- > for Neovim
@@ -735,6 +764,7 @@ local function lz_spec()
   pl_mason_lspconfig(),
   pl_none_ls(),
   pl_solarized(),
+  pl_tabby(),
   pl_tailwind_tools(),
   pl_telescope(),
   pl_telescope_cmdline(),
@@ -760,6 +790,8 @@ local function init()
  kb_map_quit()
  kb_map_write()
  kb_map_tabs()
+
+ hl_trailing_whitespace()
 
  opt_clipboard()
  opt_exrc()
