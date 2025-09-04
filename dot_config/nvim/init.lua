@@ -1,6 +1,7 @@
 --------------------------------
 -- au --------------------------
 ------ autocmds ----------------
+--------------------------------
 
 -- Open diagnostic on cursorhold
 local function au_cursorhold()
@@ -978,6 +979,7 @@ local function init()
 
  kb_set_leader()
  kb_config()
+ kb_restart_lsp()
  kb_move_line()
  kb_quit()
  kb_write()
