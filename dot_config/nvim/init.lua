@@ -47,6 +47,75 @@ local function au_js()
 end
 
 --------------------------------
+-- cmd -------------------------
+------- commands ---------------
+--------------------------------
+
+vim.api.nvim_create_user_command(
+ "FormatDisable",
+ function()
+  vim.g.enable_autoformat = false
+ end,
+  {
+   desc = "Disable autoformat on save",
+   nargs = 0,
+   bang = false,
+ }
+)
+
+vim.api.nvim_create_user_command(
+ "FormatEnable",
+ function()
+  vim.g.enable_autoformat = true
+ end,
+  {
+   desc = "Enable autoformat on save",
+   nargs = 0,
+   bang = false,
+ }
+)
+
+vim.api.nvim_create_user_command(
+ "FormatFile",
+ function()
+  require("conform").format({
+   async = true
+  })
+ end,
+  {
+   desc = "Format the current buffer",
+   nargs = 0,
+   bang = false,
+ }
+)
+
+vim.api.nvim_create_user_command(
+ "LspCodeAction",
+ vim.lsp.buf.code_action,
+  {
+   desc = "Open LSP code actions menu",
+   nargs = 0,
+   bang = false,
+ }
+)
+
+vim.api.nvim_create_user_command(
+ "NvimConfig",
+ function()
+  if vim.api.nvim_buf_get_name(0) == "" then
+   vim.cmd("e ~/.config/nvim/init.lua")
+  else
+   vim.cmd("tabnew ~/.config/nvim/init.lua")
+  end
+ end,
+  {
+   desc = "Open nvim config",
+   nargs = 0,
+   bang = false,
+ }
+)
+
+--------------------------------
 -- hl --------------------------
 ------ highlighting ------------
 --------------------------------
@@ -88,15 +157,12 @@ local function kb_cmdline()
  )
 end
 
--- Map <leader>. to code_action
---
--- Intended to be a bit similar
--- to <Cmd>. in VSCode.
+-- Map <leader>la to code_action
 local function kb_code_action()
  vim.keymap.set(
   "n",
-  "<leader>.",
-  vim.lsp.buf.code_action,
+  "<leader>la",
+  ":LspCodeAction<CR>",
   {}
  )
 end
@@ -110,13 +176,7 @@ local function kb_config()
  vim.keymap.set(
   "n",
   "<leader>,",
-  function()
-   if vim.api.nvim_buf_get_name(0) == "" then
-    vim.cmd("e ~/.config/nvim/init.lua")
-   else
-    vim.cmd("tabnew ~/.config/nvim/init.lua")
-   end
-  end,
+  ":NvimConfig<CR>",
   {}
  )
 end
@@ -135,31 +195,60 @@ local function kb_find_files()
  )
 end
 
--- Map <leader>f to autoformat
-local function kb_format()
+-- Map <leader>fd to disable
+-- autoformat
+local function kb_format_disable()
  vim.keymap.set(
   "n",
-  "<leader>f",
-  ":lua require('conform').format({ async = true })<CR>",
+  "<leader>fd",
+  ":FormatDisable<CR>",
   { noremap = true }
  )
 end
 
--- Map <leader>d to definition
---
--- This is usually invoked by
--- clicking while holding <Cmd>
--- but we're not in mouseland.
+-- Map <leader>fe to enable
+-- autoformat
+local function kb_format_enable()
+ vim.keymap.set(
+  "n",
+  "<leader>fe",
+  ":FormatEnable<CR>",
+  { noremap = true }
+ )
+end
+
+-- Map <leader>ff to autoformat
+local function kb_format_file()
+ vim.keymap.set(
+  "n",
+  "<leader>ff",
+  ":FormatFile<CR>",
+  { noremap = true }
+ )
+end
+
+-- Map <leader>lg to goto
+-- definition
 local function kb_goto_definition()
  vim.keymap.set(
   "n",
-  "<leader>d",
+  "<leader>lg",
   ":Lspsaga goto_definition<CR>",
-  { noremap = true }
+  {}
  )
 end
 
--- Map <leader>h to hover
+-- Map <leader>lu to goto type
+local function kb_goto_type()
+ vim.keymap.set(
+  "n",
+  "<leader>lu",
+  ":Lspsaga goto_type_definition<CR>",
+  {}
+ )
+end
+
+-- Map <leader>lh to hover
 --
 -- Hovering the mouse cursor
 -- would be the usual way to
@@ -168,7 +257,7 @@ end
 local function kb_hover()
  vim.keymap.set(
   "n",
-  "<leader>h",
+  "<leader>lh",
   ":Lspsaga hover_doc<CR>",
   { noremap = true }
  )
@@ -221,23 +310,33 @@ local function kb_move_line()
  )
 end
 
--- Map <leader>lpd to peek
+-- Map <leader>ld to peek
 -- definition
 local function kb_peek_definition()
  vim.keymap.set(
   "n",
-  "<leader>lpd",
+  "<leader>ld",
   ":Lspsaga peek_definition<CR>",
   {}
  )
 end
 
--- Map <leader>lpt to peek type
+-- Map <leader>lt to peek type
 local function kb_peek_type()
  vim.keymap.set(
   "n",
-  "<leader>lpt",
+  "<leader>lt",
   ":Lspsaga peek_type_definition<CR>",
+  {}
+ )
+end
+
+-- Map <leader>lx to restart LSP
+local function kb_restart_lsp()
+ vim.keymap.set(
+  "n",
+  "<leader>lx",
+  ":LspRestart<CR>",
   {}
  )
 end
@@ -256,16 +355,11 @@ local function kb_quit()
  )
 end
 
--- Map <leader>r to rename
---
--- Typically mapped to F12, this
--- one, which I've always found
--- an odd choice given how often
--- it needs using.
+-- Map <leader>lr to rename
 local function kb_rename()
  vim.keymap.set(
   "n",
-  "<leader>r",
+  "<leader>lr",
   ":Lspsaga rename<CR>",
   { noremap = true }
  )
@@ -516,8 +610,14 @@ local function pl_conform()
  return {
   "https://github.com/stevearc/conform.nvim",
   config = function()
+   vim.g.enable_autoformat = true
    require("conform").setup({
-    format_on_save = { timeout_ms = 500 },
+    format_on_save = function()
+     if vim.g.enable_autoformat == false then
+      return
+     end
+     return { timeout_ms = 500 }
+    end,
     formatters_by_ft = {
      javascript = { "prettier" },
      javascriptreact = { "prettier" },
@@ -525,7 +625,9 @@ local function pl_conform()
      typescriptreact = { "prettier" },
     },
    })
-   kb_format()
+   kb_format_disable()
+   kb_format_enable()
+   kb_format_file()
   end
  }
 end
@@ -571,6 +673,7 @@ local function pl_lspsaga()
     },
    })
    kb_goto_definition()
+   kb_goto_type()
    kb_hover()
    kb_peek_definition()
    kb_peek_type()
@@ -620,8 +723,8 @@ local function pl_mason_lspconfig()
   "https://github.com/mason-org/mason-lspconfig.nvim",
   config = function()
    require("mason-lspconfig").setup()
-   require("lspconfig").lua_ls.setup()
-   require("lspconfig").ts_ls.setup()
+   require("lspconfig").lua_ls.setup({})
+   require("lspconfig").ts_ls.setup({})
   end,
   dependencies = {
    "williamboman/mason.nvim",
@@ -778,7 +881,7 @@ end
 -- > https://github.com/nvim-tree/nvim-tree.lua
 local function pl_tree()
  return {
-  "nvim-tree/nvim-tree.lua",
+  "https://github.com/nvim-tree/nvim-tree.lua",
   config = function()
    require("nvim-tree").setup({
     update_focused_file = {
@@ -786,6 +889,18 @@ local function pl_tree()
     },
    })
    kb_tree()
+  end
+ }
+end
+
+local function pl_whichkey()
+ return {
+  "https://github.com/folke/which-key.nvim",
+  config = function()
+   local wk = require("which-key")
+   wk.add({
+    { "<leader>w", group = "File" },
+   })
   end
  }
 end
@@ -844,6 +959,7 @@ local function lz_spec()
   pl_telescope_cmdline(),
   pl_telescope_ui_select(),
   pl_tree(),
+  pl_whichkey(),
  }
 end
 
