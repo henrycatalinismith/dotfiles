@@ -1,7 +1,6 @@
 --------------------------------
 -- au --------------------------
 ------ autocmds ----------------
---------------------------------
 
 -- Open diagnostic on cursorhold
 local function au_cursorhold()
@@ -387,7 +386,7 @@ local function kb_tabs()
  )
 end
 
--- Map <leader>t to nvim tree
+-- Map <leader>b to nvim tree
 local function kb_tree()
  vim.keymap.set(
   "n",
@@ -898,6 +897,9 @@ local function pl_whichkey()
   "https://github.com/folke/which-key.nvim",
   config = function()
    local wk = require("which-key")
+   wk.setup({
+    triggers = { "<leader>" }
+   })
    wk.add({
     { "<leader>w", group = "File" },
    })
