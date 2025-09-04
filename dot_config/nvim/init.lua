@@ -79,7 +79,7 @@ local function kb_set_leader()
 end
 
 -- Space twice to open cmdline
-local function kb_map_cmdline()
+local function kb_cmdline()
  vim.keymap.set(
   "n",
   "<leader><leader>",
@@ -92,7 +92,7 @@ end
 --
 -- Intended to be a bit similar
 -- to <Cmd>. in VSCode.
-local function kb_map_code_action()
+local function kb_code_action()
  vim.keymap.set(
   "n",
   "<leader>.",
@@ -106,7 +106,7 @@ end
 -- Intended to resemble <Cmd>,
 -- which by convention opens
 -- config menus in macOS apps.
-local function kb_map_config()
+local function kb_config()
  vim.keymap.set(
   "n",
   "<leader>,",
@@ -126,7 +126,7 @@ end
 -- <Cmd>P opens this menu in
 -- many editors so this imitates
 -- that.
-local function kb_map_find_files()
+local function kb_find_files()
  vim.keymap.set(
   "n",
   "<leader>p",
@@ -136,7 +136,7 @@ local function kb_map_find_files()
 end
 
 -- Map <leader>f to autoformat
-local function kb_map_format()
+local function kb_format()
  vim.keymap.set(
   "n",
   "<leader>f",
@@ -150,7 +150,7 @@ end
 -- This is usually invoked by
 -- clicking while holding <Cmd>
 -- but we're not in mouseland.
-local function kb_map_goto_definition()
+local function kb_goto_definition()
  vim.keymap.set(
   "n",
   "<leader>d",
@@ -165,7 +165,7 @@ end
 -- would be the usual way to
 -- invoke this in other
 -- editors.
-local function kb_map_hover()
+local function kb_hover()
  vim.keymap.set(
   "n",
   "<leader>h",
@@ -182,7 +182,7 @@ end
 --
 -- Clashes unfortunately with
 -- Zellij's use of the alt key.
-local function kb_map_move_line()
+local function kb_move_line()
  vim.keymap.set(
   "n",
   "<A-Down>",
@@ -221,12 +221,33 @@ local function kb_map_move_line()
  )
 end
 
+-- Map <leader>lpd to peek
+-- definition
+local function kb_peek_definition()
+ vim.keymap.set(
+  "n",
+  "<leader>lpd",
+  ":Lspsaga peek_definition<CR>",
+  {}
+ )
+end
+
+-- Map <leader>lpt to peek type
+local function kb_peek_type()
+ vim.keymap.set(
+  "n",
+  "<leader>lpt",
+  ":Lspsaga peek_type_definition<CR>",
+  {}
+ )
+end
+
 -- Map <leader>q to quit
 --
 -- Tend to go back and forth on
 -- whether or not to have ! on
 -- the end of this.
-local function kb_map_quit()
+local function kb_quit()
  vim.keymap.set(
   "n",
   "<leader>q",
@@ -241,7 +262,7 @@ end
 -- one, which I've always found
 -- an odd choice given how often
 -- it needs using.
-local function kb_map_rename()
+local function kb_rename()
  vim.keymap.set(
   "n",
   "<leader>r",
@@ -257,7 +278,7 @@ end
 -- missed opportunity not
 -- mapping these keys to
 -- something useful.
-local function kb_map_tabs()
+local function kb_tabs()
  vim.keymap.set(
   "n",
   "<Tab>",
@@ -273,7 +294,7 @@ local function kb_map_tabs()
 end
 
 -- Map <leader>t to nvim tree
-local function kb_map_tree()
+local function kb_tree()
  vim.keymap.set(
   "n",
   "<leader>b",
@@ -283,7 +304,7 @@ local function kb_map_tree()
 end
 
 -- Map <leader>w to write
-local function kb_map_write()
+local function kb_write()
  vim.keymap.set(
   "n",
   "<leader>w",
@@ -419,6 +440,64 @@ end
 local function pl_cmp()
  return {
   "https://github.com/hrsh7th/nvim-cmp",
+  config = function()
+   local cmp = require"cmp"
+   cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+     ["<C-f>"] = cmp.mapping.scroll_docs(4),
+     ["<C-Space>"] = cmp.mapping.complete(),
+     ["<C-e>"] = cmp.mapping.abort(),
+     ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+     ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    }),
+    sources = {
+     { name = "nvim_lsp" },
+     { name = "buffer" },
+    },
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    }
+   })
+  end,
+ }
+end
+
+-- > nvim-cmp source for buffer
+-- > words
+local function pl_cmp_buffer()
+ return {
+  "https://github.com/hrsh7th/cmp-buffer",
+ }
+end
+
+-- > nvim-cmp source for vim's
+-- > cmdline
+local function pl_cmp_cmdline()
+ return {
+  "https://github.com/hrsh7th/cmp-cmdline",
+  config = function()
+   local cmp = require"cmp"
+   cmp.setup.cmdline(":", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources(
+     {
+      {
+       name = 'path'
+      }
+     },
+     {
+      {
+       name = 'cmdline',
+       option = {
+        ignore_cmds = { 'Man', '!' }
+       }
+      }
+     }
+    )
+   })
+  end,
  }
 end
 
@@ -427,23 +506,9 @@ end
 local function pl_cmp_lsp()
  return {
   "https://github.com/hrsh7th/cmp-nvim-lsp",
-  config = function()
-   local cmp = require"cmp"
-   require("cmp").setup({
-    mapping = cmp.mapping.preset.insert({
-     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-     ["<C-Space>"] = cmp.mapping.complete(),
-     ["<C-e>"] = cmp.mapping.abort(),
-     ["<Tab>"] = cmp.mapping.confirm({ select = true }),
-    }),
-    sources = {
-     { name = "nvim_lsp" },
-    }
-   })
-  end,
  }
 end
+
 
 -- > Lightweight yet powerful
 -- > formatter plugin for Neovim
@@ -460,7 +525,7 @@ local function pl_conform()
      typescriptreact = { "prettier" },
     },
    })
-   kb_map_format()
+   kb_format()
   end
  }
 end
@@ -486,7 +551,7 @@ local function pl_lspconfig()
  return {
   "https://github.com/neovim/nvim-lspconfig",
   config = function()
-   kb_map_code_action()
+   kb_code_action()
   end,
   dependencies = {
    "williamboman/mason.nvim",
@@ -505,9 +570,11 @@ local function pl_lspsaga()
      virtual_text = false,
     },
    })
-   kb_map_goto_definition()
-   kb_map_hover()
-   kb_map_rename()
+   kb_goto_definition()
+   kb_hover()
+   kb_peek_definition()
+   kb_peek_type()
+   kb_rename()
   end,
   dependencies = {
    "nvim-treesitter/nvim-treesitter",
@@ -553,8 +620,8 @@ local function pl_mason_lspconfig()
   "https://github.com/mason-org/mason-lspconfig.nvim",
   config = function()
    require("mason-lspconfig").setup()
-   require("lspconfig").lua_ls.setup {}
-   require("lspconfig").ts_ls.setup {}
+   require("lspconfig").lua_ls.setup()
+   require("lspconfig").ts_ls.setup()
   end,
   dependencies = {
    "williamboman/mason.nvim",
@@ -653,7 +720,7 @@ local function pl_telescope()
    "nvim-lua/plenary.nvim",
   },
   config = function()
-   kb_map_find_files()
+   kb_find_files()
   end
  }
 end
@@ -680,7 +747,7 @@ local function pl_telescope_cmdline()
      }
     }
    })
-   kb_map_cmdline()
+   kb_cmdline()
   end
  }
 end
@@ -718,7 +785,7 @@ local function pl_tree()
      enable = true,
     },
    })
-   kb_map_tree()
+   kb_tree()
   end
  }
 end
@@ -759,6 +826,8 @@ end
 local function lz_spec()
  return {
   pl_cmp(),
+  pl_cmp_buffer(),
+  pl_cmp_cmdline(),
   pl_cmp_lsp(),
   pl_conform(),
   pl_gitsigns(),
@@ -790,11 +859,11 @@ local function init()
  au_js()
 
  kb_set_leader()
- kb_map_config()
- kb_map_move_line()
- kb_map_quit()
- kb_map_write()
- kb_map_tabs()
+ kb_config()
+ kb_move_line()
+ kb_quit()
+ kb_write()
+ kb_tabs()
 
  hl_trailing_whitespace()
 
