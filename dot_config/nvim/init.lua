@@ -46,74 +46,118 @@ local function au_js()
  )
 end
 
+-- Set up php config
+local function au_php()
+ vim.api.nvim_create_autocmd(
+  "FileType",
+  {
+   pattern = {
+    "php",
+   },
+   callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.expandtab = true
+   end,
+  }
+ )
+end
+
 --------------------------------
 -- cmd -------------------------
 ------- commands ---------------
 --------------------------------
 
-vim.api.nvim_create_user_command(
- "FormatDisable",
- function()
-  vim.g.enable_autoformat = false
- end,
-  {
-   desc = "Disable autoformat on save",
-   nargs = 0,
-   bang = false,
- }
-)
+local function cmd_format_disable()
+ vim.api.nvim_create_user_command(
+  "FormatDisable",
+  function()
+   vim.g.enable_autoformat = false
+  end,
+   {
+    desc = "Disable autoformat on save",
+    nargs = 0,
+    bang = false,
+  }
+ )
+end
 
-vim.api.nvim_create_user_command(
- "FormatEnable",
- function()
-  vim.g.enable_autoformat = true
- end,
-  {
-   desc = "Enable autoformat on save",
-   nargs = 0,
-   bang = false,
- }
-)
+local function cmd_format_enable()
+ vim.api.nvim_create_user_command(
+  "FormatEnable",
+  function()
+   vim.g.enable_autoformat = true
+  end,
+   {
+    desc = "Enable autoformat on save",
+    nargs = 0,
+    bang = false,
+  }
+ )
+end
 
-vim.api.nvim_create_user_command(
- "FormatFile",
- function()
-  require("conform").format({
-   async = true
-  })
- end,
-  {
-   desc = "Format the current buffer",
-   nargs = 0,
-   bang = false,
- }
-)
+local function cmd_format_file()
+ vim.api.nvim_create_user_command(
+  "FormatFile",
+  function()
+   require("conform").format({
+    async = true
+   })
+  end,
+   {
+    desc = "Format the current buffer",
+    nargs = 0,
+    bang = false,
+  }
+ )
+end
 
-vim.api.nvim_create_user_command(
- "LspCodeAction",
- vim.lsp.buf.code_action,
-  {
-   desc = "Open LSP code actions menu",
-   nargs = 0,
-   bang = false,
- }
-)
+local function cmd_format_trailing()
+ vim.api.nvim_create_user_command(
+  "FormatTrailing",
+  function()
+   local pos = vim.fn.getpos(".")
+   vim.cmd([[%s/\s\+$//e]])
+   vim.fn.setpos(".", pos)
+  end,
+   {
+    desc = "Remove trailing whitespace",
+    nargs = 0,
+    bang = false,
+  }
+ )
+end
 
-vim.api.nvim_create_user_command(
- "NvimConfig",
- function()
-  if vim.api.nvim_buf_get_name(0) == "" then
-   vim.cmd("e ~/.config/nvim/init.lua")
-  else
-   vim.cmd("tabnew ~/.config/nvim/init.lua")
-  end
- end,
-  {
-   desc = "Open nvim config",
-   nargs = 0,
-   bang = false,
- }
-)
+local function cmd_lsp_action()
+ vim.api.nvim_create_user_command(
+  "LspAction",
+  vim.lsp.buf.code_action,
+   {
+    desc = "Open LSP code actions menu",
+    nargs = 0,
+    bang = false,
+  }
+ )
+end
+
+local function cmd_nvim_config()
+ vim.api.nvim_create_user_command(
+  "NvimConfig",
+  function()
+   if vim.api.nvim_buf_get_name(0) == "" then
+    vim.cmd("e ~/.config/nvim/init.lua")
+   else
+    vim.cmd("tabnew ~/.config/nvim/init.lua")
+   end
+  end,
+   {
+    desc = "Open nvim config",
+    nargs = 0,
+    bang = false,
+  }
+ )
+end
 
 --------------------------------
 -- hl --------------------------
@@ -157,12 +201,12 @@ local function kb_cmdline()
  )
 end
 
--- Map <leader>la to code_action
-local function kb_code_action()
+-- <leader>la :LspAction
+local function kb_lsp_action()
  vim.keymap.set(
   "n",
   "<leader>la",
-  ":LspCodeAction<CR>",
+  ":LspAction<CR>",
   {}
  )
 end
@@ -172,7 +216,7 @@ end
 -- Intended to resemble <Cmd>,
 -- which by convention opens
 -- config menus in macOS apps.
-local function kb_config()
+local function kb_nvim_config()
  vim.keymap.set(
   "n",
   "<leader>,",
@@ -227,9 +271,18 @@ local function kb_format_file()
  )
 end
 
--- Map <leader>lg to goto
--- definition
-local function kb_goto_definition()
+-- <leader>ft FormatTrailing
+local function kb_format_trailing()
+ vim.keymap.set(
+  "n",
+  "<leader>ft",
+  ":FormatTrailing<CR>",
+  { noremap = true }
+ )
+end
+
+-- <leader>lg :Lspsaga goto_definition
+local function kb_lsp_goto_definition()
  vim.keymap.set(
   "n",
   "<leader>lg",
@@ -238,8 +291,8 @@ local function kb_goto_definition()
  )
 end
 
--- Map <leader>lu to goto type
-local function kb_goto_type()
+-- <leader>lu :Lspsaga goto_type_definition
+local function kb_lsp_goto_type()
  vim.keymap.set(
   "n",
   "<leader>lu",
@@ -254,7 +307,7 @@ end
 -- would be the usual way to
 -- invoke this in other
 -- editors.
-local function kb_hover()
+local function kb_lsp_hover()
  vim.keymap.set(
   "n",
   "<leader>lh",
@@ -310,9 +363,8 @@ local function kb_move_line()
  )
 end
 
--- Map <leader>ld to peek
--- definition
-local function kb_peek_definition()
+-- <leader>ld :Lspsaga peek_definition
+local function kb_lsp_peek_definition()
  vim.keymap.set(
   "n",
   "<leader>ld",
@@ -321,8 +373,8 @@ local function kb_peek_definition()
  )
 end
 
--- Map <leader>lt to peek type
-local function kb_peek_type()
+-- <leader>lt :Lspsaga peek_type_definition
+local function kb_lsp_peek_type()
  vim.keymap.set(
   "n",
   "<leader>lt",
@@ -331,8 +383,18 @@ local function kb_peek_type()
  )
 end
 
+-- <leader>lr :Lspsaga rename
+local function kb_lsp_rename()
+ vim.keymap.set(
+  "n",
+  "<leader>lr",
+  ":Lspsaga rename<CR>",
+  { noremap = true }
+ )
+end
+
 -- Map <leader>lx to restart LSP
-local function kb_restart_lsp()
+local function kb_lsp_restart()
  vim.keymap.set(
   "n",
   "<leader>lx",
@@ -351,16 +413,6 @@ local function kb_quit()
   "n",
   "<leader>q",
   ":q<CR>",
-  { noremap = true }
- )
-end
-
--- Map <leader>lr to rename
-local function kb_rename()
- vim.keymap.set(
-  "n",
-  "<leader>lr",
-  ":Lspsaga rename<CR>",
   { noremap = true }
  )
 end
@@ -625,9 +677,6 @@ local function pl_conform()
      typescriptreact = { "prettier" },
     },
    })
-   kb_format_disable()
-   kb_format_enable()
-   kb_format_file()
   end
  }
 end
@@ -653,7 +702,6 @@ local function pl_lspconfig()
  return {
   "https://github.com/neovim/nvim-lspconfig",
   config = function()
-   kb_code_action()
   end,
   dependencies = {
    "williamboman/mason.nvim",
@@ -672,12 +720,6 @@ local function pl_lspsaga()
      virtual_text = false,
     },
    })
-   kb_goto_definition()
-   kb_goto_type()
-   kb_hover()
-   kb_peek_definition()
-   kb_peek_type()
-   kb_rename()
   end,
   dependencies = {
    "nvim-treesitter/nvim-treesitter",
@@ -822,9 +864,6 @@ local function pl_telescope()
   dependencies = {
    "nvim-lua/plenary.nvim",
   },
-  config = function()
-   kb_find_files()
-  end
  }
 end
 
@@ -850,7 +889,6 @@ local function pl_telescope_cmdline()
      }
     }
    })
-   kb_cmdline()
   end
  }
 end
@@ -888,7 +926,6 @@ local function pl_tree()
      enable = true,
     },
    })
-   kb_tree()
   end
  }
 end
@@ -976,14 +1013,36 @@ end
 local function init()
  au_cursorhold()
  au_js()
+ au_php()
 
+ cmd_format_disable()
+ cmd_format_enable()
+ cmd_format_file()
+ cmd_format_trailing()
+ cmd_lsp_action()
+ cmd_nvim_config()
+
+ kb_cmdline()
  kb_set_leader()
- kb_config()
- kb_restart_lsp()
+ kb_find_files()
+ kb_format_disable()
+ kb_format_enable()
+ kb_format_file()
+ kb_format_trailing()
+ kb_lsp_action()
+ kb_lsp_goto_definition()
+ kb_lsp_goto_type()
+ kb_lsp_hover()
+ kb_lsp_peek_definition()
+ kb_lsp_peek_type()
+ kb_lsp_rename()
+ kb_lsp_restart()
  kb_move_line()
+ kb_nvim_config()
  kb_quit()
  kb_write()
  kb_tabs()
+ kb_tree()
 
  hl_trailing_whitespace()
 
