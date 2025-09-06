@@ -3,7 +3,6 @@
 ------ autocmds ----------------
 --------------------------------
 
--- Open diagnostic on cursorhold
 local function au_cursorhold()
  vim.api.nvim_create_autocmd(
   "CursorHold",
@@ -192,7 +191,7 @@ local function kb_set_leader()
 end
 
 -- Space twice to open cmdline
-local function kb_cmdline()
+local function kb_telescope_cmdline()
  vim.keymap.set(
   "n",
   "<leader><leader>",
@@ -360,6 +359,16 @@ local function kb_move_line()
   "<A-Up>",
   "<Esc>:m .-2<CR>==gi",
   { noremap = true, silent = true }
+ )
+end
+
+-- <leader>ln :Lspsaga diagnostic_jump_next
+local function kb_lsp_next_diagnostic()
+ vim.keymap.set(
+  "n",
+  "<leader>ln",
+  ":Lspsaga diagnostic_jump_next<CR>",
+  {}
  )
 end
 
@@ -889,6 +898,7 @@ local function pl_telescope_cmdline()
      }
     }
    })
+   kb_telescope_cmdline()
   end
  }
 end
@@ -1022,7 +1032,6 @@ local function init()
  cmd_lsp_action()
  cmd_nvim_config()
 
- kb_cmdline()
  kb_set_leader()
  kb_find_files()
  kb_format_disable()
@@ -1033,6 +1042,7 @@ local function init()
  kb_lsp_goto_definition()
  kb_lsp_goto_type()
  kb_lsp_hover()
+ kb_lsp_next_diagnostic()
  kb_lsp_peek_definition()
  kb_lsp_peek_type()
  kb_lsp_rename()
