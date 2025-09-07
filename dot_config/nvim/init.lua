@@ -3,6 +3,7 @@
 ------ autocmds ----------------
 --------------------------------
 
+--- Open diagnostic on cursorhold
 local function au_cursorhold()
  vim.api.nvim_create_autocmd(
   "CursorHold",
@@ -106,6 +107,23 @@ local function cmd_format_file()
   end,
    {
     desc = "Format the current buffer",
+    nargs = 0,
+    bang = false,
+  }
+ )
+end
+
+local function cmd_format_skip()
+ vim.api.nvim_create_user_command(
+  "FormatSkip",
+  function()
+   local prev = vim.g.enable_autoformat
+   vim.g.enable_autoformat = false
+   vim.cmd("w")
+   vim.g.enable_autoformat = prev
+  end,
+   {
+    desc = "Save without format",
     nargs = 0,
     bang = false,
   }
@@ -670,12 +688,11 @@ end
 local function pl_conform()
  return {
   "https://github.com/stevearc/conform.nvim",
-  config = function()
-   vim.g.enable_autoformat = true
+  config = function(opts)
    require("conform").setup({
     format_on_save = function()
-     if vim.g.enable_autoformat == false then
-      return
+     if not vim.g.enable_autoformat then
+      return nil
      end
      return { timeout_ms = 500 }
     end,
@@ -686,6 +703,7 @@ local function pl_conform()
      typescriptreact = { "prettier" },
     },
    })
+   vim.g.enable_autoformat = true
   end
  }
 end
@@ -1028,6 +1046,7 @@ local function init()
  cmd_format_disable()
  cmd_format_enable()
  cmd_format_file()
+ cmd_format_skip()
  cmd_format_trailing()
  cmd_lsp_action()
  cmd_nvim_config()
