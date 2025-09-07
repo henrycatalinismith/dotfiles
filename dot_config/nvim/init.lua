@@ -288,6 +288,16 @@ local function kb_format_file()
  )
 end
 
+-- <leader>fs FormatSkip
+local function kb_format_skip()
+ vim.keymap.set(
+  "n",
+  "<leader>fs",
+  ":FormatSkip<CR>",
+  { noremap = true }
+ )
+end
+
 -- <leader>ft FormatTrailing
 local function kb_format_trailing()
  vim.keymap.set(
