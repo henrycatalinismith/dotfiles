@@ -25,6 +25,27 @@ local function au_cursorhold()
  )
 end
 
+-- Set up css config
+local function au_css()
+ vim.api.nvim_create_autocmd(
+  "FileType",
+  {
+   pattern = {
+    "css",
+    "less",
+    "sass",
+    "scss",
+   },
+   callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.expandtab = true
+   end,
+  }
+ )
+end
+
 -- Set up [jt]sx? config
 local function au_js()
  vim.api.nvim_create_autocmd(
@@ -802,6 +823,7 @@ local function pl_mason_lspconfig()
   "https://github.com/mason-org/mason-lspconfig.nvim",
   config = function()
    require("mason-lspconfig").setup()
+   require("lspconfig").cssls.setup({})
    require("lspconfig").lua_ls.setup({})
    require("lspconfig").ts_ls.setup({})
   end,
@@ -1050,6 +1072,7 @@ end
 
 local function init()
  au_cursorhold()
+ au_css()
  au_js()
  au_php()
 
