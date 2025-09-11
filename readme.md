@@ -4,4 +4,4 @@ Personal config files for setting up new computers
 
 ## License
 
-[MIT](https://codeberg.org/henrycatalinismith/dotfiles/src/branch/main/license)
+[Apache-2.0](https://codeberg.org/henrycatalinismith/dotfiles/src/branch/main/license)
