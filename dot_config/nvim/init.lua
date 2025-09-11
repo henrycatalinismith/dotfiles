@@ -941,7 +941,9 @@ local function pl_solarized()
    require("solarized").setup(
     opts
    )
-   vim.cmd.colorscheme("solarized")
+   vim.cmd.colorscheme(
+    "solarized"
+   )
   end,
  }
 end
