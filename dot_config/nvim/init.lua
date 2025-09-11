@@ -39,8 +39,10 @@ local function au_css()
    callback = function()
     vim.opt_local.shiftwidth = 2
     vim.opt_local.tabstop = 2
-    vim.opt_local.softtabstop = 2
-    vim.opt_local.expandtab = true
+    vim.opt_local.softtabstop =
+     2
+    vim.opt_local.expandtab =
+     true
    end,
   }
  )
@@ -60,8 +62,10 @@ local function au_js()
    callback = function()
     vim.opt_local.shiftwidth = 2
     vim.opt_local.tabstop = 2
-    vim.opt_local.softtabstop = 2
-    vim.opt_local.expandtab = true
+    vim.opt_local.softtabstop =
+     2
+    vim.opt_local.expandtab =
+     true
    end,
   }
  )
@@ -78,8 +82,10 @@ local function au_php()
    callback = function()
     vim.opt_local.shiftwidth = 4
     vim.opt_local.tabstop = 4
-    vim.opt_local.softtabstop = 4
-    vim.opt_local.expandtab = true
+    vim.opt_local.softtabstop =
+     4
+    vim.opt_local.expandtab =
+     true
    end,
   }
  )
@@ -94,12 +100,13 @@ local function cmd_format_disable()
  vim.api.nvim_create_user_command(
   "FormatDisable",
   function()
-   vim.g.enable_autoformat = false
+   vim.g.enable_autoformat =
+    false
   end,
-   {
-    desc = "Disable autoformat on save",
-    nargs = 0,
-    bang = false,
+  {
+   desc = "Disable autoformat on save",
+   nargs = 0,
+   bang = false,
   }
  )
 end
@@ -108,12 +115,13 @@ local function cmd_format_enable()
  vim.api.nvim_create_user_command(
   "FormatEnable",
   function()
-   vim.g.enable_autoformat = true
+   vim.g.enable_autoformat =
+    true
   end,
-   {
-    desc = "Enable autoformat on save",
-    nargs = 0,
-    bang = false,
+  {
+   desc = "Enable autoformat on save",
+   nargs = 0,
+   bang = false,
   }
  )
 end
@@ -123,13 +131,13 @@ local function cmd_format_file()
   "FormatFile",
   function()
    require("conform").format({
-    async = true
+    async = true,
    })
   end,
-   {
-    desc = "Format the current buffer",
-    nargs = 0,
-    bang = false,
+  {
+   desc = "Format the current buffer",
+   nargs = 0,
+   bang = false,
   }
  )
 end
@@ -138,15 +146,18 @@ local function cmd_format_skip()
  vim.api.nvim_create_user_command(
   "FormatSkip",
   function()
-   local prev = vim.g.enable_autoformat
-   vim.g.enable_autoformat = false
+   local prev =
+    vim.g.enable_autoformat
+   vim.g.enable_autoformat =
+    false
    vim.cmd("w")
-   vim.g.enable_autoformat = prev
+   vim.g.enable_autoformat =
+    prev
   end,
-   {
-    desc = "Save without format",
-    nargs = 0,
-    bang = false,
+  {
+   desc = "Save without format",
+   nargs = 0,
+   bang = false,
   }
  )
 end
@@ -155,14 +166,15 @@ local function cmd_format_trailing()
  vim.api.nvim_create_user_command(
   "FormatTrailing",
   function()
-   local pos = vim.fn.getpos(".")
+   local pos =
+    vim.fn.getpos(".")
    vim.cmd([[%s/\s\+$//e]])
    vim.fn.setpos(".", pos)
   end,
-   {
-    desc = "Remove trailing whitespace",
-    nargs = 0,
-    bang = false,
+  {
+   desc = "Remove trailing whitespace",
+   nargs = 0,
+   bang = false,
   }
  )
 end
@@ -171,10 +183,10 @@ local function cmd_lsp_action()
  vim.api.nvim_create_user_command(
   "LspAction",
   vim.lsp.buf.code_action,
-   {
-    desc = "Open LSP code actions menu",
-    nargs = 0,
-    bang = false,
+  {
+   desc = "Open LSP code actions menu",
+   nargs = 0,
+   bang = false,
   }
  )
 end
@@ -183,16 +195,23 @@ local function cmd_nvim_config()
  vim.api.nvim_create_user_command(
   "NvimConfig",
   function()
-   if vim.api.nvim_buf_get_name(0) == "" then
-    vim.cmd("e ~/.config/nvim/init.lua")
+   if
+    vim.api.nvim_buf_get_name(0)
+    == ""
+   then
+    vim.cmd(
+     "e ~/.config/nvim/init.lua"
+    )
    else
-    vim.cmd("tabnew ~/.config/nvim/init.lua")
+    vim.cmd(
+     "tabnew ~/.config/nvim/init.lua"
+    )
    end
   end,
-   {
-    desc = "Open nvim config",
-    nargs = 0,
-    bang = false,
+  {
+   desc = "Open nvim config",
+   nargs = 0,
+   bang = false,
   }
  )
 end
@@ -208,10 +227,12 @@ local function hl_trailing_whitespace()
   "TrailingWhitespace",
   {
    ctermbg = "gray",
-   bg = "#555555"
+   bg = "#555555",
   }
  )
- vim.cmd([[match TrailingWhitespace /\s\+$/]])
+ vim.cmd(
+  [[match TrailingWhitespace /\s\+$/]]
+ )
 end
 
 --------------------------------
@@ -377,37 +398,55 @@ local function kb_move_line()
   "n",
   "<A-Down>",
   ":m .+1<CR>==",
-  { noremap = true, silent = true }
+  {
+   noremap = true,
+   silent = true,
+  }
  )
  vim.keymap.set(
   "n",
   "<A-Up>",
   ":m .-2<CR>==",
-  { noremap = true, silent = true }
+  {
+   noremap = true,
+   silent = true,
+  }
  )
  vim.keymap.set(
   "v",
   "<A-Down>",
   ":m '>+1<CR>gv=gv",
-  { noremap = true, silent = true }
+  {
+   noremap = true,
+   silent = true,
+  }
  )
  vim.keymap.set(
   "v",
   "<A-Up>",
   ":m '<-2<CR>gv=gv",
-  { noremap = true, silent = true }
+  {
+   noremap = true,
+   silent = true,
+  }
  )
  vim.keymap.set(
   "i",
   "<A-Down>",
   "<Esc>:m .+1<CR>==gi",
-  { noremap = true, silent = true }
+  {
+   noremap = true,
+   silent = true,
+  }
  )
  vim.keymap.set(
   "i",
   "<A-Up>",
   "<Esc>:m .-2<CR>==gi",
-  { noremap = true, silent = true }
+  {
+   noremap = true,
+   silent = true,
+  }
  )
 end
 
@@ -535,7 +574,8 @@ end
 -- >
 -- > https://neovim.io/doc/user/options.html#'clipboard'
 local function opt_clipboard()
- vim.opt.clipboard = "unnamedplus"
+ vim.opt.clipboard =
+  "unnamedplus"
 end
 
 -- > exrc
@@ -583,9 +623,9 @@ end
 
 -- Hide the startup tildes
 local function ui_hide_tildes()
- vim.opt.fillchars:append {
+ vim.opt.fillchars:append({
   eob = " ",
- }
+ })
 end
 
 -- Highlight the cursor line
@@ -645,24 +685,32 @@ local function pl_cmp()
  return {
   "https://github.com/hrsh7th/nvim-cmp",
   config = function()
-   local cmp = require"cmp"
+   local cmp = require("cmp")
    cmp.setup({
     mapping = cmp.mapping.preset.insert({
-     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-     ["<C-f>"] = cmp.mapping.scroll_docs(4),
+     ["<C-b>"] = cmp.mapping.scroll_docs(
+      -4
+     ),
+     ["<C-f>"] = cmp.mapping.scroll_docs(
+      4
+     ),
      ["<C-Space>"] = cmp.mapping.complete(),
      ["<C-e>"] = cmp.mapping.abort(),
-     ["<Tab>"] = cmp.mapping.confirm({ select = true }),
-     ["<CR>"] = cmp.mapping.confirm({ select = true }),
+     ["<Tab>"] = cmp.mapping.confirm({
+      select = true,
+     }),
+     ["<CR>"] = cmp.mapping.confirm({
+      select = true,
+     }),
     }),
     sources = {
      { name = "nvim_lsp" },
      { name = "buffer" },
     },
     window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
-    }
+     completion = cmp.config.window.bordered(),
+     documentation = cmp.config.window.bordered(),
+    },
    })
   end,
  }
@@ -682,24 +730,27 @@ local function pl_cmp_cmdline()
  return {
   "https://github.com/hrsh7th/cmp-cmdline",
   config = function()
-   local cmp = require"cmp"
+   local cmp = require("cmp")
    cmp.setup.cmdline(":", {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources(
      {
       {
-       name = 'path'
-      }
+       name = "path",
+      },
      },
      {
       {
-       name = 'cmdline',
+       name = "cmdline",
        option = {
-        ignore_cmds = { 'Man', '!' }
-       }
-      }
+        ignore_cmds = {
+         "Man",
+         "!",
+        },
+       },
+      },
      }
-    )
+    ),
    })
   end,
  }
@@ -713,7 +764,6 @@ local function pl_cmp_lsp()
  }
 end
 
-
 -- > Lightweight yet powerful
 -- > formatter plugin for Neovim
 local function pl_conform()
@@ -722,20 +772,27 @@ local function pl_conform()
   config = function(opts)
    require("conform").setup({
     format_on_save = function()
-     if not vim.g.enable_autoformat then
+     if
+      not vim.g.enable_autoformat
+     then
       return nil
      end
      return { timeout_ms = 500 }
     end,
     formatters_by_ft = {
      javascript = { "prettier" },
-     javascriptreact = { "prettier" },
+     javascriptreact = {
+      "prettier",
+     },
      typescript = { "prettier" },
-     typescriptreact = { "prettier" },
+     typescriptreact = {
+      "prettier",
+     },
     },
    })
-   vim.g.enable_autoformat = true
-  end
+   vim.g.enable_autoformat =
+    true
+  end,
  }
 end
 
@@ -749,7 +806,7 @@ local function pl_gitsigns()
     current_line_blame_opts = {
      delay = 32,
      virt_text_pos = "right_align",
-    }
+    },
    })
   end,
  }
@@ -759,12 +816,11 @@ end
 local function pl_lspconfig()
  return {
   "https://github.com/neovim/nvim-lspconfig",
-  config = function()
-  end,
+  config = function() end,
   dependencies = {
    "williamboman/mason.nvim",
    "williamboman/mason-lspconfig.nvim",
-  }
+  },
  }
 end
 
@@ -782,7 +838,7 @@ local function pl_lspsaga()
   dependencies = {
    "nvim-treesitter/nvim-treesitter",
    "nvim-tree/nvim-web-devicons",
-  }
+  },
  }
 end
 
@@ -794,11 +850,11 @@ local function pl_lualine()
  return {
   "https://github.com/nvim-lualine/lualine.nvim",
   dependencies = {
-   "nvim-tree/nvim-web-devicons"
+   "nvim-tree/nvim-web-devicons",
   },
   config = function()
    require("lualine").setup()
-  end
+  end,
  }
 end
 
@@ -830,7 +886,7 @@ local function pl_mason_lspconfig()
   dependencies = {
    "williamboman/mason.nvim",
    "neovim/nvim-lspconfig",
-  }
+  },
  }
 end
 
@@ -840,13 +896,15 @@ local function pl_none_ls()
   config = function()
    require("null-ls").setup({
     sources = {
-     require("none-ls.diagnostics.eslint")
+     require(
+      "none-ls.diagnostics.eslint"
+     ),
     },
    })
   end,
   dependencies = {
    "nvimtools/none-ls-extras.nvim",
-  }
+  },
  }
 end
 
@@ -862,18 +920,28 @@ local function pl_solarized()
      base03 = "#032029",
     }
    end,
-   on_highlights = function(colors)
+   on_highlights = function(
+    colors
+   )
     return {
-     CursorLineNr = { bg = colors.base02 },
-     LineNr = { bg = colors.base03 },
-     SignColumn = { bg = colors.base03 },
+     CursorLineNr = {
+      bg = colors.base02,
+     },
+     LineNr = {
+      bg = colors.base03,
+     },
+     SignColumn = {
+      bg = colors.base03,
+     },
     }
-   end
+   end,
   },
   config = function(_, opts)
    vim.o.background = "dark"
-   require("solarized").setup(opts)
-   vim.cmd.colorscheme "solarized"
+   require("solarized").setup(
+    opts
+   )
+   vim.cmd.colorscheme("solarized")
   end,
  }
 end
@@ -886,7 +954,7 @@ local function pl_tabby()
   "https://github.comnanozuki/tabby.nvim",
   config = function()
    require("tabby").setup({})
-  end
+  end,
  }
 end
 
@@ -908,9 +976,9 @@ local function pl_tailwind_tools()
     highlight = "foreground",
    },
    document_color = {
-    enabled = true
-   }
-  }
+    enabled = true,
+   },
+  },
  }
 end
 
@@ -941,15 +1009,15 @@ local function pl_telescope_cmdline()
       icons = {
        history = "󱑈 ",
        command = " ",
-       number  = "󰴍 ",
-       system  = "",
+       number = "󰴍 ",
+       system = "",
        unknown = "",
-      }
-     }
-    }
+      },
+     },
+    },
    })
    kb_telescope_cmdline()
-  end
+  end,
  }
 end
 
@@ -965,12 +1033,16 @@ local function pl_telescope_ui_select()
    require("telescope").setup({
     extensions = {
      ["ui-select"] = {
-      require("telescope.themes").get_dropdown {}
-     }
-    }
+      require(
+       "telescope.themes"
+      ).get_dropdown({}),
+     },
+    },
    })
-   require("telescope").load_extension("ui-select")
-  end
+   require("telescope").load_extension(
+    "ui-select"
+   )
+  end,
  }
 end
 
@@ -986,7 +1058,7 @@ local function pl_tree()
      enable = true,
     },
    })
-  end
+  end,
  }
 end
 
@@ -994,14 +1066,18 @@ local function pl_whichkey()
  return {
   "https://github.com/folke/which-key.nvim",
   config = function()
-   local wk = require("which-key")
+   local wk =
+    require("which-key")
    wk.setup({
-    triggers = { "<leader>" }
+    triggers = { "<leader>" },
    })
    wk.add({
-    { "<leader>w", group = "File" },
+    {
+     "<leader>w",
+     group = "File",
+    },
    })
-  end
+  end,
  }
 end
 
@@ -1016,17 +1092,22 @@ end
 -- setup instructions from
 -- https://github.com/folke/lazy.nvim
 local function lz_load()
- local r = "https://github.com/folke/lazy.nvim.git"
- local d = vim.fn.stdpath("data")
+ local r =
+  "https://github.com/folke/lazy.nvim.git"
+ local d =
+  vim.fn.stdpath("data")
  vim.fn.system({ "mkdir", d })
- vim.fn.system({ "mkdir", d .. "/lazy" })
+ vim.fn.system({
+  "mkdir",
+  d .. "/lazy",
+ })
  vim.fn.system({
   "git",
   "clone",
   "--filter=blob:none",
   "--branch=stable",
   r,
-  d .. "/lazy/lazy.nvim"
+  d .. "/lazy/lazy.nvim",
  })
  vim.opt.rtp:prepend(
   d .. "/lazy/lazy.nvim"
@@ -1066,7 +1147,7 @@ end
 -- Setup lazy.nvim
 local function lz_setup()
  require("lazy").setup({
-  spec = lz_spec()
+  spec = lz_spec(),
  })
 end
 
@@ -1125,4 +1206,3 @@ local function init()
 end
 
 init()
-
