@@ -740,7 +740,7 @@ vim.pack.add({
  "https://github.com/hrsh7th/cmp-nvim-lsp",
  "https://github.com/lewis6991/gitsigns.nvim",
  "https://github.com/neovim/nvim-lspconfig",
- "https://github.com/nanozuki/tabby.nvim",
+ -- "https://github.com/nanozuki/tabby.nvim",
  "https://github.com/nvim-treesitter/nvim-treesitter",
  "https://github.com/nvim-lua/plenary.nvim",
  "https://github.com/nvim-tree/nvim-web-devicons",
@@ -815,7 +815,7 @@ require("gitsigns").setup({
  },
 })
 
-require("tabby").setup()
+-- require("tabby").setup()
 
 require("mason").setup()
 
