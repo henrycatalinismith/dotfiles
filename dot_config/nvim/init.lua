@@ -2,7 +2,6 @@
 -- au --------------------------
 ------ autocmds ----------------
 --------------------------------
-
 --- Open diagnostic on cursorhold
 local function au_cursorhold()
  vim.api.nvim_create_autocmd(
@@ -182,7 +181,9 @@ end
 local function cmd_lsp_action()
  vim.api.nvim_create_user_command(
   "LspAction",
-  vim.lsp.buf.code_action,
+  function()
+   vim.lsp.buf.code_action()
+  end,
   {
    desc = "Open LSP code actions menu",
    nargs = 0,
@@ -679,480 +680,6 @@ end
 ------ plugins -----------------
 --------------------------------
 
--- > A completion plugin for
--- > neovim coded in Lua.
-local function pl_cmp()
- return {
-  "https://github.com/hrsh7th/nvim-cmp",
-  config = function()
-   local cmp = require("cmp")
-   cmp.setup({
-    mapping = cmp.mapping.preset.insert({
-     ["<C-b>"] = cmp.mapping.scroll_docs(
-      -4
-     ),
-     ["<C-f>"] = cmp.mapping.scroll_docs(
-      4
-     ),
-     ["<C-Space>"] = cmp.mapping.complete(),
-     ["<C-e>"] = cmp.mapping.abort(),
-     ["<Tab>"] = cmp.mapping.confirm({
-      select = true,
-     }),
-     ["<CR>"] = cmp.mapping.confirm({
-      select = true,
-     }),
-    }),
-    sources = {
-     { name = "nvim_lsp" },
-     { name = "buffer" },
-    },
-    window = {
-     completion = cmp.config.window.bordered(),
-     documentation = cmp.config.window.bordered(),
-    },
-   })
-  end,
- }
-end
-
--- > nvim-cmp source for buffer
--- > words
-local function pl_cmp_buffer()
- return {
-  "https://github.com/hrsh7th/cmp-buffer",
- }
-end
-
--- > nvim-cmp source for vim's
--- > cmdline
-local function pl_cmp_cmdline()
- return {
-  "https://github.com/hrsh7th/cmp-cmdline",
-  config = function()
-   local cmp = require("cmp")
-   cmp.setup.cmdline(":", {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources(
-     {
-      {
-       name = "path",
-      },
-     },
-     {
-      {
-       name = "cmdline",
-       option = {
-        ignore_cmds = {
-         "Man",
-         "!",
-        },
-       },
-      },
-     }
-    ),
-   })
-  end,
- }
-end
-
--- > nvim-cmp source for neovim
--- > builtin LSP client
-local function pl_cmp_lsp()
- return {
-  "https://github.com/hrsh7th/cmp-nvim-lsp",
- }
-end
-
--- > Lightweight yet powerful
--- > formatter plugin for Neovim
-local function pl_conform()
- return {
-  "https://github.com/stevearc/conform.nvim",
-  config = function(opts)
-   require("conform").setup({
-    format_on_save = function()
-     if
-      not vim.g.enable_autoformat
-     then
-      return nil
-     end
-     return { timeout_ms = 500 }
-    end,
-    formatters_by_ft = {
-     javascript = { "prettier" },
-     javascriptreact = {
-      "prettier",
-     },
-     typescript = { "prettier" },
-     typescriptreact = {
-      "prettier",
-     },
-    },
-   })
-   vim.g.enable_autoformat =
-    true
-  end,
- }
-end
-
--- > Git integration for buffers
-local function pl_gitsigns()
- return {
-  "https://github.com/lewis6991/gitsigns.nvim",
-  config = function()
-   require("gitsigns").setup({
-    current_line_blame = true,
-    current_line_blame_opts = {
-     delay = 32,
-     virt_text_pos = "right_align",
-    },
-   })
-  end,
- }
-end
-
--- > Quickstart configs for Nvim LSP
-local function pl_lspconfig()
- return {
-  "https://github.com/neovim/nvim-lspconfig",
-  config = function() end,
-  dependencies = {
-   "williamboman/mason.nvim",
-   "williamboman/mason-lspconfig.nvim",
-  },
- }
-end
-
--- > improve neovim lsp experience
-local function pl_lspsaga()
- return {
-  "https://github.com/nvimdev/lspsaga.nvim",
-  config = function()
-   require("lspsaga").setup({
-    lightbulb = {
-     virtual_text = false,
-    },
-   })
-  end,
-  dependencies = {
-   "nvim-treesitter/nvim-treesitter",
-   "nvim-tree/nvim-web-devicons",
-  },
- }
-end
-
--- > A blazing fast and easy to
--- > configure neovim
--- > statusline plugin written
--- > in pure lua.
-local function pl_lualine()
- return {
-  "https://github.com/nvim-lualine/lualine.nvim",
-  dependencies = {
-   "nvim-tree/nvim-web-devicons",
-  },
-  config = function()
-   require("lualine").setup()
-  end,
- }
-end
-
--- > Portable package manager
--- > for Neovim that runs
--- > everywhere Neovim runs
-local function pl_mason()
- return {
-  "https://github.com/mason-org/mason.nvim",
-  config = function()
-   require("mason").setup()
-  end,
- }
-end
-
--- > Extension to mason.nvim
--- > that makes it easier to
--- > use lspconfig with
--- > mason.nvim.
-local function pl_mason_lspconfig()
- return {
-  "https://github.com/mason-org/mason-lspconfig.nvim",
-  config = function()
-   require("mason-lspconfig").setup()
-   require("lspconfig").cssls.setup({})
-   require("lspconfig").lua_ls.setup({})
-   require("lspconfig").ts_ls.setup({})
-  end,
-  dependencies = {
-   "williamboman/mason.nvim",
-   "neovim/nvim-lspconfig",
-  },
- }
-end
-
-local function pl_none_ls()
- return {
-  "https://github.com/nvimtools/none-ls.nvim",
-  config = function()
-   require("null-ls").setup({
-    sources = {
-     require(
-      "none-ls.diagnostics.eslint"
-     ),
-    },
-   })
-  end,
-  dependencies = {
-   "nvimtools/none-ls-extras.nvim",
-  },
- }
-end
-
--- > Solarized port for Neovim
-local function pl_solarized()
- return {
-  "https://github.com/maxmx03/solarized.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {
-   on_colors = function()
-    return {
-     base03 = "#032029",
-    }
-   end,
-   on_highlights = function(
-    colors
-   )
-    return {
-     CursorLineNr = {
-      bg = colors.base02,
-     },
-     LineNr = {
-      bg = colors.base03,
-     },
-     SignColumn = {
-      bg = colors.base03,
-     },
-    }
-   end,
-  },
-  config = function(_, opts)
-   vim.o.background = "dark"
-   require("solarized").setup(
-    opts
-   )
-   vim.cmd.colorscheme(
-    "solarized"
-   )
-  end,
- }
-end
-
--- > A declarative, highly
--- > configurable, and neovim
--- > style tabline plugin.
-local function pl_tabby()
- return {
-  "https://github.comnanozuki/tabby.nvim",
-  config = function()
-   require("tabby").setup({})
-  end,
- }
-end
-
--- > An unofficial Tailwind CSS
--- > integration and tooling
--- > for Neovim
-local function pl_tailwind_tools()
- return {
-  "https://github.com/luckasRanarison/tailwind-tools.nvim",
-  name = "tailwind-tools",
-  build = ":UpdateRemotePlugins",
-  dependencies = {
-   "nvim-treesitter/nvim-treesitter",
-   "nvim-telescope/telescope.nvim",
-   "neovim/nvim-lspconfig",
-  },
-  opts = {
-   cmp = {
-    highlight = "foreground",
-   },
-   document_color = {
-    enabled = true,
-   },
-  },
- }
-end
-
--- > Find, Filter, Preview,
--- > Pick. All lua, all the
--- > time.
-local function pl_telescope()
- return {
-  "https://github.com/nvim-telescope/telescope.nvim",
-  dependencies = {
-   "nvim-lua/plenary.nvim",
-  },
- }
-end
-
--- > Telescope cmdline
-local function pl_telescope_cmdline()
- return {
-  "https://github.com/jonarrien/telescope-cmdline.nvim",
-  dependencies = {
-   "nvim-telescope/telescope.nvim",
-   "nvim-tree/nvim-web-devicons",
-  },
-  config = function()
-   require("telescope").setup({
-    extensions = {
-     ["cmdline"] = {
-      icons = {
-       history = "󱑈 ",
-       command = " ",
-       number = "󰴍 ",
-       system = "",
-       unknown = "",
-      },
-     },
-    },
-   })
-   kb_telescope_cmdline()
-  end,
- }
-end
-
--- > sets vim.ui.select to
--- > telescope. That means for
--- > example that neovim core
--- > stuff can fill the telescope
--- > picker
-local function pl_telescope_ui_select()
- return {
-  "https://github.com/nvim-telescope/telescope-ui-select.nvim",
-  config = function()
-   require("telescope").setup({
-    extensions = {
-     ["ui-select"] = {
-      require(
-       "telescope.themes"
-      ).get_dropdown({}),
-     },
-    },
-   })
-   require("telescope").load_extension(
-    "ui-select"
-   )
-  end,
- }
-end
-
--- > A file explorer tree for
--- > neovim written in lua
--- > https://github.com/nvim-tree/nvim-tree.lua
-local function pl_tree()
- return {
-  "https://github.com/nvim-tree/nvim-tree.lua",
-  config = function()
-   require("nvim-tree").setup({
-    update_focused_file = {
-     enable = true,
-    },
-   })
-  end,
- }
-end
-
-local function pl_whichkey()
- return {
-  "https://github.com/folke/which-key.nvim",
-  config = function()
-   local wk =
-    require("which-key")
-   wk.setup({
-    triggers = { "<leader>" },
-   })
-   wk.add({
-    {
-     "<leader>w",
-     group = "File",
-    },
-   })
-  end,
- }
-end
-
---------------------------------
--- lz --------------------------
------- lazy.nvim ---------------
---------------------------------
-
--- Load lazy.nvim
---
--- Based on the single file
--- setup instructions from
--- https://github.com/folke/lazy.nvim
-local function lz_load()
- local r =
-  "https://github.com/folke/lazy.nvim.git"
- local d =
-  vim.fn.stdpath("data")
- vim.fn.system({ "mkdir", d })
- vim.fn.system({
-  "mkdir",
-  d .. "/lazy",
- })
- vim.fn.system({
-  "git",
-  "clone",
-  "--filter=blob:none",
-  "--branch=stable",
-  r,
-  d .. "/lazy/lazy.nvim",
- })
- vim.opt.rtp:prepend(
-  d .. "/lazy/lazy.nvim"
- )
-end
-
--- Configure lazy.nvim
---
--- This is where plugins get
--- installed. Each line here
--- corresponds to a plugin.
-local function lz_spec()
- return {
-  pl_cmp(),
-  pl_cmp_buffer(),
-  pl_cmp_cmdline(),
-  pl_cmp_lsp(),
-  pl_conform(),
-  pl_gitsigns(),
-  pl_lspconfig(),
-  pl_lspsaga(),
-  pl_lualine(),
-  pl_mason(),
-  pl_mason_lspconfig(),
-  pl_none_ls(),
-  pl_solarized(),
-  pl_tabby(),
-  pl_tailwind_tools(),
-  pl_telescope(),
-  pl_telescope_cmdline(),
-  pl_telescope_ui_select(),
-  pl_tree(),
-  pl_whichkey(),
- }
-end
-
--- Setup lazy.nvim
-local function lz_setup()
- require("lazy").setup({
-  spec = lz_spec(),
- })
-end
-
 local function init()
  au_cursorhold()
  au_css()
@@ -1188,6 +715,7 @@ local function init()
  kb_quit()
  kb_write()
  kb_tabs()
+ kb_telescope_cmdline()
  kb_tree()
 
  hl_trailing_whitespace()
@@ -1202,9 +730,185 @@ local function init()
  ui_show_numbers()
  ui_show_signcolumn()
  ui_show_tabline()
-
- lz_load()
- lz_setup()
 end
 
 init()
+
+vim.pack.add({
+ "https://github.com/hrsh7th/nvim-cmp",
+ "https://github.com/hrsh7th/cmp-cmdline",
+ "https://github.com/hrsh7th/cmp-nvim-lsp",
+ "https://github.com/lewis6991/gitsigns.nvim",
+ "https://github.com/neovim/nvim-lspconfig",
+ "https://github.com/nanozuki/tabby.nvim",
+ "https://github.com/nvim-treesitter/nvim-treesitter",
+ "https://github.com/nvim-lua/plenary.nvim",
+ "https://github.com/nvim-tree/nvim-web-devicons",
+ "https://github.com/mason-org/mason.nvim",
+ "https://github.com/mason-org/mason-lspconfig.nvim",
+ "https://github.com/nvim-telescope/telescope.nvim",
+ "https://github.com/jonarrien/telescope-cmdline.nvim",
+ "https://github.com/nvim-telescope/telescope-ui-select.nvim",
+ "https://github.com/nvimdev/lspsaga.nvim",
+ "https://github.com/nvim-lualine/lualine.nvim",
+ "https://github.com/nvimtools/none-ls.nvim",
+ "https://github.com/nvimtools/none-ls-extras.nvim",
+ "https://github.com/maxmx03/solarized.nvim",
+ "https://github.com/nvim-tree/nvim-tree.lua",
+ "https://github.com/folke/which-key.nvim",
+})
+
+local cmp = require("cmp")
+cmp.setup({
+ mapping = cmp.mapping.preset.insert({
+  ["<C-b>"] = cmp.mapping.scroll_docs(
+   -4
+  ),
+  ["<C-f>"] = cmp.mapping.scroll_docs(
+   4
+  ),
+  ["<C-Space>"] = cmp.mapping.complete(),
+  ["<C-e>"] = cmp.mapping.abort(),
+  ["<Tab>"] = cmp.mapping.confirm({
+   select = true,
+  }),
+  ["<CR>"] = cmp.mapping.confirm({
+   select = true,
+  }),
+ }),
+ sources = {
+  { name = "nvim_lsp" },
+ },
+ window = {
+  completion = cmp.config.window.bordered(),
+  documentation = cmp.config.window.bordered(),
+ },
+})
+
+cmp.setup.cmdline(":", {
+ mapping = cmp.mapping.preset.cmdline(),
+ sources = cmp.config.sources(
+  {
+   {
+    name = "path",
+   },
+  },
+  {
+   {
+    name = "cmdline",
+    option = {
+     ignore_cmds = {
+      "Man",
+      "!",
+     },
+    },
+   },
+  }
+ ),
+})
+
+require("gitsigns").setup({
+ current_line_blame = true,
+ current_line_blame_opts = {
+  delay = 32,
+  virt_text_pos = "right_align",
+ },
+})
+
+require("tabby").setup()
+
+require("mason").setup()
+
+require("mason-lspconfig").setup({
+ ensure_installed = {
+  "cssls",
+  "lua_ls",
+  "ts_ls",
+ }
+})
+
+require("lspconfig").cssls.setup({})
+require("lspconfig").lua_ls.setup({})
+require("lspconfig").ts_ls.setup({})
+
+require("telescope").setup({
+ extensions = {
+  ["cmdline"] = {
+   icons = {
+    history = "󱑈 ",
+    command = " ",
+    number = "󰴍 ",
+    system = "",
+    unknown = "",
+   },
+   ["ui-select"] = {
+    require(
+     "telescope.themes"
+    ).get_dropdown({}),
+   },
+  },
+ },
+})
+
+require("telescope").load_extension("ui-select")
+
+require("lspsaga").setup({
+ lightbulb = {
+  virtual_text = false,
+ },
+})
+
+require("lualine").setup()
+
+require("null-ls").setup({
+ debug = true,
+ sources = {
+  require(
+   "none-ls.code_actions.eslint_d"
+  ),
+  require(
+   "none-ls.diagnostics.eslint_d"
+  ),
+ },
+})
+
+require("solarized").setup({
+ on_colors = function()
+  return {
+   base03 = "#032029",
+  }
+ end,
+ on_highlights = function(c)
+  return {
+   CursorLineNr = {
+    bg = c.base02,
+   },
+   LineNr = {
+    bg = c.base03,
+   },
+   SignColumn = {
+    bg = c.base03,
+   },
+  }
+ end,
+})
+
+vim.cmd.colorscheme("solarized")
+
+require("nvim-tree").setup({
+ update_focused_file = {
+  enable = true,
+ },
+})
+
+local wk = require("which-key")
+wk.setup({
+ triggers = { "<leader>" },
+})
+wk.add({
+ {
+  "<leader>w",
+  group = "File",
+ },
+})
+
