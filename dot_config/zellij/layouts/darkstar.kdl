@@ -4,7 +4,7 @@ layout {
 	pane size=1 borderless=true {
             plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
                 format_left "  {tabs}"
-		format_right "{mode}  "
+		format_right "{mode} {command_host_os_icon}  "
 
                 mode_normal        "#[fg=green] normal"
                 mode_locked        "#[fg=red]  locked"
@@ -28,6 +28,11 @@ layout {
                 tab_sync_indicator       "󰓦 "
                 tab_fullscreen_indicator "󱟱  "
                 tab_floating_indicator   "󰉈 "
+
+                command_host_os_icon_command "sh -c ~/.config/zellij/scripts/darkstar.sh"
+                command_host_os_icon_format "{stdout}"
+                command_host_os_icon_interval "0"
+                command_host_os_icon_rendermode "static"
 
             }
         }
