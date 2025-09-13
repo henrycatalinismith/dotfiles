@@ -8,6 +8,7 @@ args = ["-l", "-c", "zellij -l welcome"]
 [window]
 decorations = "None"
 startup_mode = "Maximized"
+padding = { x = 8, y= 8 }
 
 [colors.primary]
 #background = "#032029"
