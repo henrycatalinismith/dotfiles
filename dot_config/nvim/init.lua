@@ -439,7 +439,7 @@ vim.o.signcolumn = "yes:2"
 -- tabline therefore causes a
 -- layout shift almost every
 -- time so just always show it
--- so the layout is stable.
+-- so the layouis stable.
 vim.o.showtabline = 2
 
 --------------------------------
@@ -469,22 +469,36 @@ vim.pack.add({
 })
 
 require("solarized").setup({
+ transparent = {
+  enabled = true,
+  pmenu = true,
+  normal = true,
+  normalfloat = true,
+  nvimtree = true,
+  whichkey = true,
+  telescope = true,
+ },
  on_colors = function()
   return {
-   base03 = "#032029",
+   base03 = "#06171d"
   }
  end,
- on_highlights = function(c)
+ on_highlights = function(c, u)
+  local blk = "#06171d"
+  local gry = u.darken(c.base04, 5)
+  local brd = u.lighten(c.base04, 8)
   return {
-   CursorLineNr = {
-    bg = c.base02,
-   },
-   LineNr = {
-    bg = c.base03,
-   },
-   SignColumn = {
-    bg = c.base03,
-   },
+   Normal = { fg = c.base3 },
+   CursorLine = { bg = gry },
+   CursorLineNr = { bg = gry },
+   LineNr = { bg = c.base03 },
+   SignColumn = { bg = c.base03 },
+   TabLineFill = { bg = blk },
+   TabLine = { bg = blk },
+   TabLineSel = { fg = c.white },
+   TelescopeBorder = { fg = brd },
+   TelescopeTitle = { bg = blk, fg = c.base3 },
+   TelescopePromptNormal = { fg = c.base3 },
   }
  end,
 })
@@ -505,9 +519,16 @@ cmp.setup({
   ["<Tab>"] = cmp.mapping.confirm({
    select = true,
   }),
-  ["<CR>"] = cmp.mapping.confirm({
-   select = true,
-  }),
+  ["<CR>"] = cmp.mapping(
+   function(fallback)
+    if cmp.visible() and cmp.get_selected_entry() then
+     cmp.confirm({ select = false })
+    else
+     fallback()
+    end
+   end,
+   { "i", "s" }
+  ),
  }),
  sources = {
   { name = "nvim_lsp" },
@@ -580,7 +601,7 @@ require("telescope").setup({
  },
 })
 
-require("telescope").load_extension("ui-select")
+-- require("telescope").load_extension("ui-select")
 
 require("lspsaga").setup({
  symbol_in_winbar = { enable = false },

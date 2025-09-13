@@ -1,3 +1,6 @@
+[env]
+TERM = "xterm-256color"
+
 [terminal.shell]
 program = "/bin/zsh"
 args = ["-l", "-c", "zellij -l welcome"]
@@ -7,8 +10,8 @@ decorations = "None"
 startup_mode = "Maximized"
 
 [colors.primary]
-background = "#032029"
-foreground = "#fdf4dd"
+#background = "#032029"
+background = "#06171d"
 
 [colors.cursor]
 text = "#002b36"

@@ -23,3 +23,8 @@
     type = "file"
     url = "https://gist.githubusercontent.com/henrycatalinismith/e7c0cac7e938df7568a3488d27e368ac/raw"
     refreshPeriod = "168h"
+
+[".config/zellij/plugins/zjstatus.wasm"]
+    type = "file"
+    url = "https://github.com/dj95/zjstatus/releases/download/v0.21.0/zjstatus.wasm"
+    refreshPeriod = "168h"
