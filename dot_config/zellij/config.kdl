@@ -1,4 +1,7 @@
 keybinds clear-defaults=true {
+    normal {
+        bind "Super g" { SwitchToMode "locked"; }
+    }
     locked {
         bind "Super g" { SwitchToMode "normal"; }
     }
