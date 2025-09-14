@@ -1,5 +1,5 @@
 COREPACK_ENABLE_AUTO_PIN=0
-PROMPT="$ "
+PROMPT=$'%{\e[38;2;146;161;161m%}\$%{\e[0m%} '
 
 plugins=(
   brew

@@ -491,14 +491,17 @@ require("solarized").setup({
    Normal = { fg = c.base3 },
    CursorLine = { bg = gry },
    CursorLineNr = { bg = gry },
+   CursorLineSign = { bg = gry },
    LineNr = { bg = c.base03 },
    SignColumn = { bg = c.base03 },
+   StatusLine = { bg = blk },
    TabLineFill = { bg = blk },
    TabLine = { bg = blk },
-   TabLineSel = { fg = c.white },
+   TabLineSel = { fg = "#fcf2d5" },
    TelescopeBorder = { fg = brd },
    TelescopeTitle = { bg = blk, fg = c.base3 },
    TelescopePromptNormal = { fg = c.base3 },
+   TelescopePromptBorder = { fg = c.base1 },
   }
  end,
 })
