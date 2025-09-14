@@ -6,7 +6,7 @@ layout {
                 format_left "  {tabs}"
 		format_right "{mode} #[fg=#275b69]{command_host_os_icon}  "
 
-                mode_normal        "#[fg=#275b69] normal"
+                mode_normal        ""
                 mode_locked        "#[fg=red]  locked"
                 mode_resize        "#[fg=magenta] resize"
                 mode_pane          "#[fg=magenta] pane"
