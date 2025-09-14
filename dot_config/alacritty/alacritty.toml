@@ -29,14 +29,14 @@ cyan    = "#269287"
 white   = "#fdf4dd"
 
 [colors.bright]
-black   = "#4a5f66"
-red     = "#690f16"
-green   = "#343b0e"
-yellow  = "#4b340e"
-blue    = "#1a3352"
-magenta = "#5b1431"
-cyan    = "#1a3e3a"
-white   = "#fdf4dd"
+black   = "#053d48"
+red     = "#fd564e"
+green   = "#80b83c"
+yellow  = "#e3b230"
+blue    = "#0096f5"
+magenta = "#f176bd"
+cyan    = "#39c7b9"
+white   = "#fef3da"
 
 [font]
 size = 18
