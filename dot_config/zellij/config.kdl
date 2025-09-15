@@ -48,6 +48,7 @@ keybinds clear-defaults=true {
     bind "down" { Resize "Increase down"; }
     bind "up" { Resize "Increase up"; }
     bind "right" { Resize "Increase right"; }
+    bind "x" { CloseFocus; SwitchToMode "normal"; }
 
     bind "Super p" { SwitchToMode "normal"; }
 
