@@ -3,8 +3,8 @@ gui:
   nerdFontsVersion: "3"
   theme:
     activeBorderColor:
-      - white
+      - "#EEE8D5"
     inactiveBorderColor:
-      - '#204a56'
+      - "#586E75"
     selectedLineBgColor:
-      - '#052d38'
+      - "#002B36"

@@ -21,7 +21,6 @@ layout {
                 mode_prompt        "#[fg=magenta] prompt"
                 mode_tmux          "#[fg=magenta] tmux"
 
-                //tab_normal "#[fg=#718b90]{name} "
                 tab_normal "#[fg=#275b69]{name} "
                 tab_active "#[fg=white]{name} "
 

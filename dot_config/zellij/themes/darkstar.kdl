@@ -1,131 +1,129 @@
 themes {
     darkstar {
         text_unselected {
-            base 238 232 213
-            background 7 54 66
-            emphasis_0 203 75 22
-            emphasis_1 42 161 152
-            emphasis_2 133 153 0
-            emphasis_3 211 54 130
+            base       238 232 213 // #EEE8D5 solarized base2
+            background   7  54  66 // #073642 solarized base02
+            emphasis_0 203  75  22 // #CB4B16 solarized orange
+            emphasis_1  42 161 152 // #2AA198 solarized cyan
+            emphasis_2 133 153   0 // #859900 solarized green
+            emphasis_3 211  54 130 // #D33682 solarized magenta
         }
         text_selected {
-            base 238 232 213
-            background 7 54 66
-            emphasis_0 203 75 22
-            emphasis_1 42 161 152
-            emphasis_2 133 153 0
-            emphasis_3 211 54 130
+            base       238 232 213 // #EEE8D5 solarized base2
+            background   7  54  66 // #073642 solarized base02
+            emphasis_0 203  75  22 // #CB4B16 solarized orange
+            emphasis_1  42 161 152 // #2AA198 solarized cyan
+            emphasis_2 133 153   0 // #859900 solarized green
+            emphasis_3 211  54 130 // #D33682 solarized magenta
         }
         ribbon_selected {
-            base 7 54 66
-            background 133 153 0
-            emphasis_0 220 50 47
-            emphasis_1 203 75 22
-            emphasis_2 211 54 130
-            emphasis_3 38 139 210
+            base         7  54  66 // #073642 solarized base02
+            background 133 153   0 // #859900 solarized green
+            emphasis_0 220  50  47 // #DC322F solarized red
+            emphasis_1 203  75  22 // #CB4B16 solarized orange
+            emphasis_2 211  54 130 // #D33682 solarized magenta
+            emphasis_3  38 139 210 // #268BD2 solarized blue
         }
         ribbon_unselected {
-            base 7 54 66
-            background 253 246 227
-            emphasis_0 220 50 47
-            emphasis_1 238 232 213
-            emphasis_2 38 139 210
-            emphasis_3 211 54 130
+            base         7  54  66 // #073642 solarized base02
+            background 253 246 227 // #FDF6E3 solarized base3
+            emphasis_0 220  50  47 // #DC322F solarized red
+            emphasis_1 238 232 213 // #EEE8D5 solarized base2
+            emphasis_2  38 139 210 // #268BD2 solarized blue
+            emphasis_3 211  54 130 // #D33682 solarized magenta
         }
         table_title {
-            base 133 153 0
-            background 0
-            emphasis_0 203 75 22
-            emphasis_1 42 161 152
-            emphasis_2 133 153 0
-            emphasis_3 211 54 130
+            base       133 153   0 // #859900 solarized green
+            background   0   0   0 // #000000
+            emphasis_0 203  75  22 // #CB4B16 solarized orange
+            emphasis_1  42 161 152 // #2AA198 solarized cyan
+            emphasis_2 133 153   0 // #859900 solarized green
+            emphasis_3 211  54 130 // #D33682 solarized magenta
         }
         table_cell_selected {
-            base 238 232 213
-            background 0 43 54
-            emphasis_0 203 75 22
-            emphasis_1 42 161 152
-            emphasis_2 133 153 0
-            emphasis_3 211 54 130
+            base       238 232 213 // #EEE8D5 solarized base2
+            background   0  43  54 // #002B36 solarized base03
+            emphasis_0 203  75  22 // #CB4B16 solarized orange
+            emphasis_1  42 161 152 // #2AA198 solarized cyan
+            emphasis_2 133 153   0 // #859900 solarized green
+            emphasis_3 211  54 130 // #D33682 solarized magenta
         }
         table_cell_unselected {
-            base 238 232 213
-            background 7 54 66
-            emphasis_0 203 75 22
-            emphasis_1 42 161 152
-            emphasis_2 133 153 0
-            emphasis_3 211 54 130
+            base       238 232 213 // #EEE8D5 solarized base2
+            background   7  54  66 // #073642 solarized base02
+            emphasis_0 203  75  22 // #CB4B16 solarized orange
+            emphasis_1  42 161 152 // #2AA198 solarized cyan
+            emphasis_2 133 153   0 // #859900 solarized green
+            emphasis_3 211  54 130 // #D33682 solarized magenta
         }
         list_selected {
-            base 238 232 213
-            background 0 43 54
-            emphasis_0 203 75 22
-            emphasis_1 42 161 152
-            emphasis_2 133 153 0
-            emphasis_3 211 54 130
+            base       238 232 213 // #EEE8D5 solarized base2
+            background   0  43  54 // #002B36 solarized base03
+            emphasis_0 203  75  22 // #CB4B16 solarized orange
+            emphasis_1  42 161 152 // #2AA198 solarized cyan
+            emphasis_2 133 153   0 // #859900 solarized green
+            emphasis_3 211  54 130 // #D33682 solarized magenta
         }
         list_unselected {
-            base 238 232 213
-            background 7 54 66
-            emphasis_0 203 75 22
-            emphasis_1 42 161 152
-            emphasis_2 133 153 0
-            emphasis_3 211 54 130
+            base       238 232 213 // #EEE8D5 solarized base2
+            background   7  54  66 // #073642 solarized base02
+            emphasis_0 203  75  22 // #CB4B16 solarized orange
+            emphasis_1  42 161 152 // #2AA198 solarized cyan
+            emphasis_2 133 153   0 // #859900 solarized green
+            emphasis_3 211  54 130 // #D33682 solarized magenta
         }
         frame_selected {
-            // base 252 242 213
-	    base 146 161 161
-            background 0
-            emphasis_0 203 75 22
-            emphasis_1 42 161 152
-            emphasis_2 211 54 130
-            emphasis_3 0
+            base       238 232 213 // #EEE8D5 solarized base2
+            background   0   0   0 // #000000
+            emphasis_0 203  75  22 // #CB4B16 solarized orange
+            emphasis_1  42 161 152 // #2AA198 solarized cyan
+            emphasis_2 211  54 130 // #D33682 solarized magenta
+            emphasis_3   0   0   0 // #000000
         }
         frame_unselected {
-            base 39 91 105
-            background 0
-            emphasis_0 203 75 22
-            emphasis_1 42 161 152
-            emphasis_2 211 54 130
-            emphasis_3 0
+            base        88 110 117 // #586E75 solarized base01
+            background   0   0   0 // #000000
+            emphasis_0 203  75  22 // #CB4B16 solarized orange
+            emphasis_1  42 161 152 // #2AA198 solarized cyan
+            emphasis_2 211  54 130 // #D33682 solarized magenta
+            emphasis_3   0   0   0 // #000000
         }
         frame_highlight {
-            base 203 75 22
-            background 0
-            emphasis_0 211 54 130
-            emphasis_1 203 75 22
-            emphasis_2 203 75 22
-            emphasis_3 203 75 22
+            base       203  75  22 // #CB4B16 solarized orange
+            background   0   0   0 // #000000
+            emphasis_0 211  54 130 // #D33682 solarized magenta
+            emphasis_1 203  75  22 // #CB4B16 solarized orange
+            emphasis_2 203  75  22 // #CB4B16 solarized orange
+            emphasis_3 203  75  22 // #CB4B16 solarized orange
         }
         exit_code_success {
-            base 133 153 0
-            background 0
-            emphasis_0 42 161 152
-            emphasis_1 7 54 66
-            emphasis_2 211 54 130
-            emphasis_3 38 139 210
+            base       133 153   0 // #859900 solarized green
+            background   0   0   0 // #000000
+            emphasis_0  42 161 152 // #2AA198 solarized cyan
+            emphasis_1   7  54  66 // #073642 solarized base02
+            emphasis_2 211  54 130 // #D33682 solarized magenta
+            emphasis_3  38 139 210 // #268BD2 solarized blue
         }
         exit_code_error {
-            base 220 50 47
-            background 0
-            emphasis_0 181 137 0
-            emphasis_1 0
-            emphasis_2 0
-            emphasis_3 0
+            base       220  50  47 // #DC322F solarized red
+            background   0   0   0 // #000000
+            emphasis_0 181 137   0 // #B58900 solarized yellow
+            emphasis_1   0   0   0 // #000000
+            emphasis_2   0   0   0 // #000000
+            emphasis_3   0   0   0 // #000000
         }
         multiplayer_user_colors {
-            player_1 211 54 130
-            player_2 38 139 210
-            player_3 0
-            player_4 181 137 0
-            player_5 42 161 152
-            player_6 0
-            player_7 220 50 47
-            player_8 0
-            player_9 0
-            player_10 0
+            player_1   211  54 130 // #D33682 solarized magenta
+            player_2    38 139 210 // #268BD2 solarized blue
+            player_3     0   0   0 // #000000
+            player_4   181 137   0 // #B58900 solarized yellow
+            player_5    42 161 152 // #2AA198 solarized cyan
+            player_6     0   0   0 // #000000
+            player_7   220  50  47 // #DC322F solarized red
+            player_8     0   0   0 // #000000
+            player_9     0   0   0 // #000000
+            player_10    0   0   0 // #000000
         }
     }
 }
-
 
