@@ -9,34 +9,35 @@ args = ["-l", "-c", "zellij -l welcome"]
 decorations = "None"
 startup_mode = "Maximized"
 padding = { x = 8, y= 8 }
+opacity = 1.0
 
 [colors.primary]
-#background = "#032029"
-background = "#06171d"
+background = "#05181d"
+foreground = "#EEE8D5"
 
 [colors.cursor]
 text = "#002b36"
 cursor = "#839496"
 
 [colors.normal]
-black   = "#032029"
-red     = "#d21d25"
-green   = "#728a06"
-yellow  = "#a57806"
-blue    = "#2175c6"
-magenta = "#c61d6e"
-cyan    = "#269287"
-white   = "#fdf4dd"
+black   = "#002b36"
+red     = "#dc322f"
+green   = "#859900"
+yellow  = "#b58900"
+blue    = "#268bd2"
+magenta = "#d33682"
+cyan    = "#2aa198"
+white   = "#EEE8D5"
 
 [colors.bright]
-black   = "#053d48"
-red     = "#fd564e"
-green   = "#80b83c"
-yellow  = "#e3b230"
-blue    = "#0096f5"
-magenta = "#f176bd"
-cyan    = "#39c7b9"
-white   = "#fef3da"
+black   = "#153944"
+red     = "#ff5e56"
+green   = "#83c746"
+yellow  = "#efc541"
+blue    = "#4f9cfe"
+magenta = "#ff81ca"
+cyan    = "#56d8c9"
+white   = "#fbf0cc"
 
 [font]
 size = 18
@@ -66,6 +67,11 @@ chars = "\u001bf"
 chars = "\u001bn"
 mods = "Command"
 key = "N"
+
+[[keyboard.bindings]]
+mods = "Command"
+key = "F"
+chars = "\u001bf"
 
 [[keyboard.bindings]]
 mods = "Command"
