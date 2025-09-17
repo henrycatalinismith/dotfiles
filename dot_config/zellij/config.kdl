@@ -95,6 +95,8 @@ keybinds clear-defaults=true {
     bind "enter" { SwitchToMode "normal"; }
   }
 
+  // -- after here is the needs cleanup zone
+
     session {
         bind "a" {
             LaunchOrFocusPlugin "zellij:about" {
