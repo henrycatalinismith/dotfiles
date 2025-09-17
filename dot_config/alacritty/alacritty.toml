@@ -71,7 +71,7 @@ key = "N"
 [[keyboard.bindings]]
 mods = "Command"
 key = "F"
-chars = "\u001bf"
+chars = "\u001bg"
 
 [[keyboard.bindings]]
 mods = "Command"

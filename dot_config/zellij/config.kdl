@@ -77,12 +77,12 @@ keybinds clear-defaults=true {
 
   shared_except "locked" "pane" {
     bind "Super f" { SwitchToMode "entersearch"; }
-    bind "Alt f" { SwitchToMode "entersearch"; }
+    bind "Alt g" { SwitchToMode "entersearch"; }
   }
 
   entersearch {
     bind "Super f" { SwitchToMode "normal"; }
-    bind "Alt f" { SwitchToMode "normal"; }
+    bind "Alt g" { SwitchToMode "normal"; }
     bind "enter" { SwitchToMode "search"; }
   }
 
@@ -155,8 +155,6 @@ keybinds clear-defaults=true {
         bind "k" { ScrollUp; }
         bind "l" { PageScrollDown; }
         bind "u" { HalfPageScrollUp; }
-    }
-    entersearch {
     }
     shared_among "renametab" "renamepane" {
         bind "Ctrl c" { SwitchToMode "normal"; }
