@@ -73,6 +73,18 @@ vim.api.nvim_create_autocmd(
 )
 
 vim.api.nvim_create_user_command(
+ "CopyRelativePath",
+ function()
+  vim.fn.setreg("+", vim.fn.expand("%"))
+ end,
+ {
+  desc = "Copy relative path of current file to clipboard",
+  nargs = 0,
+  bang = false,
+ }
+)
+
+vim.api.nvim_create_user_command(
  "FormatTrailing",
  function()
   local pos = vim.fn.getpos(".")
@@ -486,6 +498,7 @@ require("solarized").setup({
  on_highlights = function(c, u)
   local blk = "#06171d"
   local gry = u.darken(c.base04, 5)
+  gry = "#002B36"
   local brd = u.lighten(c.base04, 8)
   return {
    Normal = { fg = c.base3 },
@@ -494,7 +507,14 @@ require("solarized").setup({
    CursorLineSign = { bg = gry },
    LineNr = { bg = c.base03 },
    SignColumn = { bg = c.base03 },
-   StatusLine = { bg = blk },
+   StatusLine = {
+    bg = blk,
+    fg = c.base01,
+   },
+   StatusLineNC = {
+    bg = blk,
+    fg = c.base01,
+   },
    TabLineFill = { bg = blk },
    TabLine = { bg = blk },
    TabLineSel = { fg = "#fcf2d5" },
