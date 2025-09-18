@@ -167,6 +167,18 @@ vim.keymap.set(
  {}
 )
 
+-- Map <leader>n to :noh
+--
+-- Speeds up typing :noh to get
+-- rid of the highlight on the
+-- last search.
+vim.keymap.set(
+ "n",
+ "<leader>m",
+ ":noh<CR>",
+ { noremap = true }
+)
+
 -- Map <leader>p to fuzzy find
 --
 -- <Cmd>P opens this menu in
@@ -519,9 +531,12 @@ require("solarized").setup({
    TabLine = { bg = blk },
    TabLineSel = { fg = "#fcf2d5" },
    TelescopeBorder = { fg = brd },
-   TelescopeTitle = { bg = blk, fg = c.base3 },
+   TelescopeTitle = { bg = blk, fg = blk },
    TelescopePromptNormal = { fg = c.base3 },
    TelescopePromptBorder = { fg = c.base1 },
+   Search = { bg = "#efc541", fg = blk },
+   IncSearch = { bg = "#efc541", fg = blk },
+   TelescopeMatching = { fg = "#efc541", bg = blk },
   }
  end,
 })
