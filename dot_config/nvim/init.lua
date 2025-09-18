@@ -531,7 +531,7 @@ require("solarized").setup({
    TabLine = { bg = blk },
    TabLineSel = { fg = "#fcf2d5" },
    TelescopeBorder = { fg = brd },
-   TelescopeTitle = { bg = blk, fg = blk },
+   TelescopeTitle = { bg = blk, fg = c.base3 },
    TelescopePromptNormal = { fg = c.base3 },
    TelescopePromptBorder = { fg = c.base1 },
    Search = { bg = "#efc541", fg = blk },
