@@ -3,6 +3,19 @@
 --------------------------------
 
 vim.api.nvim_create_autocmd(
+ {
+  "BufRead",
+  "BufNewFile",
+ },
+ {
+  pattern = "*.njk",
+  callback = function()
+   vim.bo.filetype = "html"
+  end,
+ }
+)
+
+vim.api.nvim_create_autocmd(
  "CursorHold",
  {
   callback = function()
@@ -52,6 +65,21 @@ vim.api.nvim_create_autocmd(
    vim.opt_local.shiftwidth = 2
    vim.opt_local.tabstop = 2
    vim.opt_local.softtabstop = 2
+   vim.opt_local.expandtab = true
+  end,
+ }
+)
+
+vim.api.nvim_create_autocmd(
+ "FileType",
+ {
+  pattern = {
+   "perl",
+  },
+  callback = function()
+   vim.opt_local.shiftwidth = 4
+   vim.opt_local.tabstop = 4
+   vim.opt_local.softtabstop = 4
    vim.opt_local.expandtab = true
   end,
  }
