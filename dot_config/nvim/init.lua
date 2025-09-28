@@ -195,6 +195,14 @@ vim.keymap.set(
  {}
 )
 
+-- Map <leader>g to live grep
+vim.keymap.set(
+ "n",
+ "<leader>g",
+ ":Telescope live_grep<CR>",
+ {}
+)
+
 -- Map <leader>n to :noh
 --
 -- Speeds up typing :noh to get
