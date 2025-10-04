@@ -195,6 +195,14 @@ vim.keymap.set(
  {}
 )
 
+-- Map <leader>a to select all
+vim.keymap.set(
+ "n",
+ "<leader>a",
+ "ggVG",
+ {}
+)
+
 -- Map <leader>g to live grep
 vim.keymap.set(
  "n",
