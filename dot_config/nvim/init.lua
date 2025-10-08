@@ -577,7 +577,7 @@ require("solarized").setup({
    TelescopeBorder = { fg = brd },
    TelescopeTitle = { bg = blk, fg = c.base3 },
    TelescopePromptNormal = { fg = c.base3 },
-   TelescopePromptBorder = { fg = c.base1 },
+   TelescopePromptBorder = { fg = "#eae3cc" },
    Search = { bg = "#efc541", fg = blk },
    IncSearch = { bg = "#efc541", fg = blk },
    TelescopeMatching = { fg = "#efc541", bg = blk },
