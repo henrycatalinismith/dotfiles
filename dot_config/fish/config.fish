@@ -6,7 +6,8 @@ fish_add_path $HOME/.docker/bin
 fish_add_path $HOME/.local/bin
 
 function fish_greeting
-  fortune
+  clear
+  phoon | lolcat
 end
 
 function fish_prompt
