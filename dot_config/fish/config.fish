@@ -48,6 +48,10 @@ alias mutt="neomutt"
 fish_add_path $HOME/.docker/bin
 fish_add_path $HOME/.local/bin
 
+function fish_greeting
+  fortune
+end
+
 function fish_prompt
   set_color 92a1a1
   echo -n '$ '
