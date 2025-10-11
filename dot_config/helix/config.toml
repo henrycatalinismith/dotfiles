@@ -1,0 +1,10 @@
+theme = "darkstar"
+
+[editor]
+bufferline = "always"
+cursorline = true
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
+[keys.normal]
