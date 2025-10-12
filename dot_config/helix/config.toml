@@ -1,4 +1,4 @@
-theme = "darkstar"
+theme = "gruvbox_dark_hard"
 
 [editor]
 bufferline = "always"
@@ -7,4 +7,3 @@ cursorline = true
 [editor.inline-diagnostics]
 cursor-line = "hint"
 
-[keys.normal]
