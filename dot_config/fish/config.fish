@@ -27,14 +27,7 @@ function zellij_tab_name_update --on-event fish_preexec
   end
 end
 
-function zellij_tab_name_reset --on-event fish_postexec
-  if set -q ZELLIJ
-    command nohup zellij action rename-tab "fish" >/dev/null 2>&1
-  end
-end
-
 set -Ux GEMRC ~/.config/gem/gemrc
 set -Ux IRBRC ~/.config/irb/irbrc
 set -Ux GIT_CONFIG_GLOBAL ~/.config/git/config
 set -Ux NETHACKOPTIONS ~/.config/nethack/nethackrc
-

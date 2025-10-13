@@ -1,24 +1,22 @@
-# test: {{ .palette.background }}
-
-palette = 0=#002b36
-palette = 1=#dc322f
-palette = 2=#859900
-palette = 3=#b58900
-palette = 4=#268bd2
-palette = 5=#d33682
-palette = 6=#2aa198
-palette = 7=#EEE8D5
-palette = 8=#153944
-palette = 9=#ff5e56
-palette = 10=#83c746
-palette = 11=#efc541
-palette = 12=#4f9cfe
-palette = 13=#ff81ca
-palette = 14=#56d8c9
-palette = 15=#fbf0cc
-background = #05181d
-foreground = #EEE8D5
-cursor-color = #839496
-cursor-text = #002b36
-selection-background = #002b36
-selection-foreground = #EEE8D5
+background = {{ .palette.background }}
+foreground = {{ .palette.foreground }}
+palette = 0={{ .palette.black }}
+palette = 1={{ .palette.red }}
+palette = 2={{ .palette.yellow }}
+palette = 3={{ .palette.green }}
+palette = 4={{ .palette.blue }}
+palette = 5={{ .palette.magenta }}
+palette = 6={{ .palette.cyan }}
+palette = 7={{ .palette.white }}
+palette = 8={{ .palette.bright_black }}
+palette = 9={{ .palette.bright_red }}
+palette = 10={{ .palette.bright_green }}
+palette = 11={{ .palette.bright_yellow }}
+palette = 12={{ .palette.bright_blue }}
+palette = 13={{ .palette.bright_magenta }}
+palette = 14={{ .palette.bright_cyan }}
+palette = 15={{ .palette.bright_white }}
+cursor-color = {{ .palette.cursor_color }}
+cursor-text = {{ .palette.cursor_text }}
+selection-background = {{ .palette.selection_background }}
+selection-foreground = {{ .palette.selection_foreground }}
