@@ -8,6 +8,7 @@ keybinds {
   shared {
     bind "Super down" { MoveFocus "down"; }
     bind "Super right" { MoveFocusOrTab "right"; }
+    bind "Super left" { MoveFocusOrTab "left"; }
     bind "Super up" { MoveFocus "up"; }
     bind "Super p" { SwitchToMode "pane"; }
     bind "Super t" { SwitchToMode "tab"; }

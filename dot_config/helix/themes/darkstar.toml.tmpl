@@ -1,3 +1,5 @@
+"ui.background" = { bg = "background" }
+
 "attribute" = { fg = "violet" }
 "keyword" = { fg = "green" }
 "keyword.directive" = { fg = "orange" }
@@ -39,7 +41,6 @@
 
 # 背景
 #"ui.background" = { bg = "#071416" }
-"ui.background" = { bg = "transparent" }
 #"ui.cursor" = { bg = "#042129" }
 
 "ui.virtual.whitespace" = { fg = "base01" }
@@ -116,6 +117,8 @@
 "diagnostic.deprecated" = { modifiers = ["crossed_out"] }
 
 [palette]
+background = "{{ .palette.background }}"
+
 # 深色 越来越深
 base03   = "#002b36"
 
