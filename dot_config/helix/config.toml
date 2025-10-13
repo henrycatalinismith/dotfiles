@@ -1,6 +1,7 @@
 theme = "darkstar"
 
 [editor]
+auto-pairs = false
 bufferline = "always"
 cursorline = true
 default-yank-register = "+"
