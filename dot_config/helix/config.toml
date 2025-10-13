@@ -3,6 +3,7 @@ theme = "darkstar"
 [editor]
 bufferline = "always"
 cursorline = true
+default-yank-register = "+"
 end-of-line-diagnostics = "warning"
 
 [editor.inline-diagnostics]
