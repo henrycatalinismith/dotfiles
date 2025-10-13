@@ -18,7 +18,7 @@ cursor-line = "hint"
 
 [keys.normal]
 tab = ":buffer-next"
-D = ["ensure_selections_forward", "extend_to_line_end", "delete_selection"]
+D = ["kill_to_line_end"]
 "{" = ["goto_prev_paragraph"]
 "}" = ["goto_next_paragraph"]
 S-tab = ":buffer-previous"
