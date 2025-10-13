@@ -5,6 +5,8 @@ font-family = "Iosevka"
 font-size = 18
 macos-option-as-alt = left
 keybind = alt+left=unbind
+keybind = alt+up=unbind
+keybind = alt+down=unbind
 keybind = alt+right=unbind
 keybind = command+up=unbind
 keybind = command+right=unbind
@@ -12,11 +14,7 @@ keybind = command+down=unbind
 keybind = command+left=unbind
 keybind = command+t=unbind
 keybind = command+p=unbind
+maximize = true
 macos-titlebar-proxy-icon = "hidden"
-theme = Firefox Dev
-theme = Solarized Dark Higher Contrast
-theme = Builtin Solarized Dark
-theme = Nightfox
-theme = Gruvbox Dark Hard
 theme = darkstar
 title = " "
