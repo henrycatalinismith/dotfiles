@@ -1,3 +1,4 @@
+initial-command = "zellij -l welcome"
 window-decoration = "none"
 window-padding-x = 10
 window-padding-y = 2
