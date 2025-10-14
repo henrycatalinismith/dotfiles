@@ -55,4 +55,4 @@ chsh -s /opt/homebrew/bin/fish
 
 ## License
 
-[Apache-2.0](https://codeberg.org/henrycatalinismith/dotfiles/src/branch/main/license)
+[FCL](https://codeberg.org/henrycatalinismith/dotfiles/src/branch/main/license)
