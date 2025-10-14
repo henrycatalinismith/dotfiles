@@ -57,7 +57,7 @@
 
 [core]
 	autocrlf = false
-	editor = nvim
+	editor = hx
 	whitespace = trailing-space,space-before-tab
 
 [init]
