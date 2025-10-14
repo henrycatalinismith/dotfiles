@@ -1,0 +1,26 @@
+[[language]]
+name = "css"
+formatter = { command = "npx", args = ["prettier", "--parser", "css"] }
+language-servers = [
+  "vscode-css-language-server",
+  "tailwindcss-ls"
+]
+
+[[language]]
+name = "git-commit"
+rulers = []
+
+[[language]]
+name = "html"
+language-servers = [
+  "tailwindcss-ls",
+  "vscode-html-language-server"
+]
+
+[[language]]
+name = "tsx"
+language-servers = [
+  "vscode-eslint-language-server",
+  "tailwindcss",
+  "typescript-language-server"
+]
