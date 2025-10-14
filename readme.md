@@ -2,11 +2,48 @@
 
 Personal config files for setting up new computers
 
+## Core Tools
+
+This setup is based on a core group of tools that underpin every workflow.
+
+| Name      | Purpose           |
+|-----------|-------------------|
+| [Ghostty] | Terminal emulator |
+| [Zellij]  | Multiplexer       |
+| [Fish]    | Shell             |
+| [Helix]   | Text editor       |
+
+[Ghostty]: https://ghostty.org/
+[Zellij]:  https://zellij.dev/
+[Fish]: https://fishshell.com/
+[Helix]: https://helix-editor.com/
+
+All four of these have been chosen for their batteries-included design philosophy.
+Ghostty's support for functionality like unbinding particular key combinations is key for maximising flexibility for the other tools.
+Zellij comes out of the box with a UX that requires half a dozen plugins to replicate in tmux.
+Fish is like if zsh was redesigned to merge oh-my-zsh upstream.
+And Helix is like if Neovim shipped with all the LSP and Telescope stuff built-in.
+
 ## Palette
 
-[Solarized](https://en.m.wikipedia.org/wiki/Solarized) plus the [bright palette from Selenized Black](https://github.com/jan-warchol/selenized/blob/master/the-values.md#selenized-black). The key here is the addition of an extra dark background colour. It creates enough breathing room in the palette to fully eradicate Solarized's main problem, which is the contrast being too low. It also ensures readable colours even on a monitor in somewhat direct sunlight.
+Almost everyone creating terminal palettes misunderstands the problem space somewhat.
+After years of struggle I've given up searching and made my own.
 
-https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=071416%2Cmidnight1%0D%0A05181d%2Cmidnight2%0D%0A%0D%0A002b36%2Csolarized_base03%0D%0A073642%2Csolarized_base02%0D%0A586e75%2Csolarized_base01%0D%0A657b83%2Csolarized_base00%0D%0A839496%2Csolarized_base0%0D%0A93a1a1%2Csolarized_base1%0D%0Aeee8d5%2Csolarized_base2%0D%0Afdf6e3%2Csolarized_base3%0D%0Adc322f%2Csolarized_red%0D%0AE14F4C%2Cadjusted_red%0D%0Aed4a46%2Cselenized_red%0D%0Acb4b16%2Csolarized_orange%0D%0AD85118%2Cadjusted_orange%0D%0Ae67f43%2Cselenized_orange%0D%0Ab58900%2Csolarized_yellow%0D%0Adbb32d%2Cselenized_yellow%0D%0A859900%2Csolarized_green%0D%0A70b433%2Cselenized_green%0D%0A2aa198%2Csolarized_cyan%0D%0A3fc5b7%2Cselenized_cyan%0D%0A268bd2%2Csolarized_blue%0D%0A4f9cfe%2Cselenized_blue%0D%0A6c71c4%2Csolarized_violet%0D%0A8386c9%2Cadjusted_violet%0D%0Aa580e2%2Cselenized_violet%0D%0Ad33682%2Csolarized_magenta%0D%0Aeb6eb7%2Cselenized_magenta&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp
+A terminal colour palette is a background, a foreground, and then 16 general purpose colours.
+Those 16 are two variants each of black, red, green, yellow, blue, magenta, cyan and white.
+One thing almost everyone misunderstands is that every single one of those 16 colours can be used as a foreground colour.
+This means they all need sufficient contrast against the one main background colour to be legible.
+People making a dark theme tend to fuck up the two blacks, while light themes will tend to have terrible white colours.
+If you've ever noticed that some of the text in the output of certain unit test frameworks or whatever was impossible to read because it blended into the background, this is why.
+
+A related mistake that's equally common is that people screw up the background colour by making its lightness too close to that of the foreground colours.
+Solarized Dark is a great example of this, with its background blue so bright that half the content tones and some of the accent colours don't even pass the WCAG contrast minimums.
+I have a theory that if you're inexperienced in working with colour you have this beginner's bias to want everything to be a loud attention-grabbing foreground colour.
+A very dark or very bright colour that's quite close to full black or full white doesn't feel so exciting during the creative process so you inch closer and closer to your foreground colours until it feels cool.
+The end result is a palette that's trying to upstage the information it's supposed to be there to enhance.
+
+So I've taken the Solarized Dark palette and cranked down the lightness of the background colour to an almost-black #05181d so that there's shitloads of contrast for every foreground colour.
+I've also used the base00 colour (#657b83) as the black value for the palette instead of the commonly chosen base02 (#073642), which is the secret ingredient to ensure absolutely every foreground colour is legible.
 
 ## Fish setup
 
