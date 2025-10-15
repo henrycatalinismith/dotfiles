@@ -21,6 +21,6 @@ language-servers = [
 name = "tsx"
 language-servers = [
   "vscode-eslint-language-server",
-  "tailwindcss",
+  "tailwindcss-ls",
   "typescript-language-server"
 ]
