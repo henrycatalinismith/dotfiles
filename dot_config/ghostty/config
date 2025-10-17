@@ -14,6 +14,7 @@ keybind = command+down=unbind
 keybind = command+left=unbind
 keybind = command+t=unbind
 keybind = command+p=unbind
+link-url = true
 maximize = true
 macos-titlebar-proxy-icon = "hidden"
 theme = darkstar

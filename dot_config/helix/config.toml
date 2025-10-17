@@ -32,12 +32,12 @@ A-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 esc = ["collapse_selection", "keep_primary_selection"]
 
 [keys.normal.space]
-q = ":quit"
+q = ":buffer-close"
 
 [keys.insert]
-"{" = ["extend_to_line_bounds", "goto_prev_paragraph"]
-"}" = ["extend_to_line_bounds", "goto_next_paragraph"]
-"$" = "goto_line_end"
-"^" = "goto_first_nonwhitespace"
-"%" = "match_brackets"
+#"{" = ["extend_to_line_bounds", "goto_prev_paragraph"]
+#"}" = ["extend_to_line_bounds", "goto_next_paragraph"]
+#"$" = "goto_line_end"
+#"^" = "goto_first_nonwhitespace"
+#"%" = "match_brackets"
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
