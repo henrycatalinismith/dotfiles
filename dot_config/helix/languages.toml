@@ -3,6 +3,7 @@ name = "css"
 formatter = { command = "npx", args = ["prettier", "--parser", "css"] }
 language-servers = [
   "vscode-css-language-server",
+  "emmet-lsp",
   "tailwindcss-ls"
 ]
 
@@ -14,7 +15,8 @@ rulers = []
 name = "html"
 language-servers = [
   "tailwindcss-ls",
-  "vscode-html-language-server"
+  "vscode-html-language-server",
+  "emmet-lsp"
 ]
 
 [[language]]
@@ -24,3 +26,7 @@ language-servers = [
   "tailwindcss-ls",
   "typescript-language-server"
 ]
+
+[language-server.emmet-lsp]
+command = "emmet-language-server"
+args = ["--stdio"]

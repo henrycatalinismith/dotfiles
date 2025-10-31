@@ -19,3 +19,4 @@ maximize = true
 macos-titlebar-proxy-icon = "hidden"
 theme = darkstar
 title = " "
+minimum-contrast = 3
