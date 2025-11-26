@@ -33,6 +33,10 @@ esc = ["collapse_selection", "keep_primary_selection"]
 
 [keys.normal.space]
 q = ":buffer-close"
+#m = ":sh zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/helix/yazi-picker.sh open %{buffer_name}"
+ 
+[keys.normal.space.z]
+p = ":sh echo \"%{buffer_name}\" | pbcopy"
 
 [keys.insert]
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
