@@ -8,6 +8,8 @@ show_startup_tips false
 keybinds {
 
   normal {
+    unbind "Alt up"
+    unbind "Alt down"
     unbind "Alt right"
     unbind "Alt left"
   }

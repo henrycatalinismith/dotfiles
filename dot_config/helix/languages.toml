@@ -3,7 +3,6 @@ name = "css"
 formatter = { command = "npx", args = ["prettier", "--parser", "css"] }
 language-servers = [
   "vscode-css-language-server",
-  "emmet-lsp",
   "tailwindcss-ls"
 ]
 
@@ -15,8 +14,7 @@ rulers = []
 name = "html"
 language-servers = [
   "tailwindcss-ls",
-  "vscode-html-language-server",
-  "emmet-lsp"
+  "vscode-html-language-server"
 ]
 
 [[language]]
@@ -27,6 +25,10 @@ language-servers = [
   "typescript-language-server"
 ]
 
-[language-server.emmet-lsp]
-command = "emmet-language-server"
-args = ["--stdio"]
+[language-server.csharp]
+command = "csharp-ls"
+
+[[language]]
+name = "c-sharp"
+language-servers = ["csharp"]
+file-types = ["cs"]
