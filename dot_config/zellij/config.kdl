@@ -4,31 +4,12 @@ default_shell "fish"
 default_layout "compact"
 show_startup_tips false
 
-
 keybinds {
-
   normal {
     unbind "Alt up"
     unbind "Alt down"
     unbind "Alt right"
     unbind "Alt left"
-  }
-
-  shared {
-    bind "Super down" { MoveFocus "down"; }
-    bind "Super right" { MoveFocusOrTab "right"; }
-    bind "Super left" { MoveFocusOrTab "left"; }
-    bind "Super up" { MoveFocus "up"; }
-    bind "Super p" { SwitchToMode "pane"; }
-    bind "Super t" { SwitchToMode "tab"; }
-  }
-
-  tab {
-    bind "Super t" { SwitchToMode "normal"; }
-  }
-
-  pane {
-    bind "Super p" { SwitchToMode "normal"; }
   }
 }
 

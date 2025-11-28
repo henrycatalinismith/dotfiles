@@ -8,12 +8,6 @@ keybind = alt+left=unbind
 keybind = alt+up=unbind
 keybind = alt+down=unbind
 keybind = alt+right=unbind
-keybind = command+up=unbind
-keybind = command+right=unbind
-keybind = command+down=unbind
-keybind = command+left=unbind
-keybind = command+t=unbind
-keybind = command+p=unbind
 link-url = true
 maximize = true
 macos-titlebar-proxy-icon = "hidden"
