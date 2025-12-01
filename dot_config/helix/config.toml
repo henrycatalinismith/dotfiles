@@ -37,6 +37,7 @@ q = ":buffer-close"
 c = ":clipboard-yank"
 l = ":log-open"
 p = ":sh echo \"%{buffer_name}\" | pbcopy"
+r = ":reload"
 
 [keys.insert]
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
