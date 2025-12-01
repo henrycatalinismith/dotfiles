@@ -34,6 +34,8 @@ esc = ["collapse_selection", "keep_primary_selection"]
 q = ":buffer-close"
  
 [keys.normal.space.z]
+c = ":clipboard-yank"
+l = ":log-open"
 p = ":sh echo \"%{buffer_name}\" | pbcopy"
 
 [keys.insert]
