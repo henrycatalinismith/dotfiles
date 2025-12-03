@@ -39,5 +39,8 @@ l = ":log-open"
 p = ":sh echo \"%{buffer_name}\" | pbcopy"
 r = ":reload"
 
+[keys.normal.backspace]
+h = ":sh zellij run --close-on-exit -f -x=10%% -y=10%% --width=80%% --height=85%% -- lazygit --filter \"%{buffer_name}\""
+
 [keys.insert]
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
