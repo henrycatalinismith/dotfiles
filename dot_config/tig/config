@@ -1,0 +1,26 @@
+set git-colors = no
+
+color line-number black default
+color cursor white 24
+color author 24 default
+color date 67 default
+color delimiter 213 default
+color palette-0 31 default
+color palette-1 32 default
+color palette-2 33 default
+color palette-3 37 default
+color palette-4 67 default
+color palette-5 68 default
+color palette-6 69 default
+color palette-7 60 default
+color palette-8 61 default
+color palette-9 62 default
+color palette-10 72 default
+color palette-11 109 default
+color palette-12 110 default
+color palette-13 111 default
+
+color title-focus black default 
+
+bind generic C !sh -c "printf '%s' '%(commit)' | pbcopy; echo '%(commit)' | cowsay -n -r"
+
