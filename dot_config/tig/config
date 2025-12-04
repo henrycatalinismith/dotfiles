@@ -20,7 +20,7 @@ color palette-11 109 default
 color palette-12 110 default
 color palette-13 111 default
 
-color title-focus black default 
+color title-focus black default
 
 bind generic C !sh -c "printf '%s' '%(commit)' | pbcopy; echo '%(commit)' | cowsay -n -r"
 

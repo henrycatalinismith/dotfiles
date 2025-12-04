@@ -16,6 +16,9 @@ hidden = false
 [editor.inline-diagnostics]
 cursor-line = "hint"
 
+[editor.lsp]
+display-progress-messages = true
+
 [keys.normal]
 tab = ":buffer-next"
 S-tab = ":buffer-previous"
@@ -39,8 +42,10 @@ l = ":log-open"
 p = ":sh echo \"%{buffer_name}\" | pbcopy"
 r = ":reload"
 
+# <backspace> for zellij commands
 [keys.normal.backspace]
-h = ":sh zellij run --close-on-exit -f -x=10%% -y=10%% --width=80%% --height=85%% -- lazygit --filter \"%{buffer_name}\""
+b = ":sh zellij run --close-on-exit -f -x=1%% -y=4%% --width=99%% --height=92%% -- tig blame \"%{buffer_name}\""
+h = ":sh zellij run --close-on-exit -f -x=1%% -y=4%% --width=99%% --height=92%% -- lazygit --filter \"%{buffer_name}\""
 
 [keys.insert]
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
