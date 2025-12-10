@@ -1,9 +1,9 @@
 gui:
   nerdFontsVersion: "3"
   theme:
-    activeBorderColor:
-      - "#EEE8D5"
-    inactiveBorderColor:
-      - "#586E75"
-    selectedLineBgColor:
-      - "#002B36"
+    # activeBorderColor:
+    #   - "#EEE8D5"
+    # inactiveBorderColor:
+    #   - "#586E75"
+    # selectedLineBgColor:
+    #   - "#002B36"

@@ -12,34 +12,6 @@ padding = { x = 8, y= 8 }
 opacity = 1.0
 option_as_alt = "Both"
 
-# [colors.primary]
-# background = "#05181d"
-# foreground = "#EEE8D5"
-
-# [colors.cursor]
-# text = "#002b36"
-# cursor = "#839496"
-
-# [colors.normal]
-# black   = "#002b36"
-# red     = "#dc322f"
-# green   = "#859900"
-# yellow  = "#b58900"
-# blue    = "#268bd2"
-# magenta = "#d33682"
-# cyan    = "#2aa198"
-# white   = "#EEE8D5"
-
-# [colors.bright]
-# black   = "#153944"
-# red     = "#ff5e56"
-# green   = "#83c746"
-# yellow  = "#efc541"
-# blue    = "#4f9cfe"
-# magenta = "#ff81ca"
-# cyan    = "#56d8c9"
-# white   = "#fbf0cc"
-
 [font]
 size = 18
 
@@ -58,5 +30,4 @@ style = "Regular"
 chars = "\u001b\u007f"
 key = "Back"
 mods = "Alt"
-
 
