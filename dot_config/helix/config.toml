@@ -46,6 +46,7 @@ r = ":reload"
 [keys.normal.backspace]
 b = ":sh zellij run --close-on-exit -f -x=1%% -y=4%% --width=99%% --height=92%% -- tig blame \"%{buffer_name}\""
 h = ":sh zellij run --close-on-exit -f -x=1%% -y=4%% --width=99%% --height=92%% -- lazygit --filter \"%{buffer_name}\""
+r = ":sh zellij run --close-on-exit -f -x=20%% -y=33%% --width=60%% --height=6 -- lazyrename --helix --zellij \"%{buffer_name}\""
 
 [keys.insert]
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
