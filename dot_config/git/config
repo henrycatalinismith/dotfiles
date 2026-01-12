@@ -1,15 +1,6 @@
 [alias]
-	ap  = add --patch
-	cp  = cherry-pick
 	g   = grep -n
 	gi  = grep -ni
-	git = !git $1
-	re  = "!f() { git rh $1; git c- $1; }; f"
-	rh  = reset HEAD
-	ri  = "!f() { git rebase -i HEAD~$*; }; f"
-
-[clean]
-	requireForce = false
 
 [core]
 	autocrlf = false
