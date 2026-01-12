@@ -32,3 +32,4 @@ command = "csharp-ls"
 name = "c-sharp"
 language-servers = ["csharp"]
 file-types = ["cs"]
+
