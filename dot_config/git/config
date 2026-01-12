@@ -1,59 +1,15 @@
 [alias]
-	ap   = add --patch
-	cow  = "!f() { cowsay \"$*\" | git commit -a -F -; }; f"
-	cp   = cherry-pick
-	g    = grep -n
-	gi   = grep -ni
-	git  = !git $1
-	re   = "!f() { git rh $1; git c- $1; }; f"
-	rh   = reset HEAD
-	ri   = "!f() { git rebase -i HEAD~$*; }; f"
-	s    = "!f() { sl; cowsay "gsb"; }; f"
-	up   = "!f() { sl; cowsay "gup"; }; f"
+	ap  = add --patch
+	cp  = cherry-pick
+	g   = grep -n
+	gi  = grep -ni
+	git = !git $1
+	re  = "!f() { git rh $1; git c- $1; }; f"
+	rh  = reset HEAD
+	ri  = "!f() { git rebase -i HEAD~$*; }; f"
 
 [clean]
 	requireForce = false
-
-[color]
-	branch   = true
-	diff     = true
-	decorate = true
-	grep     = true
-	pager    = true
-	status   = true
-
-[color "branch"]
-	current = magenta reverse
-	local = magenta
-	remote = yellow
-
-[color "decorate"]
-	commit       = cyan
-	branch       = magenta
-	remotebranch = magenta bold
-	tag          = red
-	stash        = yellow
-	HEAD         = cyan
-
-[color "diff"]
-	frag       = magenta
-	meta       = white
-	new        = green bold
-	old        = red bold
-	whitespace = white reverse
-
-[color "grep"]
-	filename   = blue
-	linenumber = green
-	match      = magenta bold
-	separator  = cyan
-
-[color "status"]
-	branch    = magenta
-	header    = blue
-	added     = magenta
-	changed   = magenta
-	untracked = cyan
 
 [core]
 	autocrlf = false
@@ -66,8 +22,9 @@
 [log]
 	date = iso
 
+[push]
+	autoSetupRemote = true
+
 [user]
 	name = Henry Catalini Smith
 	email = henry@catalinismith.se
-[push]
-	autoSetupRemote = true
