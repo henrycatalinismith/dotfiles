@@ -18,6 +18,14 @@ language-servers = [
 ]
 
 [[language]]
+name = "lua"
+file-types = ["p8"]
+language-servers = ["pico8-ls"]
+
+[language-server.pico8-ls]
+command = "pico8-ls"
+
+[[language]]
 name = "tsx"
 language-servers = [
   "vscode-eslint-language-server",
