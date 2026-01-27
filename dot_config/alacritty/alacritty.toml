@@ -19,9 +19,6 @@ size = 18
 family = "Iosevka Nerd Font Mono"
 style = "Bold"
 
-[font.glyph_offset]
-y = 2
-
 [font.normal]
 family = "Iosevka Nerd Font Mono"
 style = "Regular"
