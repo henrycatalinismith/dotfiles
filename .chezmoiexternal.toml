@@ -1,4 +1,0 @@
-[".config/zellij/plugins/zjstatus.wasm"]
-    type = "file"
-    url = "https://github.com/dj95/zjstatus/releases/download/v0.21.0/zjstatus.wasm"
-    refreshPeriod = "168h"
