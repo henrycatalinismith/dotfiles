@@ -38,7 +38,6 @@ m = "@:mv! <C-r>%"
 q = ":buffer-close"
  
 [keys.normal.space.z]
-l = ":log-open"
 p = ":sh echo \"%{buffer_name}\" | pbcopy"
 r = ":reload"
 
