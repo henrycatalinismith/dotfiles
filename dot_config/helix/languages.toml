@@ -11,6 +11,11 @@ name = "git-commit"
 rulers = []
 
 [[language]]
+name = "gotmpl"
+file-types = ["tmpl"]
+language-servers = ["gopls", "vscode-html-language-server"]
+
+[[language]]
 name = "html"
 language-servers = [
   "tailwindcss-ls",
