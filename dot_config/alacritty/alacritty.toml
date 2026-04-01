@@ -2,7 +2,7 @@
 TERM = "xterm-256color"
 
 [terminal.shell]
-program = "/opt/homebrew/bin/fish"
+program = "/opt/homebrew/bin/nu"
 args = ["-l", "-c", "zellij -l welcome"]
 
 [window]

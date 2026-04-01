@@ -1,8 +1,8 @@
 default_layout "compact"
 default_mode "normal"
-default_shell "fish"
+default_shell "nu"
 show_startup_tips false
-theme "ansi" 
+theme "ansi"
 
 keybinds {
   normal {
