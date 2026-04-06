@@ -14,13 +14,8 @@ option_as_alt = "Both"
 [font]
 size = 18
 
-[font.bold]
-family = "Iosevka Nerd Font Mono"
-style = "Bold"
-
 [font.normal]
 family = "Iosevka Nerd Font Mono"
-style = "Regular"
 
 [[keyboard.bindings]]
 chars = "\u001b\u007f"
