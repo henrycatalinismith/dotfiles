@@ -9,7 +9,6 @@ args = ["-l", "-c", "zellij -l welcome"]
 decorations = "None"
 startup_mode = "Maximized"
 padding = { x = 8, y = 8 }
-opacity = 1.0
 option_as_alt = "Both"
 
 [font]
