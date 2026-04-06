@@ -1,6 +1,5 @@
 alias gup="git remote update --prune; git merge --ff-only @{u}"
 alias lg="lazygit"
-alias mutt="neomutt"
 
 fish_add_path $HOME/.docker/bin
 fish_add_path $HOME/.local/bin
