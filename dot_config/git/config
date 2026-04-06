@@ -6,6 +6,9 @@
 	autocrlf = false
 	editor = hx
 	whitespace = trailing-space,space-before-tab
+	logallrefupdates = true
+	quotePath = false
+	commitGraph = true
 
 [init]
 	defaultBranch = main
@@ -19,3 +22,4 @@
 [user]
 	name = Henry Catalini Smith
 	email = henry@catalinismith.se
+
