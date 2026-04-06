@@ -32,3 +32,4 @@ set -Ux GEMRC ~/.config/gem/gemrc
 set -Ux IRBRC ~/.config/irb/irbrc
 set -Ux GIT_CONFIG_GLOBAL ~/.config/git/config
 set -Ux NETHACKOPTIONS ~/.config/nethack/nethackrc
+set -Ux XDG_CONFIG_HOME ~/.config
