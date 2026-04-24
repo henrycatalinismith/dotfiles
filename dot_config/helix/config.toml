@@ -33,14 +33,12 @@ A-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 esc = ["collapse_selection", "keep_primary_selection"]
 "*" = ["move_char_right", "move_prev_word_start", "move_next_word_end", "search_selection", "search_next"]
 
-[keys.normal.space]
-q = ":buffer-close"
-
 [keys.normal.backspace]
 b = ":sh zellij run --close-on-exit -f -x=1%% -y=4%% --width=99%% --height=92%% -- tig blame \"%{buffer_name}\""
 h = ":sh zellij run --close-on-exit -f -x=1%% -y=4%% --width=99%% --height=92%% -- lazygit --filter \"%{buffer_name}\""
 m = "@:mv! <C-r>%"
 p = ":sh echo \"%{buffer_name}\" | pbcopy"
+q = ":buffer-close!"
 r = ":reload"
 
 [keys.insert]
