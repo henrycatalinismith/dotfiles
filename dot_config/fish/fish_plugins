@@ -4,5 +4,4 @@ jorgebucaran/nvm.fish
 evanlucas/fish-kubectl-completions
 halostatue/fish-direnv@v1
 jhillyerd/plugin-git
-halostatue/fish-rust@v2
-halostatue/fish-go@v2
+ssoriche/kubectl.fish
