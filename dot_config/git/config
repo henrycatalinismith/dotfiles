@@ -7,7 +7,6 @@
 				--preview-window '<50(down)' \
 				--bind 'enter:become(git show {1})' #"
 
-
 [core]
 	autocrlf = false
 	editor = hx
@@ -15,6 +14,25 @@
 	logallrefupdates = true
 	quotePath = false
 	commitGraph = true
+
+[diff]
+	algorithm = histogram
+
+[fetch]
+	writeCommitGraph = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[gc]
+	reflogexpire = 90
+	writeCommitGraph = true
+
+[gpg]
+	format = openpgp
 
 [init]
 	defaultBranch = main
@@ -25,30 +43,19 @@
 [push]
 	autoSetupRemote = true
 
-[user]
-	name = Henry Catalini Smith
-	email = henry@catalinismith.se
-
-[gc]
-	reflogexpire = 90
-	writeCommitGraph = true
-[diff]
-	algorithm = histogram
 [receive]
 	advertisePushOptions = true
 	procReceiveRefs = refs/for
 	hideRefs = refs/pull/
-[fetch]
-	writeCommitGraph = true
+
 [safe]
 	directory = *
-[gpg]
-	format = openpgp
+
 [uploadpack]
 	allowfilter = true
 	allowAnySHA1InWant = true
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+
+[user]
+	name = Henry Catalini Smith
+	email = henry@catalinismith.se
+
