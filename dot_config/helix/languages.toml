@@ -27,6 +27,10 @@ name = "lua"
 file-types = ["p8"]
 language-servers = ["pico8-ls"]
 
+[[language]]
+name = "markdown"
+language-servers = []
+
 [language-server.pico8-ls]
 command = "pico8-ls"
 
