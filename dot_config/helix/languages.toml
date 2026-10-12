@@ -44,7 +44,7 @@ language-servers = [
 
 [language-server.csharp]
 command = "csharp-ls"
-environment = { DOTNET_ROOT = "/opt/homebrew/Cellar/dotnet/10.0.102/libexec" }
+environment = { DOTNET_ROOT = "/opt/homebrew/opt/dotnet@10/libexec" }
 
 [[language]]
 name = "c-sharp"
