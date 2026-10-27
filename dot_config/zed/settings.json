@@ -1,0 +1,30 @@
+{
+  "agent": {
+    "default_model": {
+      "effort": "none",
+      "enable_thinking": false,
+      "model": "gpt-5.6-luna",
+      "provider": "copilot_chat"
+    },
+    "default_profile": "write",
+    "dock": "left",
+    "model_parameters": [],
+    "sandbox_permissions": {
+      "allow_unsandboxed": true,
+      "network_hosts": [
+        "registry.npmjs.org"
+      ]
+    },
+    "tool_permissions": {
+      "default": "allow"
+    }
+  },
+  "cli_default_open_behavior": "existing_window",
+  "excerpt_context_lines": 4,
+  "expand_excerpt_lines": 8,
+  "reveal_if_open": true,
+  "status_bar": {
+    //"show_active_file": false
+  },
+  "vim_mode": true
+}

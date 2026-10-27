@@ -1,0 +1,19 @@
+[
+  {
+    "bindings": {
+      "ctrl-cmd-a": "agent::NewThread",
+      "ctrl-cmd-j": "journal::NewJournalEntry",
+      "ctrl-cmd-g": [
+        "task::Spawn",
+        { "task_name": "lazygit", "reveal_target": "center" }
+      ],
+      "ctrl-cmd-k": [
+        "task::Spawn",
+        { "task_name": "k9s", "reveal_target": "center" }
+      ],
+      "ctrl-shift-tab": "pane::ActivatePreviousItem",
+      "ctrl-tab": "pane::ActivateNextItem",
+    },
+    "context": "Workspace"
+  },
+]
