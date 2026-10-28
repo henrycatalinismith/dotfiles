@@ -12,4 +12,4 @@ chsh -s /opt/homebrew/bin/fish
 
 ## License
 
-[FCL](https://codeberg.org/henrycatalinismith/dotfiles/src/branch/main/license)
+[FCL](https://github.com/henrycatalinismith/dotfiles/blob/main/license)
