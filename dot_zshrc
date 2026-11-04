@@ -1,0 +1,7 @@
+zsh_config_dir="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+
+for file in "$zsh_config_dir"/conf.d/*.zsh(N); do
+  source "$file"
+done
+
+unset zsh_config_dir file

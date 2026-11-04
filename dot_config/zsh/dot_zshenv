@@ -1,0 +1,5 @@
+export EDITOR=hx
+export GEMRC="$HOME/.config/gem/gemrc"
+export IRBRC="$HOME/.config/irb/irbrc"
+export GIT_CONFIG_GLOBAL="$HOME/.config/git/config"
+export NETHACKOPTIONS="$HOME/.config/nethack/nethackrc"
