@@ -9,7 +9,13 @@
   "session": {
     "sidebar": "hide",
     "scrollbar": false,
-    "thinking": "show"
+    "thinking": "show",
+    "markdown": "rendered",
+    "grouping": "auto"
   },
-  "animations": true
+  "animations": true,
+  "tabs": {
+    "layout": "vertical",
+    "scope": "global"
+  }
 }
