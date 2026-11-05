@@ -50,7 +50,7 @@ vim.keymap.set("n", "<leader><leader>", ":Telescope cmdline<CR>", { desc = "Comm
 vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>", { desc = "Find files" })
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit window" })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save file" })
-vim.keymap.set("n", "gd", ":Lspsaga goto_definition<CR>", {})
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { desc = "Rename symbol" })
 vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, { desc = "Code actions" })
 vim.keymap.set("n", "<leader>h", vim.lsp.buf.references, { desc = "Find references" })
@@ -93,8 +93,6 @@ vim.pack.add({
  "https://github.com/jonarrien/telescope-cmdline.nvim",
  "https://github.com/nvim-telescope/telescope-ui-select.nvim",
  "https://github.com/nvimdev/lspsaga.nvim",
- "https://github.com/nvimtools/none-ls.nvim",
- "https://github.com/nvimtools/none-ls-extras.nvim",
  "https://github.com/nvim-tree/nvim-tree.lua",
  "https://github.com/folke/which-key.nvim",
  "https://github.com/j-hui/fidget.nvim",
@@ -207,6 +205,7 @@ end, { desc = "Format buffer" })
 require("mason-lspconfig").setup({
  ensure_installed = {
   "cssls",
+  "eslint",
   "html",
   "jsonls",
   "lua_ls",
@@ -214,6 +213,8 @@ require("mason-lspconfig").setup({
   "ts_ls",
  }
 })
+
+vim.lsp.enable({ "oxlint", "eslint" })
 
 require("gitsigns").setup({
  current_line_blame = true,
@@ -249,13 +250,6 @@ require("telescope").setup({
 
 require("telescope").load_extension("cmdline")
 require("telescope").load_extension("ui-select")
-
-require("null-ls").setup({
- sources = {
-  require("none-ls.code_actions.eslint_d"),
-  require("none-ls.diagnostics.eslint_d"),
- },
-})
 
 require("nvim-tree").setup({
  update_focused_file = {
