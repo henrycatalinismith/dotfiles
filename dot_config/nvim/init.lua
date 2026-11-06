@@ -1,10 +1,12 @@
 vim.g.mapleader = " "
 
+vim.o.exrc = true
 vim.o.number = true
 vim.o.autoread = true
 vim.o.numberwidth = 4
 vim.o.signcolumn = "yes:2"
 vim.o.updatetime = 250
+vim.opt.fillchars:append({ eob = " " })
 
 vim.api.nvim_create_autocmd("FileType", {
  pattern = {
@@ -83,7 +85,7 @@ vim.keymap.set("n", "<S-Tab>", ":tabprev<CR>", {})
 vim.pack.add({
  "https://github.com/lewis6991/gitsigns.nvim",
  "https://github.com/neovim/nvim-lspconfig",
- "https://github.com/nvim-treesitter/nvim-treesitter",
+ { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
  "https://github.com/stevearc/conform.nvim",
  "https://github.com/nvim-lua/plenary.nvim",
  "https://github.com/nvim-tree/nvim-web-devicons",
@@ -224,19 +226,13 @@ require("gitsigns").setup({
  },
 })
 
-local treesitter = require("nvim-treesitter")
-if treesitter.setup then
- treesitter.setup({})
-else
- require("nvim-treesitter.configs").setup({
-  highlight = { enable = true },
-  indent = { enable = true },
- })
-end
+require("nvim-treesitter").setup({})
 
 vim.api.nvim_create_autocmd("FileType", {
  callback = function(args)
-  pcall(vim.treesitter.start, args.buf)
+  if pcall(vim.treesitter.start, args.buf) then
+   vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end
  end,
 })
 
@@ -255,9 +251,23 @@ require("nvim-tree").setup({
  update_focused_file = {
   enable = true,
  },
+ sort = {
+  sorter = function(nodes)
+   if vim.g.nvim_tree_reverse_sort then
+    table.sort(nodes, function(a, b) return a.name > b.name end)
+    return
+   end
+   return "name"
+  end,
+ },
 })
 
 local wk = require("which-key")
 wk.setup({
  triggers = { "<leader>", "g" },
 })
+
+vim.api.nvim_create_user_command("ReloadConfig", function()
+ vim.cmd.source(vim.env.MYVIMRC)
+ vim.notify("Config reloaded")
+end, { desc = "Reload init.lua" })
