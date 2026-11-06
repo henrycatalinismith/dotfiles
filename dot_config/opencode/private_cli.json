@@ -16,6 +16,9 @@
   "animations": true,
   "tabs": {
     "layout": "vertical",
-    "scope": "global"
+    "scope": "cwd"
+  },
+  "keybinds": {
+    "agent.cycle": "tab,shift+tab"
   }
 }
