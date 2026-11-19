@@ -2,10 +2,11 @@ OPTIONS=!cmdassist
 OPTIONS=!help
 OPTIONS=!legacy
 OPTIONS=!news
+OPTIONS=!tutorial
 OPTIONS=DECgraphics
 OPTIONS=align:lawful
 OPTIONS=autodig
-OPTIONS=autopickup,pickup_types:$
+OPTIONS=autopickup,pickup_types:$?!/="+
 OPTIONS=boulder:0
 OPTIONS=color
 OPTIONS=disclose:+iagcv
@@ -13,10 +14,46 @@ OPTIONS=gender:female
 OPTIONS=lit_corridor
 OPTIONS=menucolors
 OPTIONS=name:urael
+OPTIONS=number_pad:0
 OPTIONS=pickup_burden:unencumbered
-OPTIONS=prayconfirm
 OPTIONS=race:dwarf
 OPTIONS=role:valkyrie
 OPTIONS=showexp
 OPTIONS=showscore
 OPTIONS=time
+
+# Safety
+OPTIONS=paranoid_confirmation:quit die attack pray wand-break Were-change
+OPTIONS=safe_pet,confirm
+OPTIONS=hitpointbar
+OPTIONS=mention_walls
+OPTIONS=msghistory:200
+
+# Status highlights
+OPTIONS=statushilites:10
+OPTIONS=hilite_status:hitpoints/100%/green/<100%/yellow/<50%/orange/<33%/red&inverse
+OPTIONS=hilite_status:power/100%/cyan/<50%/yellow/<33%/red
+OPTIONS=hilite_status:hunger/Hungry/yellow/Weak/red&inverse/Fainting/red&inverse&blink
+OPTIONS=hilite_status:cap/Burdened/yellow/Stressed/orange/Strained/red/Overtaxed/red&inverse
+OPTIONS=hilite_status:condition/major_troubles/red&inverse
+OPTIONS=hilite_status:condition/minor_troubles/orange
+
+# Menu colours
+MENUCOLOR=" blessed "=green
+MENUCOLOR=" holy "=green
+MENUCOLOR=" uncursed "=cyan
+MENUCOLOR=" cursed "=red
+MENUCOLOR=" unholy "=red
+MENUCOLOR="cockatrice corpse"=red&inverse
+MENUCOLOR=" \(being worn\)| \(weapon in hand\)| \(wielded\)| \(in use\)"=white&bold
+
+# Inventory and pickup
+OPTIONS=pickup_thrown
+OPTIONS=autoquiver
+OPTIONS=sortloot:full
+OPTIONS=fixinv
+OPTIONS=implicit_uncursed:false
+
+# Message noise
+MSGTYPE=hide "You swap places with .*"
+MSGTYPE=norep "You hear the footsteps of a guard on patrol."
