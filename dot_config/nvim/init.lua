@@ -6,6 +6,7 @@ vim.o.autoread = true
 vim.o.numberwidth = 4
 vim.o.signcolumn = "yes:2"
 vim.o.updatetime = 250
+vim.o.clipboard = "unnamedplus"
 vim.opt.fillchars:append({ eob = " " })
 
 vim.api.nvim_create_autocmd("FileType", {
