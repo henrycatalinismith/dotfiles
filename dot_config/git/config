@@ -17,9 +17,12 @@
 
 [diff]
 	algorithm = histogram
+	colorMoved = default
+	colorMovedWS = allow-indentation-change
 
 [fetch]
 	writeCommitGraph = true
+	prune = true
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -58,3 +61,22 @@
 [user]
 	name = Henry Catalini Smith
 	email = henry@catalinismith.se
+[checkout]
+	defaultRemote = origin
+[pull]
+	rebase = true
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[rebase]
+	updateRefs = true
+	autoSquash = true
+	autoStash = true
+[rerere]
+	enabled = true
+	autoUpdate = true
+[merge]
+	conflictstyle = zdiff3
+[commit]
+	verbose = true
