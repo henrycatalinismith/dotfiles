@@ -1,5 +1,5 @@
-if (( $+commands[brew] )); then
-  _zsh_autosuggestions="$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+if [[ -n "$HOMEBREW_PREFIX" ]]; then
+  _zsh_autosuggestions="$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
   if [[ -r "$_zsh_autosuggestions" ]]; then
     ZSH_AUTOSUGGEST_STRATEGY=(history completion)
