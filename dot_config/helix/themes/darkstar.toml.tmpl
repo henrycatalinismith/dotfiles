@@ -1,0 +1,119 @@
+"attribute" = "bright_yellow"
+"type" = "bright_blue"
+"type.parameter" = "bright_magenta"
+"type.enum.variant" = "bright_yellow"
+"constructor" = "bright_yellow"
+"constant" = "bright_magenta"
+"constant.builtin" = "bright_magenta"
+"constant.builtin.boolean" = "bright_yellow"
+"constant.numeric" = "bright_blue"
+"constant.character" = "bright_yellow"
+"string" = "bright_green"
+"string.regexp" = "bright_yellow"
+"string.special" = "bright_yellow"
+"comment" = { fg = "black", modifiers = ["italic"] }
+"comment.block.documentation" = { fg = "bright_yellow", modifiers = ["italic"] }
+"variable" = "white"
+"variable.builtin" = "bright_red"
+"label" = "magenta"
+"punctuation" = "white"
+"keyword" = "bright_red"
+"keyword.directive" = "bright_orange"
+"operator" = "white"
+"function" = "bright_yellow"
+"function.macro" = "bright_orange"
+"function.builtin" = "magenta"
+"tag" = "bright_magenta"
+"namespace" = "white"
+"namespace.mod" = "bright_blue"
+"namespace.mod_type" = "magenta"
+"markup.heading" = "bright_green"
+"markup.list" = "bright_red"
+"markup.bold" = { fg = "bright_yellow", modifiers = ["bold"] }
+"markup.italic" = { fg = "bright_yellow", modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = "bright_blue"
+"markup.link.text" = "bright_yellow"
+"markup.link.label" = "bright_magenta"
+"markup.raw" = "bright_magenta"
+"markup.quote" = "bright_green"
+"diff.plus" = "bright_green"
+"diff.minus" = "bright_red"
+"diff.delta" = "bright_yellow"
+"special" = "bright_orange"
+
+"warning" = "bright_yellow"
+"error" = { fg = "bright_red", modifiers = ["bold"] }
+"info" = { fg = "bright_blue", modifiers = ["bold"] }
+"hint" = { fg = "bright_green", modifiers = ["bold"] }
+"diagnostic.hint" = { underline = { color = "bright_green", style = "curl" } }
+"diagnostic.info" = { underline = { color = "bright_blue", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "bright_yellow", style = "curl" } }
+"diagnostic.error" = { underline = { color = "bright_red", style = "curl" } }
+
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"ui.background" = { fg = "white", bg = "background" }
+"ui.bufferline" = { fg = "very_dark", bg = "background" }
+"ui.bufferline.active" = { fg = "white", bg = "background" }
+"ui.bufferline.background" = { bg = "background", fg = "red" }
+"ui.cursor" = { fg = "cursor_text", bg = "cursor_color" }
+"ui.cursor.match" = { bg = "background_two" }
+"ui.cursor.primary" = { fg = "background", bg = "white" }
+"ui.cursor.select" = { fg = "white", bg = "cyan" }
+"ui.cursorline" = { bg = "very_dark" }
+"ui.cursorline.primary" = { bg = "cursorline" }
+"ui.cursorline.secondary" = { bg = "cursorline" }
+"ui.help" = { bg = "background" }
+"ui.linenr" = { fg = "linenr" }
+"ui.linenr.selected" = { fg = "blue", modifiers = ["bold"] }
+"ui.menu" = { fg = "white", bg = "background_two" }
+"ui.menu.selected" = { fg = "white", bg = "black"}
+"ui.popup" = { bg = "background_two" }
+"ui.popup.info" = {fg = "white", bg = "background", modifiers = ["bold"]}
+"ui.selection" = { bg = "selection_primary" }
+"ui.selection.primary" = { bg = "selection_primary", modifiers=["bold"] }
+"ui.statusline" = { fg = "very_dark", bg = "background" }
+"ui.statusline.inactive" = { fg = "very_dark", bg = "background" }
+"ui.text" = { fg = "white" }
+"ui.text.focus" = { fg = "blue", bg="cursorline", modifiers = ["bold"]}
+"ui.text.info" = {fg = "white", modifiers = ["bold"]}
+"ui.virtual.indent-guide" = { fg = "black" }
+"ui.virtual.inlay-hint" = { fg = "white", modifiers = ["italic"] }
+"ui.virtual.jump-label" = { fg = "red", modifiers = ["bold"] }
+"ui.virtual.ruler" = { bg = "black" }
+"ui.virtual.whitespace" = { fg = "white" }
+"ui.window" = { fg = "white" }
+
+[palette]
+background = "{{ .darkstar.background }}"
+foreground = "{{ .darkstar.foreground }}"
+black = "{{ .darkstar.black }}"
+red = "{{ .darkstar.red }}"
+green = "{{ .darkstar.green }}"
+yellow = "{{ .darkstar.yellow }}"
+blue = "{{ .darkstar.blue }}"
+magenta = "{{ .darkstar.magenta }}"
+cyan = "{{ .darkstar.cyan }}"
+white = "{{ .darkstar.white }}"
+bright_black = "{{ .darkstar.bright_black }}"
+bright_red = "{{ .darkstar.bright_red }}"
+bright_green = "{{ .darkstar.bright_green }}"
+bright_yellow = "{{ .darkstar.bright_yellow }}"
+bright_blue = "{{ .darkstar.bright_blue }}"
+bright_magenta = "{{ .darkstar.bright_magenta }}"
+bright_cyan = "{{ .darkstar.bright_cyan }}"
+bright_white = "{{ .darkstar.bright_white }}"
+orange = "{{ .darkstar.orange }}"
+bright_orange = "{{ .darkstar.bright_orange }}"
+cursor_color = "{{ .darkstar.cursor_color }}"
+cursor_text = "{{ .darkstar.cursor_text }}"
+selection_background = "{{ .darkstar.selection_background }}"
+selection_foreground = "{{ .darkstar.selection_foreground }}"
+cursorline = "{{ .darkstar.cursorline }}"
+very_dark = "{{ .darkstar.very_dark }}"
+selection_primary = "{{ .darkstar.selection_primary }}"
+background_two = "{{ .darkstar.background_two }}"
+linenr = "{{ .darkstar.linenr }}"
+surface = "{{ .darkstar.surface }}"
+surface_low = "{{ .darkstar.surface_low }}"
