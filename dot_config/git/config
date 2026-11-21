@@ -80,3 +80,5 @@
 	conflictstyle = zdiff3
 [commit]
 	verbose = true
+[include]
+	path = delta

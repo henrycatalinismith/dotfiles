@@ -1,0 +1,78 @@
+{{- $d := .darkstar -}}
+{{- $rules := list
+  (list "Comment" "comment, punctuation.definition.comment" $d.black "italic")
+  (list "Keyword" "keyword, storage, storage.type, storage.modifier" $d.bright_red "")
+  (list "Operator" "keyword.operator, punctuation" $d.foreground "")
+  (list "Directive" "keyword.control.directive, meta.preprocessor" $d.bright_orange "")
+  (list "String" "string, punctuation.definition.string" $d.bright_green "")
+  (list "String special" "string.regexp, constant.character, constant.character.escape" $d.bright_yellow "")
+  (list "Number" "constant.numeric" $d.bright_blue "")
+  (list "Constant" "constant, constant.language, support.constant" $d.bright_magenta "")
+  (list "Boolean" "constant.language.boolean" $d.bright_yellow "")
+  (list "Function" "entity.name.function, support.function, meta.function-call, variable.function" $d.bright_yellow "")
+  (list "Type" "entity.name.type, entity.name.class, support.type, support.class, storage.type.primitive, entity.other.inherited-class" $d.bright_blue "")
+  (list "Parameter" "variable.parameter" $d.bright_magenta "")
+  (list "Builtin variable" "variable.language" $d.bright_red "")
+  (list "Variable" "variable, variable.other" $d.foreground "")
+  (list "Tag" "entity.name.tag" $d.bright_magenta "")
+  (list "Attribute" "entity.other.attribute-name" $d.bright_yellow "")
+  (list "Namespace" "entity.name.namespace, entity.name.module" $d.bright_blue "")
+  (list "Heading" "markup.heading, entity.name.section" $d.bright_green "bold")
+  (list "Bold" "markup.bold" $d.bright_yellow "bold")
+  (list "Italic" "markup.italic" $d.bright_yellow "italic")
+  (list "Link" "markup.underline.link" $d.bright_blue "")
+  (list "Raw" "markup.raw, markup.inline.raw" $d.bright_magenta "")
+  (list "Quote" "markup.quote" $d.bright_green "")
+  (list "List" "markup.list punctuation.definition.list" $d.bright_red "")
+  (list "Inserted" "markup.inserted" $d.bright_green "")
+  (list "Deleted" "markup.deleted" $d.bright_red "")
+  (list "Changed" "markup.changed" $d.bright_yellow "")
+  (list "Invalid" "invalid" $d.bright_red "bold")
+-}}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>darkstar</string>
+  <key>settings</key>
+  <array>
+    <dict>
+      <key>settings</key>
+      <dict>
+        <key>background</key>
+        <string>{{ $d.background }}</string>
+        <key>foreground</key>
+        <string>{{ $d.foreground }}</string>
+        <key>caret</key>
+        <string>{{ $d.cursor_color }}</string>
+        <key>lineHighlight</key>
+        <string>{{ $d.cursorline }}</string>
+        <key>selection</key>
+        <string>{{ $d.selection_primary }}</string>
+        <key>gutter</key>
+        <string>{{ $d.background }}</string>
+        <key>gutterForeground</key>
+        <string>{{ $d.linenr }}</string>
+      </dict>
+    </dict>
+{{- range $rules }}
+    <dict>
+      <key>name</key>
+      <string>{{ index . 0 }}</string>
+      <key>scope</key>
+      <string>{{ index . 1 }}</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>{{ index . 2 }}</string>
+{{- if index . 3 }}
+        <key>fontStyle</key>
+        <string>{{ index . 3 }}</string>
+{{- end }}
+      </dict>
+    </dict>
+{{- end }}
+  </array>
+</dict>
+</plist>
