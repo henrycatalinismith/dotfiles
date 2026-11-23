@@ -1,4 +1,6 @@
-theme = "darkstar"
+[theme]
+dark = "darkstar"
+light = "lightstar"
 
 [editor]
 auto-pairs = false
